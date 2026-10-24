@@ -1,0 +1,29 @@
+.section {
+  padding-block: var(--section-y);
+}
+
+.compact {
+  padding-block: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+
+.ivory {
+  background: var(--ivory);
+}
+
+.white {
+  background: var(--white);
+}
+
+.sand {
+  background: var(--sand);
+}
+
+.navy {
+  background: var(--navy);
+  color: var(--sand);
+}
+
+.navy h2,
+.navy h3 {
+  color: var(--ivory);
+}

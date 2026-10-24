@@ -1,0 +1,36 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-6) clamp(2rem, 1rem + 4vw, 5.5rem);
+  align-items: end;
+}
+
+.title {
+  font-size: var(--heading-1);
+  line-height: 1.1;
+}
+
+.body {
+  max-width: 34rem;
+  color: var(--sand);
+  font-size: var(--text-lg);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.phone {
+  color: var(--ivory);
+  font-weight: 600;
+}
+
+@media (max-width: 56rem) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

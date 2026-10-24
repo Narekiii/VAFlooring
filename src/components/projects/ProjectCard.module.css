@@ -1,0 +1,53 @@
+.card {
+  position: relative;
+}
+
+.title {
+  margin-top: var(--space-4);
+  font-size: var(--text-xl);
+}
+
+.title a {
+  text-decoration: none;
+}
+
+.title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.title a:hover {
+  text-decoration: underline;
+}
+
+.summary {
+  margin-top: var(--space-2);
+  color: var(--graphite);
+  font-size: var(--text-sm);
+}
+
+.facts {
+  display: grid;
+  gap: var(--space-1);
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-sm);
+}
+
+.facts div {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.facts dt {
+  color: var(--ink-soft);
+}
+
+.facts dt::after {
+  content: ":";
+}
+
+.facts dd {
+  margin: 0;
+  color: var(--navy);
+}

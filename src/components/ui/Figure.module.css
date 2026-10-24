@@ -1,0 +1,35 @@
+.figure {
+  margin: 0;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--sand);
+}
+
+.img {
+  object-fit: cover;
+}
+
+/* Ivory chip with navy text: 13.3:1 */
+.label {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  padding: 0.2rem 0.5rem;
+  background: var(--ivory);
+  color: var(--navy);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  border-radius: var(--radius);
+  pointer-events: none;
+}
+
+.caption {
+  margin-top: var(--space-3);
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+}

@@ -1,0 +1,27 @@
+.link {
+  display: inline-block;
+  padding-block: 0.25rem;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  background-image: linear-gradient(var(--bronze), var(--bronze));
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.link:hover {
+  color: var(--bronze-deep);
+  background-size: 100% 3px;
+}
+
+.light {
+  color: var(--ivory);
+  background-image: linear-gradient(var(--brass-light), var(--brass-light));
+}
+
+.light:hover {
+  color: var(--white);
+}

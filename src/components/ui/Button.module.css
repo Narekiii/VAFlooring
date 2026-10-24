@@ -1,0 +1,63 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 3rem;
+  padding: 0.75rem 1.4rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+/* Deep bronze with white text: 6.8:1; hover darkens to 9.0:1 */
+.primary {
+  background: var(--bronze);
+  color: var(--white);
+}
+
+.primary:hover {
+  background: var(--bronze-deep);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+.secondary:hover {
+  background: var(--navy);
+  color: var(--ivory);
+}
+
+/* For navy sections */
+.light {
+  background: var(--ivory);
+  color: var(--navy);
+}
+
+.light:hover {
+  background: var(--white);
+}
+
+.outline-light {
+  background: transparent;
+  color: var(--ivory);
+  border-color: var(--ivory);
+}
+
+.outline-light:hover {
+  background: var(--navy-raised);
+}

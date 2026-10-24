@@ -1,0 +1,85 @@
+.brands {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: var(--space-6) clamp(2rem, 1rem + 4vw, 5.5rem);
+  align-items: start;
+}
+
+.brandsIntro {
+  max-width: 26rem;
+  margin-top: var(--space-4);
+}
+
+.brandList {
+  list-style: none;
+  border-top: 1px solid var(--navy);
+}
+
+.brandList li {
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--navy);
+  font-family: var(--font-serif);
+  font-size: clamp(1.625rem, 1.25rem + 1.4vw, 2.375rem);
+  line-height: 1.15;
+}
+
+.madeIn {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: var(--space-4) clamp(2rem, 1rem + 4vw, 5.5rem);
+  margin-top: clamp(3rem, 2rem + 3vw, 5rem);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  background: var(--ivory);
+  border-left: 3px solid var(--brass);
+}
+
+.madeIn p {
+  max-width: var(--measure);
+}
+
+.trademark {
+  max-width: 48rem;
+  margin-top: var(--space-6);
+  color: var(--ink-soft);
+  font-size: var(--text-xs);
+}
+
+.guideLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: var(--space-6) clamp(2rem, 1rem + 4vw, 5.5rem);
+  align-items: start;
+}
+
+.guideHead p {
+  max-width: 26rem;
+  margin-top: var(--space-4);
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.categories p {
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 56rem) {
+  .brands,
+  .madeIn,
+  .guideLayout,
+  .categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 56.0625rem) {
+  .guideHead {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+}

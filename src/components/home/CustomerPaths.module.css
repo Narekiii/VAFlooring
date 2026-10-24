@@ -1,0 +1,43 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-7) clamp(2rem, 1rem + 3vw, 4.5rem);
+}
+
+/* The second path sits one course lower, echoing staggered plank joints */
+.path:nth-child(2) {
+  margin-top: clamp(0rem, -2rem + 6vw, 5rem);
+}
+
+.body {
+  max-width: 34rem;
+  padding-top: var(--space-5);
+}
+
+.title {
+  font-size: clamp(1.75rem, 1.35rem + 1.3vw, 2.375rem);
+  line-height: 1.15;
+}
+
+.subtitle {
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-4);
+  color: var(--bronze);
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-style: normal;
+}
+
+.body > p:not(.subtitle) {
+  margin-bottom: var(--space-4);
+}
+
+@media (max-width: 52rem) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .path:nth-child(2) {
+    margin-top: 0;
+  }
+}

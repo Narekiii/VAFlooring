@@ -1,0 +1,69 @@
+.drawings {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: var(--space-6) clamp(2rem, 1rem + 4vw, 5.5rem);
+}
+
+.drawingsBody {
+  max-width: var(--measure);
+  color: var(--sand);
+}
+
+.checklist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3) var(--space-5);
+  margin: var(--space-6) 0;
+  list-style: none;
+}
+
+.checklist li {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line-dark);
+  color: var(--ivory);
+  font-weight: 500;
+  font-size: var(--text-sm);
+}
+
+.small {
+  font-size: var(--text-sm);
+}
+
+.actions {
+  margin-top: var(--space-6);
+}
+
+.types {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.typeTitle {
+  margin-top: var(--space-4);
+  font-size: var(--text-xl);
+}
+
+.typeText {
+  margin-top: var(--space-2);
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 56rem) {
+  .drawings {
+    grid-template-columns: 1fr;
+  }
+
+  .types {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 36rem) {
+  .types,
+  .checklist {
+    grid-template-columns: 1fr;
+  }
+}

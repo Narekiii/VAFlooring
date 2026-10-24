@@ -1,0 +1,22 @@
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-4) var(--space-7);
+  align-items: end;
+  margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+}
+
+.stack {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 46rem;
+}
+
+.intro {
+  max-width: var(--measure);
+}
+
+@media (max-width: 56rem) {
+  .head {
+    grid-template-columns: 1fr;
+  }
+}

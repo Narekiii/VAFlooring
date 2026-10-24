@@ -1,0 +1,75 @@
+.hero {
+  --hero-ratio: 16 / 7;
+  --title-size: clamp(2rem, 1.1rem + 4vw, 4.5rem);
+  --course-offset: calc(var(--title-size) * 1.6);
+  padding-top: clamp(2.5rem, 1.5rem + 3.5vw, 4.5rem);
+  background: var(--ivory);
+}
+
+.top {
+  padding-bottom: clamp(2.5rem, 1.75rem + 2.5vw, 4rem);
+}
+
+.title {
+  font-size: var(--title-size);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+
+.line {
+  display: block;
+}
+
+/* The second line starts one course in, like the offset joints of a plank floor.
+   The supporting copy below aligns to the same offset. */
+.offset {
+  padding-left: var(--course-offset);
+}
+
+.aside {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-5) var(--space-7);
+  margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  margin-left: var(--course-offset);
+}
+
+.lede {
+  max-width: 34rem;
+  color: var(--graphite);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.hero .mediaWrap {
+  padding-inline: 0;
+}
+
+.media {
+  margin: 0;
+}
+
+@media (min-width: 60rem) {
+  .title {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 48rem) {
+  .hero {
+    --hero-ratio: 4 / 3;
+    --course-offset: calc(var(--title-size) * 0.9);
+  }
+
+  .aside {
+    margin-left: 0;
+  }
+}

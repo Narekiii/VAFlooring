@@ -1,0 +1,26 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: var(--space-6) clamp(2rem, 1rem + 4vw, 5.5rem);
+  align-items: start;
+}
+
+.title {
+  font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.875rem);
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.body {
+  max-width: var(--measure);
+}
+
+.cta {
+  margin-top: var(--space-6);
+}
+
+@media (max-width: 56rem) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

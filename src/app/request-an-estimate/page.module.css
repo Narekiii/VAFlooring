@@ -1,0 +1,101 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+  gap: var(--space-7) clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+}
+
+.formCol {
+  min-width: 0;
+}
+
+.aside {
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
+  background: var(--ivory);
+}
+
+@media (min-width: 56.0625rem) {
+  .aside {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+  }
+}
+
+.asideTitle {
+  margin-bottom: var(--space-4);
+  font-size: var(--heading-3);
+}
+
+.steps {
+  display: grid;
+  gap: var(--space-4);
+  counter-reset: step;
+  list-style: none;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.25rem;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  color: var(--bronze);
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  line-height: 1.4;
+}
+
+.stepTitle {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.steps p {
+  margin-top: var(--space-1);
+  font-size: var(--text-sm);
+}
+
+.contact {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
+.contactList {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.contactList a {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.address,
+.hours {
+  margin-top: var(--space-3);
+  font-style: normal;
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+.small {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 56rem) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

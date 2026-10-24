@@ -1,0 +1,73 @@
+/*
+ * V & A Flooring — brand tokens.
+ * Mirrors src/lib/brand.ts. Change values here and in brand.ts together.
+ * Contrast notes (WCAG 2.2): navy/ivory 13.3:1, graphite/ivory 11.3:1, white/bronze 6.8:1,
+ * ink-soft/ivory 6.5:1, brass-light/navy 6.3:1. Brass (#AA8453) is decorative only on light
+ * backgrounds (3.1:1) and is never used for text there.
+ */
+:root {
+  /* Palette */
+  --navy: #172b3a;          /* Foundation Navy — headings, navigation, footer */
+  --ivory: #f7f4ee;         /* Warm Ivory — primary background */
+  --sand: #e6ded1;          /* Natural Sand — alternate sections, quiet surfaces */
+  --brass: #aa8453;         /* Muted Brass — decorative accent only */
+  --bronze: #75552f;        /* Deep Bronze — primary buttons (white text) */
+  --graphite: #303538;      /* Graphite — body text */
+  --white: #ffffff;
+
+  /* Derived tones (tints/shades of the palette, contrast-checked) */
+  --bronze-deep: #5e4424;   /* button hover/active, white text 9.0:1 */
+  --ink-soft: #4a5a66;      /* secondary text on ivory/white/sand (≥5.3:1) */
+  --brass-light: #c7a57a;   /* small accent text on navy (6.3:1) */
+  --navy-raised: #213848;   /* hover surface on navy */
+  --line: #d9cfbf;          /* hairlines on ivory/white */
+  --line-dark: #3a4f5f;     /* hairlines on navy */
+  --field-border: #6b7278;  /* form control boundary: 4.9:1 on white, 3.7:1 on sand */
+  --error: #9c2f23;         /* form errors, 6.4:1 on white */
+  --success: #2f5d3a;       /* form success, 7.2:1 on white */
+
+  /* Typography */
+  --font-serif: var(--font-baskerville), "Libre Baskerville", Baskerville, Georgia, serif;
+  --font-sans: var(--font-inter), Inter, "Helvetica Neue", Arial, sans-serif;
+
+  --text-xs: 0.8125rem;   /* 13px */
+  --text-sm: 0.9375rem;   /* 15px */
+  --text-base: 1.0625rem; /* 17px */
+  --text-lg: 1.1875rem;   /* 19px */
+  --text-xl: 1.375rem;    /* 22px */
+  --heading-3: clamp(1.25rem, 1.12rem + 0.45vw, 1.5rem);
+  --heading-2: clamp(1.75rem, 1.4rem + 1.4vw, 2.625rem);
+  --heading-1: clamp(2.125rem, 1.45rem + 2.9vw, 4rem);
+  --leading-body: 1.65;
+  --leading-tight: 1.18;
+
+  /* Spacing (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --section-y: clamp(4rem, 2.75rem + 4.5vw, 7.5rem);
+
+  /* Layout */
+  --container: 76rem;     /* 1216px */
+  --gutter: clamp(1.25rem, 0.6rem + 3vw, 3rem);
+  --measure: 38rem;       /* ~65 characters of body text */
+  --header-h: 4.75rem;
+
+  /* Shape & motion */
+  --radius: 2px;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --dur: 160ms;
+  --focus: 3px solid var(--bronze);
+}
+
+@media (max-width: 63rem) {
+  :root {
+    --header-h: 4.25rem;
+  }
+}

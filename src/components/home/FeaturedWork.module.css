@@ -1,0 +1,39 @@
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-4) var(--space-7);
+  align-items: end;
+  margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+}
+
+.intro {
+  max-width: var(--measure);
+  color: var(--graphite);
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-7) var(--space-6);
+  list-style: none;
+}
+
+.more {
+  margin-top: var(--space-7);
+}
+
+@media (max-width: 56rem) {
+  .head {
+    grid-template-columns: 1fr;
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 36rem) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,32 @@
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: var(--space-7) clamp(2rem, 1rem + 4vw, 5.5rem);
+  align-items: center;
+}
+
+.reverse .figure {
+  order: 2;
+}
+
+.text {
+  max-width: var(--measure);
+}
+
+.text > * + * {
+  margin-top: var(--space-4);
+}
+
+.text > h2 + * {
+  margin-top: var(--space-5);
+}
+
+@media (max-width: 56rem) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .reverse .figure {
+    order: 0;
+  }
+}
