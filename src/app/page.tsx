@@ -15,9 +15,9 @@ import { homeFaqs } from "@/content/services";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Hardwood & Laminate Flooring Installation in Los Angeles | V & A Flooring",
+  title: "Flooring Installation Los Angeles | Hardwood, Laminate, LVP | V & A Flooring",
   description:
-    "Family-owned Los Angeles flooring company since 1999. Hardwood and laminate flooring supply and installation for homes, ADUs, apartments, hotels and commercial projects, with 20+ installation crews.",
+    "Licensed, family-owned flooring contractor since 1999. Hardwood, laminate, vinyl plank (LVP), carpet and tile supply and installation for homes, ADUs, apartments, hotels and commercial projects in LA, Orange and Ventura counties.",
   path: "/",
 });
 
@@ -31,8 +31,8 @@ export default function HomePage() {
           <SectionHead id="services-title" kicker="Services" title="Flooring services in Los Angeles">
             <p>
               V&nbsp;&amp;&nbsp;A Flooring supplies flooring materials and installs them with our own crews. We
-              specialize in hardwood and laminate flooring installation for homeowners, builders, property managers and
-              commercial clients across Los Angeles.
+              install hardwood, laminate, luxury vinyl plank, carpet and tile flooring for homeowners, builders,
+              property managers and commercial clients across Los Angeles, Orange and Ventura counties.
             </p>
           </SectionHead>
           <ServicesGrid />

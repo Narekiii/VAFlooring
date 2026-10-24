@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: routes.residential, priority: 0.9 },
     { path: routes.commercial, priority: 0.9 },
     { path: routes.materials, priority: 0.7 },
+    { path: routes.serviceAreas, priority: 0.7 },
     { path: routes.projects, priority: 0.7 },
     { path: routes.story, priority: 0.6 },
     { path: routes.estimate, priority: 0.8 },

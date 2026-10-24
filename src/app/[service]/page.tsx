@@ -14,7 +14,7 @@ import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { routes } from "@/content/navigation";
 import { getService, publishedServices, serviceHref } from "@/content/services";
-import { business, facts, telHref } from "@/content/site";
+import { business, facts, licenseLine, regionLine, telHref } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { serviceJsonLd } from "@/lib/structured-data";
 import styles from "./page.module.css";
@@ -37,15 +37,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function ServicePage({ params }: Params) {
   const s = getService((await params).service);
   if (!s) notFound();
-  const material = s.name.replace(" Flooring Installation", "").toLowerCase();
+  const material = s.material;
 
   const glance: [string, string][] = [
-    ["Service area", `${business.serviceArea}, California`],
-    ["What we provide", `${s.name.replace(" Installation", "")} supply and installation`],
+    ["Service area", regionLine],
+    ["What we provide", `${s.shortName} supply and installation`],
     ["Projects", "Homes, ADUs, multifamily, hotels and commercial"],
     ["Installation capacity", facts.installationCrewsLong],
     ["Manufacturers include", facts.manufacturers.join(", ")],
     ["In business since", `${business.founded}, family owned`],
+    ...(business.license ? ([["License", `${licenseLine(business.license)}${business.bondedInsured ? ", bonded & insured" : ""}`]] as [string, string][]) : []),
   ];
 
   return (
@@ -58,7 +59,7 @@ export default async function ServicePage({ params }: Params) {
         actions={
           <>
             <ButtonLink href={routes.estimate} variant="light">
-              Get a {material} flooring estimate
+              Get a {material} estimate
             </ButtonLink>
             {business.phone && (
               <a className={styles.call} href={telHref(business.phone)}>
@@ -103,7 +104,7 @@ export default async function ServicePage({ params }: Params) {
             <aside className={styles.aside} aria-label="Start your project">
               <Figure image={s.detailImage} ratio="4 / 3" sizes="(min-width: 64rem) 26rem, 100vw" />
               <div className={styles.asideBody} data-surface="dark">
-                <p className={styles.asideTitle}>Planning a {material} floor?</p>
+                <p className={styles.asideTitle}>Planning a {material} project?</p>
                 <p>Tell us about the rooms or areas, the approximate size and your timing. We’ll follow up to talk it through.</p>
                 <ButtonLink href={routes.estimate} variant="light">
                   Request an Estimate
@@ -120,7 +121,7 @@ export default async function ServicePage({ params }: Params) {
             <SectionHead id="compare-title" kicker="Compare" title={s.comparison.caption}>
               <p>A general comparison. Specific products vary, so we always check the manufacturer’s specifications.</p>
             </SectionHead>
-            <div className={styles.tableWrap}>
+            <div className={styles.tableWrap} role="region" aria-label={`${s.comparison.caption} table`} tabIndex={0}>
               <table className={styles.table}>
                 <caption className="visually-hidden">{s.comparison.caption}</caption>
                 <thead>
@@ -149,7 +150,7 @@ export default async function ServicePage({ params }: Params) {
 
       <Section tone="sand" labelledBy="process-title">
         <Container>
-          <SectionHead id="process-title" kicker="How it works" title={`How ${material} flooring installation works`}>
+          <SectionHead id="process-title" kicker="How it works" title={`How ${material} installation works`}>
             <p>One company supplies the material and installs it, so you have one point of contact from start to finish.</p>
           </SectionHead>
           <Steps steps={s.process} />
@@ -158,7 +159,7 @@ export default async function ServicePage({ params }: Params) {
 
       <Section tone="white" labelledBy="fits-title">
         <Container>
-          <SectionHead id="fits-title" kicker="Projects" title={`Where we install ${material} flooring`} />
+          <SectionHead id="fits-title" kicker="Projects" title={`Where we install ${material}`} />
           <ul className={styles.fits}>
             {s.fits.map((f) => (
               <li key={f.title}>
@@ -178,8 +179,8 @@ export default async function ServicePage({ params }: Params) {
       <FaqSection
         faqs={s.faqs}
         tone="ivory"
-        title={`${s.name.replace(" Installation", "")} FAQ`}
-        intro={`Common questions about ${material} flooring and installation in Los Angeles.`}
+        title={`${s.shortName} FAQ`}
+        intro={`Common questions about ${material} flooring and installation in Los Angeles, Orange and Ventura counties.`}
       />
 
       <Section tone="white" labelledBy="related-title">

@@ -13,8 +13,8 @@ export function servicesCards(): Card[] {
       title: s.name,
       text: s.cardText,
       href: serviceHref(s),
-      image: s.image === images.livingWide ? images.livingWindows : s.image,
-      cta: `${s.name.replace(" Installation", "")} details`,
+      image: s.image,
+      cta: `${s.shortName} details`,
     })),
     {
       title: "Residential Flooring",

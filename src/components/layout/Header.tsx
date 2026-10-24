@@ -13,9 +13,15 @@ export function Header() {
       <div className={styles.utility} data-surface="dark">
         <div className={styles.utilityInner}>
           <p>
-            Family owned since {business.founded}
+            {business.license ? `CSLB Lic. #${business.license.number}` : `Family owned since ${business.founded}`}
+            {business.bondedInsured && (
+              <>
+                <span className={styles.sep} aria-hidden="true" />
+                Bonded &amp; Insured
+              </>
+            )}
             <span className={styles.sep} aria-hidden="true" />
-            <span className={styles.utilityMore}>Hardwood &amp; laminate flooring installation in {business.serviceArea}</span>
+            <span className={styles.utilityMore}>Serving Los Angeles, Orange &amp; Ventura Counties since {business.founded}</span>
           </p>
           {business.phone && (
             <a href={telHref(business.phone)} className={styles.utilityPhone}>

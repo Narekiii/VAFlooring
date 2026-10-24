@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
-import { business, telHref } from "@/content/site";
+import { business, licenseLine, regionLine, telHref } from "@/content/site";
 import { footerCompany, footerServices, routes } from "@/content/navigation";
 import styles from "./Footer.module.css";
 
@@ -17,8 +17,8 @@ export function Footer() {
             </Link>
             <p className={styles.brandLine}>{business.brandLine}</p>
             <p className={styles.summary}>
-              Family-owned Los Angeles flooring company supplying and installing hardwood and laminate flooring for
-              homes, ADUs, multifamily communities, hotels and commercial projects.
+              Family-owned flooring contractor in Sun Valley, supplying and installing hardwood, laminate, vinyl
+              plank, carpet and tile flooring for homes, ADUs, multifamily communities, hotels and commercial projects.
             </p>
           </div>
 
@@ -79,7 +79,7 @@ export function Footer() {
                 ))}
               </ul>
             )}
-            <p className={styles.note}>Serving {business.serviceArea}, California.</p>
+            <p className={styles.note}>Serving {regionLine}.</p>
           </div>
         </div>
 
@@ -87,7 +87,12 @@ export function Footer() {
           <p>
             © {year} {business.name}. All rights reserved.
           </p>
-          {license && <p>{license}</p>}
+          {license && (
+            <p>
+              {licenseLine(license)}
+              {business.bondedInsured && " · Bonded & Insured"}
+            </p>
+          )}
         </div>
       </div>
     </footer>

@@ -7,7 +7,7 @@ import { routes } from "@/content/navigation";
 import { facts } from "@/content/site";
 import styles from "./MaterialsIntro.module.css";
 
-const factors = ["Hardwood flooring", "Laminate flooring", "Matched to use and budget", "American-made options"];
+const factors = ["Hardwood & laminate", "Vinyl plank, carpet & tile", "Matched to use and budget", "American-made options"];
 
 export function MaterialsIntro() {
   return (

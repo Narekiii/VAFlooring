@@ -15,7 +15,7 @@ import styles from "./page.module.css";
 export const metadata = pageMetadata({
   title: "Commercial & Multifamily Flooring Contractor in Los Angeles",
   description:
-    "Commercial flooring contractor in Los Angeles for general contractors, developers, property managers, hotels and apartment communities. Hardwood, laminate and more, supplied and installed by 20+ crews.",
+    "Commercial flooring contractor in Los Angeles for general contractors, developers, property managers, hotels and apartment communities. LVP, carpet, tile, hardwood and laminate supplied and installed by 20+ crews.",
   path: routes.commercial,
 });
 
@@ -72,7 +72,7 @@ export default function CommercialPage() {
         }
       >
         <p>
-          Flooring materials and installation, including hardwood and laminate, for general contractors, developers, property managers, hospitality
+          Flooring materials and installation, including hardwood, laminate, vinyl plank, carpet and tile, for general contractors, developers, property managers, hospitality
           operators and multifamily owners. With more than 20 installation crews and materials supplied by one company,
           we plan flooring around your schedule and keep the scope clear from the start.
         </p>
@@ -145,10 +145,10 @@ export default function CommercialPage() {
 
       <Section tone="ivory" labelledBy="com-floors">
         <Container>
-          <SectionHead id="com-floors" kicker="Flooring we install" title="Hardwood and laminate for larger projects">
+          <SectionHead id="com-floors" kicker="Flooring we install" title="Flooring we install on larger projects">
             <p>Supplied and installed by one company and coordinated with your specifications and schedule.</p>
           </SectionHead>
-          <ServicesGrid headingId="com-floors" only={["/hardwood-flooring-installation", "/laminate-flooring-installation"]} />
+          <ServicesGrid headingId="com-floors" only={["/lvp-vinyl-flooring-installation", "/carpet-installation", "/hardwood-flooring-installation", "/laminate-flooring-installation", "/tile-flooring-installation"]} />
         </Container>
       </Section>
 

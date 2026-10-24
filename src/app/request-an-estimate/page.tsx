@@ -3,7 +3,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { EstimateForm } from "@/components/contact/EstimateForm";
 import { routes } from "@/content/navigation";
-import { business, facts, telHref } from "@/content/site";
+import { business, facts, regionLine, telHref } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
@@ -96,7 +96,7 @@ export default function EstimatePage() {
 
               <p className={styles.small}>
                 Family owned since {business.founded}, with {facts.installationCrewsLong.toLowerCase()} serving{" "}
-                {business.serviceArea}.
+                {regionLine}.
               </p>
             </aside>
           </div>

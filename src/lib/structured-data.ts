@@ -1,4 +1,5 @@
 import { business, facts } from "@/content/site";
+import { serviceAreas } from "@/content/services";
 import { publishedServices, serviceHref, type Faq, type Service } from "@/content/services";
 import { siteUrl } from "./seo";
 
@@ -23,14 +24,28 @@ export function organizationJsonLd() {
     alternateName: "VA Flooring",
     slogan: "Flooring Expertise. Family Accountability. Since 1999.",
     description:
-      "Family-owned Los Angeles flooring company supplying flooring materials and professional installation, including hardwood and laminate flooring, for home renovations, ADUs, multifamily communities, hotels and commercial projects.",
+      "Family-owned, licensed flooring contractor in Sun Valley, California, supplying and installing hardwood, laminate, luxury vinyl plank (LVP), carpet and tile flooring for home renovations, ADUs, multifamily communities, hotels and commercial projects across Los Angeles, Orange and Ventura counties.",
+    legalName: business.legalName,
     foundingDate: String(business.founded),
     founder: { "@type": "Person", name: business.founder },
-    areaServed: { "@type": "City", name: business.serviceArea, containedInPlace: { "@type": "State", name: "California" } },
+    areaServed: areaServed(),
+    ...(business.license
+      ? {
+          hasCredential: {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "license",
+            name: `California contractor license #${business.license.number} (${business.license.classifications.join(", ")})`,
+            recognizedBy: { "@type": "Organization", name: "Contractors State License Board", url: "https://www.cslb.ca.gov" },
+          },
+        }
+      : {}),
     knowsAbout: [
       "Hardwood flooring installation",
       "Engineered hardwood flooring",
       "Laminate flooring installation",
+      "Luxury vinyl plank (LVP) installation",
+      "Carpet and carpet tile installation",
+      "Porcelain and ceramic tile installation",
       "Residential flooring",
       "ADU flooring",
       "Multifamily flooring",
@@ -60,6 +75,13 @@ export function organizationJsonLd() {
   return data;
 }
 
+function areaServed() {
+  return serviceAreas.map((a) => ({
+    "@type": "AdministrativeArea",
+    name: `${a.county}, California`,
+  }));
+}
+
 export function websiteJsonLd() {
   const url = siteUrl();
   if (!url) return null;
@@ -83,7 +105,7 @@ export function serviceJsonLd(s: Service) {
     description: plain(s.summary),
     url: abs(serviceHref(s)),
     provider: orgId() ? { "@id": orgId() } : { "@type": "HomeAndConstructionBusiness", name: business.name },
-    areaServed: { "@type": "City", name: business.serviceArea },
+    areaServed: areaServed(),
     audience: { "@type": "Audience", audienceType: "Homeowners, builders, property managers and commercial clients" },
   };
 }

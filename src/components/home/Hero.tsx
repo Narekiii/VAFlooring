@@ -30,7 +30,7 @@ export function Hero() {
           <p className={styles.tagline}>Flooring Expertise. Family Accountability. Since 1999.</p>
           <p className={styles.lede}>
             Quality flooring materials and professional installation for home renovations, ADUs, multifamily
-            communities, hospitality properties, and commercial spaces throughout Los Angeles.
+            communities, hospitality properties, and commercial spaces throughout Los Angeles, Orange and Ventura counties.
           </p>
           <div className={styles.actions}>
             <ButtonLink href={routes.estimate}>Request an Estimate</ButtonLink>

@@ -17,7 +17,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Residential Flooring Installation in Los Angeles",
   description:
-    "Home flooring installation in Los Angeles: hardwood and laminate supply and installation for renovations, single rooms and ADUs. Family-owned since 1999, with honest guidance and support after completion.",
+    "Home flooring installation in Los Angeles, Orange and Ventura counties: hardwood, laminate, vinyl plank, carpet and tile for renovations, single rooms and ADUs. Family-owned since 1999, with honest guidance and support after completion.",
   path: routes.residential,
 });
 
@@ -75,7 +75,7 @@ export default function ResidentialPage() {
         }
       >
         <p>
-          Hardwood and laminate flooring, supplied and installed for homeowners renovating the house they live in,
+          Hardwood, laminate, vinyl plank, carpet and tile flooring, supplied and installed for homeowners renovating the house they live in,
           building an ADU, or updating a single room. We help you choose a floor that suits how you live, plan the installation around your
           household, and stay reachable after the work is done.
         </p>
@@ -95,13 +95,13 @@ export default function ResidentialPage() {
 
       <Section tone="sand" labelledBy="home-floors">
         <Container>
-          <SectionHead id="home-floors" kicker="Flooring for your home" title="Hardwood and laminate for Los Angeles homes">
+          <SectionHead id="home-floors" kicker="Flooring for your home" title="Flooring for Los Angeles homes">
             <p>
               The two floors homeowners ask us about most. We’ll help you weigh the look, upkeep and cost of each for the
               rooms you’re updating.
             </p>
           </SectionHead>
-          <ServicesGrid headingId="home-floors" only={["/hardwood-flooring-installation", "/laminate-flooring-installation"]} />
+          <ServicesGrid headingId="home-floors" only={["/hardwood-flooring-installation", "/laminate-flooring-installation", "/lvp-vinyl-flooring-installation", "/carpet-installation", "/tile-flooring-installation"]} />
         </Container>
       </Section>
 

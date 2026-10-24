@@ -16,9 +16,9 @@ import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Flooring Materials in Los Angeles: Hardwood, Laminate & Brands",
+  title: "Flooring Materials & Brands in Los Angeles: Hardwood, Laminate, LVP",
   description:
-    "Hardwood and laminate flooring materials in Los Angeles from manufacturers including Mohawk, Shaw and Engineered Floors, with American-made options and help choosing the right floor.",
+    "Hardwood, laminate, luxury vinyl plank, carpet and tile flooring materials in Los Angeles from manufacturers including Mohawk, Shaw and Engineered Floors, with American-made options and help choosing the right floor.",
   path: routes.materials,
 });
 

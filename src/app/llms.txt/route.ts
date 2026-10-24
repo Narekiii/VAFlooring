@@ -1,5 +1,5 @@
-import { business, facts } from "@/content/site";
-import { homeFaqs, publishedServices, serviceHref } from "@/content/services";
+import { business, facts, licenseLine, regionLine } from "@/content/site";
+import { homeFaqs, publishedServices, serviceAreas, serviceHref } from "@/content/services";
 import { routes } from "@/content/navigation";
 import { siteUrl } from "@/lib/seo";
 
@@ -17,11 +17,14 @@ export function GET() {
   const lines = [
     `# ${business.name}`,
     "",
-    `> ${business.name} is a family-owned flooring company in ${business.serviceArea}, California, founded in ${business.founded} by ${business.founder}. It supplies flooring materials and provides professional installation, including hardwood and laminate flooring, for home renovations, ADUs, multifamily communities, hotels and hospitality properties, and large commercial projects.`,
+    `> ${business.name} is a family-owned, licensed flooring contractor based in Sun Valley (Los Angeles), California, founded in ${business.founded} by ${business.founder}. It supplies flooring materials and installs hardwood, laminate, luxury vinyl plank (LVP), carpet and tile flooring for home renovations, ADUs, multifamily communities, hotels and commercial projects across ${regionLine}.`,
     "",
     "## Key facts",
     `- Founded: ${business.founded} (family owned)`,
-    `- Service area: ${business.serviceArea}, California`,
+    `- Service area: ${regionLine}, California`,
+    ...serviceAreas.map((a) => `  - ${a.county}: ${a.places.join(", ")}`),
+    ...(business.license ? [`- License: California ${licenseLine(business.license)}${business.bondedInsured ? ", bonded and insured" : ""}`] : []),
+    ...(business.address ? [`- Address: ${business.address.streetAddress}, ${business.address.addressLocality}, ${business.address.addressRegion} ${business.address.postalCode}`] : []),
     `- Installation capacity: ${facts.installationCrewsLong.toLowerCase()}`,
     "- Provides: flooring materials and installation from one company",
     `- Manufacturers include: ${facts.manufacturers.join(", ")}, with American-made options available`,
@@ -36,6 +39,7 @@ export function GET() {
     "",
     "## Pages",
     `- [Materials & brands](${link(routes.materials)})`,
+    `- [Service areas](${link(routes.serviceAreas)})`,
     `- [Our story](${link(routes.story)})`,
     `- [Projects](${link(routes.projects)})`,
     `- [Request an estimate](${link(routes.estimate)})`,

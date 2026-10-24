@@ -56,8 +56,24 @@ export const materialCategories: MaterialCategory[] = [
     published: true,
     href: "/laminate-flooring-installation",
   },
-  { name: "Luxury vinyl plank and tile", body: "", published: false },
-  { name: "Carpet and carpet tile", body: "", published: false },
+  {
+    name: "Luxury vinyl plank and tile",
+    body: "Rigid-core LVP and glue-down LVT for kitchens, ADUs, apartment units, corridors and commercial interiors.",
+    published: true,
+    href: "/lvp-vinyl-flooring-installation",
+  },
+  {
+    name: "Carpet and carpet tile",
+    body: "Broadloom carpet and modular carpet tile for bedrooms, apartment units, hotel corridors and offices.",
+    published: true,
+    href: "/carpet-installation",
+  },
+  {
+    name: "Porcelain and ceramic tile",
+    body: "Floor tile for kitchens, entries, ADUs and commercial spaces, installed under our C-54 tile classification.",
+    published: true,
+    href: "/tile-flooring-installation",
+  },
 ];
 
 export const publishedCategories = () => materialCategories.filter((c) => c.published && c.body.trim().length > 0);

@@ -12,15 +12,14 @@ configuration goes in environment variables (see `.env.example`).
       Send one test request after deploying.
 - [ ] **Production domain.** Set `NEXT_PUBLIC_SITE_URL`. Until then pages are `noindex`,
       `robots.txt` blocks crawling, the sitemap is empty and canonical URLs are omitted.
-- [ ] **Public phone number** (`phone`). Hidden everywhere until provided.
+- [x] **Phone, address, license** added: (818) 843-4773 · 10945 Pendleton St, Sun Valley, CA 91352 ·
+      CSLB #866991 (B, C-15, C-54), bonded & insured. The license was supplied as "#86699"; public
+      CSLB records list V & A Flooring Inc at this address as **#866991**. Confirm before launch.
 - [ ] **Public email address** (`email`). Hidden until provided.
 
 ## Recommended
 
-- [ ] **Office or showroom address** and **operating hours** (`address`, `hours`). Leave
-      `null` if the business does not publish them.
-- [ ] **Contractor license number** or other credentials (`license`), only if verified and
-      approved for publication.
+- [ ] **Operating hours** (`hours`), if the business publishes them.
 - [ ] **Owner portrait** of Armond Markarian. None was supplied, so none is shown; the
       Our Story page is ready for one.
 - [ ] **Company photography.** All current images are original illustrative renderings,
@@ -29,8 +28,8 @@ configuration goes in environment variables (see `.env.example`).
 - [ ] **Verified projects.** `src/content/projects.ts` is empty. Add projects with real
       photos and confirmed details (name, location, property type, material, scope). The
       Projects page switches from property types to a filterable portfolio automatically.
-- [ ] **Flooring categories.** Confirm which categories are stocked or installed, then
-      publish them in `src/content/materials.ts`.
+- [x] **Flooring categories** confirmed: hardwood, laminate, vinyl/LVP, carpet, tile. Each has its
+      own keyword landing page.
 - [ ] **Social profiles** (`sameAs`) for structured data, if any.
 
 ## Please confirm
@@ -46,6 +45,16 @@ configuration goes in environment variables (see `.env.example`).
 - [ ] Drawing and photo uploads are not offered on the form (no secure upload handling).
       The commercial page asks visitors to start with a request so documents can be
       exchanged afterwards.
+
+## Local SEO outside the website (high impact)
+
+- [ ] **Google Business Profile**: claim/verify it with exactly this name, address and phone,
+      category "Flooring contractor", the five services, the service-area counties and a link
+      to the site. This drives Google Maps and "near me" results more than anything on the site.
+- [ ] Use the same name, address and phone on Yelp, Bing Places, Apple Business Connect,
+      BBB, Houzz and Angi.
+- [ ] Ask satisfied customers for Google reviews (the site deliberately shows no invented ones).
+- [ ] Submit `https://<domain>/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
 
 ## Optional hardening
 
