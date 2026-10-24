@@ -33,6 +33,7 @@ export function Commitments({
       <Container>
         <div className={styles.layout}>
           <div className={styles.head}>
+            <p className="kicker">Why choose us</p>
             <h2 id="why-title">{title}</h2>
             <p className={styles.intro}>
               The way we work comes down to four commitments we make on every project, large or small.

@@ -10,6 +10,7 @@ import lobby from "@/assets/images/multifamily-lobby.jpg";
 import office from "@/assets/images/commercial-office.jpg";
 import plankDetail from "@/assets/images/oak-plank-detail.jpg";
 import samples from "@/assets/images/flooring-samples.jpg";
+import tileKitchen from "@/assets/images/tile-floor-kitchen.jpg";
 
 /**
  * Image manifest.
@@ -90,5 +91,11 @@ export const images = {
     alt: "Wood-look plank samples in five tones beside two carpet swatches",
     kind: "illustrative",
     focus: "50% 45%",
+  },
+  tileKitchen: {
+    src: tileKitchen,
+    alt: "Dining area and kitchen with large porcelain floor tiles beside a sliding glass door",
+    kind: "illustrative",
+    focus: "40% 65%",
   },
 } satisfies Record<string, SiteImage>;

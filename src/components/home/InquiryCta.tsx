@@ -22,9 +22,12 @@ export function InquiryCta({
     <Section tone="navy" labelledBy="inquiry-title">
       <Container>
         <div className={styles.grid}>
-          <h2 id="inquiry-title" className={styles.title}>
-            {title}
-          </h2>
+          <div>
+            <p className="kicker">Start a project</p>
+            <h2 id="inquiry-title" className={styles.title}>
+              {title}
+            </h2>
+          </div>
           <div>
             <p className={styles.body}>{body}</p>
             <div className={styles.actions}>

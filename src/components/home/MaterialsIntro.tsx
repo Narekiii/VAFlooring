@@ -7,7 +7,7 @@ import { routes } from "@/content/navigation";
 import { facts } from "@/content/site";
 import styles from "./MaterialsIntro.module.css";
 
-const factors = ["Suitability for the space", "Intended use and traffic", "Budget", "American-made options"];
+const factors = ["Hardwood flooring", "Laminate flooring", "Matched to use and budget", "American-made options"];
 
 export function MaterialsIntro() {
   return (
@@ -15,7 +15,8 @@ export function MaterialsIntro() {
       <Container>
         <div className={styles.grid}>
           <div className={styles.text}>
-            <h2 id="materials-title">Materials matched to the way a space is used</h2>
+            <p className="kicker">Materials &amp; brands</p>
+            <h2 id="materials-title">Hardwood, laminate and more, matched to the way a space is used</h2>
             <p className={styles.lede}>
               We supply the flooring we install, so material advice comes from people who also plan the installation.
               We’ll help you narrow the options by what the floor needs to do, what it should look like and what it

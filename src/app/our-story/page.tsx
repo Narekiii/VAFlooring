@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Our Story",
+  title: "About Us: Family-Owned Flooring Company Since 1999",
   description:
     "Founded in 1999 by installer Armond Markarian, V & A Flooring is a family-owned Los Angeles flooring company built on good materials, careful installation and support after the job.",
   path: routes.story,
@@ -78,7 +78,13 @@ const values = [
 export default function StoryPage() {
   return (
     <>
-      <PageHero title="Our Story" subtitle={`Family owned since ${business.founded}.`} image={images.plankDetail}>
+      <PageHero
+        kicker="About V & A Flooring"
+        title="Our Story"
+        subtitle={`A family-owned Los Angeles flooring company since ${business.founded}.`}
+        image={images.plankDetail}
+        crumbs={[{ name: "Our Story", href: routes.story }]}
+      >
         <p>
           V&nbsp;&amp;&nbsp;A Flooring was founded by Armond Markarian, an installer who believed a flooring company should be
           judged by the quality of its installation and by how it treats customers after the sale.
@@ -109,7 +115,10 @@ export default function StoryPage() {
       <Section tone="navy" labelledBy="values-title">
         <Container>
           <div className={styles.valuesHead}>
-            <h2 id="values-title">What we value</h2>
+            <div>
+              <p className="kicker">Values</p>
+              <h2 id="values-title">What we value</h2>
+            </div>
             <p className={styles.valuesLine} aria-hidden="true">
               Honesty. Hard Work. Initiative. Trust.
             </p>

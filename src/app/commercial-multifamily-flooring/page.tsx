@@ -6,15 +6,16 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { InquiryCta } from "@/components/home/InquiryCta";
+import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { images } from "@/content/images";
 import { estimateFor, routes } from "@/content/navigation";
 import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Commercial & Multifamily Flooring in Los Angeles",
+  title: "Commercial & Multifamily Flooring Contractor in Los Angeles",
   description:
-    "Flooring materials and installation for general contractors, developers, property managers, hotels and multifamily owners in Los Angeles. More than 20 installation crews, coordinated around your schedule.",
+    "Commercial flooring contractor in Los Angeles for general contractors, developers, property managers, hotels and apartment communities. Hardwood, laminate and more, supplied and installed by 20+ crews.",
   path: routes.commercial,
 });
 
@@ -59,13 +60,19 @@ export default function CommercialPage() {
   return (
     <>
       <PageHero
-        title={"Commercial\u00a0& Multifamily Flooring"}
+        kicker="Commercial & multifamily"
+        title={"Commercial\u00a0& Multifamily Flooring Contractor in Los\u00a0Angeles"}
         subtitle="Experience and capacity for larger projects."
         image={images.corridor}
-        actions={<ButtonLink href={estimateFor.commercial}>Discuss a Commercial Project</ButtonLink>}
+        crumbs={[{ name: "Commercial & Multifamily", href: "/commercial-multifamily-flooring" }]}
+        actions={
+          <ButtonLink href={estimateFor.commercial} variant="light">
+            Discuss a Commercial Project
+          </ButtonLink>
+        }
       >
         <p>
-          Flooring materials and installation for general contractors, developers, property managers, hospitality
+          Flooring materials and installation, including hardwood and laminate, for general contractors, developers, property managers, hospitality
           operators and multifamily owners. With more than 20 installation crews and materials supplied by one company,
           we plan flooring around your schedule and keep the scope clear from the start.
         </p>
@@ -73,7 +80,7 @@ export default function CommercialPage() {
 
       <Section tone="white" labelledBy="capabilities">
         <Container>
-          <SectionHead id="capabilities" title="What we bring to a larger project" />
+          <SectionHead id="capabilities" kicker="Capabilities" title="What we bring to a larger project" />
           <FeatureList items={capabilities} />
         </Container>
       </Section>
@@ -81,7 +88,10 @@ export default function CommercialPage() {
       <Section tone="navy" labelledBy="drawings">
         <Container>
           <div className={styles.drawings}>
-            <h2 id="drawings">Bring us your drawings</h2>
+            <div>
+              <p className="kicker">Bid and estimate</p>
+              <h2 id="drawings">Bring us your drawings</h2>
+            </div>
             <div className={styles.drawingsBody}>
               <p>
                 Share what you have: drawings, finish schedules and specifications, quantities, and your installation
@@ -109,7 +119,7 @@ export default function CommercialPage() {
 
       <Section tone="ivory" labelledBy="clients">
         <Container>
-          <SectionHead id="clients" title="Who we work with">
+          <SectionHead id="clients" kicker="Clients" title="Who we work with">
             <p>The same accountability we bring to a homeowner, applied to the pace and coordination of a larger job.</p>
           </SectionHead>
           <FeatureList items={clients} />
@@ -118,7 +128,7 @@ export default function CommercialPage() {
 
       <Section tone="white" labelledBy="types">
         <Container>
-          <SectionHead id="types" title="Property types">
+          <SectionHead id="types" kicker="Property types" title="Multifamily, hospitality and commercial flooring">
             <p>The illustrations below show the kinds of spaces our crews work in.</p>
           </SectionHead>
           <ul className={styles.types}>
@@ -130,6 +140,15 @@ export default function CommercialPage() {
               </li>
             ))}
           </ul>
+        </Container>
+      </Section>
+
+      <Section tone="ivory" labelledBy="com-floors">
+        <Container>
+          <SectionHead id="com-floors" kicker="Flooring we install" title="Hardwood and laminate for larger projects">
+            <p>Supplied and installed by one company and coordinated with your specifications and schedule.</p>
+          </SectionHead>
+          <ServicesGrid headingId="com-floors" only={["/hardwood-flooring-installation", "/laminate-flooring-installation"]} />
         </Container>
       </Section>
 

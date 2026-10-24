@@ -19,8 +19,9 @@
   padding: var(--space-5) 0;
   border-bottom: 1px solid var(--line);
   color: var(--navy);
-  font-family: var(--font-serif);
   font-size: clamp(1.625rem, 1.25rem + 1.4vw, 2.375rem);
+  font-weight: 850;
+  letter-spacing: -0.03em;
   line-height: 1.15;
 }
 
@@ -64,8 +65,29 @@
   list-style: none;
 }
 
+.categories li {
+  padding: var(--space-6);
+  background: var(--white);
+  border-top: 4px solid var(--navy);
+}
+
+.categories h3 {
+  font-size: var(--heading-3);
+}
+
+.categories h3 a {
+  color: var(--navy);
+  text-decoration-color: var(--brass);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+.categories h3 a:hover {
+  color: var(--bronze-deep);
+}
+
 .categories p {
-  margin-top: var(--space-2);
+  margin-top: var(--space-3);
 }
 
 @media (max-width: 56rem) {

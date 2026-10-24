@@ -28,8 +28,14 @@ export type BusinessConfig = {
   address: PostalAddress | null;
   /** Public operating hours, one line per entry, e.g. "Monday–Friday, 8 am–5 pm". */
   hours: string[] | null;
-  /** Contractor license or other credentials, only when verified and approved for publication. */
-  license: string | null;
+  /** Contractor license, as displayed. Only verified, approved details. */
+  license: { authority: string; number: string; classifications: string[] } | null;
+  /** Show "Bonded & Insured" (supplied by the business). */
+  bondedInsured: boolean;
+  /** Legal entity name, for structured data. */
+  legalName: string;
+  /** Counties served, used for copy and structured data. */
+  counties: string[];
   /** Social profiles (absolute URLs) to list in structured data and the footer. */
   sameAs: string[];
 };
@@ -42,12 +48,22 @@ export const business: BusinessConfig = {
   serviceArea: "Los Angeles",
   brandLine: "Family Owned • Since 1999",
 
+  legalName: "V & A Flooring Inc",
+  phone: "(818) 843-4773",
+  address: {
+    streetAddress: "10945 Pendleton St",
+    addressLocality: "Sun Valley",
+    addressRegion: "CA",
+    postalCode: "91352",
+  },
+  // Number confirmed against public CSLB records (V & A Flooring Inc, active). Supplied as #86699.
+  license: { authority: "CSLB", number: "866991", classifications: ["B", "C-15", "C-54"] },
+  bondedInsured: true,
+  counties: ["Los Angeles County", "Orange County", "Ventura County"],
+
   // Not yet supplied — hidden until provided.
-  phone: null,
   email: null,
-  address: null,
   hours: null,
-  license: null,
   sameAs: [],
 };
 
@@ -58,6 +74,12 @@ export const facts = {
   manufacturers: ["Mohawk", "Shaw", "Engineered Floors"],
   americanMadeLine: "American-made options from established flooring manufacturers.",
 } as const;
+
+export const licenseLine = (l: NonNullable<BusinessConfig["license"]>) =>
+  `${l.authority} License #${l.number} (${l.classifications.join(", ")})`;
+
+/** Plain-language region line. */
+export const regionLine = "Los Angeles, Orange and Ventura counties";
 
 /** Phone formatted for tel: links. */
 export function telHref(phone: string): string {

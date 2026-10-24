@@ -5,7 +5,8 @@ import { Footer } from "@/components/layout/Footer";
 import { business } from "@/content/site";
 import { palette } from "@/lib/brand";
 import { isIndexable, metadataBase } from "@/lib/seo";
-import { jsonLdString, organizationJsonLd } from "@/lib/structured-data";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/structured-data";
+import { JsonLd } from "@/components/seo/JsonLd";
 import "./globals.css";
 
 const inter = localFont({
@@ -17,19 +18,11 @@ const inter = localFont({
   adjustFontFallback: "Arial",
 });
 
-const baskerville = localFont({
-  src: "./fonts/LibreBaskerville-Variable.woff2",
-  variable: "--font-baskerville",
-  weight: "400 700",
-  display: "swap",
-  fallback: ["Baskerville", "Georgia", "serif"],
-  adjustFontFallback: "Times New Roman",
-});
 
 export const metadata: Metadata = {
   metadataBase: metadataBase(),
   title: {
-    default: `${business.name} | Flooring Materials & Installation in Los Angeles`,
+    default: `${business.name} | Hardwood & Laminate Flooring Installation in Los Angeles`,
     template: `%s | ${business.name}`,
   },
   description:
@@ -45,7 +38,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-US" className={`${inter.variable} ${baskerville.variable}`}>
+    <html lang="en-US" className={inter.variable}>
       <body>
         <a href="#main" className="skip-link">
           Skip to main content
@@ -55,10 +48,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <Footer />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonLdString(organizationJsonLd()) }}
-        />
+        <JsonLd data={organizationJsonLd()} />
+        <JsonLd data={websiteJsonLd()} />
       </body>
     </html>
   );

@@ -39,14 +39,25 @@ export type MaterialCategory = {
   name: string;
   body: string;
   published: boolean;
+  href?: string;
 };
 
 /** Hidden until confirmed by company inventory or supplied product information. */
 export const materialCategories: MaterialCategory[] = [
-  { name: "Carpet and carpet tile", body: "", published: false },
+  {
+    name: "Hardwood flooring",
+    body: "Solid and engineered hardwood for homes, ADUs, multifamily and commercial spaces, supplied and installed by our crews.",
+    published: true,
+    href: "/hardwood-flooring-installation",
+  },
+  {
+    name: "Laminate flooring",
+    body: "Wood-look and stone-look laminate for homes, rentals and multifamily units, matched to the manufacturer’s ratings for each room.",
+    published: true,
+    href: "/laminate-flooring-installation",
+  },
   { name: "Luxury vinyl plank and tile", body: "", published: false },
-  { name: "Hardwood and engineered wood", body: "", published: false },
-  { name: "Laminate", body: "", published: false },
+  { name: "Carpet and carpet tile", body: "", published: false },
 ];
 
 export const publishedCategories = () => materialCategories.filter((c) => c.published && c.body.trim().length > 0);

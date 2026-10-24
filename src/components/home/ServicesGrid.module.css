@@ -1,0 +1,73 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  gap: var(--space-5);
+  list-style: none;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-bottom: 4px solid var(--navy);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.card:hover {
+  border-bottom-color: var(--bronze);
+}
+
+.card:focus-within {
+  outline: var(--focus);
+  outline-offset: 3px;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--space-5);
+}
+
+.title {
+  font-size: var(--text-xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.title a {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+/* Whole card is clickable through the heading link */
+.title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.title a:focus-visible {
+  outline: none;
+}
+
+.text {
+  flex: 1;
+  margin-top: var(--space-2);
+  color: var(--graphite);
+  font-size: var(--text-sm);
+}
+
+.more {
+  margin-top: var(--space-4);
+  color: var(--bronze);
+  font-size: var(--text-sm);
+  font-weight: 750;
+}
+
+.card:hover .more {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}

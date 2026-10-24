@@ -8,15 +8,16 @@ import { SectionHead } from "@/components/ui/SectionHead";
 import { Steps } from "@/components/ui/Steps";
 import { TextLink } from "@/components/ui/TextLink";
 import { Commitments } from "@/components/home/Commitments";
+import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { InquiryCta } from "@/components/home/InquiryCta";
 import { images } from "@/content/images";
 import { estimateFor, routes } from "@/content/navigation";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Residential Flooring in Los Angeles",
+  title: "Residential Flooring Installation in Los Angeles",
   description:
-    "Flooring materials and installation for occupied home renovations, ADUs and single-room updates in Los Angeles. Honest material guidance, planned installation and support after completion.",
+    "Home flooring installation in Los Angeles: hardwood and laminate supply and installation for renovations, single rooms and ADUs. Family-owned since 1999, with honest guidance and support after completion.",
   path: routes.residential,
 });
 
@@ -62,21 +63,27 @@ export default function ResidentialPage() {
   return (
     <>
       <PageHero
-        title="Residential Flooring"
+        kicker="Residential flooring"
+        title="Residential Flooring Installation in Los Angeles"
         subtitle="For the spaces you call home."
         image={images.livingWindows}
-        actions={<ButtonLink href={estimateFor.residential}>Discuss Your Home Project</ButtonLink>}
+        crumbs={[{ name: "Residential Flooring", href: "/residential-flooring" }]}
+        actions={
+          <ButtonLink href={estimateFor.residential} variant="light">
+            Discuss Your Home Project
+          </ButtonLink>
+        }
       >
         <p>
-          Flooring materials and installation for homeowners renovating the house they live in, building an ADU, or
-          updating a single room. We help you choose a floor that suits how you live, plan the installation around your
+          Hardwood and laminate flooring, supplied and installed for homeowners renovating the house they live in,
+          building an ADU, or updating a single room. We help you choose a floor that suits how you live, plan the installation around your
           household, and stay reachable after the work is done.
         </p>
       </PageHero>
 
       <Section tone="white" labelledBy="home-projects">
         <Container>
-          <SectionHead id="home-projects" title="Home projects we help with">
+          <SectionHead id="home-projects" kicker="Home projects" title="Home projects we help with">
             <p>
               From a single room to a new ADU, every home project starts with the same questions: how the space is
               used, what you want it to feel like, and what you want to spend.
@@ -86,9 +93,21 @@ export default function ResidentialPage() {
         </Container>
       </Section>
 
+      <Section tone="sand" labelledBy="home-floors">
+        <Container>
+          <SectionHead id="home-floors" kicker="Flooring for your home" title="Hardwood and laminate for Los Angeles homes">
+            <p>
+              The two floors homeowners ask us about most. We’ll help you weigh the look, upkeep and cost of each for the
+              rooms you’re updating.
+            </p>
+          </SectionHead>
+          <ServicesGrid headingId="home-floors" only={["/hardwood-flooring-installation", "/laminate-flooring-installation"]} />
+        </Container>
+      </Section>
+
       <Section tone="ivory" labelledBy="process">
         <Container>
-          <SectionHead id="process" title="How a home project works">
+          <SectionHead id="process" kicker="How it works" title="How a home flooring project works">
             <p>
               We supply the materials and install them, so one team is responsible from the first conversation through
               the finished floor.
@@ -98,10 +117,11 @@ export default function ResidentialPage() {
         </Container>
       </Section>
 
-      <Section tone="sand" labelledBy="adu">
+      <Section tone="white" labelledBy="adu">
         <Container>
           <MediaSplit image={images.aduKitchen}>
-            <h2 id="adu">Flooring for ADUs</h2>
+            <p className="kicker">ADUs</p>
+            <h2 id="adu">ADU flooring installation</h2>
             <p>
               An ADU is a complete home in a compact footprint, and the same floor often runs from the kitchen through
               the living area and into the bedroom. We help you choose materials that suit the whole unit and schedule

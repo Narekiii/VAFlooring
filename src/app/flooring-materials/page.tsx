@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { MediaSplit } from "@/components/ui/MediaSplit";
@@ -15,9 +16,9 @@ import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Flooring Materials & Brands",
+  title: "Flooring Materials in Los Angeles: Hardwood, Laminate & Brands",
   description:
-    "Flooring materials from manufacturers including Mohawk, Shaw and Engineered Floors, with American-made options. Get help choosing by appearance, use, maintenance, budget and installation needs.",
+    "Hardwood and laminate flooring materials in Los Angeles from manufacturers including Mohawk, Shaw and Engineered Floors, with American-made options and help choosing the right floor.",
   path: routes.materials,
 });
 
@@ -26,10 +27,16 @@ export default function MaterialsPage() {
   return (
     <>
       <PageHero
-        title="Materials & Brands"
+        kicker="Materials & brands"
+        title="Flooring Materials & Brands"
         subtitle="The right floor depends on how the space will be used."
         image={images.samples}
-        actions={<ButtonLink href={routes.estimate}>Ask About Materials</ButtonLink>}
+        crumbs={[{ name: "Materials & Brands", href: routes.materials }]}
+        actions={
+          <ButtonLink href={routes.estimate} variant="light">
+            Ask About Materials
+          </ButtonLink>
+        }
       >
         <p>
           We supply flooring materials and install them, so we can help you match a product to the room, the traffic it
@@ -37,10 +44,27 @@ export default function MaterialsPage() {
         </p>
       </PageHero>
 
+      {categories.length > 0 && (
+        <Section tone="ivory" labelledBy="categories">
+          <Container>
+            <SectionHead id="categories" kicker="Categories" title="Flooring we supply and install" />
+            <ul className={styles.categories}>
+              {categories.map((c) => (
+                <li key={c.name}>
+                  <h3>{c.href ? <Link href={c.href}>{c.name}</Link> : c.name}</h3>
+                  <p>{c.body}</p>
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </Section>
+      )}
+
       <Section tone="white" labelledBy="brands">
         <Container>
           <div className={styles.brands}>
             <div>
+              <p className="kicker">Brands</p>
               <h2 id="brands">Manufacturers we offer</h2>
               <p className={styles.brandsIntro}>
                 We offer products from established flooring manufacturers, including:
@@ -71,6 +95,7 @@ export default function MaterialsPage() {
         <Container>
           <div className={styles.guideLayout}>
             <div className={styles.guideHead}>
+              <p className="kicker">Selection guide</p>
               <h2 id="choosing">How we help you choose</h2>
               <p>
                 There’s no single best floor, only the best fit for a particular space. These are the questions we work
@@ -82,25 +107,11 @@ export default function MaterialsPage() {
         </Container>
       </Section>
 
-      {categories.length > 0 && (
-        <Section tone="white" labelledBy="categories">
-          <Container>
-            <SectionHead id="categories" title="Flooring categories" />
-            <ul className={styles.categories}>
-              {categories.map((c) => (
-                <li key={c.name}>
-                  <h3>{c.name}</h3>
-                  <p>{c.body}</p>
-                </li>
-              ))}
-            </ul>
-          </Container>
-        </Section>
-      )}
 
       <Section tone="sand" labelledBy="specified">
         <Container>
           <MediaSplit image={images.plankDetail} reverse>
+            <p className="kicker">Specified products</p>
             <h2 id="specified">Already have a product in mind?</h2>
             <p>
               If you, your designer or your architect has already chosen a product, send us the details. We’ll confirm

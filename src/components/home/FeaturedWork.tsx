@@ -18,7 +18,10 @@ export function FeaturedWork() {
     <Section tone="white" labelledBy="work-title">
       <Container>
         <div className={styles.head}>
-          <h2 id="work-title">{hasProjects ? "Featured work" : "The spaces we floor"}</h2>
+          <div>
+            <p className="kicker">Where we work</p>
+            <h2 id="work-title">{hasProjects ? "Featured work" : "The spaces we floor"}</h2>
+          </div>
           <p className={styles.intro}>
             {hasProjects
               ? "A selection of recent V\u00a0&\u00a0A Flooring projects across Los Angeles."

@@ -15,7 +15,8 @@
 }
 
 .title {
-  font-family: var(--font-serif);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   font-size: var(--text-xl);
   line-height: 1.25;
 }

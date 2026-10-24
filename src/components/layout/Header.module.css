@@ -1,15 +1,55 @@
+/* The whole header is sticky, offset so the utility bar scrolls away and the main bar stays. */
 .header {
   position: sticky;
-  top: 0;
+  top: calc(-1 * var(--utility-h));
   z-index: 50;
-  background: color-mix(in srgb, var(--ivory) 96%, transparent);
-  border-bottom: 1px solid var(--line);
 }
 
-@supports not (background: color-mix(in srgb, red 50%, transparent)) {
-  .header {
-    background: var(--ivory);
-  }
+/* ---------- Utility bar ---------- */
+.utility {
+  height: var(--utility-h);
+  background: var(--navy);
+  color: var(--sand);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.utilityInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: 100%;
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.sep {
+  display: inline-block;
+  width: 1px;
+  height: 0.85em;
+  margin-inline: 0.85rem;
+  vertical-align: -0.1em;
+  background: var(--brass);
+}
+
+.utilityPhone {
+  color: var(--ivory);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.utilityPhone:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Main bar ---------- */
+.bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(23, 43, 58, 0.04), 0 6px 18px -12px rgba(23, 43, 58, 0.35);
 }
 
 .inner {
@@ -32,39 +72,45 @@
 
 .logo {
   width: auto;
-  height: 2.125rem;
+  height: 2.375rem;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 0.2rem + 1.4vw, 2rem);
+  gap: clamp(0.75rem, -0.2rem + 1.5vw, 1.75rem);
 }
 
 .links {
   display: flex;
-  gap: clamp(0.25rem, -0.4rem + 1.1vw, 1rem);
+  align-items: center;
+  gap: clamp(0.25rem, -0.4rem + 1vw, 0.75rem);
   list-style: none;
 }
 
 .link {
   position: relative;
-  display: block;
-  padding: 0.5rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.65rem;
+  background: none;
+  border: 0;
   color: var(--navy);
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 650;
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .link::after {
   content: "";
   position: absolute;
-  left: 0.5rem;
-  right: 0.5rem;
-  bottom: 0.15rem;
-  height: 2px;
+  left: 0.65rem;
+  right: 0.65rem;
+  bottom: -0.05rem;
+  height: 3px;
   background: var(--bronze);
   transform: scaleX(0);
   transform-origin: left;
@@ -72,14 +118,80 @@
 }
 
 .link:hover::after,
-.link[aria-current="page"]::after {
+.link[aria-current="page"]::after,
+.link[data-active]::after {
   transform: scaleX(1);
 }
 
 .cta {
-  min-height: 2.75rem;
-  padding-inline: 1.15rem;
+  min-height: 3rem;
   white-space: nowrap;
+}
+
+/* ---------- Services dropdown ---------- */
+.dropdown {
+  position: relative;
+}
+
+.caret {
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-top: -0.2rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--dur) var(--ease);
+}
+
+.dropBtn[aria-expanded="true"] .caret {
+  transform: translateY(0.2rem) rotate(-135deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 0.9rem);
+  left: -1rem;
+  width: 25rem;
+  background: var(--white);
+  border-top: 3px solid var(--bronze);
+  box-shadow: 0 18px 40px -16px rgba(23, 43, 58, 0.45), 0 0 0 1px var(--line);
+}
+
+.menu[hidden] {
+  display: none;
+}
+
+.menu ul {
+  list-style: none;
+  padding: var(--space-2) 0;
+}
+
+.menuLink {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.8rem 1.25rem;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.menuLink:hover,
+.menuLink[aria-current="page"] {
+  background: var(--ivory);
+}
+
+.menuLink[aria-current="page"] .menuTitle {
+  color: var(--bronze);
+}
+
+.menuTitle {
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.menuDesc {
+  color: var(--ink-soft);
+  font-size: var(--text-xs);
+  line-height: 1.45;
 }
 
 /* ---------- Mobile ---------- */
@@ -92,13 +204,13 @@
   align-items: center;
   gap: var(--space-2);
   min-height: 2.75rem;
-  padding: 0.5rem 0.75rem;
-  background: transparent;
-  border: 1px solid var(--navy);
+  padding: 0.5rem 0.85rem;
+  background: var(--navy);
+  border: 0;
   border-radius: var(--radius);
-  color: var(--navy);
+  color: var(--ivory);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -116,7 +228,6 @@
   transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
 }
 
-/* Staggered bars echo the plank courses in the logo */
 .toggleIcon span:nth-child(1) {
   top: 0;
   width: 100%;
@@ -157,22 +268,48 @@
   display: none;
 }
 
+.panelGroup {
+  margin-bottom: var(--space-5);
+}
+
+.panelHeading {
+  margin-bottom: var(--space-2);
+  color: var(--brass-light);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.panelSubLinks,
 .panelLinks {
   list-style: none;
   border-top: 1px solid var(--line-dark);
 }
 
-.panelLink {
+.panelSubLink {
   display: block;
-  padding: 1rem 0;
+  padding: 0.8rem 0;
   border-bottom: 1px solid var(--line-dark);
   color: var(--ivory);
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: var(--text-lg);
+  font-weight: 600;
   text-decoration: none;
 }
 
-.panelLink[aria-current="page"] {
+.panelLink {
+  display: block;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line-dark);
+  color: var(--ivory);
+  font-size: 1.375rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.panelLink[aria-current="page"],
+.panelSubLink[aria-current="page"] {
   color: var(--brass-light);
   text-decoration: underline;
   text-decoration-thickness: 2px;
@@ -184,7 +321,25 @@
   margin-top: var(--space-6);
 }
 
+@media (max-width: 72rem) {
+  .utilityMore {
+    display: none;
+  }
+
+  .utility .sep {
+    display: none;
+  }
+}
+
 @media (max-width: 63rem) {
+  .header {
+    top: 0;
+  }
+
+  .utility {
+    display: none;
+  }
+
   .nav {
     display: none;
   }

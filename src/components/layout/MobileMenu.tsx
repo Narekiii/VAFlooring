@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { buttonClass } from "@/components/ui/Button";
-import { NavLinks } from "./NavLinks";
+import type { NavItem } from "@/content/navigation";
 import styles from "./Header.module.css";
 
-type Item = { label: string; href: string };
+const isCurrent = (pathname: string, href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
-export function MobileMenu({ items, cta }: { items: readonly Item[]; cta: Item }) {
+export function MobileMenu({ items, cta }: { items: NavItem[]; cta: { label: string; href: string } }) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -21,7 +21,6 @@ export function MobileMenu({ items, cta }: { items: readonly Item[]; cta: Item }
     if (returnFocus) toggleRef.current?.focus();
   }, []);
 
-  // Close when the route changes (e.g. browser back).
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
@@ -29,10 +28,8 @@ export function MobileMenu({ items, cta }: { items: readonly Item[]; cta: Item }
   useEffect(() => {
     if (!open) return;
     const panel = panelRef.current;
-    const focusables = () =>
-      Array.from(panel?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])") ?? []);
+    const focusables = () => Array.from(panel?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])") ?? []);
     focusables()[0]?.focus();
-
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         e.preventDefault();
@@ -40,7 +37,6 @@ export function MobileMenu({ items, cta }: { items: readonly Item[]; cta: Item }
         return;
       }
       if (e.key !== "Tab") return;
-      // Keep focus within the toggle button and the open panel.
       const list = [toggleRef.current!, ...focusables()];
       const first = list[0];
       const last = list[list.length - 1];
@@ -53,21 +49,33 @@ export function MobileMenu({ items, cta }: { items: readonly Item[]; cta: Item }
       }
     };
     document.addEventListener("keydown", onKey);
-    const prevOverflow = document.body.style.overflow;
+    const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prevOverflow;
+      document.body.style.overflow = prev;
     };
   }, [open, close]);
 
-  // Close if the viewport grows to the desktop layout while open.
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 63.0625rem)");
     const onChange = () => mq.matches && setOpen(false);
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
   }, []);
+
+  const link = (item: NavItem, sub = false) => (
+    <li key={item.href}>
+      <Link
+        href={item.href}
+        className={sub ? styles.panelSubLink : styles.panelLink}
+        aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
+        onClick={() => close(false)}
+      >
+        {item.label}
+      </Link>
+    </li>
+  );
 
   return (
     <div className={styles.mobile}>
@@ -88,12 +96,15 @@ export function MobileMenu({ items, cta }: { items: readonly Item[]; cta: Item }
       </button>
       <div id={panelId} ref={panelRef} className={styles.panel} hidden={!open} data-surface="dark">
         <nav aria-label="Mobile">
-          <NavLinks
-            items={items}
-            className={styles.panelLinks}
-            linkClassName={styles.panelLink}
-            onNavigate={() => close(false)}
-          />
+          {items
+            .filter((i) => i.children)
+            .map((group) => (
+              <div key={group.label} className={styles.panelGroup}>
+                <p className={styles.panelHeading}>{group.label}</p>
+                <ul className={styles.panelSubLinks}>{group.children!.map((c) => link(c, true))}</ul>
+              </div>
+            ))}
+          <ul className={styles.panelLinks}>{items.filter((i) => !i.children).map((i) => link(i))}</ul>
           <Link href={cta.href} className={`${buttonClass("light")} ${styles.panelCta}`} onClick={() => close(false)}>
             {cta.label}
           </Link>

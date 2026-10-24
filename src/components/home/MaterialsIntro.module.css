@@ -50,8 +50,9 @@
 
 .brandList li {
   color: var(--navy);
-  font-family: var(--font-serif);
   font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem);
+  font-weight: 850;
+  letter-spacing: -0.03em;
   line-height: 1.2;
 }
 

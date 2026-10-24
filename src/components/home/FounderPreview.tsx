@@ -9,9 +9,12 @@ export function FounderPreview() {
     <Section tone="sand" labelledBy="founder-title">
       <Container>
         <div className={styles.grid}>
+          <div>
+          <p className="kicker">Our story</p>
           <h2 id="founder-title" className={styles.title}>
             Founded by an installer who believed customers deserved more care after the sale.
           </h2>
+          </div>
           <div className={styles.body}>
             <p>
               In the early 1990s, Armond Markarian was working as a flooring installer and running a small business of

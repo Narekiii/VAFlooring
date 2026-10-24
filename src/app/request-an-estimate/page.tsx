@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
 export const metadata = pageMetadata({
-  title: "Request an Estimate",
+  title: "Request a Flooring Estimate in Los Angeles",
   description:
     "Tell V & A Flooring about your home, ADU, multifamily, hospitality or commercial flooring project in Los Angeles. We’ll follow up to discuss scope, materials and timing.",
   path: routes.estimate,
@@ -30,7 +30,12 @@ export default function EstimatePage() {
   const { phone, email, address, hours } = business;
   return (
     <>
-      <PageHero title="Request an Estimate" subtitle="Let’s talk about your project.">
+      <PageHero
+        kicker="Contact"
+        title="Request a Flooring Estimate"
+        subtitle="Let’s talk about your project."
+        crumbs={[{ name: "Request an Estimate", href: routes.estimate }]}
+      >
         <p>
           Share a few details and we’ll follow up to discuss what you have in mind. There’s no obligation, and you
           don’t need every answer yet.

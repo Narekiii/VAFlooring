@@ -1,45 +1,70 @@
 .hero {
-  --hero-ratio: 16 / 7;
-  --title-size: clamp(2rem, 1.1rem + 4vw, 4.5rem);
-  --course-offset: calc(var(--title-size) * 1.6);
-  padding-top: clamp(2.5rem, 1.5rem + 3.5vw, 4.5rem);
-  background: var(--ivory);
+  position: relative;
+  display: grid;
+  min-height: clamp(36rem, 78vh, 46rem);
+  background: var(--navy);
+  isolation: isolate;
 }
 
-.top {
-  padding-bottom: clamp(2.5rem, 1.75rem + 2.5vw, 4rem);
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.label {
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  padding: 0.2rem 0.5rem;
+  background: var(--ivory);
+  color: var(--navy);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: var(--radius);
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding: clamp(2.5rem, 2rem + 3vw, 5rem) var(--gutter);
+}
+
+/* Solid navy panel keeps text contrast independent of the photograph. */
+.panel {
+  max-width: 41rem;
+  padding: clamp(2rem, 1.25rem + 3vw, 3.5rem);
+  background: var(--navy);
+  border-top: 4px solid var(--brass);
+  box-shadow: 0 30px 60px -30px rgba(10, 20, 28, 0.6);
 }
 
 .title {
-  font-size: var(--title-size);
-  line-height: 1.08;
-  letter-spacing: -0.015em;
+  color: var(--white);
+  font-size: clamp(2.125rem, 1.35rem + 3vw, 3.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.032em;
 }
 
-.line {
-  display: block;
-}
-
-/* The second line starts one course in, like the offset joints of a plank floor.
-   The supporting copy below aligns to the same offset. */
-.offset {
-  padding-left: var(--course-offset);
-}
-
-.aside {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--space-5) var(--space-7);
-  margin-top: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
-  margin-left: var(--course-offset);
+.tagline {
+  margin-top: var(--space-5);
+  color: var(--brass-light);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  letter-spacing: -0.005em;
 }
 
 .lede {
-  max-width: 34rem;
-  color: var(--graphite);
-  font-size: var(--text-lg);
+  margin-top: var(--space-3);
+  color: var(--sand);
+  font-size: var(--text-base);
   line-height: 1.6;
 }
 
@@ -47,29 +72,27 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-}
-
-.hero .mediaWrap {
-  padding-inline: 0;
-}
-
-.media {
-  margin: 0;
-}
-
-@media (min-width: 60rem) {
-  .title {
-    white-space: nowrap;
-  }
+  margin-top: var(--space-6);
 }
 
 @media (max-width: 48rem) {
   .hero {
-    --hero-ratio: 4 / 3;
-    --course-offset: calc(var(--title-size) * 0.9);
+    min-height: 0;
   }
 
-  .aside {
-    margin-left: 0;
+  .media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+  }
+
+  .wrap {
+    padding: 0;
+  }
+
+  .panel {
+    max-width: none;
+    border-top: 0;
+    box-shadow: none;
+    padding: var(--space-7) var(--gutter) var(--space-8);
   }
 }
