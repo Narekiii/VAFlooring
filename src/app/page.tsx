@@ -2,6 +2,7 @@ import { Hero } from "@/components/home/Hero";
 import { CredibilityStrip } from "@/components/home/CredibilityStrip";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { MaterialsIntro } from "@/components/home/MaterialsIntro";
+import { Showroom } from "@/components/home/Showroom";
 import { FeaturedWork } from "@/components/home/FeaturedWork";
 import { Commitments } from "@/components/home/Commitments";
 import { LowesNote } from "@/components/home/LowesNote";
@@ -40,6 +41,7 @@ export default function HomePage() {
         </Container>
       </Section>
       <MaterialsIntro />
+      <Showroom />
       <FeaturedWork />
       <Commitments>
         <LowesNote />

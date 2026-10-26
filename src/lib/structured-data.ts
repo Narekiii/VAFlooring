@@ -2,6 +2,7 @@ import { business, facts } from "@/content/site";
 import { serviceAreas } from "@/content/services";
 import { publishedServices, serviceHref, type Faq, type Service } from "@/content/services";
 import { siteUrl } from "./seo";
+import { images } from "@/content/images";
 
 /**
  * JSON-LD built only from verified details in content/site.ts and content/services.ts.
@@ -78,7 +79,10 @@ export function organizationJsonLd() {
     data["@id"] = orgId();
     data.url = url;
     data.logo = `${url}/brand/icon-512.png`;
-    data.image = `${url}/opengraph-image.jpg`;
+    data.image = [
+      `${url}/opengraph-image.jpg`,
+      ...[images.storefront, images.showroomAisle, images.designCenter, images.warehouse].map((i) => `${url}${i.src.src}`),
+    ];
   }
   if (business.phone) data.telephone = business.phone;
   if (business.email) data.email = business.email;

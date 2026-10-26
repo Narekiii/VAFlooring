@@ -83,7 +83,7 @@ export default function StoryPage() {
         kicker="About V & A Flooring Inc"
         title="Our Story"
         subtitle={`A family-owned Los Angeles flooring company since ${business.founded}.`}
-        image={images.plankDetail}
+        image={images.designCenter}
         crumbs={[{ name: "Our Story", href: routes.story }]}
       >
         <p>

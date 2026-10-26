@@ -30,7 +30,7 @@ export default function MaterialsPage() {
         kicker="Materials & brands"
         title="Flooring Materials & Brands"
         subtitle="The right floor depends on how the space will be used."
-        image={images.samples}
+        image={images.showroomCarpetVinyl}
         crumbs={[{ name: "Materials & Brands", href: routes.materials }]}
         actions={
           <ButtonLink href={routes.estimate} variant="light">
@@ -110,7 +110,7 @@ export default function MaterialsPage() {
 
       <Section tone="sand" labelledBy="specified">
         <Container>
-          <MediaSplit image={images.plankDetail} reverse>
+          <MediaSplit image={images.showroomTile} reverse>
             <p className="kicker">Specified products</p>
             <h2 id="specified">Already have a product in mind?</h2>
             <p>

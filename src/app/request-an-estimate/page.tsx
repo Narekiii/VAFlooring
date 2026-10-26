@@ -1,3 +1,5 @@
+import { Figure } from "@/components/ui/Figure";
+import { images } from "@/content/images";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
@@ -77,6 +79,15 @@ export default function EstimatePage() {
                       </li>
                     )}
                   </ul>
+                  {address && (
+                    <Figure
+                      image={images.storefront}
+                      ratio="16 / 9"
+                      sizes="(min-width: 64rem) 22rem, 100vw"
+                      caption="Our showroom and design center in Sun Valley."
+                      className={styles.storefront}
+                    />
+                  )}
                   {address && (
                     <address className={styles.address}>
                       {address.streetAddress}

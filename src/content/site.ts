@@ -88,3 +88,11 @@ export const regionLine = "Los Angeles, Orange and Ventura counties";
 export function telHref(phone: string): string {
   return `tel:${phone.replace(/[^\d+]/g, "")}`;
 }
+
+/** Google Maps search link for the business address, or null when no address is configured. */
+export function mapsHref(): string | null {
+  const a = business.address;
+  if (!a) return null;
+  const q = `${business.name}, ${a.streetAddress}, ${a.addressLocality}, ${a.addressRegion} ${a.postalCode}`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+}

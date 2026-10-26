@@ -33,9 +33,12 @@ configuration goes in environment variables (see `.env.example`).
 - [ ] **Operating hours** (`hours`), if the business publishes them.
 - [ ] **Owner portrait** of Armond Markarian. None was supplied, so none is shown; the
       Our Story page is ready for one.
-- [ ] **Company photography.** All current images are original illustrative renderings,
-      labelled "Illustrative rendering" on the site. Replace them with real V & A Flooring
-      project and crew photos in `src/content/images.ts`.
+- [~] **Company photography.** Real photos of the storefront, showroom, design center and
+      warehouse are now used (`kind: "company"` in `src/content/images.ts`): homepage hero and
+      showroom section, service-page sidebars, Commercial, Materials, Service Areas, Our Story and
+      the estimate page. Room scenes (homepage service cards, residential page, project cards,
+      service-page heroes) are still illustrative renderings, labelled as such. Replace them with
+      real completed-installation photos when available.
 - [ ] **Verified projects.** `src/content/projects.ts` is empty. Add projects with real
       photos and confirmed details (name, location, property type, material, scope). The
       Projects page switches from property types to a filterable portfolio automatically.

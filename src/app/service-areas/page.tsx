@@ -26,7 +26,7 @@ export default function ServiceAreasPage() {
       <PageHero
         kicker="Service areas"
         title="Flooring Installation in Los Angeles, Orange & Ventura Counties"
-        image={images.corridor}
+        image={images.storefront}
         crumbs={[{ name: "Service Areas", href: routes.serviceAreas }]}
         actions={
           <>

@@ -29,7 +29,7 @@ export function MaterialsIntro() {
             </ul>
             <TextLink href={routes.materials}>How we help you choose materials</TextLink>
           </div>
-          <Figure image={images.samples} ratio="5 / 4" sizes="(min-width: 64rem) 34rem, 100vw" className={styles.figure} />
+          <Figure image={images.showroomPlanks} ratio="5 / 4" sizes="(min-width: 64rem) 34rem, 100vw" className={styles.figure} caption="Our showroom in Sun Valley." />
         </div>
 
         <div className={styles.brands}>

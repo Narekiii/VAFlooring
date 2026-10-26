@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
-import { images } from "@/content/images";
+import { images, type SiteImage } from "@/content/images";
 import { routes } from "@/content/navigation";
 import styles from "./Hero.module.css";
 
 export function Hero() {
-  const img = images.livingWide;
+  const img: SiteImage = images.showroomAisle;
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.media}>
@@ -17,7 +17,7 @@ export function Hero() {
           sizes="100vw"
           placeholder="blur"
           className={styles.img}
-          style={{ objectPosition: "60% 65%" }}
+          style={{ objectPosition: img.focus ?? "50% 50%" }}
         />
         {img.kind === "illustrative" && <span className={styles.label}>Illustrative rendering</span>}
       </div>

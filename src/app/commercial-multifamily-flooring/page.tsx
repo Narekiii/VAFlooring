@@ -63,7 +63,7 @@ export default function CommercialPage() {
         kicker="Commercial & multifamily"
         title={"Commercial\u00a0& Multifamily Flooring Contractor in Los\u00a0Angeles"}
         subtitle="Experience and capacity for larger projects."
-        image={images.corridor}
+        image={images.warehouse}
         crumbs={[{ name: "Commercial & Multifamily", href: "/commercial-multifamily-flooring" }]}
         actions={
           <ButtonLink href={estimateFor.commercial} variant="light">
