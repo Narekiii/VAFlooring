@@ -19,6 +19,7 @@ def svg(name, cls=""):
 fav = (ROOT / "src/app/icon.svg").read_text()
 serif = base64.b64encode((ROOT / "src/app/fonts/LibreBaskerville-Variable.woff2").read_bytes()).decode()
 sans = base64.b64encode((ROOT / "src/app/fonts/Inter-Variable.woff2").read_bytes()).decode()
+mont = base64.b64encode((pathlib.Path(__file__).parent / "Montserrat-VF.ttf").read_bytes()).decode()
 
 
 def rgb(h):
@@ -52,7 +53,7 @@ primary = [
     ("Natural Sand", "#E6DED1", "Alternate sections and quiet surfaces.", "#172B3A", "8%"),
     ("Graphite", "#303538", "Body text.", "#FFFFFF", "text"),
     ("Deep Bronze", "#75552F", "Primary buttons (white text) and small accent text on light backgrounds.", "#FFFFFF", "4%"),
-    ("Muted Brass", "#AA8453", "Signature accent: logo crossbar and ampersand, short rules. Never body text on light backgrounds.", "#172B3A", "3%"),
+    ("Muted Brass", "#AA8453", "Signature accent: the logo’s center plank and short rules. Never body text on light backgrounds.", "#172B3A", "3%"),
 ]
 derived = [
     ("Bronze Pressed", "#5E4424", "Primary button hover / pressed."),
@@ -109,6 +110,7 @@ def pair(fg, bg, use):
 
 css = f"""
 @font-face {{ font-family: "Libre Baskerville"; src: url(data:font/woff2;base64,{serif}) format("woff2"); font-weight: 400 700; }}
+@font-face {{ font-family: "Montserrat"; src: url(data:font/ttf;base64,{mont}) format("truetype"); font-weight: 100 900; }}
 @font-face {{ font-family: "Inter"; src: url(data:font/woff2;base64,{sans}) format("woff2"); font-weight: 100 900; }}
 :root {{ --navy:#172B3A; --ivory:#F7F4EE; --sand:#E6DED1; --brass:#AA8453; --bronze:#75552F; --graphite:#303538; --soft:#4A5A66; --line:#D9CFBF; --brassl:#C7A57A; }}
 * {{ box-sizing: border-box; }}
@@ -174,7 +176,7 @@ ul {{ padding-left: 22px; }} li {{ margin: 5px 0; }}
 .btn {{ display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; font-weight: 750; font-size: 15px; border: 2px solid transparent; border-radius: 2px; }}
 .bizcard {{ width: 350px; height: 200px; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 24px rgba(23,43,58,.12); position: relative; overflow: hidden; }}
 .bizcard.front {{ background: var(--navy); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 14px; }}
-.bizcard.front svg {{ width: 128px; height: auto; }}
+.bizcard.front svg {{ width: 230px; height: auto; }}
 .bizcard.front p {{ margin: 0; color: var(--brassl); font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }}
 .bizcard.back {{ background: #fff; padding: 22px 24px; }}
 .bizcard.back::before {{ content: ""; position: absolute; left: 24px; top: 22px; width: 28px; height: 3px; background: var(--brass); }}
@@ -204,7 +206,7 @@ body = f"""
     {svg("va-flooring-horizontal-reverse.svg", "logo")}
     <h1>Brand Identity<br>Guidelines</h1>
     <p>Logo, color, typography, voice and everyday applications for V&nbsp;&amp;&nbsp;A Flooring.</p>
-    <p class="meta">Version 2.0 · October 2026 · Family Owned • Since 1999</p>
+    <p class="meta">Version 3.0 · October 2026 · Family Owned • Since 1999</p>
     <nav class="toc" aria-label="Contents">
       <a href="#brand"><span>01</span>Brand foundation</a>
       <a href="#logo"><span>02</span>Logo</a>
@@ -247,8 +249,8 @@ body = f"""
 
 <section class="part" id="logo">
 <p class="kicker">02 · Logo</p>
-<h2>The V&nbsp;&amp;&nbsp;A logo</h2>
-<p class="lede">An original monogram where the V and the A share one stroke. The thick down-strokes and thin shared up-stroke follow classic serif contrast. Every stroke end is cut flat on two horizontal lines, like plank ends on a finished floor, and the A’s crossbar is a single short brass “plank.” The wordmark is set in Libre Baskerville Bold with a smaller, lighter ampersand.</p>
+<h2>The V&nbsp;&amp;&nbsp;A Flooring Inc logo</h2>
+<p class="lede">The mark is a parquet pattern: four navy planks locked around a single brass plank, the way flooring is laid. All four gaps are equal, and the brass center plank is the one warm accent. The wordmark reads “V&nbsp;&amp;&nbsp;A FLOORING INC,” with “V&nbsp;&amp;&nbsp;A” in Montserrat Black and “FLOORING INC” in Montserrat SemiBold, in uppercase.</p>
 
 <h3>Primary logo: horizontal</h3>
 <div class="grid g2">
@@ -265,12 +267,12 @@ body = f"""
 </div>
 <p>Use where space is square or tall: footer, business card front, polo shirts, hard hats, social posts, trade-show banners.</p>
 
-<h3>Monogram</h3>
+<h3>Mark (parquet symbol)</h3>
 <div class="grid g4">
   <div><div class="tile white">{svg("va-flooring-monogram-navy.svg", "mo")}</div><p class="cap">Full color</p></div>
   <div><div class="tile" style="background:#172B3A">{svg("va-flooring-monogram-reverse.svg", "mo")}</div><p class="cap">Reverse</p></div>
   <div><div class="tile" style="background:#75552F">{svg("va-flooring-monogram-mono-white.svg", "mo")}</div><p class="cap">White, one color</p></div>
-  <div><div class="tile white">{svg("va-flooring-monogram-mono-black.svg", "mo")}</div><p class="cap">Black, one color</p></div>
+  <div><div class="tile white">{svg("va-flooring-monogram-mono-black.svg", "mo")}</div><p class="cap">Black, one color (center plank knocked out)</p></div>
 </div>
 <p>For small or secondary spaces once the full name is already visible: favicon, social avatar, app icon, embroidery on sleeves, stamps, tape and packaging.</p>
 
@@ -280,21 +282,21 @@ body = f"""
   <div><div class="tile white">{svg("va-flooring-horizontal-mono-black.svg", "hl")}</div><p class="cap">Black · <code>…-mono-black.svg</code></p></div>
   <div><div class="tile" style="background:#303538">{svg("va-flooring-horizontal-mono-white.svg", "hl")}</div><p class="cap">White · <code>…-mono-white.svg</code></p></div>
 </div>
-<p>For one-color print, embroidery, vinyl cutting, engraving, rubber stamps and faxed or photocopied forms. The logo works fully in one color; the crossbar and ampersand simply take the main color.</p>
+<p>For one-color print, embroidery, vinyl cutting, engraving, rubber stamps and photocopies. In one color the brass center plank is knocked out (left empty) so the pattern still reads.</p>
 
 <h3>Clear space</h3>
 <div class="clear">{svg("va-flooring-horizontal-navy.svg")}</div>
-<p>Keep a margin around the logo at least equal to the <strong>height of the V in the wordmark</strong> (about one third of the monogram’s height). Keep text, photos, other logos and edges out of this area.</p>
+<p>Keep a margin around the logo at least equal to the <strong>height of the brass center plank</strong> (about one third of the mark’s height). Keep text, photos, other logos and edges out of this area.</p>
 
 <h3>Minimum size</h3>
 <div class="sizes">
-  <div><div style="width:150px">{svg("va-flooring-horizontal-mono-navy.svg")}</div>Horizontal: 150 px / 1.25 in wide</div>
+  <div><div style="width:180px">{svg("va-flooring-horizontal-mono-navy.svg")}</div>Horizontal: 180 px / 1.5 in wide</div>
   <div><div style="width:90px">{svg("va-flooring-stacked-mono-navy.svg")}</div>Stacked: 90 px / 0.75 in wide</div>
-  <div><div style="width:24px">{svg("va-flooring-monogram-mono-navy.svg")}</div>Monogram: 16 px / 0.2 in</div>
+  <div><div style="width:24px">{svg("va-flooring-monogram-navy.svg")}</div>Mark: 16 px / 0.2 in</div>
   <div><div style="width:32px">{fav}</div>Favicon 32 px</div>
   <div><div style="width:16px">{fav}</div>16 px</div>
 </div>
-<p>Below these sizes use the monogram. Below 32 px use the one-color monogram so the crossbar stays visible.</p>
+<p>Below these sizes use the mark on its own. At favicon size the mark sits on a navy tile.</p>
 
 <h3>Backgrounds</h3>
 <div class="grid g4">
@@ -311,12 +313,12 @@ body = f"""
   <figure><div class="box white" style="filter:hue-rotate(160deg) saturate(3)">{svg("va-flooring-horizontal-navy.svg")}</div><figcaption>Change the colors</figcaption></figure>
   <figure><div class="box white"><div style="transform:rotate(-12deg)">{svg("va-flooring-horizontal-navy.svg")}</div></div><figcaption>Rotate or tilt</figcaption></figure>
   <figure><div class="box" style="background:#AA8453">{svg("va-flooring-horizontal-navy.svg")}</div><figcaption>Place on brass or busy colors</figcaption></figure>
-  <figure><div class="box white" style="font:700 22px 'Times New Roman';color:#172B3A">VA <span style="font-size:15px">FLOORING</span></div><figcaption>Retype the wordmark</figcaption></figure>
+  <figure><div class="box white" style="font:700 20px 'Times New Roman';color:#172B3A">V&amp;A Flooring Inc.</div><figcaption>Retype the wordmark</figcaption></figure>
   <figure><div class="box white"><div style="filter:drop-shadow(3px 4px 2px rgba(0,0,0,.55))">{svg("va-flooring-horizontal-navy.svg")}</div></div><figcaption>Add shadows, glows or bevels</figcaption></figure>
   <figure><div class="box" style="background:#303538">{svg("va-flooring-horizontal-navy.svg")}</div><figcaption>Use navy logo on dark backgrounds</figcaption></figure>
   <figure><div class="box white" style="gap:8px"><div style="width:48px">{svg("va-flooring-monogram-navy.svg")}</div><span style="font:800 13px Inter;color:#172B3A;border:1px solid #ccc;padding:4px 6px">PARTNER</span></div><figcaption>Lock up with Lowe’s or manufacturer logos</figcaption></figure>
 </div>
-<p>Also avoid: outlining the logo, adding a roof, hammer, saw blade or other clip-art, enlarging the ampersand, or placing the logo inside a box with rounded corners.</p>
+<p>Also avoid: rearranging or recoloring individual planks, adding more planks, outlining the logo, adding a roof, hammer or other clip-art, or placing the logo inside a box with rounded corners.</p>
 </section>
 
 <section class="part" id="color">
@@ -355,7 +357,7 @@ body = f"""
 <h2>Typefaces</h2>
 <div class="grid g2">
   <div class="card"><p class="kicker" style="margin:0 0 10px">Primary · all communication</p><div style="font:800 56px/1 Inter;color:#172B3A;letter-spacing:-.03em">Inter</div><p style="font:400 15px Inter">Aa Bb Cc Dd Ee Ff Gg 0123456789</p><p class="cap">Headlines (ExtraBold 800), body (Regular 400), buttons and labels (SemiBold–Bold 600–750). Free, SIL Open Font License · fonts.google.com/specimen/Inter</p></div>
-  <div class="card"><p class="kicker" style="margin:0 0 10px">Logo wordmark only</p><div style="font:700 50px/1 'Libre Baskerville';color:#172B3A">Baskerville</div><p style="font:400 15px 'Libre Baskerville'">Aa Bb Cc Dd Ee Ff Gg 0123456789</p><p class="cap">Libre Baskerville Bold is built into the wordmark. Do not use it for headlines; it may appear in formal documents such as certificates. Free, SIL Open Font License.</p></div>
+  <div class="card"><p class="kicker" style="margin:0 0 10px">Logo wordmark only</p><div style="font:900 50px/1 Montserrat;color:#172B3A">MONTSERRAT</div><p style="font:600 15px Montserrat">Aa Bb Cc Dd Ee Ff Gg 0123456789</p><p class="cap">Montserrat Black and SemiBold are built into the wordmark as outlines, so the logo never depends on the font being installed. Use it only for the logo or short uppercase signage text matching the logo. Free, SIL Open Font License.</p></div>
 </div>
 <p>If Inter is not installed (for example in Word or PowerPoint), use <strong>Arial</strong> as the fallback. Bold Arial for headlines, regular Arial for text.</p>
 
@@ -375,7 +377,7 @@ body = f"""
 <p class="kicker">05 · Graphic elements</p>
 <h2>Graphic elements</h2>
 <div class="grid g3">
-  <div class="card"><h4>The brass plank</h4><div style="width:32px;height:3px;background:#AA8453;margin:12px 0"></div><p>A short 32 × 3 px brass rule taken from the logo’s crossbar. Used above kicker labels, on top of feature items and on printed pieces. One per element.</p></div>
+  <div class="card"><h4>The brass plank</h4><div style="width:32px;height:3px;background:#AA8453;margin:12px 0"></div><p>A short 32 × 3 px brass rule echoing the logo’s brass center plank. Used above kicker labels, on top of feature items and on printed pieces. One per element.</p></div>
   <div class="card"><h4>Corners</h4><div style="width:60px;height:36px;border:2px solid #172B3A;border-radius:2px;margin:12px 0"></div><p>Near-square corners (2 px radius) on buttons, cards, images and form fields. No pill shapes or large rounded cards.</p></div>
   <div class="card"><h4>Lines</h4><div style="height:1px;background:#D9CFBF;margin:28px 0 8px"></div><div style="height:3px;background:#172B3A;margin:0 0 12px"></div><p>1 px Line hairlines between items; a 3 px navy rule to open major sections.</p></div>
 </div>
@@ -423,7 +425,7 @@ body = f"""
 <p>“LA’s largest,” “number one,” “best prices,” “guaranteed perfect installation,” “lifetime warranty,” “waterproof” or “scratchproof” (unless quoting a specific manufacturer’s product specification), and invented reviews or testimonials.</p>
 <h3>Business details (use consistently everywhere)</h3>
 <div class="facts">
-  <div>Name</div><div>V&nbsp;&amp;&nbsp;A Flooring (legal: V&nbsp;&amp;&nbsp;A Flooring Inc). Also known as VA Flooring; always write “V&nbsp;&amp;&nbsp;A Flooring” publicly.</div>
+  <div>Name</div><div>V&nbsp;&amp;&nbsp;A Flooring Inc (logo and legal name). “V&nbsp;&amp;&nbsp;A Flooring” is fine in running text. Never “VA Flooring” or “V&amp;A” without spaces.</div>
   <div>Address</div><div>10945 Pendleton St, Sun Valley, CA 91352</div>
   <div>Phone</div><div>(818) 843-4773</div>
   <div>License</div><div>CSLB #866991 · B, C-15, C-54 · Bonded &amp; Insured</div>
@@ -469,11 +471,11 @@ body = f"""
 <tr><td><code>va-flooring-horizontal-reverse.svg</code></td><td>Primary logo on navy / dark backgrounds</td></tr>
 <tr><td><code>va-flooring-horizontal-mono-navy / -black / -white.svg</code></td><td>One-color print, embroidery, vinyl, engraving</td></tr>
 <tr><td><code>va-flooring-stacked-navy / -reverse / -mono-*.svg</code></td><td>Square and tall spaces</td></tr>
-<tr><td><code>va-flooring-monogram-navy / -reverse / -mono-*.svg</code></td><td>Avatars, icons, small spaces</td></tr>
+<tr><td><code>va-flooring-monogram-navy / -reverse / -mono-*.svg</code></td><td>The parquet mark alone: avatars, icons, small spaces</td></tr>
 <tr><td><code>favicon.ico</code>, <code>icon.svg</code>, <code>icon-192.png</code>, <code>icon-512.png</code></td><td>Website and app icons</td></tr>
 </table>
 <p>All logos are flat vector SVG and scale to any size. For print shops that need PDF or EPS, open the SVG in Illustrator, Affinity Designer or Inkscape and save as PDF/EPS. Do not redraw the logo.</p>
-<p class="foot">V&nbsp;&amp;&nbsp;A Flooring Brand Identity Guidelines · Version 2.0 · October 2026. Inter and Libre Baskerville are licensed under the SIL Open Font License. Mohawk, Shaw, Engineered Floors and Lowe’s are trademarks of their respective owners.</p>
+<p class="foot">V&nbsp;&amp;&nbsp;A Flooring Inc Brand Identity Guidelines · Version 3.0 · October 2026. Inter and Montserrat are licensed under the SIL Open Font License. Mohawk, Shaw, Engineered Floors and Lowe’s are trademarks of their respective owners.</p>
 </section>
 </main>
 """

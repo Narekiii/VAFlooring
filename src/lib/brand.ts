@@ -13,6 +13,7 @@ export const palette = {
 } as const;
 
 export const fonts = {
-  heading: "Libre Baskerville",
+  heading: "Inter",
+  logo: "Montserrat (outlined in the logo files)",
   body: "Inter",
 } as const;

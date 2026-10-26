@@ -58,7 +58,7 @@ export function MobileMenu({ items, cta }: { items: NavItem[]; cta: { label: str
   }, [open, close]);
 
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 63.0625rem)");
+    const mq = window.matchMedia("(min-width: 76.0625rem)");
     const onChange = () => mq.matches && setOpen(false);
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);

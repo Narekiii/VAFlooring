@@ -71,7 +71,7 @@
   --focus: 3px solid var(--bronze);
 }
 
-@media (max-width: 63rem) {
+@media (max-width: 76rem) {
   :root {
     --header-h: 4.25rem;
   }

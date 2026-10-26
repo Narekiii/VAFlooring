@@ -19,7 +19,7 @@ html, body {{ margin: 0; width: 1200px; height: 630px; overflow: hidden; }}
 .wrap {{ display: grid; grid-template-columns: 620px 580px; width: 1200px; height: 630px; background: #172B3A; }}
 .text {{ display: flex; flex-direction: column; justify-content: space-between; padding: 56px 56px 52px; }}
 .logo svg {{ height: 40px; width: auto; display: block; }}
-h1 {{ margin: 0; font-family: B; font-weight: 700; font-size: 37px; line-height: 1.14; color: #F7F4EE; letter-spacing: -0.01em; }}
+h1 {{ margin: 0; font-family: I; font-weight: 800; letter-spacing: -0.03em; font-size: 37px; line-height: 1.14; color: #F7F4EE; letter-spacing: -0.01em; }}
 h1 span {{ display: block; }} h1 .o {{ padding-left: 1.2em; }}
 .line {{ font-family: I; font-size: 18px; color: #C7A57A; letter-spacing: 0.03em; }}
 .photo {{ position: relative; background: url(data:image/jpeg;base64,{img}) 52% 62% / cover no-repeat; }}
