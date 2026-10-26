@@ -8,6 +8,7 @@ import styles from "./Showroom.module.css";
 
 const gallery: { image: SiteImage; caption: string }[] = [
   { image: images.storefront, caption: "10945 Pendleton St, Sun Valley" },
+  { image: images.showroomSelection, caption: "Selection area" },
   { image: images.designCenter, caption: "Design center" },
   { image: images.showroomHardwood, caption: "Hardwood" },
   { image: images.showroomTile, caption: "Tile & stone-look" },

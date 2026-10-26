@@ -30,8 +30,7 @@
 .gallery {
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-3);
   margin-top: clamp(2.5rem, 1.5rem + 3vw, 4rem);
   list-style: none;
@@ -81,6 +80,14 @@
 
   .gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery li:last-child {
+    grid-column: span 2;
+  }
+
+  .gallery li:last-child .frame {
+    aspect-ratio: 16 / 9;
   }
 
   .lead .frame {

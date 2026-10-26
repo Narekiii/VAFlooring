@@ -30,7 +30,7 @@ export default function MaterialsPage() {
         kicker="Materials & brands"
         title="Flooring Materials & Brands"
         subtitle="The right floor depends on how the space will be used."
-        image={images.showroomCarpetVinyl}
+        image={images.showroomSelection}
         crumbs={[{ name: "Materials & Brands", href: routes.materials }]}
         actions={
           <ButtonLink href={routes.estimate} variant="light">

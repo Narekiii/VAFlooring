@@ -19,6 +19,7 @@ import showroomHardwood from "@/assets/images/company/showroom-hardwood-displays
 import showroomCarpetLvp from "@/assets/images/company/showroom-carpet-lvp.jpg";
 import showroomCarpetVinyl from "@/assets/images/company/showroom-carpet-vinyl.jpg";
 import showroomTile from "@/assets/images/company/showroom-tile-stone.jpg";
+import showroomSelection from "@/assets/images/company/showroom-selection-table.jpg";
 import warehouse from "@/assets/images/company/warehouse-inventory.jpg";
 
 /**
@@ -155,6 +156,12 @@ export const images = {
     alt: "Porcelain tile and stone-look sample displays in the V & A Flooring Inc showroom",
     kind: "company",
     focus: "60% 55%",
+  },
+  showroomSelection: {
+    src: showroomSelection,
+    alt: "Selection table in the V & A Flooring Inc showroom surrounded by vinyl plank, laminate, carpet and tile sample displays",
+    kind: "company",
+    focus: "55% 55%",
   },
   warehouse: {
     src: warehouse,
