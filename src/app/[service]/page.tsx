@@ -31,7 +31,7 @@ type Params = { params: Promise<{ service: string }> };
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const s = getService((await params).service);
   if (!s) return {};
-  return pageMetadata({ title: s.metaTitle, description: s.metaDescription, path: serviceHref(s) });
+  return pageMetadata({ title: s.metaTitle, description: s.metaDescription, path: serviceHref(s), image: s.detailImage });
 }
 
 export default async function ServicePage({ params }: Params) {
@@ -52,6 +52,7 @@ export default async function ServicePage({ params }: Params) {
   return (
     <>
       <PageHero
+        description={s.metaDescription}
         kicker="Flooring services"
         title={s.h1}
         image={s.image}

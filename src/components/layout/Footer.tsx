@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
-import { business, licenseLine, regionLine, telHref } from "@/content/site";
+import { business, directionsHref, hoursLines, licenseLine, regionLine, telHref } from "@/content/site";
 import { footerCompany, footerServices, routes } from "@/content/navigation";
 import styles from "./Footer.module.css";
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const { phone, email, address, hours, license } = business;
+  const { phone, email, address, license } = business;
+  const hours = hoursLines(true);
+  const directions = directionsHref();
   return (
     <footer className={styles.footer} data-surface="dark">
       <div className={styles.wrap}>
@@ -72,7 +74,12 @@ export function Footer() {
                 {address.addressLocality}, {address.addressRegion} {address.postalCode}
               </address>
             )}
-            {hours && hours.length > 0 && (
+            {directions && (
+              <a href={directions} className={styles.directions} target="_blank" rel="noopener noreferrer">
+                Get directions<span className="visually-hidden"> (opens Google Maps in a new tab)</span>
+              </a>
+            )}
+            {hours.length > 0 && (
               <ul className={styles.hours}>
                 {hours.map((h) => (
                   <li key={h}>{h}</li>

@@ -5,15 +5,18 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { EstimateForm } from "@/components/contact/EstimateForm";
 import { routes } from "@/content/navigation";
-import { business, facts, regionLine, telHref } from "@/content/site";
+import { business, facts, regionLine, telHref, hoursLines } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
+const description =
+  "Request an estimate for hardwood, laminate, LVP, carpet or tile flooring in Los Angeles, Orange or Ventura counties. We follow up to discuss scope and timing.";
+
 export const metadata = pageMetadata({
   title: "Request a Flooring Estimate in Los Angeles",
-  description:
-    "Tell V & A Flooring Inc about your home, ADU, multifamily, hospitality or commercial flooring project in Los Angeles. We’ll follow up to discuss scope, materials and timing.",
+  description,
   path: routes.estimate,
+  image: images.storefront,
 });
 
 const next = [
@@ -29,10 +32,12 @@ const next = [
 ];
 
 export default function EstimatePage() {
-  const { phone, email, address, hours } = business;
+  const { phone, email, address } = business;
+  const hours = hoursLines();
   return (
     <>
       <PageHero
+        description={description}
         kicker="Contact"
         title="Request a Flooring Estimate"
         subtitle="Let’s talk about your project."
@@ -64,7 +69,7 @@ export default function EstimatePage() {
                 ))}
               </ol>
 
-              {(phone || email || address || hours) && (
+              {(phone || email || address || hours.length > 0) && (
                 <div className={styles.contact}>
                   <h2 className={styles.asideTitle}>Contact V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc</h2>
                   <ul className={styles.contactList}>
@@ -95,7 +100,7 @@ export default function EstimatePage() {
                       {address.addressLocality}, {address.addressRegion} {address.postalCode}
                     </address>
                   )}
-                  {hours && (
+                  {hours.length > 0 && (
                     <ul className={styles.hours}>
                       {hours.map((h) => (
                         <li key={h}>{h}</li>

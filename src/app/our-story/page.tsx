@@ -4,17 +4,21 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { InquiryCta } from "@/components/home/InquiryCta";
 import { Credentials } from "@/components/credentials/Credentials";
+import { CompanyFacts } from "@/components/company/CompanyFacts";
 import { images } from "@/content/images";
 import { routes } from "@/content/navigation";
 import { business, facts } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
+const description =
+  "Founded in 1999 by installer Armond Markarian, V & A Flooring Inc is a licensed, family-owned flooring contractor and showroom in Sun Valley, Los Angeles.";
+
 export const metadata = pageMetadata({
-  title: "About Us: Family-Owned Flooring Company Since 1999",
-  description:
-    "Founded in 1999 by installer Armond Markarian, V & A Flooring Inc is a family-owned Los Angeles flooring company built on good materials, careful installation and support after the job.",
+  title: "About Us: Family-Owned Since 1999",
+  description,
   path: routes.story,
+  image: images.designCenter,
 });
 
 const chapters = [
@@ -80,6 +84,8 @@ export default function StoryPage() {
   return (
     <>
       <PageHero
+        description={description}
+        pageType="AboutPage"
         kicker="About V & A Flooring Inc"
         title="Our Story"
         subtitle={`A family-owned Los Angeles flooring company since ${business.founded}.`}
@@ -132,6 +138,12 @@ export default function StoryPage() {
               </li>
             ))}
           </ul>
+        </Container>
+      </Section>
+
+      <Section tone="ivory" labelledBy="facts-title">
+        <Container>
+          <CompanyFacts headingId="facts-title" />
         </Container>
       </Section>
 

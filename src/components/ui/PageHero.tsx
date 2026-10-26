@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { SiteImage } from "@/content/images";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbJsonLd, type Crumb } from "@/lib/structured-data";
+import { breadcrumbJsonLd, webPageJsonLd, type Crumb, type PageType } from "@/lib/structured-data";
 import { Container } from "./Container";
 import { Figure } from "./Figure";
 import styles from "./PageHero.module.css";
@@ -17,9 +17,13 @@ type Props = {
   imageFocus?: string;
   /** Trail after "Home", ending with the current page. */
   crumbs?: Crumb[];
+  /** schema.org page type for the WebPage node (default WebPage). */
+  pageType?: PageType;
+  /** Page summary for structured data (usually the meta description). */
+  description?: string;
 };
 
-export function PageHero({ title, subtitle, kicker, children, actions, image, imageFocus, crumbs }: Props) {
+export function PageHero({ title, subtitle, kicker, children, actions, image, imageFocus, crumbs, pageType, description }: Props) {
   const trail: Crumb[] | null = crumbs ? [{ name: "Home", href: "/" }, ...crumbs] : null;
   return (
     <section className={`${styles.hero} ${image ? "" : styles.noImage}`} aria-labelledby="page-title" data-surface="dark">
@@ -56,6 +60,17 @@ export function PageHero({ title, subtitle, kicker, children, actions, image, im
         </div>
       </Container>
       {trail && <JsonLd data={breadcrumbJsonLd(trail)} />}
+      {trail && (
+        <JsonLd
+          data={webPageJsonLd({
+            path: trail[trail.length - 1].href,
+            name: title,
+            description,
+            type: pageType,
+            image,
+          })}
+        />
+      )}
     </section>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { business } from "@/content/site";
+import type { SiteImage } from "@/content/images";
 
 /**
  * The production domain, e.g. "https://www.vaflooring.com".
@@ -33,8 +34,13 @@ type PageMeta = {
   description: string;
   path: string;
   /** Social sharing image; defaults to the site-wide image in src/app/opengraph-image.jpg. */
-  image?: { url: string; width: number; height: number; alt: string };
+  image?: SiteImage | { url: string; width: number; height: number; alt: string };
+  /** Ask search engines not to index this page (it stays crawlable so links are followed). */
+  noindex?: boolean;
 };
+
+const toShare = (i: NonNullable<PageMeta["image"]>) =>
+  "src" in i ? { url: i.src.src, width: i.src.width, height: i.src.height, alt: i.alt } : i;
 
 const defaultShareImage = {
   url: "/opengraph-image.jpg",
@@ -44,7 +50,8 @@ const defaultShareImage = {
 };
 
 /** Per-page metadata with canonical URL (only when the domain is known) and Open Graph data. */
-export function pageMetadata({ title, description, path, image = defaultShareImage }: PageMeta): Metadata {
+export function pageMetadata({ title, description, path, image = defaultShareImage, noindex }: PageMeta): Metadata {
+  const share = toShare(image);
   const base = siteUrl();
   const isHome = path === "/";
   const fullTitle = isHome ? title : `${title} | ${business.name}`;
@@ -52,6 +59,7 @@ export function pageMetadata({ title, description, path, image = defaultShareIma
     title: isHome ? { absolute: title } : title,
     description,
     alternates: base ? { canonical: path } : undefined,
+    ...(noindex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       type: "website",
       siteName: business.name,
@@ -59,13 +67,13 @@ export function pageMetadata({ title, description, path, image = defaultShareIma
       title: fullTitle,
       description,
       url: base ? path : undefined,
-      images: [image],
+      images: [share],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [image],
+      images: [share],
     },
   };
 }

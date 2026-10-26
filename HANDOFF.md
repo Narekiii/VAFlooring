@@ -6,7 +6,7 @@ configuration goes in environment variables (see `.env.example`).
 
 ## Required before launch
 
-- [ ] **Estimate form destination.** Not configured. Set `ESTIMATE_WEBHOOK_URL`, or
+- [ ] **Estimate and contact form destination.** Not configured. Both forms share it. Set `ESTIMATE_WEBHOOK_URL`, or
       `RESEND_API_KEY` + `ESTIMATE_EMAIL_TO` + `ESTIMATE_EMAIL_FROM`. Until then the form
       shows "Your request was not sent" and the server logs the missing configuration.
       Send one test request after deploying.
@@ -30,7 +30,10 @@ configuration goes in environment variables (see `.env.example`).
 
 ## Recommended
 
-- [ ] **Operating hours** (`hours`), if the business publishes them.
+- [ ] **Confirm hours and map pin.** Showroom hours (Mon–Fri 8:00 AM–4:00 PM, closed weekends),
+      the map coordinates and the Google place ID were taken from the public Google Business
+      Profile listing for 10945 Pendleton St. They appear on the Contact page, footer, homepage
+      and in structured data. Correct them in `src/content/site.ts` if they differ.
 - [ ] **Owner portrait** of Armond Markarian. None was supplied, so none is shown; the
       Our Story page is ready for one.
 - [~] **Company photography.** Real photos of the storefront, showroom, design center and
@@ -62,13 +65,40 @@ configuration goes in environment variables (see `.env.example`).
 
 ## Local SEO outside the website (high impact)
 
+- [ ] **Google Business Profile name.** The listing currently shows the name as
+      “v&aflooring,inc”. Change it to exactly **V & A Flooring Inc** so the name matches the
+      website, structured data and other directories (NAP consistency is a local ranking factor).
+- [ ] **Reviews.** The listing has few reviews and a low average. Recent, genuine reviews are one
+      of the strongest local-ranking and AI-answer signals. Ask every satisfied customer, reply to
+      every review (including negative ones) promptly and professionally. Do not add review
+      markup to the website for reviews collected elsewhere; Google ignores self-served ratings.
 - [ ] **Google Business Profile**: claim/verify it with exactly this name, address and phone,
       category "Flooring contractor", the five services, the service-area counties and a link
       to the site. This drives Google Maps and "near me" results more than anything on the site.
 - [ ] Use the same name, address and phone on Yelp, Bing Places, Apple Business Connect,
       BBB, Houzz and Angi.
 - [ ] Ask satisfied customers for Google reviews (the site deliberately shows no invented ones).
-- [ ] Submit `https://<domain>/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+- [ ] Submit `https://<domain>/sitemap.xml` in Google Search Console and Bing Webmaster Tools
+      (set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` / `NEXT_PUBLIC_BING_SITE_VERIFICATION` to verify).
+- [ ] Add the Google Business Profile, Yelp, BBB and Houzz URLs to `sameAs` in
+      `src/content/site.ts` once the listings are consistent. This links the entities for search
+      engines and AI assistants.
+
+## SEO / GEO built into the site
+
+- Unique title (≤ ~64 characters) and meta description (≤ 160) per page, canonical URLs,
+  Open Graph and Twitter cards with a real company photo per page.
+- Structured data: HomeAndConstructionBusiness + HomeGoodsStore (address, geo, hours, map,
+  phone, licenses, service areas down to city level, offer catalog), WebSite, WebPage /
+  AboutPage / ContactPage per page, Service per flooring type, FAQPage, BreadcrumbList.
+- `sitemap.xml` with last-modified dates and image entries; `robots.txt` that welcomes search
+  and AI answer engines (GPTBot, ClaudeBot, PerplexityBot, Google-Extended and others).
+- `/llms.txt` (summary) and `/llms-full.txt` (all service content and FAQs) for AI assistants.
+- Quotable “at a glance” fact tables on the Contact and Our Story pages; answer-first FAQs on
+  every service page, the home page, Service Areas and Contact.
+- The Projects page is `noindex` and left out of the sitemap until real projects are added,
+  so a thin page doesn't dilute the site. It becomes indexable automatically.
+- Update `contentUpdated` in `src/content/site.ts` whenever content changes materially.
 
 ## Optional hardening
 

@@ -15,11 +15,16 @@ import { Section } from "@/components/ui/Section";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { homeFaqs } from "@/content/services";
 import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { webPageJsonLd } from "@/lib/structured-data";
+import { images } from "@/content/images";
+
+const description =
+  "Family-owned flooring contractor and showroom in Sun Valley since 1999. Hardwood, laminate, LVP, carpet and tile, supplied and installed across Los Angeles.";
 
 export const metadata = pageMetadata({
-  title: "Flooring Installation Los Angeles | Hardwood, Laminate, LVP | V & A Flooring Inc",
-  description:
-    "Licensed, family-owned flooring contractor since 1999. Hardwood, laminate, vinyl plank (LVP), carpet and tile supply and installation for homes, ADUs, apartments, hotels and commercial projects in LA, Orange and Ventura counties.",
+  title: "Hardwood & Laminate Flooring Los Angeles | V & A Flooring Inc",
+  description,
   path: "/",
 });
 
@@ -54,6 +59,14 @@ export default function HomePage() {
         intro="Quick answers about who we are, what we install and how to start a project."
       />
       <InquiryCta />
+      <JsonLd
+        data={webPageJsonLd({
+          path: "/",
+          name: "V & A Flooring Inc: Hardwood & Laminate Flooring Installation in Los Angeles",
+          description,
+          image: images.showroomAisle,
+        })}
+      />
     </>
   );
 }

@@ -1,8 +1,8 @@
-import { business, facts } from "@/content/site";
+import { addressLine, business, contentUpdated, facts, mapsHref } from "@/content/site";
 import { serviceAreas } from "@/content/services";
 import { publishedServices, serviceHref, type Faq, type Service } from "@/content/services";
 import { siteUrl } from "./seo";
-import { images } from "@/content/images";
+import { images, type SiteImage } from "@/content/images";
 
 /**
  * JSON-LD built only from verified details in content/site.ts and content/services.ts.
@@ -15,12 +15,15 @@ const abs = (path: string) => {
   return base ? `${base}${path === "/" ? "" : path}` : undefined;
 };
 const orgId = () => (siteUrl() ? `${siteUrl()}/#organization` : undefined);
+const websiteId = () => (siteUrl() ? `${siteUrl()}/#website` : undefined);
+const imageUrl = (img: SiteImage) => (siteUrl() ? `${siteUrl()}${img.src.src}` : undefined);
 
 export function organizationJsonLd() {
   const url = siteUrl();
   const data: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
+    // A flooring contractor that also runs a flooring showroom/store.
+    "@type": ["HomeAndConstructionBusiness", "HomeGoodsStore"],
     name: business.name,
     alternateName: ["V & A Flooring", "VA Flooring", "V and A Flooring Inc"],
     slogan: "Flooring Expertise. Family Accountability. Since 1999.",
@@ -66,6 +69,29 @@ export function organizationJsonLd() {
       "Commercial flooring",
       ...facts.manufacturers.map((m) => `${m} flooring`),
     ],
+    ...(business.geo ? { geo: { "@type": "GeoCoordinates", ...business.geo } } : {}),
+    ...(mapsHref() ? { hasMap: mapsHref() } : {}),
+    ...(business.hours?.length
+      ? {
+          openingHoursSpecification: business.hours.map((h) => ({
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: h.days.map((d) => `https://schema.org/${d}`),
+            opens: h.opens,
+            closes: h.closes,
+          })),
+        }
+      : {}),
+    ...(business.phone
+      ? {
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "customer service",
+            telephone: `+1-${business.phone.replace(/\D/g, "").replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")}`,
+            areaServed: "US-CA",
+            availableLanguage: "English",
+          },
+        }
+      : {}),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Flooring services",
@@ -78,13 +104,13 @@ export function organizationJsonLd() {
   if (url) {
     data["@id"] = orgId();
     data.url = url;
-    data.logo = `${url}/brand/icon-512.png`;
+    data.logo = { "@type": "ImageObject", url: `${url}/brand/icon-512.png`, width: 512, height: 512 };
     data.image = [
       `${url}/opengraph-image.jpg`,
       ...[images.storefront, images.showroomAisle, images.designCenter, images.warehouse].map((i) => `${url}${i.src.src}`),
     ];
   }
-  if (business.phone) data.telephone = business.phone;
+  if (business.phone) data.telephone = `+1-${business.phone.replace(/\D/g, "").replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")}`;
   if (business.email) data.email = business.email;
   if (business.address) data.address = { "@type": "PostalAddress", addressCountry: "US", ...business.address };
   if (business.sameAs.length) data.sameAs = business.sameAs;
@@ -92,10 +118,58 @@ export function organizationJsonLd() {
 }
 
 function areaServed() {
-  return serviceAreas.map((a) => ({
-    "@type": "AdministrativeArea",
-    name: `${a.county}, California`,
-  }));
+  return serviceAreas.flatMap((a) => [
+    { "@type": "AdministrativeArea", name: `${a.county}, California` },
+    ...a.places.map((p) => ({
+      "@type": "City",
+      name: `${p}, CA`,
+      containedInPlace: { "@type": "AdministrativeArea", name: `${a.county}, California` },
+    })),
+  ]);
+}
+
+export type PageType = "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage" | "ItemPage";
+
+/** WebPage node linking the page to the website, the business and its main image. */
+export function webPageJsonLd({
+  path,
+  name,
+  description,
+  type = "WebPage",
+  image,
+  breadcrumb = true,
+}: {
+  path: string;
+  name: string;
+  description?: string;
+  type?: PageType;
+  image?: SiteImage;
+  breadcrumb?: boolean;
+}) {
+  const url = abs(path);
+  return {
+    "@context": "https://schema.org",
+    "@type": type,
+    ...(url ? { "@id": `${url}#webpage`, url } : {}),
+    name: plain(name),
+    ...(description ? { description: plain(description) } : {}),
+    inLanguage: "en-US",
+    dateModified: contentUpdated,
+    ...(websiteId() ? { isPartOf: { "@id": websiteId() } } : {}),
+    ...(orgId() ? { about: { "@id": orgId() }, publisher: { "@id": orgId() } } : {}),
+    ...(image
+      ? {
+          primaryImageOfPage: {
+            "@type": "ImageObject",
+            ...(imageUrl(image) ? { url: imageUrl(image), contentUrl: imageUrl(image) } : {}),
+            width: image.src.width,
+            height: image.src.height,
+            caption: image.alt,
+          },
+        }
+      : {}),
+    ...(breadcrumb && url && path !== "/" ? { breadcrumb: { "@id": `${url}#breadcrumb` } } : {}),
+  };
 }
 
 export function websiteJsonLd() {
@@ -107,6 +181,8 @@ export function websiteJsonLd() {
     "@id": `${url}/#website`,
     url,
     name: business.name,
+    alternateName: ["V & A Flooring", "VA Flooring"],
+    description: "Flooring materials, showroom and installation in Los Angeles, Orange and Ventura counties.",
     publisher: { "@id": orgId() },
     inLanguage: "en-US",
   };
@@ -116,6 +192,7 @@ export function serviceJsonLd(s: Service) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
+    ...(abs(serviceHref(s)) ? { "@id": `${abs(serviceHref(s))}#service` } : {}),
     name: s.name,
     serviceType: s.serviceType,
     description: plain(s.summary),
@@ -123,6 +200,16 @@ export function serviceJsonLd(s: Service) {
     provider: orgId() ? { "@id": orgId() } : { "@type": "HomeAndConstructionBusiness", name: business.name },
     areaServed: areaServed(),
     audience: { "@type": "Audience", audienceType: "Homeowners, builders, property managers and commercial clients" },
+    ...(s.detailImage && imageUrl(s.detailImage) ? { image: imageUrl(s.detailImage) } : {}),
+    ...(business.address
+      ? {
+          availableChannel: {
+            "@type": "ServiceChannel",
+            ...(business.phone ? { servicePhone: { "@type": "ContactPoint", telephone: business.phone } } : {}),
+            serviceLocation: { "@type": "Place", name: `${business.name} showroom`, address: addressLine() },
+          },
+        }
+      : {}),
   };
 }
 
@@ -144,6 +231,7 @@ export function breadcrumbJsonLd(items: Crumb[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    ...(abs(items[items.length - 1]?.href ?? "/") ? { "@id": `${abs(items[items.length - 1].href)}#breadcrumb` } : {}),
     itemListElement: items.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,

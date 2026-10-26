@@ -26,8 +26,28 @@ export const metadata: Metadata = {
     template: `%s | ${business.name}`,
   },
   description:
-    "Family-owned since 1999, V & A Flooring Inc supplies flooring materials and professional installation for homes, ADUs, multifamily, hospitality and commercial projects in Los Angeles.",
+    "Family-owned flooring contractor and showroom in Sun Valley since 1999. Hardwood, laminate, LVP, carpet and tile supply and installation across Los Angeles.",
   applicationName: business.name,
+  authors: [{ name: business.name }],
+  creator: business.name,
+  publisher: business.name,
+  category: "Flooring contractor",
+  // Search Console / Bing Webmaster verification, set in the hosting environment.
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } : {}),
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } } : {}),
+  },
+  // Local signals for the showroom location.
+  other: {
+    "geo.region": "US-CA",
+    "geo.placename": "Sun Valley, Los Angeles",
+    ...(business.geo
+      ? {
+          "geo.position": `${business.geo.latitude};${business.geo.longitude}`,
+          ICBM: `${business.geo.latitude}, ${business.geo.longitude}`,
+        }
+      : {}),
+  },
   robots: isIndexable() ? { index: true, follow: true } : { index: false, follow: false },
   formatDetection: { telephone: false, email: false, address: false },
 };

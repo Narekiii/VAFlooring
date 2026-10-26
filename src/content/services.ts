@@ -83,9 +83,9 @@ export const services: Service[] = [
     shortName: "Hardwood Flooring",
     material: "hardwood",
     h1: "Hardwood Flooring & Hardwood Floor Installation in Los Angeles",
-    metaTitle: "Hardwood Flooring Installation in Los Angeles",
+    metaTitle: "Hardwood Flooring Installation Los Angeles",
     metaDescription:
-      "Solid and engineered hardwood flooring supplied and installed by V & A Flooring Inc, a licensed (CSLB #866991), family-owned flooring contractor since 1999. Serving LA, Orange and Ventura counties.",
+      "Solid and engineered hardwood flooring supplied and installed by a licensed, family-owned LA contractor since 1999. Visit our Sun Valley showroom.",
     serviceType: "Hardwood flooring installation",
     summary:
       "V & A Flooring Inc supplies and installs solid and engineered hardwood flooring for homes, ADUs, multifamily buildings, hotels and commercial spaces across Los Angeles, Orange and Ventura counties. We are a family-owned, licensed flooring contractor (CSLB #866991, C-15) founded in 1999, with more than 20 installation crews.",
@@ -166,9 +166,9 @@ export const services: Service[] = [
     shortName: "Laminate Flooring",
     material: "laminate",
     h1: "Laminate Flooring & Laminate Floor Installation in Los Angeles",
-    metaTitle: "Laminate Flooring Installation in Los Angeles",
+    metaTitle: "Laminate Flooring Installation Los Angeles",
     metaDescription:
-      "Laminate flooring supplied and installed by V & A Flooring Inc for homes, ADUs, rentals and multifamily properties in Los Angeles, Orange and Ventura counties. Licensed and family owned since 1999.",
+      "Laminate flooring supplied and installed for homes, ADUs and apartments across Los Angeles. Licensed, family owned since 1999, with a Sun Valley showroom.",
     serviceType: "Laminate flooring installation",
     summary:
       "V & A Flooring Inc supplies and installs laminate flooring for homes, ADUs, rental units and multifamily properties across Los Angeles, Orange and Ventura counties. Laminate gives a wood or stone look at a range of budgets; we help you choose a product suited to the room and install it to the manufacturer’s requirements.",
@@ -238,9 +238,9 @@ export const services: Service[] = [
     shortName: "Vinyl & LVP Flooring",
     material: "vinyl",
     h1: "Luxury Vinyl Plank (LVP) & Vinyl Flooring Installation in Los Angeles",
-    metaTitle: "LVP & Vinyl Flooring Installation in Los Angeles",
+    metaTitle: "LVP & Vinyl Plank Flooring Installation LA",
     metaDescription:
-      "Luxury vinyl plank and tile (LVP / LVT) supplied and installed by V & A Flooring Inc for homes, ADUs, apartments, hotels and commercial spaces in Los Angeles, Orange and Ventura counties.",
+      "Luxury vinyl plank and tile (LVP/LVT) supplied and installed for homes, apartments and commercial spaces in Los Angeles, Orange and Ventura counties.",
     serviceType: "Luxury vinyl plank installation",
     summary:
       "V & A Flooring Inc supplies and installs luxury vinyl plank (LVP), luxury vinyl tile (LVT) and other vinyl flooring for residential, multifamily, hospitality and commercial projects across Los Angeles, Orange and Ventura counties. With more than 20 installation crews, we handle single homes and multi-unit scopes.",
@@ -309,9 +309,9 @@ export const services: Service[] = [
     shortName: "Carpet & Carpet Tile",
     material: "carpet",
     h1: "Carpet & Carpet Tile Installation in Los Angeles",
-    metaTitle: "Carpet & Carpet Tile Installation in Los Angeles",
+    metaTitle: "Carpet & Carpet Tile Installation in LA",
     metaDescription:
-      "Carpet and carpet tile supplied and installed by V & A Flooring Inc for homes, apartments, hotels and offices in Los Angeles, Orange and Ventura counties, with products from Mohawk, Shaw and Engineered Floors.",
+      "Carpet and carpet tile supplied and installed for homes, apartments, hotels and offices in Los Angeles, Orange and Ventura counties. Family owned since 1999.",
     serviceType: "Carpet installation",
     summary:
       "V & A Flooring Inc supplies and installs carpet and carpet tile for homes, apartment communities, hotels and commercial offices across Los Angeles, Orange and Ventura counties, with products from manufacturers including Mohawk, Shaw and Engineered Floors. We have served Lowe’s installation customers for more than 20 years.",
@@ -378,7 +378,7 @@ export const services: Service[] = [
     h1: "Tile Flooring Installation in Los Angeles",
     metaTitle: "Tile Flooring Installation in Los Angeles",
     metaDescription:
-      "Porcelain and ceramic floor tile installed by V & A Flooring Inc, a CSLB-licensed C-54 tile and C-15 flooring contractor (#866991) serving Los Angeles, Orange and Ventura counties since 1999.",
+      "Porcelain and ceramic floor tile installed by a CSLB C-54 licensed tile contractor in Los Angeles, including large-format tile. Family owned since 1999.",
     serviceType: "Tile flooring installation",
     summary:
       "V & A Flooring Inc installs porcelain and ceramic floor tile for kitchens, entries, ADUs, multifamily buildings and commercial spaces across Los Angeles, Orange and Ventura counties. We hold California C-54 (tile) and C-15 (flooring) contractor classifications under CSLB license #866991.",
@@ -475,9 +475,11 @@ export const homeFaqs: Faq[] = [
 ];
 
 /** Communities within the counties served (service-area page and schema). */
-export const serviceAreas: { county: string; places: string[] }[] = [
+export const serviceAreas: { county: string; intro: string; places: string[] }[] = [
   {
     county: "Los Angeles County",
+    intro:
+      "Our home county. From our Sun Valley showroom we serve the San Fernando Valley, Burbank, Glendale and Pasadena, the Santa Clarita Valley, the Westside and the South Bay: homes, ADUs, apartment communities, hotels and commercial buildings.",
     places: [
       "Los Angeles", "Sun Valley", "Burbank", "Glendale", "Pasadena", "North Hollywood", "Van Nuys", "Sherman Oaks",
       "Studio City", "Encino", "Northridge", "Granada Hills", "Santa Clarita", "Valencia", "Santa Monica",
@@ -486,10 +488,14 @@ export const serviceAreas: { county: string; places: string[] }[] = [
   },
   {
     county: "Orange County",
+    intro:
+      "Flooring supply and installation for homes, multifamily communities, hospitality properties and commercial interiors across Orange County, with crews and materials coordinated from our Los Angeles base.",
     places: ["Irvine", "Anaheim", "Santa Ana", "Huntington Beach", "Costa Mesa", "Orange", "Fullerton", "Newport Beach"],
   },
   {
     county: "Ventura County",
+    intro:
+      "Homes, ADUs and larger projects in the Conejo Valley, Simi Valley and the Ventura County coast, with the same licensed crews and one point of contact.",
     places: ["Thousand Oaks", "Simi Valley", "Oxnard", "Ventura", "Camarillo", "Moorpark"],
   },
 ];

@@ -14,10 +14,12 @@ import { images } from "@/content/images";
 import { estimateFor, routes } from "@/content/navigation";
 import { pageMetadata } from "@/lib/seo";
 
+const description =
+  "Flooring for LA homes, single rooms and ADUs: hardwood, laminate, LVP, carpet and tile, supplied and installed by one licensed, family-owned company.";
+
 export const metadata = pageMetadata({
-  title: "Residential Flooring Installation in Los Angeles",
-  description:
-    "Home flooring installation in Los Angeles, Orange and Ventura counties: hardwood, laminate, vinyl plank, carpet and tile for renovations, single rooms and ADUs. Family-owned since 1999, with honest guidance and support after completion.",
+  title: "Home Flooring Installation in Los Angeles",
+  description,
   path: routes.residential,
 });
 
@@ -63,6 +65,7 @@ export default function ResidentialPage() {
   return (
     <>
       <PageHero
+        description={description}
         kicker="Residential flooring"
         title="Residential Flooring Installation in Los Angeles"
         subtitle="For the spaces you call home."

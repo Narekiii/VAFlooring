@@ -9,6 +9,7 @@ export const routes = {
   projects: "/projects",
   story: "/our-story",
   estimate: "/request-an-estimate",
+  contact: "/contact",
 } as const;
 
 export type NavLink = { label: string; href: string; description?: string };
@@ -34,6 +35,7 @@ export const primaryNav: NavItem[] = [
   { label: "Projects", href: routes.projects },
   { label: "Service Areas", href: routes.serviceAreas },
   { label: "Our Story", href: routes.story },
+  { label: "Contact", href: routes.contact },
 ];
 
 export const estimateCta = { label: "Request an Estimate", href: routes.estimate } as const;
@@ -57,5 +59,6 @@ export const footerCompany: NavLink[] = [
   { label: "Service Areas", href: routes.serviceAreas },
   { label: "Our Projects", href: routes.projects },
   { label: "Our Story", href: routes.story },
+  { label: "Contact Us", href: routes.contact },
   { label: "Request an Estimate", href: routes.estimate },
 ];

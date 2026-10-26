@@ -1,0 +1,41 @@
+.facts {
+  max-width: 64rem;
+}
+
+.title {
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+}
+
+.list {
+  margin-top: var(--space-5);
+  border-top: 2px solid var(--navy);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 13rem) minmax(0, 1fr);
+  gap: var(--space-2) var(--space-6);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid rgba(23, 43, 58, 0.18);
+}
+
+.row dt {
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.row dd {
+  margin: 0;
+  color: var(--graphite);
+}
+
+.row a {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+@media (max-width: 40rem) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

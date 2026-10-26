@@ -3,7 +3,7 @@ import { buttonClass } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { images, type SiteImage } from "@/content/images";
-import { business, mapsHref, telHref } from "@/content/site";
+import { business, directionsHref, hoursLines, telHref } from "@/content/site";
 import styles from "./Showroom.module.css";
 
 const gallery: { image: SiteImage; caption: string }[] = [
@@ -18,7 +18,8 @@ const gallery: { image: SiteImage; caption: string }[] = [
 /** Real photography of the showroom, design center and warehouse. */
 export function Showroom() {
   const { address, phone } = business;
-  const maps = mapsHref();
+  const maps = directionsHref();
+  const hours = hoursLines();
   return (
     <Section tone="navy" labelledBy="showroom-title">
       <Container>
@@ -40,6 +41,7 @@ export function Showroom() {
                 {address.streetAddress}, {address.addressLocality}, {address.addressRegion} {address.postalCode}
               </address>
             )}
+            {hours.length > 0 && <p className={styles.hours}>Showroom hours: {hours.join(" · ")}</p>}
             <div className={styles.actions}>
               {maps && (
                 <a href={maps} className={buttonClass("light")} target="_blank" rel="noopener noreferrer">

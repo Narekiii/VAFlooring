@@ -15,11 +15,14 @@ import { facts } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
+const description =
+  "See hardwood, laminate, LVP, carpet and tile at our Sun Valley flooring showroom, with products from Mohawk, Shaw and Engineered Floors.";
+
 export const metadata = pageMetadata({
-  title: "Flooring Materials & Brands in Los Angeles: Hardwood, Laminate, LVP",
-  description:
-    "Hardwood, laminate, luxury vinyl plank, carpet and tile flooring materials in Los Angeles from manufacturers including Mohawk, Shaw and Engineered Floors, with American-made options and help choosing the right floor.",
+  title: "Flooring Store & Showroom in Sun Valley, LA",
+  description,
   path: routes.materials,
+  image: images.showroomSelection,
 });
 
 export default function MaterialsPage() {
@@ -27,6 +30,7 @@ export default function MaterialsPage() {
   return (
     <>
       <PageHero
+        description={description}
         kicker="Materials & brands"
         title="Flooring Materials & Brands"
         subtitle="The right floor depends on how the space will be used."

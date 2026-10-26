@@ -12,11 +12,14 @@ import { estimateFor, routes } from "@/content/navigation";
 import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
+const description =
+  "Flooring contractor for GCs, developers, property managers and hotels in Los Angeles: LVP, carpet, tile and hardwood, with 20+ installation crews.";
+
 export const metadata = pageMetadata({
-  title: "Commercial & Multifamily Flooring Contractor in Los Angeles",
-  description:
-    "Commercial flooring contractor in Los Angeles for general contractors, developers, property managers, hotels and apartment communities. LVP, carpet, tile, hardwood and laminate supplied and installed by 20+ crews.",
+  title: "Commercial & Multifamily Flooring in LA",
+  description,
   path: routes.commercial,
+  image: images.warehouse,
 });
 
 const capabilities = [
@@ -60,6 +63,7 @@ export default function CommercialPage() {
   return (
     <>
       <PageHero
+        description={description}
         kicker="Commercial & multifamily"
         title={"Commercial\u00a0& Multifamily Flooring Contractor in Los\u00a0Angeles"}
         subtitle="Experience and capacity for larger projects."

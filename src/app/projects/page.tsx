@@ -9,11 +9,16 @@ import { routes } from "@/content/navigation";
 import { projects } from "@/content/projects";
 import { pageMetadata } from "@/lib/seo";
 
+const description =
+  "Flooring projects by V & A Flooring Inc across residential renovations, ADUs, multifamily communities, hotels and commercial spaces in Los Angeles.";
+
 export const metadata = pageMetadata({
   title: "Flooring Projects in Los Angeles",
-  description:
-    "Flooring work by V & A Flooring Inc across residential renovations, ADUs, multifamily communities, hotels and commercial spaces in Los Angeles.",
+  description,
   path: routes.projects,
+  // Until real project write-ups are published this page has little unique content, so it is kept
+  // out of search results (links on it are still followed). It becomes indexable automatically.
+  noindex: projects.length === 0,
 });
 
 export default function ProjectsPage() {
@@ -21,6 +26,8 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHero
+        description={description}
+        pageType="CollectionPage"
         kicker="Projects"
         title="Our Projects"
         subtitle="Homes, ADUs, apartment communities, hotels and commercial spaces."

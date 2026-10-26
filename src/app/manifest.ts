@@ -3,7 +3,10 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "V & A Flooring Inc",
-    short_name: "V & A Flooring Inc",
+    short_name: "V&A Flooring",
+    description: "Flooring materials, showroom and installation in Los Angeles since 1999.",
+    lang: "en-US",
+    categories: ["business", "shopping"],
     start_url: "/",
     display: "browser",
     background_color: "#F7F4EE",
