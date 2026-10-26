@@ -12,7 +12,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Flooring Projects in Los Angeles",
   description:
-    "Flooring work by V & A Flooring across residential renovations, ADUs, multifamily communities, hotels and commercial spaces in Los Angeles.",
+    "Flooring work by V & A Flooring Inc across residential renovations, ADUs, multifamily communities, hotels and commercial spaces in Los Angeles.",
   path: routes.projects,
 });
 
@@ -27,11 +27,11 @@ export default function ProjectsPage() {
         crumbs={[{ name: "Our Projects", href: routes.projects }]}
       >
         {hasProjects ? (
-          <p>A selection of completed V&nbsp;&amp;&nbsp;A Flooring projects. Use the filters to see work by property type.</p>
+          <p>A selection of completed V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc projects. Use the filters to see work by property type.</p>
         ) : (
           <p>
             Until project photography is published here, the illustrations below show the property types our crews
-            work in. They are renderings, not photographs of specific V&nbsp;&amp;&nbsp;A Flooring jobs.
+            work in. They are renderings, not photographs of specific V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc jobs.
           </p>
         )}
       </PageHero>

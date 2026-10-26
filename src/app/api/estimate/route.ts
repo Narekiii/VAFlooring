@@ -106,7 +106,7 @@ function rows(r: EstimateRequest): [string, string][] {
 
 function emailText(r: EstimateRequest, meta: Meta) {
   return [
-    "New estimate request from the V & A Flooring website",
+    "New estimate request from the V & A Flooring Inc website",
     "",
     ...rows(r).map(([k, v]) => `${k}: ${v}`),
     "",

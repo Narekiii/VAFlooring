@@ -24,6 +24,8 @@ export function GET() {
     `- Service area: ${regionLine}, California`,
     ...serviceAreas.map((a) => `  - ${a.county}: ${a.places.join(", ")}`),
     ...(business.license ? [`- License: California ${licenseLine(business.license)}${business.bondedInsured ? ", bonded and insured" : ""}`] : []),
+    ...(business.epaLeadSafe ? [`- EPA Lead-Safe Certified Firm, certification ${business.epaLeadSafe}`] : []),
+    "- Recognized by Lowe’s for craftsmanship and professionalism (96.67% scores for 2015), dedication (2016) and determination (2019)",
     ...(business.address ? [`- Address: ${business.address.streetAddress}, ${business.address.addressLocality}, ${business.address.addressRegion} ${business.address.postalCode}`] : []),
     `- Installation capacity: ${facts.installationCrewsLong.toLowerCase()}`,
     "- Provides: flooring materials and installation from one company",

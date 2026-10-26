@@ -2,7 +2,7 @@ import { Figure } from "@/components/ui/Figure";
 import { propertyTypes } from "@/content/projects";
 import styles from "./PropertyTypeGrid.module.css";
 
-/** Image-led overview of the property types V & A Flooring works in (illustrative imagery). */
+/** Image-led overview of the property types V & A Flooring Inc works in (illustrative imagery). */
 export function PropertyTypeGrid({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
   const H = headingLevel === 2 ? "h2" : "h3";
   return (

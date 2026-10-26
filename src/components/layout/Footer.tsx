@@ -12,7 +12,7 @@ export function Footer() {
       <div className={styles.wrap}>
         <div className={styles.inner}>
           <div className={styles.brand}>
-            <Link href={routes.home} aria-label="V & A Flooring home" className={styles.logoLink}>
+            <Link href={routes.home} aria-label="V & A Flooring Inc home" className={styles.logoLink}>
               <Logo layout="stacked" tone="reverse" title="" className={styles.logo} />
             </Link>
             <p className={styles.brandLine}>{business.brandLine}</p>
@@ -91,6 +91,7 @@ export function Footer() {
             <p>
               {licenseLine(license)}
               {business.bondedInsured && " · Bonded & Insured"}
+              {business.epaLeadSafe && " · EPA Lead-Safe Certified Firm"}
             </p>
           )}
         </div>

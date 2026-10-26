@@ -8,7 +8,7 @@ import { projects } from "@/content/projects";
 import styles from "./FeaturedWork.module.css";
 
 /**
- * Shows verified V & A Flooring projects when they exist. Until then it presents the
+ * Shows verified V & A Flooring Inc projects when they exist. Until then it presents the
  * property types the company serves, with clearly labelled illustrative imagery.
  */
 export function FeaturedWork() {
@@ -24,8 +24,8 @@ export function FeaturedWork() {
           </div>
           <p className={styles.intro}>
             {hasProjects
-              ? "A selection of recent V\u00a0&\u00a0A Flooring projects across Los Angeles."
-              : "Our crews work in occupied homes, new ADUs, apartment communities, hotels and commercial buildings. The illustrations below show these property types; they are not photographs of specific V\u00a0&\u00a0A Flooring projects."}
+              ? "A selection of recent V\u00a0&\u00a0A Flooring\u00a0Inc projects across Los Angeles."
+              : "Our crews work in occupied homes, new ADUs, apartment communities, hotels and commercial buildings. The illustrations below show these property types; they are not photographs of specific V\u00a0&\u00a0A Flooring\u00a0Inc projects."}
           </p>
         </div>
         {hasProjects ? (

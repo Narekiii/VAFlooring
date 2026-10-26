@@ -15,7 +15,7 @@ import styles from "./page.module.css";
 export const metadata = pageMetadata({
   title: "Flooring Contractor Serving Los Angeles, Orange & Ventura Counties",
   description:
-    "V & A Flooring installs hardwood, laminate, LVP, carpet and tile across Los Angeles, Orange and Ventura counties, from Sun Valley to Burbank, Glendale, Pasadena, Santa Clarita, Irvine and Thousand Oaks.",
+    "V & A Flooring Inc installs hardwood, laminate, LVP, carpet and tile across Los Angeles, Orange and Ventura counties, from Sun Valley to Burbank, Glendale, Pasadena, Santa Clarita, Irvine and Thousand Oaks.",
   path: routes.serviceAreas,
 });
 
@@ -42,7 +42,7 @@ export default function ServiceAreasPage() {
         }
       >
         <p>
-          V&nbsp;&amp;&nbsp;A Flooring is based in Sun Valley, in the San Fernando Valley, and supplies and installs
+          V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc is based in Sun Valley, in the San Fernando Valley, and supplies and installs
           flooring for homes, ADUs, apartment communities, hotels and commercial projects across Los Angeles, Orange and
           Ventura counties.
         </p>

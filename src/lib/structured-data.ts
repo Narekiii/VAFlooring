@@ -21,7 +21,7 @@ export function organizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     name: business.name,
-    alternateName: "VA Flooring",
+    alternateName: ["V & A Flooring", "VA Flooring", "V and A Flooring Inc"],
     slogan: "Flooring Expertise. Family Accountability. Since 1999.",
     description:
       "Family-owned, licensed flooring contractor in Sun Valley, California, supplying and installing hardwood, laminate, luxury vinyl plank (LVP), carpet and tile flooring for home renovations, ADUs, multifamily communities, hotels and commercial projects across Los Angeles, Orange and Ventura counties.",
@@ -31,12 +31,24 @@ export function organizationJsonLd() {
     areaServed: areaServed(),
     ...(business.license
       ? {
-          hasCredential: {
-            "@type": "EducationalOccupationalCredential",
-            credentialCategory: "license",
-            name: `California contractor license #${business.license.number} (${business.license.classifications.join(", ")})`,
-            recognizedBy: { "@type": "Organization", name: "Contractors State License Board", url: "https://www.cslb.ca.gov" },
-          },
+          hasCredential: [
+            {
+              "@type": "EducationalOccupationalCredential",
+              credentialCategory: "license",
+              name: `California contractor license #${business.license.number} (${business.license.classifications.join(", ")})`,
+              recognizedBy: { "@type": "Organization", name: "Contractors State License Board", url: "https://www.cslb.ca.gov" },
+            },
+            ...(business.epaLeadSafe
+              ? [
+                  {
+                    "@type": "EducationalOccupationalCredential",
+                    credentialCategory: "certification",
+                    name: `EPA Lead-Safe Certified Firm (${business.epaLeadSafe})`,
+                    recognizedBy: { "@type": "GovernmentOrganization", name: "U.S. Environmental Protection Agency", url: "https://www.epa.gov" },
+                  },
+                ]
+              : []),
+          ],
         }
       : {}),
     knowsAbout: [

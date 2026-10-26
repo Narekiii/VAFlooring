@@ -22,7 +22,7 @@ export const commitments = [
 ];
 
 export function Commitments({
-  title = "Why V\u00a0&\u00a0A Flooring",
+  title = "Why V\u00a0&\u00a0A Flooring\u00a0Inc",
   children,
 }: {
   title?: string;

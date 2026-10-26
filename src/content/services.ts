@@ -4,7 +4,7 @@ import { images, type SiteImage } from "./images";
  * Flooring service landing pages (one page per floor type at /<slug>).
  * Each page gets metadata, Service + FAQPage + BreadcrumbList structured data and internal links.
  *
- * Floor types confirmed by V & A Flooring: hardwood, laminate, vinyl/LVP, carpet, tile.
+ * Floor types confirmed by V & A Flooring Inc: hardwood, laminate, vinyl/LVP, carpet, tile.
  * Keep claims general and accurate: no product performance claims (waterproof, scratchproof,
  * warranty terms) unless taken from a specific manufacturer's documentation.
  */
@@ -85,10 +85,10 @@ export const services: Service[] = [
     h1: "Hardwood Flooring & Hardwood Floor Installation in Los Angeles",
     metaTitle: "Hardwood Flooring Installation in Los Angeles",
     metaDescription:
-      "Solid and engineered hardwood flooring supplied and installed by V & A Flooring, a licensed (CSLB #866991), family-owned flooring contractor since 1999. Serving LA, Orange and Ventura counties.",
+      "Solid and engineered hardwood flooring supplied and installed by V & A Flooring Inc, a licensed (CSLB #866991), family-owned flooring contractor since 1999. Serving LA, Orange and Ventura counties.",
     serviceType: "Hardwood flooring installation",
     summary:
-      "V & A Flooring supplies and installs solid and engineered hardwood flooring for homes, ADUs, multifamily buildings, hotels and commercial spaces across Los Angeles, Orange and Ventura counties. We are a family-owned, licensed flooring contractor (CSLB #866991, C-15) founded in 1999, with more than 20 installation crews.",
+      "V & A Flooring Inc supplies and installs solid and engineered hardwood flooring for homes, ADUs, multifamily buildings, hotels and commercial spaces across Los Angeles, Orange and Ventura counties. We are a family-owned, licensed flooring contractor (CSLB #866991, C-15) founded in 1999, with more than 20 installation crews.",
     cardText: "Solid and engineered hardwood for living areas, bedrooms, ADUs and common spaces.",
     image: images.livingWindows,
     detailImage: images.plankDetail,
@@ -139,7 +139,7 @@ export const services: Service[] = [
     faqs: [
       {
         q: "Do you supply the hardwood as well as install it?",
-        a: "Yes. V & A Flooring supplies flooring materials and installs them, so selection, ordering and installation are handled by one company. We can also install a product you or your designer have already chosen.",
+        a: "Yes. V & A Flooring Inc supplies flooring materials and installs them, so selection, ordering and installation are handled by one company. We can also install a product you or your designer have already chosen.",
       },
       {
         q: "What is the difference between solid and engineered hardwood?",
@@ -168,10 +168,10 @@ export const services: Service[] = [
     h1: "Laminate Flooring & Laminate Floor Installation in Los Angeles",
     metaTitle: "Laminate Flooring Installation in Los Angeles",
     metaDescription:
-      "Laminate flooring supplied and installed by V & A Flooring for homes, ADUs, rentals and multifamily properties in Los Angeles, Orange and Ventura counties. Licensed and family owned since 1999.",
+      "Laminate flooring supplied and installed by V & A Flooring Inc for homes, ADUs, rentals and multifamily properties in Los Angeles, Orange and Ventura counties. Licensed and family owned since 1999.",
     serviceType: "Laminate flooring installation",
     summary:
-      "V & A Flooring supplies and installs laminate flooring for homes, ADUs, rental units and multifamily properties across Los Angeles, Orange and Ventura counties. Laminate gives a wood or stone look at a range of budgets; we help you choose a product suited to the room and install it to the manufacturer’s requirements.",
+      "V & A Flooring Inc supplies and installs laminate flooring for homes, ADUs, rental units and multifamily properties across Los Angeles, Orange and Ventura counties. Laminate gives a wood or stone look at a range of budgets; we help you choose a product suited to the room and install it to the manufacturer’s requirements.",
     cardText: "Wood- and stone-look laminate for renovations, ADUs and rental turnovers.",
     image: images.aduDining,
     detailImage: images.samples,
@@ -240,10 +240,10 @@ export const services: Service[] = [
     h1: "Luxury Vinyl Plank (LVP) & Vinyl Flooring Installation in Los Angeles",
     metaTitle: "LVP & Vinyl Flooring Installation in Los Angeles",
     metaDescription:
-      "Luxury vinyl plank and tile (LVP / LVT) supplied and installed by V & A Flooring for homes, ADUs, apartments, hotels and commercial spaces in Los Angeles, Orange and Ventura counties.",
+      "Luxury vinyl plank and tile (LVP / LVT) supplied and installed by V & A Flooring Inc for homes, ADUs, apartments, hotels and commercial spaces in Los Angeles, Orange and Ventura counties.",
     serviceType: "Luxury vinyl plank installation",
     summary:
-      "V & A Flooring supplies and installs luxury vinyl plank (LVP), luxury vinyl tile (LVT) and other vinyl flooring for residential, multifamily, hospitality and commercial projects across Los Angeles, Orange and Ventura counties. With more than 20 installation crews, we handle single homes and multi-unit scopes.",
+      "V & A Flooring Inc supplies and installs luxury vinyl plank (LVP), luxury vinyl tile (LVT) and other vinyl flooring for residential, multifamily, hospitality and commercial projects across Los Angeles, Orange and Ventura counties. With more than 20 installation crews, we handle single homes and multi-unit scopes.",
     cardText: "Luxury vinyl plank and tile for homes, apartment units, corridors and commercial spaces.",
     image: images.lobby,
     detailImage: images.aduKitchen,
@@ -311,10 +311,10 @@ export const services: Service[] = [
     h1: "Carpet & Carpet Tile Installation in Los Angeles",
     metaTitle: "Carpet & Carpet Tile Installation in Los Angeles",
     metaDescription:
-      "Carpet and carpet tile supplied and installed by V & A Flooring for homes, apartments, hotels and offices in Los Angeles, Orange and Ventura counties, with products from Mohawk, Shaw and Engineered Floors.",
+      "Carpet and carpet tile supplied and installed by V & A Flooring Inc for homes, apartments, hotels and offices in Los Angeles, Orange and Ventura counties, with products from Mohawk, Shaw and Engineered Floors.",
     serviceType: "Carpet installation",
     summary:
-      "V & A Flooring supplies and installs carpet and carpet tile for homes, apartment communities, hotels and commercial offices across Los Angeles, Orange and Ventura counties, with products from manufacturers including Mohawk, Shaw and Engineered Floors. We have served Lowe’s installation customers for more than 20 years.",
+      "V & A Flooring Inc supplies and installs carpet and carpet tile for homes, apartment communities, hotels and commercial offices across Los Angeles, Orange and Ventura counties, with products from manufacturers including Mohawk, Shaw and Engineered Floors. We have served Lowe’s installation customers for more than 20 years.",
     cardText: "Broadloom carpet and carpet tile for bedrooms, apartment units, hotel corridors and offices.",
     image: images.corridorCarpet,
     detailImage: images.office,
@@ -378,10 +378,10 @@ export const services: Service[] = [
     h1: "Tile Flooring Installation in Los Angeles",
     metaTitle: "Tile Flooring Installation in Los Angeles",
     metaDescription:
-      "Porcelain and ceramic floor tile installed by V & A Flooring, a CSLB-licensed C-54 tile and C-15 flooring contractor (#866991) serving Los Angeles, Orange and Ventura counties since 1999.",
+      "Porcelain and ceramic floor tile installed by V & A Flooring Inc, a CSLB-licensed C-54 tile and C-15 flooring contractor (#866991) serving Los Angeles, Orange and Ventura counties since 1999.",
     serviceType: "Tile flooring installation",
     summary:
-      "V & A Flooring installs porcelain and ceramic floor tile for kitchens, entries, ADUs, multifamily buildings and commercial spaces across Los Angeles, Orange and Ventura counties. We hold California C-54 (tile) and C-15 (flooring) contractor classifications under CSLB license #866991.",
+      "V & A Flooring Inc installs porcelain and ceramic floor tile for kitchens, entries, ADUs, multifamily buildings and commercial spaces across Los Angeles, Orange and Ventura counties. We hold California C-54 (tile) and C-15 (flooring) contractor classifications under CSLB license #866991.",
     cardText: "Porcelain and ceramic floor tile for kitchens, entries, ADUs and commercial spaces.",
     image: images.tileKitchen,
     detailImage: images.tileKitchen,
@@ -389,7 +389,7 @@ export const services: Service[] = [
       {
         heading: "Floor tile installed by a licensed tile contractor",
         body: [
-          "California requires a C-54 classification for tile contracting. V & A Flooring holds C-54 together with C-15 flooring and B general building classifications, CSLB license #866991.",
+          "California requires a C-54 classification for tile contracting. V & A Flooring Inc holds C-54 together with C-15 flooring and B general building classifications, CSLB license #866991.",
         ],
       },
       {
@@ -424,7 +424,7 @@ export const services: Service[] = [
     faqs: [
       {
         q: "Are you licensed to install tile in California?",
-        a: "Yes. V & A Flooring holds CSLB license #866991 with C-54 (ceramic and mosaic tile), C-15 (flooring and floor covering) and B (general building) classifications.",
+        a: "Yes. V & A Flooring Inc holds CSLB license #866991 with C-54 (ceramic and mosaic tile), C-15 (flooring and floor covering) and B (general building) classifications.",
       },
       {
         q: "Porcelain or ceramic: which should I choose?",
@@ -445,8 +445,8 @@ export const getService = (slug: string) => publishedServices.find((s) => s.slug
 /** General FAQs for the homepage (visible + FAQPage schema + llms.txt). */
 export const homeFaqs: Faq[] = [
   {
-    q: "What does V & A Flooring do?",
-    a: "V & A Flooring is a family-owned flooring contractor based in Sun Valley, California. We supply flooring materials and install them: hardwood, laminate, luxury vinyl plank (LVP), carpet and carpet tile, and porcelain and ceramic tile, for homes, ADUs, multifamily buildings, hotels and commercial projects.",
+    q: "What does V & A Flooring Inc do?",
+    a: "V & A Flooring Inc is a family-owned flooring contractor based in Sun Valley, California. We supply flooring materials and install them: hardwood, laminate, luxury vinyl plank (LVP), carpet and carpet tile, and porcelain and ceramic tile, for homes, ADUs, multifamily buildings, hotels and commercial projects.",
   },
   {
     q: "Which areas do you serve?",
@@ -454,7 +454,7 @@ export const homeFaqs: Faq[] = [
   },
   {
     q: "Are you licensed and insured?",
-    a: "Yes. V & A Flooring holds California CSLB license #866991 with B (general building), C-15 (flooring and floor covering) and C-54 (tile) classifications, and is bonded and insured.",
+    a: "Yes. V & A Flooring Inc holds California CSLB license #866991 with B (general building), C-15 (flooring and floor covering) and C-54 (tile) classifications, and is bonded and insured.",
   },
   {
     q: "Do you sell flooring materials or only install?",
@@ -465,7 +465,7 @@ export const homeFaqs: Faq[] = [
     a: "Yes. With more than 20 installation crews, we work with general contractors, developers, property managers and hospitality operators on multifamily, hotel and commercial flooring, coordinated around the project schedule.",
   },
   {
-    q: "How long has V & A Flooring been in business?",
+    q: "How long has V & A Flooring Inc been in business?",
     a: "Since 1999. The company was founded by Armond Markarian, a flooring installer, and has served Lowe’s installation customers for more than 20 years.",
   },
   {

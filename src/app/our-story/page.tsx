@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { InquiryCta } from "@/components/home/InquiryCta";
+import { Credentials } from "@/components/credentials/Credentials";
 import { images } from "@/content/images";
 import { routes } from "@/content/navigation";
 import { business, facts } from "@/content/site";
@@ -12,7 +13,7 @@ import styles from "./page.module.css";
 export const metadata = pageMetadata({
   title: "About Us: Family-Owned Flooring Company Since 1999",
   description:
-    "Founded in 1999 by installer Armond Markarian, V & A Flooring is a family-owned Los Angeles flooring company built on good materials, careful installation and support after the job.",
+    "Founded in 1999 by installer Armond Markarian, V & A Flooring Inc is a family-owned Los Angeles flooring company built on good materials, careful installation and support after the job.",
   path: routes.story,
 });
 
@@ -34,9 +35,9 @@ const chapters = [
   },
   {
     when: "1999",
-    title: "Founding V\u00a0&\u00a0A Flooring",
+    title: "Founding V\u00a0&\u00a0A Flooring\u00a0Inc",
     body: [
-      "In 1999 Armond founded V\u00a0&\u00a0A Flooring with a commitment to good materials, careful installation, honest guidance, and continued support after the job was complete.",
+      "In 1999 Armond founded V\u00a0&\u00a0A Flooring\u00a0Inc with a commitment to good materials, careful installation, honest guidance, and continued support after the job was complete.",
     ],
   },
   {
@@ -67,7 +68,7 @@ const values = [
   },
   {
     title: "Initiative",
-    body: "V\u00a0&\u00a0A Flooring began with someone seeing a problem and acting on it. We bring the same determination to solving problems on each job.",
+    body: "V\u00a0&\u00a0A Flooring\u00a0Inc began with someone seeing a problem and acting on it. We bring the same determination to solving problems on each job.",
   },
   {
     title: "Trust",
@@ -79,14 +80,14 @@ export default function StoryPage() {
   return (
     <>
       <PageHero
-        kicker="About V & A Flooring"
+        kicker="About V & A Flooring Inc"
         title="Our Story"
         subtitle={`A family-owned Los Angeles flooring company since ${business.founded}.`}
         image={images.plankDetail}
         crumbs={[{ name: "Our Story", href: routes.story }]}
       >
         <p>
-          V&nbsp;&amp;&nbsp;A Flooring was founded by Armond Markarian, an installer who believed a flooring company should be
+          V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc was founded by Armond Markarian, an installer who believed a flooring company should be
           judged by the quality of its installation and by how it treats customers after the sale.
         </p>
       </PageHero>
@@ -94,7 +95,7 @@ export default function StoryPage() {
       <Section tone="white" labelledBy="story-title">
         <Container>
           <h2 id="story-title" className="visually-hidden">
-            How V&nbsp;&amp;&nbsp;A Flooring began
+            How V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc began
           </h2>
           <ol className={styles.timeline}>
             {chapters.map((c) => (
@@ -151,6 +152,8 @@ export default function StoryPage() {
           </div>
         </Container>
       </Section>
+
+      <Credentials tone="white" />
 
       <InquiryCta />
     </>

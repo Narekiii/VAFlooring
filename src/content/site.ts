@@ -3,7 +3,7 @@
  *
  * Only verified details belong here. Fields set to `null` are hidden everywhere on the
  * public site (header, footer, contact page, structured data) until they are filled in.
- * See HANDOFF.md for the list of details still needed from V & A Flooring.
+ * See HANDOFF.md for the list of details still needed from V & A Flooring Inc.
  */
 
 export type PostalAddress = {
@@ -32,6 +32,8 @@ export type BusinessConfig = {
   license: { authority: string; number: string; classifications: string[] } | null;
   /** Show "Bonded & Insured" (supplied by the business). */
   bondedInsured: boolean;
+  /** EPA Lead-Safe Certified Firm certification number, if current. */
+  epaLeadSafe: string | null;
   /** Legal entity name, for structured data. */
   legalName: string;
   /** Counties served, used for copy and structured data. */
@@ -41,7 +43,7 @@ export type BusinessConfig = {
 };
 
 export const business: BusinessConfig = {
-  name: "V & A Flooring",
+  name: "V & A Flooring Inc",
   founded: 1999,
   founder: "Armond Markarian",
   ownership: "Family owned",
@@ -59,6 +61,7 @@ export const business: BusinessConfig = {
   // Number confirmed against public CSLB records (V & A Flooring Inc, active). Supplied as #86699.
   license: { authority: "CSLB", number: "866991", classifications: ["B", "C-15", "C-54"] },
   bondedInsured: true,
+  epaLeadSafe: "NAT-44728-4",
   counties: ["Los Angeles County", "Orange County", "Ventura County"],
 
   // Not yet supplied — hidden until provided.

@@ -17,7 +17,7 @@ type Props = {
 
 /**
  * Responsive image frame. Illustrative imagery is always labelled so it is never
- * mistaken for photography of completed V & A Flooring projects.
+ * mistaken for photography of completed V & A Flooring Inc projects.
  */
 export function Figure({ image, ratio = "4 / 3", sizes, priority, className, focus, caption }: Props) {
   const illustrative = image.kind === "illustrative";

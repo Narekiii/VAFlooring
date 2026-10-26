@@ -21,7 +21,7 @@ type Props = {
   title?: string;
 };
 
-export function Logo({ layout = "horizontal", tone = "navy", className, title = "V & A Flooring" }: Props) {
+export function Logo({ layout = "horizontal", tone = "navy", className, title = "V & A Flooring Inc" }: Props) {
   const l = layouts[layout];
   const { main, accent } = tones[tone];
   const id = useId();

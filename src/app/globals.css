@@ -173,3 +173,10 @@ textarea {
     scroll-behavior: auto !important;
   }
 }
+
+.credentials-note {
+  max-width: 48rem;
+  margin-top: var(--space-7);
+  color: var(--ink-soft);
+  font-size: var(--text-xs);
+}

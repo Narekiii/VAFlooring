@@ -17,8 +17,8 @@ import tileKitchen from "@/assets/images/tile-floor-kitchen.jpg";
  *
  * kind: "illustrative" — original 3D renderings created for this website. They are labelled
  *        "Illustrative rendering" wherever they appear and must never be described as
- *        V & A Flooring projects.
- * kind: "company" — photography supplied and verified by V & A Flooring (projects, crews, team).
+ *        V & A Flooring Inc projects.
+ * kind: "company" — photography supplied and verified by V & A Flooring Inc (projects, crews, team).
  *
  * To use real photography, replace the import for an entry, update `alt`, and set kind to
  * "company". Every component reads from this file.

@@ -32,7 +32,7 @@ export function Header() {
       </div>
       <div className={styles.bar}>
         <div className={styles.inner}>
-          <Link href={routes.home} className={styles.brand} aria-label="V & A Flooring home">
+          <Link href={routes.home} className={styles.brand} aria-label="V & A Flooring Inc home">
             <Logo layout="horizontal" tone="navy" title="" className={styles.logo} />
           </Link>
           <nav aria-label="Primary" className={styles.nav}>

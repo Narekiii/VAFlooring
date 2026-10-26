@@ -124,7 +124,7 @@ export function EstimateForm() {
           Thank you, {first}. Your request has been sent.
         </h2>
         <p>
-          V&nbsp;&amp;&nbsp;A Flooring has received your project details. We’ll contact you at {status.email} or {status.phone} to
+          V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc has received your project details. We’ll contact you at {status.email} or {status.phone} to
           talk through your project and the next steps toward an estimate.
         </p>
         <button

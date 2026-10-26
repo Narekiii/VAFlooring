@@ -12,8 +12,8 @@ export const categoryLabels: Record<ProjectCategory, string> = {
 };
 
 /**
- * A completed V & A Flooring project. Add entries only with verified company photography
- * and details confirmed by V & A Flooring. Optional fields that are left out are simply
+ * A completed V & A Flooring Inc project. Add entries only with verified company photography
+ * and details confirmed by V & A Flooring Inc. Optional fields that are left out are simply
  * not displayed — never fill them with estimates.
  */
 export type Project = {
@@ -50,7 +50,7 @@ export function projectHasDetail(p: Project): boolean {
   return Array.isArray(p.story) && p.story.length > 0 && p.photos.length > 0;
 }
 
-/** Property types V & A Flooring serves, shown with labelled illustrative imagery. */
+/** Property types V & A Flooring Inc serves, shown with labelled illustrative imagery. */
 export const propertyTypes: {
   category: ProjectCategory;
   title: string;

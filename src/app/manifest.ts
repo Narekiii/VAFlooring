@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "V & A Flooring",
-    short_name: "V & A Flooring",
+    name: "V & A Flooring Inc",
+    short_name: "V & A Flooring Inc",
     start_url: "/",
     display: "browser",
     background_color: "#F7F4EE",

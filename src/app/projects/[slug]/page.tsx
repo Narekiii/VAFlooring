@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!project) return {};
   return pageMetadata({
     title: project.name,
-    description: project.summary ?? `${project.name}: flooring by V & A Flooring.`,
+    description: project.summary ?? `${project.name}: flooring by V & A Flooring Inc.`,
     path: `${routes.projects}/${project.slug}`,
     image: project.photos[0]
       ? {

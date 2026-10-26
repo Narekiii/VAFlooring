@@ -10,7 +10,7 @@ import styles from "./page.module.css";
 export const metadata = pageMetadata({
   title: "Request a Flooring Estimate in Los Angeles",
   description:
-    "Tell V & A Flooring about your home, ADU, multifamily, hospitality or commercial flooring project in Los Angeles. We’ll follow up to discuss scope, materials and timing.",
+    "Tell V & A Flooring Inc about your home, ADU, multifamily, hospitality or commercial flooring project in Los Angeles. We’ll follow up to discuss scope, materials and timing.",
   path: routes.estimate,
 });
 
@@ -64,7 +64,7 @@ export default function EstimatePage() {
 
               {(phone || email || address || hours) && (
                 <div className={styles.contact}>
-                  <h2 className={styles.asideTitle}>Contact V&nbsp;&amp;&nbsp;A Flooring</h2>
+                  <h2 className={styles.asideTitle}>Contact V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc</h2>
                   <ul className={styles.contactList}>
                     {phone && (
                       <li>

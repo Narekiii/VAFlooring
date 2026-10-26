@@ -40,7 +40,7 @@ const defaultShareImage = {
   url: "/opengraph-image.jpg",
   width: 1200,
   height: 630,
-  alt: "V & A Flooring: Flooring Expertise. Family Accountability. Since 1999.",
+  alt: "V & A Flooring Inc: Flooring Expertise. Family Accountability. Since 1999.",
 };
 
 /** Per-page metadata with canonical URL (only when the domain is known) and Open Graph data. */

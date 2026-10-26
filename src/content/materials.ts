@@ -1,7 +1,7 @@
 /**
  * Materials & Brands content.
  *
- * Flooring categories are deliberately unpublished until V & A Flooring confirms which
+ * Flooring categories are deliberately unpublished until V & A Flooring Inc confirms which
  * categories it stocks and installs. To publish one, set `published: true` after
  * confirming the description is accurate. Do not add performance claims (waterproof,
  * scratchproof, warranty terms, commercial ratings) unless they come from the specific

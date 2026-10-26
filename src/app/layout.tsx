@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: `%s | ${business.name}`,
   },
   description:
-    "Family-owned since 1999, V & A Flooring supplies flooring materials and professional installation for homes, ADUs, multifamily, hospitality and commercial projects in Los Angeles.",
+    "Family-owned since 1999, V & A Flooring Inc supplies flooring materials and professional installation for homes, ADUs, multifamily, hospitality and commercial projects in Los Angeles.",
   applicationName: business.name,
   robots: isIndexable() ? { index: true, follow: true } : { index: false, follow: false },
   formatDetection: { telephone: false, email: false, address: false },

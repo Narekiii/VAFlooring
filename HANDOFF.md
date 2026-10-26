@@ -17,6 +17,17 @@ configuration goes in environment variables (see `.env.example`).
       CSLB records list V & A Flooring Inc at this address as **#866991**. Confirm before launch.
 - [ ] **Public email address** (`email`). Hidden until provided.
 
+- [x] **Name** now reads “V & A Flooring Inc” across the site, titles and structured data.
+- [ ] **License classifications.** The September 2026 CSLB certified copy lists **C-15 and C-54 only**.
+      The site also shows **B (General Building)**, as you supplied and as BuildZoom lists. If B is no
+      longer on the license, remove it from `license.classifications` in `src/content/site.ts`.
+- [x] **Certificates added** (Our Story page; four on the homepage): CSLB license (2005 and 2026
+      certified copy), EPA Lead-Safe Certified Firm NAT-44728-4 (valid to June 19, 2030), three Lowe’s
+      recognition certificates (2016, 2016, 2019) and the team photo. The EPA certificate issued to
+      “Mafloor & Blinds” was **not** added because it names a different company.
+- [ ] The Lowe’s certificates show the Lowe’s logo as printed. Confirm you’re comfortable publishing
+      them; a note under the section says the marks belong to their owners and imply no endorsement.
+
 ## Recommended
 
 - [ ] **Operating hours** (`hours`), if the business publishes them.

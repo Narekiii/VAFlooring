@@ -22,13 +22,13 @@ export function FounderPreview() {
               and customer support received far less attention.
             </p>
             <p>
-              In 1999 he founded V&nbsp;&amp;&nbsp;A Flooring around a different priority: good materials, careful installation,
+              In 1999 he founded V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc around a different priority: good materials, careful installation,
               honest guidance, and support that continues after the job is complete. The company is still family owned
               today.
             </p>
             <div className={styles.cta}>
               <ButtonLink href={routes.story} variant="secondary">
-                Meet V&nbsp;&amp;&nbsp;A Flooring
+                Meet V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc
               </ButtonLink>
             </div>
           </div>

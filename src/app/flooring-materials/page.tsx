@@ -86,7 +86,7 @@ export default function MaterialsPage() {
           </div>
           <p className={styles.trademark}>
             Mohawk, Shaw and Engineered Floors are trademarks of their respective owners. They are named here to identify
-            products we offer and do not imply endorsement of V&nbsp;&amp;&nbsp;A Flooring.
+            products we offer and do not imply endorsement of V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc.
           </p>
         </Container>
       </Section>
