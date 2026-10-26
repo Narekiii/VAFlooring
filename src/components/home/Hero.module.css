@@ -16,6 +16,17 @@
   object-fit: cover;
 }
 
+/* Dark graphite scrim: quiets the busy showroom photo so the panel and headline lead. */
+.media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(16, 20, 23, 0.72) 0%, rgba(16, 20, 23, 0.5) 55%, rgba(16, 20, 23, 0.35) 100%),
+    rgba(48, 53, 56, 0.25);
+  pointer-events: none;
+}
+
 .label {
   position: absolute;
   right: var(--space-4);
@@ -26,6 +37,7 @@
   font-size: 0.75rem;
   font-weight: 500;
   border-radius: var(--radius);
+  z-index: 1;
 }
 
 .wrap {
