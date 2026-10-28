@@ -1,5 +1,8 @@
 import { addressLine, business, contentUpdated, facts, hoursLines, licenseLine, mapsHref, regionLine } from "@/content/site";
 import { homeFaqs, publishedServices, serviceAreas, serviceHref } from "@/content/services";
+import { productFaqs, productHref, products } from "@/content/products";
+import { installProcess } from "@/content/installation";
+import { reasons } from "@/content/why-us";
 import { routes } from "@/content/navigation";
 import { projects } from "@/content/projects";
 import { siteUrl } from "./seo";
@@ -15,7 +18,7 @@ const plain = (s: string) => s.replace(/ /g, " ");
 const link = (path: string) => `${siteUrl() ?? ""}${path}`;
 
 export function overview(): string {
-  return `${business.name} is a family-owned, licensed flooring contractor and flooring showroom in Sun Valley (Los Angeles), California, founded in ${business.founded} by ${business.founder}. It supplies flooring materials and installs hardwood, laminate, luxury vinyl plank (LVP), carpet and tile flooring for home renovations, ADUs, multifamily communities, hotels and commercial projects across ${regionLine}.`;
+  return `${business.name} is a family-owned, licensed flooring contractor and flooring showroom in Sun Valley (Los Angeles), California, founded in ${business.founded} by ${business.founder}. It sells flooring materials to homeowners and contractors and installs hardwood, laminate, luxury vinyl plank (LVP), carpet and tile flooring for home renovations, ADUs, multifamily communities, hotels and commercial projects across ${regionLine}.`;
 }
 
 export function keyFacts(): string[] {
@@ -53,13 +56,16 @@ export function llmsTxt(): string {
     "## Key facts",
     ...keyFacts(),
     "",
-    "## Services",
+    `## Products (${link(routes.products)})`,
+    ...products.map((p) => `- [${p.name}](${link(productHref(p))}): ${plain(p.summary)}`),
+    "",
+    `## Installation (${link(routes.installation)})`,
     ...publishedServices.map((s) => `- [${s.name}](${link(serviceHref(s))}): ${plain(s.summary)}`),
     `- [Residential flooring](${link(routes.residential)}): home renovations, single rooms and ADUs`,
     `- [Commercial & multifamily flooring](${link(routes.commercial)}): general contractors, developers, property managers, hotels and apartment communities`,
     "",
     "## Pages",
-    `- [Flooring materials & showroom](${link(routes.materials)})`,
+    `- [Why choose us](${link(routes.whyUs)})`,
     `- [Service areas](${link(routes.serviceAreas)})`,
     `- [About us / our story](${link(routes.story)})`,
     `- [Contact](${link(routes.contact)})`,
@@ -87,9 +93,27 @@ export function llmsFullTxt(): string {
     "",
     "Values: honesty, hard work, initiative and trust.",
     "",
+    "## Why clients choose us",
+    ...reasons.map((r) => `- ${plain(r.title)}: ${plain(r.body)}`),
+    "",
+    "## How we install flooring",
+    ...installProcess.map((p, i) => `${i + 1}. ${plain(p.title)}: ${plain(p.body)}`),
+    "",
   ];
+  for (const p of products) {
+    out.push(`## ${p.name} (products)`, `URL: ${link(productHref(p))}`, "", plain(p.summary), "", `Types: ${p.types.join(", ")}`, ...(p.brands ? [`Brands include: ${p.brands.join(", ")}`] : []), "");
+    for (const sec of p.sections) out.push(`### ${plain(sec.heading)}`, ...sec.body.map(plain), "");
+    if (p.comparison) {
+      const c = p.comparison;
+      out.push(`### ${plain(c.caption)}`, `| ${c.columns.map((x) => x || "Feature").join(" | ")} |`, `| --- | --- | --- |`);
+      for (const r of c.rows) out.push(`| ${r.map(plain).join(" | ")} |`);
+      out.push("");
+    }
+    out.push(`### ${p.name} FAQ`, ...p.faqs.flatMap((f) => [`Q: ${plain(f.q)}`, `A: ${plain(f.a)}`, ""]));
+  }
+  out.push("## Buying flooring FAQ", ...productFaqs.flatMap((f) => [`Q: ${plain(f.q)}`, `A: ${plain(f.a)}`, ""]));
   for (const s of publishedServices) {
-    out.push(`## ${s.name}`, `URL: ${link(serviceHref(s))}`, "", plain(s.summary), "");
+    out.push(`## ${s.name} (installation)`, `URL: ${link(serviceHref(s))}`, "", plain(s.summary), "");
     for (const sec of s.sections) out.push(`### ${plain(sec.heading)}`, ...sec.body.map(plain), "");
     if (s.comparison) {
       const c = s.comparison;

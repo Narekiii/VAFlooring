@@ -1,0 +1,5 @@
+/* Five products fit one row on wide screens. */
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  gap: var(--space-4);
+}

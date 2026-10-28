@@ -1,6 +1,7 @@
 import { addressLine, business, contentUpdated, facts, mapsHref } from "@/content/site";
 import { serviceAreas } from "@/content/services";
 import { publishedServices, serviceHref, type Faq, type Service } from "@/content/services";
+import { productHref, products } from "@/content/products";
 import { siteUrl } from "./seo";
 import { images, type SiteImage } from "@/content/images";
 
@@ -56,6 +57,12 @@ export function organizationJsonLd() {
         }
       : {}),
     knowsAbout: [
+      "Flooring store",
+      "Hardwood flooring",
+      "Laminate flooring",
+      "Luxury vinyl plank (LVP) flooring",
+      "Carpet and carpet tile",
+      "Porcelain and ceramic floor tile",
       "Hardwood flooring installation",
       "Engineered hardwood flooring",
       "Laminate flooring installation",
@@ -94,11 +101,27 @@ export function organizationJsonLd() {
       : {}),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Flooring services",
-      itemListElement: publishedServices.map((s) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s.name, serviceType: s.serviceType, url: abs(serviceHref(s)) },
-      })),
+      name: "Flooring products and installation",
+      itemListElement: [
+        {
+          "@type": "OfferCatalog",
+          name: "Flooring products",
+          ...(abs("/products") ? { url: abs("/products") } : {}),
+          itemListElement: products.map((p) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Product", name: p.name, category: "Flooring", description: plain(p.cardText), url: abs(productHref(p)) },
+          })),
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Flooring installation",
+          ...(abs("/installation") ? { url: abs("/installation") } : {}),
+          itemListElement: publishedServices.map((s) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: s.name, serviceType: s.serviceType, url: abs(serviceHref(s)) },
+          })),
+        },
+      ],
     },
   };
   if (url) {

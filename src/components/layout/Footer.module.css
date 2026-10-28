@@ -12,7 +12,7 @@
 
 .inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.4fr) repeat(4, minmax(0, 1fr));
   gap: var(--space-7) var(--space-6);
   padding: clamp(3rem, 2.25rem + 2.5vw, 4.5rem) 0 var(--space-7);
   border-top: 1px solid var(--line-dark);
@@ -87,9 +87,9 @@
   font-size: var(--text-xs);
 }
 
-@media (max-width: 60rem) {
+@media (max-width: 75rem) {
   .inner {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .brand {
@@ -97,9 +97,13 @@
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 60rem) {
   .inner {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
   }
 }
 

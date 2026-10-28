@@ -14,7 +14,7 @@ export function servicesCards(): Card[] {
       text: s.cardText,
       href: serviceHref(s),
       image: s.image,
-      cta: `${s.shortName} details`,
+      cta: `${s.shortName} installation`,
     })),
     {
       title: "Residential Flooring",

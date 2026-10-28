@@ -17,9 +17,12 @@ import { getService, publishedServices, serviceHref } from "@/content/services";
 import { business, facts, licenseLine, regionLine, telHref } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import { serviceJsonLd } from "@/lib/structured-data";
-import styles from "./page.module.css";
+import styles from "@/components/detail/Detail.module.css";
+import { Glance } from "@/components/detail/Glance";
+import { TextLink } from "@/components/ui/TextLink";
+import { getProduct, productHref } from "@/content/products";
 
-// Only published services get pages; every other top-level slug is a 404.
+// Only published installation services get pages; any other slug is a 404.
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -38,10 +41,11 @@ export default async function ServicePage({ params }: Params) {
   const s = getService((await params).service);
   if (!s) notFound();
   const material = s.material;
+  const product = getProduct(s.productSlug);
 
   const glance: [string, string][] = [
     ["Service area", regionLine],
-    ["What we provide", `${s.shortName} supply and installation`],
+    ["What we provide", `${s.shortName} installation by our own crews, with materials supplied`],
     ["Projects", "Homes, ADUs, multifamily, hotels and commercial"],
     ["Installation capacity", facts.installationCrewsLong],
     ["Manufacturers include", facts.manufacturers.join(", ")],
@@ -53,10 +57,13 @@ export default async function ServicePage({ params }: Params) {
     <>
       <PageHero
         description={s.metaDescription}
-        kicker="Flooring services"
+        kicker="Flooring installation"
         title={s.h1}
         image={s.image}
-        crumbs={[{ name: s.name, href: serviceHref(s) }]}
+        crumbs={[
+          { name: "Installation", href: routes.installation },
+          { name: s.name, href: serviceHref(s) },
+        ]}
         actions={
           <>
             <ButtonLink href={routes.estimate} variant="light">
@@ -73,21 +80,7 @@ export default async function ServicePage({ params }: Params) {
         <p>{s.summary}</p>
       </PageHero>
 
-      <section className={styles.glance} aria-labelledby="glance-title">
-        <Container>
-          <h2 id="glance-title" className={styles.glanceTitle}>
-            At a glance
-          </h2>
-          <dl className={styles.glanceList}>
-            {glance.map(([k, v]) => (
-              <div key={k}>
-                <dt>{k}</dt>
-                <dd>{v}</dd>
-              </div>
-            ))}
-          </dl>
-        </Container>
-      </section>
+      <Glance items={glance} />
 
       <Section tone="ivory" labelledBy="overview-0">
         <Container>
@@ -101,6 +94,16 @@ export default async function ServicePage({ params }: Params) {
                   ))}
                 </div>
               ))}
+              {product && (
+                <div className={styles.block}>
+                  <h2 id="choosing-title">Choosing {material === "tile" ? "floor tile" : `${material} flooring`}</h2>
+                  <p>
+                    {product.cardText} Compare types, see a side-by-side comparison and find out what we carry on our{" "}
+                    {product.name.toLowerCase()} page.
+                  </p>
+                  <TextLink href={productHref(product)}>{product.name}: types, brands and comparison</TextLink>
+                </div>
+              )}
             </div>
             <aside className={styles.aside} aria-label="Start your project">
               <Figure image={s.detailImage} ratio="4 / 3" sizes="(min-width: 64rem) 26rem, 100vw" />
@@ -115,39 +118,6 @@ export default async function ServicePage({ params }: Params) {
           </div>
         </Container>
       </Section>
-
-      {s.comparison && (
-        <Section tone="white" labelledBy="compare-title">
-          <Container>
-            <SectionHead id="compare-title" kicker="Compare" title={s.comparison.caption}>
-              <p>A general comparison. Specific products vary, so we always check the manufacturer’s specifications.</p>
-            </SectionHead>
-            <div className={styles.tableWrap} role="region" aria-label={`${s.comparison.caption} table`} tabIndex={0}>
-              <table className={styles.table}>
-                <caption className="visually-hidden">{s.comparison.caption}</caption>
-                <thead>
-                  <tr>
-                    {s.comparison.columns.map((c, i) => (
-                      <th key={i} scope="col">
-                        {c || <span className="visually-hidden">Feature</span>}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {s.comparison.rows.map((r) => (
-                    <tr key={r[0]}>
-                      <th scope="row">{r[0]}</th>
-                      <td>{r[1]}</td>
-                      <td>{r[2]}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </Container>
-        </Section>
-      )}
 
       <Section tone="sand" labelledBy="process-title">
         <Container>
@@ -180,13 +150,13 @@ export default async function ServicePage({ params }: Params) {
       <FaqSection
         faqs={s.faqs}
         tone="ivory"
-        title={`${s.shortName} FAQ`}
-        intro={`Common questions about ${material} flooring and installation in Los Angeles, Orange and Ventura counties.`}
+        title={`${s.shortName} installation FAQ`}
+        intro={`Common questions about ${material} installation in Los Angeles, Orange and Ventura counties.`}
       />
 
       <Section tone="white" labelledBy="related-title">
         <Container>
-          <SectionHead id="related-title" kicker="More services" title="Other flooring services" />
+          <SectionHead id="related-title" kicker="Installation" title="Other flooring we install" />
           <ServicesGrid headingId="related-title" exclude={serviceHref(s)} />
         </Container>
       </Section>

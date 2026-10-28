@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { business, directionsHref, hoursLines, licenseLine, regionLine, telHref } from "@/content/site";
-import { footerCompany, footerServices, routes } from "@/content/navigation";
+import { footerCompany, footerProducts, footerServices, routes } from "@/content/navigation";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -19,14 +19,27 @@ export function Footer() {
             </Link>
             <p className={styles.brandLine}>{business.brandLine}</p>
             <p className={styles.summary}>
-              Family-owned flooring contractor in Sun Valley, supplying and installing hardwood, laminate, vinyl
+              Family-owned flooring store and installer in Sun Valley, selling and installing hardwood, laminate, vinyl
               plank, carpet and tile flooring for homes, ADUs, multifamily communities, hotels and commercial projects.
             </p>
           </div>
 
+          <nav aria-labelledby="footer-products" className={styles.col}>
+            <h2 id="footer-products" className={styles.heading}>
+              Products
+            </h2>
+            <ul className={styles.list}>
+              {footerProducts.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
           <nav aria-labelledby="footer-services" className={styles.col}>
             <h2 id="footer-services" className={styles.heading}>
-              Flooring services
+              Installation
             </h2>
             <ul className={styles.list}>
               {footerServices.map((item) => (

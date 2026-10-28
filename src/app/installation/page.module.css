@@ -1,0 +1,44 @@
+.standards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+  list-style: none;
+}
+
+.standards li {
+  padding-top: var(--space-4);
+  border-top: 3px solid var(--bronze);
+}
+
+.standards h3 {
+  color: var(--navy);
+  font-size: var(--text-lg);
+  font-weight: 800;
+}
+
+.standards p {
+  margin-top: var(--space-2);
+  color: var(--graphite);
+}
+
+.whyLink {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-6);
+}
+
+.whyLink h2 {
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+}
+
+.whyLink p {
+  color: var(--graphite);
+}
+
+.whyLink a {
+  color: var(--navy);
+  font-weight: 700;
+}

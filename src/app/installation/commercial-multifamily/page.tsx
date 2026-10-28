@@ -6,6 +6,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { InquiryCta } from "@/components/home/InquiryCta";
+import { publishedServices, serviceHref } from "@/content/services";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { images } from "@/content/images";
 import { estimateFor, routes } from "@/content/navigation";
@@ -68,7 +69,10 @@ export default function CommercialPage() {
         title={"Commercial\u00a0& Multifamily Flooring Contractor in Los\u00a0Angeles"}
         subtitle="Experience and capacity for larger projects."
         image={images.warehouse}
-        crumbs={[{ name: "Commercial & Multifamily", href: "/commercial-multifamily-flooring" }]}
+        crumbs={[
+          { name: "Installation", href: routes.installation },
+          { name: "Commercial & Multifamily", href: routes.commercial },
+        ]}
         actions={
           <ButtonLink href={estimateFor.commercial} variant="light">
             Discuss a Commercial Project
@@ -152,7 +156,7 @@ export default function CommercialPage() {
           <SectionHead id="com-floors" kicker="Flooring we install" title="Flooring we install on larger projects">
             <p>Supplied and installed by one company and coordinated with your specifications and schedule.</p>
           </SectionHead>
-          <ServicesGrid headingId="com-floors" only={["/lvp-vinyl-flooring-installation", "/carpet-installation", "/hardwood-flooring-installation", "/laminate-flooring-installation", "/tile-flooring-installation"]} />
+          <ServicesGrid headingId="com-floors" only={publishedServices.map(serviceHref)} />
         </Container>
       </Section>
 

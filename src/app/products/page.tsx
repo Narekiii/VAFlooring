@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { MediaSplit } from "@/components/ui/MediaSplit";
@@ -9,60 +8,74 @@ import { TextLink } from "@/components/ui/TextLink";
 import { SelectionGuide } from "@/components/materials/SelectionGuide";
 import { InquiryCta } from "@/components/home/InquiryCta";
 import { images } from "@/content/images";
-import { publishedCategories } from "@/content/materials";
+import { ProductGrid } from "@/components/products/ProductGrid";
+import { FaqSection } from "@/components/home/FaqSection";
+import { productFaqs } from "@/content/products";
 import { routes } from "@/content/navigation";
 import { facts } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
 
 const description =
-  "See hardwood, laminate, LVP, carpet and tile at our Sun Valley flooring showroom, with products from Mohawk, Shaw and Engineered Floors.";
+  "Flooring store and showroom in Sun Valley, LA: hardwood, laminate, LVP, carpet and tile from Mohawk, Shaw and Engineered Floors, for homes and contractors.";
 
 export const metadata = pageMetadata({
-  title: "Flooring Store & Showroom in Sun Valley, LA",
+  title: "Flooring Store & Showroom in Los Angeles",
   description,
-  path: routes.materials,
+  path: routes.products,
   image: images.showroomSelection,
 });
 
-export default function MaterialsPage() {
-  const categories = publishedCategories();
+export default function ProductsPage() {
   return (
     <>
       <PageHero
         description={description}
-        kicker="Materials & brands"
-        title="Flooring Materials & Brands"
-        subtitle="The right floor depends on how the space will be used."
+        pageType="CollectionPage"
+        kicker="Flooring store · Sun Valley, Los Angeles"
+        title="Flooring Products & Brands"
+        subtitle="Hardwood, laminate, vinyl, carpet and tile, in our showroom and in stock."
         image={images.showroomSelection}
-        crumbs={[{ name: "Materials & Brands", href: routes.materials }]}
+        crumbs={[{ name: "Products", href: routes.products }]}
         actions={
-          <ButtonLink href={routes.estimate} variant="light">
-            Ask About Materials
-          </ButtonLink>
+          <>
+            <ButtonLink href={routes.contact} variant="light">
+              Visit the showroom
+            </ButtonLink>
+            <ButtonLink href={routes.estimate} variant="outline-light">
+              Ask About Materials
+            </ButtonLink>
+          </>
         }
       >
         <p>
-          We supply flooring materials and install them, so we can help you match a product to the room, the traffic it
-          sees, the upkeep you expect and the budget you’re working with.
+          V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc sells flooring materials from our showroom, design center and warehouse in
+          Sun Valley to homeowners, contractors and property managers across Los Angeles, Orange and Ventura counties.
+          We help you match a product to the room, the traffic it sees, the upkeep you expect and your budget, and our
+          own crews can install it.
         </p>
       </PageHero>
 
-      {categories.length > 0 && (
-        <Section tone="ivory" labelledBy="categories">
-          <Container>
-            <SectionHead id="categories" kicker="Categories" title="Flooring we supply and install" />
-            <ul className={styles.categories}>
-              {categories.map((c) => (
-                <li key={c.name}>
-                  <h3>{c.href ? <Link href={c.href}>{c.name}</Link> : c.name}</h3>
-                  <p>{c.body}</p>
-                </li>
-              ))}
-            </ul>
-          </Container>
-        </Section>
-      )}
+      <Section tone="ivory" labelledBy="categories">
+        <Container>
+          <SectionHead id="categories" kicker="Products" title="Flooring we sell and install" />
+          <ProductGrid headingId="categories" />
+        </Container>
+      </Section>
+
+      <Section tone="navy" labelledBy="warehouse-title">
+        <Container>
+          <MediaSplit image={images.warehouse}>
+            <p className="kicker">Warehouse</p>
+            <h2 id="warehouse-title">A fully stocked, operational warehouse</h2>
+            <p>
+              Our Sun Valley warehouse keeps flooring, cushion and moldings on hand, so we can provide quality materials
+              at competitive prices to customers and contractors, and keep our installation crews supplied.
+            </p>
+            <TextLink href={routes.contact} tone="light">Visit or contact us</TextLink>
+          </MediaSplit>
+        </Container>
+      </Section>
 
       <Section tone="white" labelledBy="brands">
         <Container>
@@ -129,6 +142,8 @@ export default function MaterialsPage() {
           </MediaSplit>
         </Container>
       </Section>
+
+      <FaqSection faqs={productFaqs} tone="white" title="Buying flooring from V & A Flooring Inc" intro="Quick answers about our showroom, brands and who we supply." />
 
       <InquiryCta
         title="Not sure where to start?"

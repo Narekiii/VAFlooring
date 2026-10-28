@@ -21,6 +21,7 @@ import showroomCarpetVinyl from "@/assets/images/company/showroom-carpet-vinyl.j
 import showroomTile from "@/assets/images/company/showroom-tile-stone.jpg";
 import showroomSelection from "@/assets/images/company/showroom-selection-table.jpg";
 import warehouse from "@/assets/images/company/warehouse-inventory.jpg";
+import team from "@/assets/images/credentials/va-flooring-installation-team.jpg";
 
 /**
  * Image manifest.
@@ -168,5 +169,11 @@ export const images = {
     alt: "V & A Flooring Inc warehouse with carpet rolls, pallets of plank flooring and moldings",
     kind: "company",
     focus: "50% 60%",
+  },
+  team: {
+    src: team,
+    alt: "V & A Flooring Inc installers and staff in the company warehouse in Sun Valley",
+    kind: "company",
+    focus: "50% 40%",
   },
 } satisfies Record<string, SiteImage>;

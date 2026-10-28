@@ -8,6 +8,7 @@ import { SectionHead } from "@/components/ui/SectionHead";
 import { Steps } from "@/components/ui/Steps";
 import { TextLink } from "@/components/ui/TextLink";
 import { Commitments } from "@/components/home/Commitments";
+import { publishedServices, serviceHref } from "@/content/services";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { InquiryCta } from "@/components/home/InquiryCta";
 import { images } from "@/content/images";
@@ -70,7 +71,10 @@ export default function ResidentialPage() {
         title="Residential Flooring Installation in Los Angeles"
         subtitle="For the spaces you call home."
         image={images.livingWindows}
-        crumbs={[{ name: "Residential Flooring", href: "/residential-flooring" }]}
+        crumbs={[
+          { name: "Installation", href: routes.installation },
+          { name: "Residential Flooring", href: routes.residential },
+        ]}
         actions={
           <ButtonLink href={estimateFor.residential} variant="light">
             Discuss Your Home Project
@@ -104,7 +108,7 @@ export default function ResidentialPage() {
               rooms you’re updating.
             </p>
           </SectionHead>
-          <ServicesGrid headingId="home-floors" only={["/hardwood-flooring-installation", "/laminate-flooring-installation", "/lvp-vinyl-flooring-installation", "/carpet-installation", "/tile-flooring-installation"]} />
+          <ServicesGrid headingId="home-floors" only={publishedServices.map(serviceHref)} />
         </Container>
       </Section>
 

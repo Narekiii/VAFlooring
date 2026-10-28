@@ -10,7 +10,9 @@ type Props = { limit?: number; tone?: "white" | "ivory" | "sand"; id?: string };
 
 /** Licenses, certifications and recognition, shown as photos of the original documents. */
 export function Credentials({ limit, tone = "white", id = "credentials-title" }: Props) {
-  const items = limit ? credentials.slice(0, limit) : credentials;
+  // The team photo has its own place on the homepage and Why Us page; the gallery shows documents.
+  const docs = credentials.filter((c) => c.group !== "team");
+  const items = limit ? docs.slice(0, limit) : docs;
   return (
     <Section tone={tone} labelledBy={id}>
       <Container>
@@ -22,9 +24,9 @@ export function Credentials({ limit, tone = "white", id = "credentials-title" }:
           </p>
         </SectionHead>
         <CredentialGallery items={items} headingId={id} />
-        {limit && credentials.length > limit && (
+        {limit && docs.length > limit && (
           <p style={{ marginTop: "var(--space-6)" }}>
-            <TextLink href={`${routes.story}#credentials-title`}>See all certificates and recognition</TextLink>
+            <TextLink href={`${routes.whyUs}#credentials-title`}>See all certificates and recognition</TextLink>
           </p>
         )}
         <p className="credentials-note">

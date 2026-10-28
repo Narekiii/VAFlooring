@@ -23,7 +23,7 @@ export function Hero() {
       </div>
       <div className={styles.wrap}>
         <div className={styles.panel} data-surface="dark">
-          <p className="kicker">Los Angeles flooring contractor · Since 1999</p>
+          <p className="kicker">Flooring store &amp; installation · Los Angeles · Since 1999</p>
           <h1 id="hero-title" className={styles.title}>
             Hardwood &amp; Laminate Flooring Installation in Los&nbsp;Angeles
           </h1>
@@ -34,8 +34,8 @@ export function Hero() {
           </p>
           <div className={styles.actions}>
             <ButtonLink href={routes.estimate}>Request an Estimate</ButtonLink>
-            <ButtonLink href={routes.projects} variant="outline-light">
-              Explore Our Projects
+            <ButtonLink href={routes.products} variant="outline-light">
+              Explore Products
             </ButtonLink>
           </div>
         </div>

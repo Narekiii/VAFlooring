@@ -165,7 +165,7 @@ export default function StoryPage() {
         </Container>
       </Section>
 
-      <Credentials tone="white" />
+      <Credentials limit={4} tone="white" />
 
       <InquiryCta />
     </>

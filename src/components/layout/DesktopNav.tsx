@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import type { NavItem } from "@/content/navigation";
+import type { NavItem, NavLink } from "@/content/navigation";
 import styles from "./Header.module.css";
 
 const isCurrent = (pathname: string, href: string) => pathname === href || pathname.startsWith(`${href}/`);
@@ -15,9 +15,25 @@ function Dropdown({ item }: { item: NavItem }) {
   const wrap = useRef<HTMLLIElement>(null);
   const btn = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
-  const active = item.children?.some((c) => isCurrent(pathname, c.href));
+  const active = item.children?.some((c) => isCurrent(pathname, c.href)) || isCurrent(pathname, item.href);
 
   useEffect(() => setOpen(false), [pathname]);
+
+  // Children with a `group` render as labelled columns (e.g. "By floor type" / "By project").
+  const groups = item.children?.some((c) => c.group)
+    ? Array.from(
+        (item.children ?? []).reduce((m, c) => m.set(c.group ?? "", [...(m.get(c.group ?? "") ?? []), c]), new Map<string, NavLink[]>()),
+      )
+    : null;
+
+  const renderLink = (c: NavLink) => (
+    <li key={c.href}>
+      <Link href={c.href} className={styles.menuLink} aria-current={isCurrent(pathname, c.href) ? "page" : undefined}>
+        <span className={styles.menuTitle}>{c.label}</span>
+        {c.description && <span className={styles.menuDesc}>{c.description}</span>}
+      </Link>
+    </li>
+  );
   useEffect(() => {
     if (!open) return;
     const onDown = (e: PointerEvent) => {
@@ -57,17 +73,21 @@ function Dropdown({ item }: { item: NavItem }) {
         {item.label}
         <span className={styles.caret} aria-hidden="true" />
       </button>
-      <div id={id} className={styles.menu} hidden={!open}>
-        <ul>
-          {item.children?.map((c) => (
-            <li key={c.href}>
-              <Link href={c.href} className={styles.menuLink} aria-current={isCurrent(pathname, c.href) ? "page" : undefined}>
-                <span className={styles.menuTitle}>{c.label}</span>
-                {c.description && <span className={styles.menuDesc}>{c.description}</span>}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <div id={id} className={`${styles.menu} ${groups ? styles.menuWide : ""}`} hidden={!open}>
+        {groups ? (
+          <div className={styles.menuGroups}>
+            {groups.map(([name, links]) => (
+              <div key={name}>
+                <p className={styles.menuGroupTitle} id={`${id}-${name.replace(/\W+/g, "-")}`}>
+                  {name}
+                </p>
+                <ul aria-labelledby={`${id}-${name.replace(/\W+/g, "-")}`}>{links.map(renderLink)}</ul>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <ul>{item.children?.map(renderLink)}</ul>
+        )}
       </div>
     </li>
   );

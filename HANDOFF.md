@@ -54,7 +54,7 @@ configuration goes in environment variables (see `.env.example`).
 - [ ] Wording of the Lowe’s line: “Serving Lowe’s installation customers for more than 20
       years.” Text only; no Lowe’s logo is used.
 - [ ] Manufacturer references (Mohawk, Shaw, Engineered Floors) are text only, with a
-      trademark note on the Materials page. Add logos only with approved assets and
+      trademark note on the Products page. Add logos only with approved assets and
       permission.
 - [ ] Services implied in copy are limited to material guidance, supply, installation,
       scheduling and post-installation support. Demolition, furniture moving, subfloor
@@ -83,6 +83,20 @@ configuration goes in environment variables (see `.env.example`).
 - [ ] Add the Google Business Profile, Yelp, BBB and Houzz URLs to `sameAs` in
       `src/content/site.ts` once the listings are consistent. This links the entities for search
       engines and AI assistants.
+
+## Site structure
+
+- Menu: Products ▾ / Installation ▾ / Why Us / Our Story / Contact Us, plus the Request an Estimate button.
+- Homepage order: Introduction → Why Us → How We Do It → What We Do → FAQ → estimate call to action.
+- `/products` and `/products/<type>` target buying searches ("hardwood flooring store Los Angeles"):
+  types, comparisons, brands and the showroom. Content: `src/content/products.ts`.
+- `/installation` and `/installation/<type>`, plus residential and commercial, target installation
+  searches. Content: `src/content/services.ts` and `src/content/installation.ts`.
+- `/why-us` holds the reasons, commitments, team and all certificates. Content: `src/content/why-us.ts`.
+- Old URLs (for example `/hardwood-flooring-installation` and `/flooring-materials`) permanently redirect
+  (308) to the new ones; see `next.config.ts`.
+- Please confirm: you sell materials on their own to homeowners and contractors (stated on the Products
+  page), and the types listed on each product page match what you carry.
 
 ## SEO / GEO built into the site
 

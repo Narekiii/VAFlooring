@@ -1,7 +1,9 @@
 import { images, type SiteImage } from "./images";
 
 /**
- * Flooring service landing pages (one page per floor type at /<slug>).
+ * Flooring installation pages (one page per floor type at /installation/<slug>).
+ * Choosing and buying content (types, comparisons, product FAQs) lives on the matching
+ * product page in content/products.ts, so each page answers one search intent.
  * Each page gets metadata, Service + FAQPage + BreadcrumbList structured data and internal links.
  *
  * Floor types confirmed by V & A Flooring Inc: hardwood, laminate, vinyl/LVP, carpet, tile.
@@ -16,6 +18,10 @@ export type Service = {
   published: boolean;
   /** Menu / card name, e.g. "Hardwood Flooring Installation". */
   name: string;
+  /** Short label for the Installation menu, e.g. "Hardwood Installation". */
+  navLabel: string;
+  /** Matching product page slug (see content/products.ts). */
+  productSlug: string;
   /** Name without "Installation", e.g. "Hardwood Flooring". */
   shortName: string;
   /** Lower-case material word used in sentences, e.g. "hardwood". */
@@ -36,8 +42,8 @@ export type Service = {
   faqs: Faq[];
 };
 
-const RES = "/residential-flooring";
-const COM = "/commercial-multifamily-flooring";
+const RES = "/installation/residential";
+const COM = "/installation/commercial-multifamily";
 
 const process = (m: string, extra?: string) => [
   {
@@ -77,12 +83,14 @@ const area = "Los Angeles, Orange and Ventura counties";
 
 export const services: Service[] = [
   {
-    slug: "hardwood-flooring-installation",
+    slug: "hardwood-flooring",
     published: true,
+    navLabel: "Hardwood Installation",
+    productSlug: "hardwood-flooring",
     name: "Hardwood Flooring Installation",
     shortName: "Hardwood Flooring",
     material: "hardwood",
-    h1: "Hardwood Flooring & Hardwood Floor Installation in Los Angeles",
+    h1: "Hardwood Floor Installation in Los Angeles",
     metaTitle: "Hardwood Flooring Installation Los Angeles",
     metaDescription:
       "Solid and engineered hardwood flooring supplied and installed by a licensed, family-owned LA contractor since 1999. Visit our Sun Valley showroom.",
@@ -101,16 +109,9 @@ export const services: Service[] = [
         ],
       },
       {
-        heading: "Engineered and solid hardwood",
+        heading: "Hardwood installation methods",
         body: [
-          "Engineered hardwood has a real wood wear layer bonded over a layered core. Depending on the product, it can be glued, nailed or floated, which makes it a common choice for concrete slabs, condos and ADUs.",
-          "Solid hardwood is milled from a single piece of wood and is typically nailed or stapled over a wood subfloor in living rooms, bedrooms and hallways.",
-        ],
-      },
-      {
-        heading: "Species, width and finish",
-        body: [
-          "Species such as oak, maple and hickory, depending on the product line, in narrow strips or wide planks, with factory finishes in a range of colors and sheens. We help you compare samples against your space, the light it gets and your budget.",
+          "Depending on the product and the subfloor, hardwood is nailed or stapled over a wood subfloor, glued down, or installed as a floating floor. Engineered hardwood is often glued down or floated over concrete slabs; solid hardwood is typically nailed over a wood subfloor.",
         ],
       },
       {
@@ -120,16 +121,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    comparison: {
-      caption: "Engineered vs. solid hardwood",
-      columns: ["", "Engineered hardwood", "Solid hardwood"],
-      rows: [
-        ["Construction", "Real wood wear layer over a layered core", "One piece of wood throughout"],
-        ["Typical installation", "Glue-down, nail-down or floating, by product", "Nail-down or staple-down"],
-        ["Over concrete slabs", "Many products are designed for it", "Generally not recommended"],
-        ["Common uses", "Slabs, condos, ADUs, multifamily", "Living rooms, bedrooms, hallways over wood subfloors"],
-      ],
-    },
     process: process("hardwood"),
     fits: fits(
       "hardwood",
@@ -140,10 +131,6 @@ export const services: Service[] = [
       {
         q: "Do you supply the hardwood as well as install it?",
         a: "Yes. V & A Flooring Inc supplies flooring materials and installs them, so selection, ordering and installation are handled by one company. We can also install a product you or your designer have already chosen.",
-      },
-      {
-        q: "What is the difference between solid and engineered hardwood?",
-        a: "Solid hardwood is one piece of wood throughout. Engineered hardwood has a real wood wear layer on a layered core. Engineered products can often go over concrete slabs and in more locations, while solid hardwood is usually nailed over a wood subfloor.",
       },
       {
         q: "Can hardwood be installed over a concrete slab?",
@@ -160,12 +147,14 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "laminate-flooring-installation",
+    slug: "laminate-flooring",
     published: true,
+    navLabel: "Laminate Installation",
+    productSlug: "laminate-flooring",
     name: "Laminate Flooring Installation",
     shortName: "Laminate Flooring",
     material: "laminate",
-    h1: "Laminate Flooring & Laminate Floor Installation in Los Angeles",
+    h1: "Laminate Floor Installation in Los Angeles",
     metaTitle: "Laminate Flooring Installation Los Angeles",
     metaDescription:
       "Laminate flooring supplied and installed for homes, ADUs and apartments across Los Angeles. Licensed, family owned since 1999, with a Sun Valley showroom.",
@@ -183,29 +172,12 @@ export const services: Service[] = [
         ],
       },
       {
-        heading: "Choosing a laminate",
-        body: [
-          "Laminate comes in wood-look and stone-look designs, plank and tile formats, and textures from smooth to deeply embossed. Plank thickness, attached or separate underlayment and sound-reduction options vary by product.",
-          "Some laminate lines are designed for greater water resistance and higher traffic. We use each manufacturer’s published specifications, not marketing labels, to match a product to the room.",
-        ],
-      },
-      {
         heading: "What we review before installation",
         body: [
           "Moisture exposure in kitchens, baths and entries, subfloor flatness, transitions and building sound requirements. Most laminate is installed as a floating floor over an approved underlayment, following the manufacturer’s instructions.",
         ],
       },
     ],
-    comparison: {
-      caption: "Laminate vs. luxury vinyl plank (LVP)",
-      columns: ["", "Laminate", "Luxury vinyl plank"],
-      rows: [
-        ["Core", "Wood-based (high-density fiberboard)", "Vinyl-based, often a rigid SPC or WPC core"],
-        ["Look", "Printed wood or stone design", "Printed wood or stone design"],
-        ["Moisture", "Varies by product; check the specifications", "Varies by product; check the specifications"],
-        ["Typical installation", "Floating", "Floating or glue-down"],
-      ],
-    },
     process: process("laminate"),
     fits: fits(
       "laminate",
@@ -214,26 +186,24 @@ export const services: Service[] = [
     ),
     faqs: [
       {
-        q: "Is laminate a good alternative to hardwood?",
-        a: "For many rooms, yes. Laminate offers a wood look at a lower cost than many hardwood options. It has different care and repair characteristics, so we walk through the trade-offs for your space.",
-      },
-      {
         q: "Can laminate go in kitchens or bathrooms?",
         a: "It depends on the product. Some laminate lines are rated for more moisture than others. We check the manufacturer’s specifications and warranty terms for wet areas before recommending one.",
+      },
+      {
+        q: "How is laminate flooring installed?",
+        a: "Most laminate is installed as a floating floor over an approved underlayment, following the manufacturer’s instructions. Before installation we check subfloor flatness, moisture exposure and transitions to other floors.",
       },
       {
         q: "Do you install laminate in apartments and rental units?",
         a: "Yes. We work with multifamily owners and property managers and coordinate installation around occupied units and turnover schedules.",
       },
-      {
-        q: "What is the difference between laminate and luxury vinyl plank?",
-        a: "Laminate has a wood-based core with a printed design layer; luxury vinyl plank is vinyl-based. They differ in feel, sound, moisture behavior and price, and we can help you compare them.",
-      },
     ],
   },
   {
-    slug: "lvp-vinyl-flooring-installation",
+    slug: "lvp-vinyl-flooring",
     published: true,
+    navLabel: "LVP & Vinyl Installation",
+    productSlug: "vinyl-lvp-flooring",
     name: "Vinyl & LVP Flooring Installation",
     shortName: "Vinyl & LVP Flooring",
     material: "vinyl",
@@ -255,10 +225,9 @@ export const services: Service[] = [
         ],
       },
       {
-        heading: "Rigid-core LVP and glue-down LVT",
+        heading: "Floating and glue-down installation",
         body: [
-          "Rigid-core planks (SPC and WPC) click together and are commonly installed as a floating floor in homes and units. Glue-down LVT and LVP are thinner, adhered to the subfloor, and widely used in corridors, hospitality and commercial spaces.",
-          "Wear-layer thickness, texture, plank size and pattern vary by product line. Water resistance depends on the specific product and its installation, so we review the manufacturer’s specifications with you for kitchens, baths and entries.",
+          "Rigid-core planks click together and are installed as a floating floor in homes and units. Glue-down LVT and LVP are adhered to the subfloor, which is common in corridors, hospitality and commercial spaces, and usually need a smoother, well-prepared subfloor.",
         ],
       },
       {
@@ -268,15 +237,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    comparison: {
-      caption: "Floating LVP vs. glue-down LVT",
-      columns: ["", "Floating (rigid-core) LVP", "Glue-down LVT / LVP"],
-      rows: [
-        ["Installation", "Planks click together over the subfloor", "Adhered to the subfloor"],
-        ["Common uses", "Homes, ADUs, apartment units", "Corridors, hospitality, commercial spaces"],
-        ["Subfloor", "Must meet the product’s flatness requirements", "Usually needs a smoother, well-prepared subfloor"],
-      ],
-    },
     process: process("vinyl"),
     fits: fits(
       "vinyl",
@@ -284,14 +244,6 @@ export const services: Service[] = [
       "Specified vinyl products across units, corridors and common areas, with crews scaled to the schedule.",
     ),
     faqs: [
-      {
-        q: "What is LVP flooring?",
-        a: "LVP stands for luxury vinyl plank, a vinyl-based floor made to look like wood planks. LVT is the tile-format version. Both come in floating (click) and glue-down types.",
-      },
-      {
-        q: "Is LVP waterproof?",
-        a: "Water resistance depends on the specific product and its installation. Some vinyl products are marketed as waterproof, but the manufacturer’s specifications and warranty terms are what matter, and we review them with you.",
-      },
       {
         q: "Do you install vinyl flooring in apartment buildings?",
         a: "Yes. Multifamily buildings and apartment communities are a core part of our work. We coordinate installation around occupied units, turnovers and construction schedules.",
@@ -303,8 +255,10 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "carpet-installation",
+    slug: "carpet",
     published: true,
+    navLabel: "Carpet Installation",
+    productSlug: "carpet",
     name: "Carpet Installation",
     shortName: "Carpet & Carpet Tile",
     material: "carpet",
@@ -326,10 +280,9 @@ export const services: Service[] = [
         ],
       },
       {
-        heading: "Broadloom carpet and carpet tile",
+        heading: "Installing broadloom and carpet tile",
         body: [
-          "Broadloom is wall-to-wall carpet installed over cushion, available in many textures, constructions and colors. Carpet tile comes in modular squares or planks that can be laid in patterns and replaced individually, which is why it is common in offices and corridors.",
-          "Cushion type and thickness affect comfort, sound and performance. For commercial projects we work from the carpet and cushion specified in your documents.",
+          "Broadloom carpet is installed wall to wall over cushion; carpet tile is laid in modular squares or planks that can be arranged in patterns. For hospitality designs we plan seam placement and pattern matching before installation begins.",
         ],
       },
       {
@@ -339,15 +292,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    comparison: {
-      caption: "Broadloom carpet vs. carpet tile",
-      columns: ["", "Broadloom carpet", "Carpet tile"],
-      rows: [
-        ["Format", "Wall-to-wall rolls over cushion", "Modular squares or planks"],
-        ["Repairs", "Sections are patched or replaced", "Individual tiles can be replaced"],
-        ["Common uses", "Bedrooms, family rooms, apartment units, hotel rooms", "Offices, corridors, commercial spaces"],
-      ],
-    },
     process: process("carpet"),
     fits: fits(
       "carpet",
@@ -356,22 +300,20 @@ export const services: Service[] = [
     ),
     faqs: [
       {
+        q: "Do you install carpet on stairs?",
+        a: "Yes. We install carpet in bedrooms, family rooms and on stairs, and plan seams and transitions to hard-surface floors before installation.",
+      },
+      {
         q: "Do you install carpet in hotels and apartment buildings?",
         a: "Yes. Hospitality properties and multifamily communities are a large part of our work, and we coordinate installation around occupancy and operations.",
-      },
-      {
-        q: "Which carpet brands do you offer?",
-        a: "Our selection includes products from manufacturers such as Mohawk, Shaw and Engineered Floors, including American-made options.",
-      },
-      {
-        q: "Carpet or carpet tile for an office?",
-        a: "Carpet tile is common in offices because tiles can be replaced individually and laid in patterns. Broadloom gives a seamless look. We help you choose based on the space and any specifications.",
       },
     ],
   },
   {
-    slug: "tile-flooring-installation",
+    slug: "tile-flooring",
     published: true,
+    navLabel: "Tile Installation",
+    productSlug: "tile",
     name: "Tile Flooring Installation",
     shortName: "Tile Flooring",
     material: "tile",
@@ -393,10 +335,9 @@ export const services: Service[] = [
         ],
       },
       {
-        heading: "Porcelain and ceramic tile",
+        heading: "Layout and setting",
         body: [
-          "Porcelain is dense and low-absorption, and comes in many sizes including large-format and wood-look planks. Ceramic tile offers a wide range of colors and finishes for residential floors.",
-          "Tile size, layout pattern, grout joint width and grout color all shape the finished floor, so we plan the layout with you before installation.",
+          "Tile size, layout pattern, grout joint width and grout color all shape the finished floor, so we plan the layout with you before installation and set the tile with the materials the tile manufacturer recommends.",
         ],
       },
       {
@@ -406,15 +347,6 @@ export const services: Service[] = [
         ],
       },
     ],
-    comparison: {
-      caption: "Porcelain vs. ceramic floor tile",
-      columns: ["", "Porcelain", "Ceramic"],
-      rows: [
-        ["Body", "Dense, low water absorption", "Less dense, more absorbent"],
-        ["Formats", "Wide range, including large-format and wood-look", "Wide range of colors, sizes and finishes"],
-        ["Typical cost", "Often higher", "Often lower"],
-      ],
-    },
     process: process("tile", "Our crews prepare the substrate, set the tile to the planned layout and grout it using the setting materials the manufacturer recommends."),
     fits: fits(
       "tile",
@@ -427,10 +359,6 @@ export const services: Service[] = [
         a: "Yes. V & A Flooring Inc holds CSLB license #866991 with C-54 (ceramic and mosaic tile), C-15 (flooring and floor covering) and B (general building) classifications.",
       },
       {
-        q: "Porcelain or ceramic: which should I choose?",
-        a: "Porcelain is denser and absorbs less water; ceramic offers many design options and is often less expensive. The right choice depends on where the tile goes and the look you want.",
-      },
-      {
         q: "Can you install large-format tile?",
         a: "Large-format tile needs a flat, stable subfloor and the setting materials the manufacturer specifies. We review the subfloor and product requirements before installation.",
       },
@@ -439,7 +367,7 @@ export const services: Service[] = [
 ];
 
 export const publishedServices = services.filter((s) => s.published);
-export const serviceHref = (s: Service) => `/${s.slug}`;
+export const serviceHref = (s: Service) => `/installation/${s.slug}`;
 export const getService = (slug: string) => publishedServices.find((s) => s.slug === slug);
 
 /** General FAQs for the homepage (visible + FAQPage schema + llms.txt). */

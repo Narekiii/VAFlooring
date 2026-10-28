@@ -75,8 +75,8 @@ export const business: BusinessConfig = {
   epaLeadSafe: "NAT-44728-4",
   counties: ["Los Angeles County", "Orange County", "Ventura County"],
 
-  // Not yet supplied — hidden until provided.
   email: "Floor@VaFlooring.LA",
+  // Social and directory profiles: hidden until provided.
   sameAs: [],
 
   // From the public Google Business Profile listing for 10945 Pendleton St (October 2026).
@@ -106,7 +106,7 @@ export function telHref(phone: string): string {
 }
 
 /** Date the site content was last reviewed (used for sitemap lastmod and llms.txt). */
-export const contentUpdated = "2026-10-26";
+export const contentUpdated = "2026-10-28";
 
 /** Single-line address, e.g. "10945 Pendleton St, Sun Valley, CA 91352". */
 export function addressLine(): string | null {
