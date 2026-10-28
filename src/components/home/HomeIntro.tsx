@@ -31,7 +31,7 @@ export function HomeIntro() {
               <TextLink href={routes.contact}>Visit the showroom</TextLink>
             </div>
           </div>
-          <Figure image={images.team} ratio="4 / 3" sizes="(min-width: 64rem) 36rem, 100vw" caption="Our team at the V & A Flooring warehouse." />
+          <Figure image={images.building} ratio="4 / 3" sizes="(min-width: 64rem) 36rem, 100vw" caption="Our building, showroom and warehouse at 10945 Pendleton St, Sun Valley." />
         </div>
       </Container>
     </Section>

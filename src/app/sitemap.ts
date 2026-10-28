@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   if (!base) return [];
   const img = (...list: SiteImage[]) => list.filter((i) => i.kind === "company").map((i) => `${base}${i.src.src}`);
   const pages: { path: string; priority: number; images?: string[] }[] = [
-    { path: routes.home, priority: 1, images: img(images.showroomAisle, images.team, images.storefront, images.showroomSelection, images.designCenter, images.warehouse) },
+    { path: routes.home, priority: 1, images: img(images.showroomAisle, images.building, images.founder, images.team, images.storefront, images.showroomSelection, images.designCenter, images.warehouse) },
     { path: routes.products, priority: 0.9, images: img(images.showroomSelection, images.warehouse, images.showroomTile) },
     ...products.map((p) => ({ path: productHref(p), priority: 0.9, images: img(p.showroomImage) })),
     { path: routes.installation, priority: 0.9, images: img(images.warehouse, images.storefront) },

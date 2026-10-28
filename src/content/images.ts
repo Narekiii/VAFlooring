@@ -22,6 +22,7 @@ import showroomTile from "@/assets/images/company/showroom-tile-stone.jpg";
 import showroomSelection from "@/assets/images/company/showroom-selection-table.jpg";
 import warehouse from "@/assets/images/company/warehouse-inventory.jpg";
 import team from "@/assets/images/credentials/va-flooring-installation-team.jpg";
+import storefront2026 from "@/assets/images/company/storefront-2026.jpg";
 import founder from "@/assets/images/company/armond-markarian-founder.jpg";
 
 /**
@@ -170,6 +171,12 @@ export const images = {
     alt: "V & A Flooring Inc warehouse with carpet rolls, pallets of plank flooring and moldings",
     kind: "company",
     focus: "50% 60%",
+  },
+  building: {
+    src: storefront2026,
+    alt: "V & A Flooring Inc building and warehouse at 10945 Pendleton St, Sun Valley, with flooring stock and forklifts outside",
+    kind: "company",
+    focus: "92% 60%",
   },
   founder: {
     src: founder,

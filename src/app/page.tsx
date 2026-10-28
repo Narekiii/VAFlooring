@@ -1,6 +1,8 @@
 import { Hero } from "@/components/home/Hero";
 import { CredibilityStrip } from "@/components/home/CredibilityStrip";
 import { HomeIntro } from "@/components/home/HomeIntro";
+import { FounderSection } from "@/components/company/FounderSection";
+import { HomeTeam } from "@/components/home/HomeTeam";
 import { HomeWhyUs } from "@/components/home/HomeWhyUs";
 import { HomeHowWeDo } from "@/components/home/HomeHowWeDo";
 import { HomeWhatWeDo } from "@/components/home/HomeWhatWeDo";
@@ -34,6 +36,8 @@ export default function HomePage() {
       <Hero />
       <CredibilityStrip />
       <HomeIntro />
+      <FounderSection storyLink />
+      <HomeTeam />
 
       {/* 2 · Why us */}
       <HomeWhyUs />
