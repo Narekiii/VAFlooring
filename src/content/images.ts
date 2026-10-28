@@ -188,6 +188,6 @@ export const images = {
     src: team,
     alt: "V & A Flooring Inc installers and staff in the company warehouse in Sun Valley",
     kind: "company",
-    focus: "50% 40%",
+    focus: "50% 20%",
   },
 } satisfies Record<string, SiteImage>;

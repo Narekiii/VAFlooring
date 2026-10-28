@@ -10,7 +10,7 @@ export function HomeTeam() {
   return (
     <section className={styles.team} aria-labelledby="team-band-title">
       <div className={styles.teamMedia}>
-        <Image src={img.src} alt={img.alt} fill sizes="100vw" placeholder="blur" className={styles.teamImg} style={{ objectPosition: "50% 45%" }} />
+        <Image src={img.src} alt={img.alt} fill sizes="100vw" placeholder="blur" className={styles.teamImg} style={{ objectPosition: "50% 0%" }} />
       </div>
       <div className={styles.teamCaption} data-surface="dark">
         <Container>
