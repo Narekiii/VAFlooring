@@ -76,7 +76,7 @@ export const business: BusinessConfig = {
   counties: ["Los Angeles County", "Orange County", "Ventura County"],
 
   // Not yet supplied — hidden until provided.
-  email: null,
+  email: "Floor@VaFlooring.LA",
   sameAs: [],
 
   // From the public Google Business Profile listing for 10945 Pendleton St (October 2026).
