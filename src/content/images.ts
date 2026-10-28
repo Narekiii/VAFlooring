@@ -175,7 +175,7 @@ export const images = {
     src: founder,
     alt: "Armond Markarian, founder, President and CEO of V & A Flooring Inc",
     kind: "company",
-    focus: "45% 25%",
+    focus: "46% 30%",
   },
   team: {
     src: team,
