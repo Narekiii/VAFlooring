@@ -22,6 +22,8 @@ export type OpeningHours = {
 
 export type BusinessConfig = {
   name: string;
+  /** Days the showroom opens by reservation only (shown instead of "Closed"). */
+  byReservation?: OpeningHours["days"];
   founded: number;
   founder: string;
   ownership: string;
@@ -82,6 +84,8 @@ export const business: BusinessConfig = {
   // From the public Google Business Profile listing for 10945 Pendleton St (October 2026).
   // Confirm with the business; see HANDOFF.md.
   hours: [{ days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "16:00" }],
+  // Confirmed by the business (October 2026). Not listed as regular opening hours in structured data.
+  byReservation: ["Saturday", "Sunday"],
   geo: { latitude: 34.242073, longitude: -118.370575 },
   googlePlaceId: "ChIJy9ruT1-VwoARipH8HrbyqWM",
 };
@@ -165,7 +169,13 @@ export function hoursLines(abbreviate = false): string[] {
   if (!h || h.length === 0) return [];
   const lines = h.map((r) => `${dayRange(r.days, abbreviate)}: ${time12(r.opens)}–${time12(r.closes)}`);
   const open = new Set(h.flatMap((r) => r.days));
-  const closed = dayOrder.filter((d) => !open.has(d));
-  if (closed.length) lines.push(`${closed.length === 2 && closed[0] === "Saturday" && closed[1] === "Sunday" ? `${abbreviate ? "Sat" : "Saturday"}–${abbreviate ? "Sun" : "Sunday"}` : dayRange(closed, abbreviate)}: Closed`);
+  const weekend = (days: string[]) =>
+    days.length === 2 && days[0] === "Saturday" && days[1] === "Sunday"
+      ? `${abbreviate ? "Sat" : "Saturday"} & ${abbreviate ? "Sun" : "Sunday"}`
+      : dayRange(days, abbreviate);
+  const reserved = dayOrder.filter((d) => !open.has(d) && business.byReservation?.includes(d));
+  const closed = dayOrder.filter((d) => !open.has(d) && !business.byReservation?.includes(d));
+  if (reserved.length) lines.push(`${weekend(reserved)}: By reservation`);
+  if (closed.length) lines.push(`${weekend(closed)}: Closed`);
   return lines;
 }
