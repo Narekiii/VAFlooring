@@ -10,8 +10,10 @@ configuration goes in environment variables (see `.env.example`).
       `RESEND_API_KEY` + `ESTIMATE_EMAIL_TO` + `ESTIMATE_EMAIL_FROM`. Until then the form
       shows "Your request was not sent" and the server logs the missing configuration.
       Send one test request after deploying.
-- [ ] **Production domain.** Set `NEXT_PUBLIC_SITE_URL`. Until then pages are `noindex`,
-      `robots.txt` blocks crawling, the sitemap is empty and canonical URLs are omitted.
+- [x] **Production domain.** Built in as `https://www.vaflooring.la`: sitemap.xml, robots.txt,
+      canonical URLs and indexing work with no setup. Set `NEXT_PUBLIC_SITE_URL` only for a different
+      domain. Vercel preview deployments stay `noindex`. After launch, submit
+      `https://www.vaflooring.la/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
 - [x] **Phone, address, license** added: (818) 843-4773 · 10945 Pendleton St, Sun Valley, CA 91352 ·
       CSLB #866991 (B, C-15, C-54), bonded & insured. The license was supplied as "#86699"; public
       CSLB records list V & A Flooring Inc at this address as **#866991**. Confirm before launch.

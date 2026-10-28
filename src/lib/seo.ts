@@ -2,20 +2,28 @@ import type { Metadata } from "next";
 import { business } from "@/content/site";
 import type { SiteImage } from "@/content/images";
 
+/** The live domain. Used when NEXT_PUBLIC_SITE_URL is not set. */
+export const PRODUCTION_URL = "https://www.vaflooring.la";
+
 /**
- * The production domain, e.g. "https://www.vaflooring.com".
- * When NEXT_PUBLIC_SITE_URL is not set, canonical URLs and the sitemap are omitted and
- * search engines are asked not to index the site (useful for previews before launch).
+ * The site's public origin, used for canonical URLs, the sitemap, robots.txt and structured data.
+ *
+ * - NEXT_PUBLIC_SITE_URL, when set, always wins (e.g. a different domain).
+ * - Vercel preview/development deployments return null, so drafts are never indexed.
+ * - Every other build (production) uses PRODUCTION_URL, so the sitemap works with no setup.
  */
 export function siteUrl(): string | null {
   const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (!raw) return null;
-  try {
-    const u = new URL(raw);
-    return u.origin;
-  } catch {
-    return null;
+  if (raw) {
+    try {
+      return new URL(raw).origin;
+    } catch {
+      return null;
+    }
   }
+  const env = process.env.VERCEL_ENV;
+  if (env === "preview" || env === "development") return null;
+  return PRODUCTION_URL;
 }
 
 /** Base used to resolve Open Graph image URLs. Falls back to the Vercel deployment URL. */
