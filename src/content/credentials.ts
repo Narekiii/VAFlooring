@@ -73,9 +73,9 @@ export const credentials: Credential[] = [
   {
     title: "Our installation team",
     issuer: "V & A Flooring Inc",
-    detail: "Installers and staff gathered at a Lowe’s flooring installation warehouse.",
+    detail: "Installers and staff at the V & A Flooring warehouse.",
     group: "team",
     src: team,
-    alt: "Group photo of V & A Flooring Inc installers in a flooring warehouse with carpet rolls on racks",
+    alt: "Group photo of V & A Flooring Inc installers and staff in the V & A Flooring warehouse, with carpet rolls on racks behind them",
   },
 ];
