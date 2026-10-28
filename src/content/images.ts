@@ -22,6 +22,7 @@ import showroomTile from "@/assets/images/company/showroom-tile-stone.jpg";
 import showroomSelection from "@/assets/images/company/showroom-selection-table.jpg";
 import warehouse from "@/assets/images/company/warehouse-inventory.jpg";
 import team from "@/assets/images/credentials/va-flooring-installation-team.jpg";
+import founder from "@/assets/images/company/armond-markarian-founder.jpg";
 
 /**
  * Image manifest.
@@ -169,6 +170,12 @@ export const images = {
     alt: "V & A Flooring Inc warehouse with carpet rolls, pallets of plank flooring and moldings",
     kind: "company",
     focus: "50% 60%",
+  },
+  founder: {
+    src: founder,
+    alt: "Armond Markarian, founder, President and CEO of V & A Flooring Inc",
+    kind: "company",
+    focus: "45% 25%",
   },
   team: {
     src: team,

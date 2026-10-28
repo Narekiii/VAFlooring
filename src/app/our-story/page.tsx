@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/ui/Button";
+import { Figure } from "@/components/ui/Figure";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
@@ -97,6 +98,34 @@ export default function StoryPage() {
           judged by the quality of its installation and by how it treats customers after the sale.
         </p>
       </PageHero>
+
+      <Section tone="ivory" labelledBy="founder-title">
+        <Container>
+          <div className={styles.founder}>
+            <Figure
+              image={images.founder}
+              ratio="4 / 5"
+              sizes="(min-width: 64rem) 28rem, 100vw"
+              className={styles.founderPhoto}
+            />
+            <div className={styles.founderText}>
+              <p className="kicker">Meet our founder</p>
+              <h2 id="founder-title">{business.founder}</h2>
+              <p className={styles.founderRole}>Founder, President &amp; CEO</p>
+              <p className={styles.founderLede}>
+                Armond Markarian founded V&nbsp;&amp;&nbsp;A Flooring&nbsp;Inc in {business.founded} after years of
+                working as a flooring installer. He built the company on a simple idea: a flooring company should be
+                judged by the quality of its installation and by how it treats customers after the sale.
+              </p>
+              <p>
+                Today he leads a family-owned company with {facts.installationCrewsLong.toLowerCase()}, a showroom,
+                design center and warehouse in Sun Valley, and projects that range from single rooms to apartment
+                communities, hotels and commercial interiors across Los Angeles, Orange and Ventura counties.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
       <Section tone="white" labelledBy="story-title">
         <Container>

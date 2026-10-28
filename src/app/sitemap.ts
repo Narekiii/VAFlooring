@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: routes.serviceAreas, priority: 0.8, images: img(images.storefront) },
     { path: routes.contact, priority: 0.8, images: img(images.storefront) },
     { path: routes.estimate, priority: 0.7, images: img(images.storefront) },
-    { path: routes.story, priority: 0.6, images: img(images.designCenter) },
+    { path: routes.story, priority: 0.6, images: img(images.founder, images.designCenter) },
     // The projects index is listed only once real projects are published (see projects/page.tsx).
     ...(projects.length > 0 ? [{ path: routes.projects, priority: 0.6 }] : []),
     ...projects.filter(projectHasDetail).map((p) => ({ path: `${routes.projects}/${p.slug}`, priority: 0.5 })),

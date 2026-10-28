@@ -32,7 +32,12 @@ export function organizationJsonLd() {
       "Family-owned, licensed flooring contractor in Sun Valley, California, supplying and installing hardwood, laminate, luxury vinyl plank (LVP), carpet and tile flooring for home renovations, ADUs, multifamily communities, hotels and commercial projects across Los Angeles, Orange and Ventura counties.",
     legalName: business.legalName,
     foundingDate: String(business.founded),
-    founder: { "@type": "Person", name: business.founder },
+    founder: {
+      "@type": "Person",
+      name: business.founder,
+      jobTitle: "Founder, President & CEO",
+      ...(imageUrl(images.founder) ? { image: imageUrl(images.founder) } : {}),
+    },
     areaServed: areaServed(),
     ...(business.license
       ? {
