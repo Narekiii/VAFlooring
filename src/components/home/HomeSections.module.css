@@ -253,38 +253,9 @@
   }
 }
 
-/* ---------- Team photo band ---------- */
-.team {
-  position: relative;
-  background: var(--navy);
-}
-
-.teamMedia {
-  position: relative;
-  aspect-ratio: 1355 / 998;
-  max-height: 46rem;
-  width: 100%;
-  margin-inline: auto;
-}
-
-@media (min-width: 64rem) {
-  .teamMedia {
-    aspect-ratio: auto;
-    height: min(46rem, 62vw);
+/* ---------- Team (mirrored split) ---------- */
+@media (min-width: 64.0625rem) {
+  .splitReverse {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   }
-}
-
-.teamImg {
-  object-fit: cover;
-}
-
-.teamCaption {
-  padding-block: var(--space-6);
-  background: var(--navy);
-  border-top: 4px solid var(--brass);
-}
-
-.teamTitle {
-  color: var(--white);
-  font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2.1rem);
 }
