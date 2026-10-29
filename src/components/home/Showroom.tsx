@@ -63,6 +63,7 @@ export function Showroom() {
               <figure className={styles.figure}>
                 <div className={styles.frame}>
                   <Image
+          quality={90}
                     src={image.src}
                     alt={image.alt}
                     fill

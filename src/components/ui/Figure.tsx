@@ -25,6 +25,7 @@ export function Figure({ image, ratio = "4 / 3", sizes, priority, className, foc
     <figure className={[styles.figure, className].filter(Boolean).join(" ")}>
       <div className={styles.frame} style={{ aspectRatio: ratio }}>
         <Image
+          quality={90}
           src={image.src}
           alt={image.alt}
           fill

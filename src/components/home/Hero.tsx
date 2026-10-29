@@ -10,6 +10,7 @@ export function Hero() {
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.media}>
         <Image
+          quality={90}
           src={img.src}
           alt={img.alt}
           fill

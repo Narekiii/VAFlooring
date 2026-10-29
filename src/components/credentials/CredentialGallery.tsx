@@ -21,6 +21,7 @@ export function CredentialGallery({ items, headingId }: { items: Credential[]; h
           <li key={c.title} className={`${styles.item} ${c.group === "team" ? styles.wide : ""}`}>
             <button type="button" className={styles.thumb} onClick={() => show(c)} data-cert-full={c.src.src}>
               <Image
+          quality={90}
                 src={c.src}
                 alt={c.alt}
                 sizes="(min-width: 64rem) 24rem, (min-width: 40rem) 50vw, 100vw"

@@ -4,7 +4,9 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 828, 1080, 1280, 1600, 1920],
+    deviceSizes: [640, 828, 1080, 1280, 1600, 1920, 2560],
+    // Real company photography: deliver at high quality (the default is 75).
+    qualities: [75, 90],
   },
   // The site moved to /products/* and /installation/*; keep every old URL working (308 permanent).
   async redirects() {
