@@ -20,7 +20,15 @@ const nextConfig: NextConfig = {
       ["/carpet-installation", "/installation/carpet"],
       ["/tile-flooring-installation", "/installation/tile-flooring"],
     ];
-    return moved.map(([source, destination]) => ({ source, destination, permanent: true }));
+    // Bare domain -> www, in one hop (also for old URLs). Takes effect once vaflooring.la points at this
+    // deployment; the hosting platform upgrades http -> https itself. Query strings are kept.
+    const apex = [{ type: "host" as const, value: "vaflooring.la" }];
+    const www = "https://www.vaflooring.la";
+    return [
+      ...moved.map(([source, destination]) => ({ source, has: apex, destination: `${www}${destination}`, permanent: true })),
+      { source: "/:path*", has: apex, destination: `${www}/:path*`, permanent: true },
+      ...moved.map(([source, destination]) => ({ source, destination, permanent: true })),
+    ];
   },
   async headers() {
     return [

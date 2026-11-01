@@ -26,7 +26,7 @@ export function Hero() {
         <div className={styles.panel} data-surface="dark">
           <p className="kicker">Flooring store &amp; installation · Los Angeles · Since 1999</p>
           <h1 id="hero-title" className={styles.title}>
-            Hardwood &amp; Laminate Flooring Installation in Los&nbsp;Angeles
+            Flooring Supply &amp; Installation in Los&nbsp;Angeles
           </h1>
           <p className={styles.tagline}>Flooring Expertise. Family Accountability. Since 1999.</p>
           <p className={styles.lede}>

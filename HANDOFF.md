@@ -86,6 +86,56 @@ configuration goes in environment variables (see `.env.example`).
       `src/content/site.ts` once the listings are consistent. This links the entities for search
       engines and AI assistants.
 
+## SEO audit follow-up (November 2026): owner and dashboard actions
+
+These cannot be done from the code. In order of priority:
+
+1. **Domain routing (critical).** The audit saw `https://vaflooring.la` return 503 and `http://vaflooring.la`
+   serve a JavaScript redirect to `/lander`. A `/lander` page is typical of a registrar's parking or forwarding
+   page, so the bare domain is most likely not pointed at the website host.
+   - In the hosting dashboard (e.g. Vercel → Project → Domains) add `vaflooring.la` and set it to
+     redirect (308) to `www.vaflooring.la`. Keep `www.vaflooring.la` as the primary domain.
+   - At the domain registrar: turn off parking/forwarding for `vaflooring.la` and set the DNS records the
+     host shows (for Vercel, usually an A record for the bare domain and a CNAME for `www`). Use the
+     values the dashboard gives; do not copy them from elsewhere.
+   - The code also redirects `vaflooring.la/*` to `https://www.vaflooring.la/*` in one hop (keeping the
+     path and query string) as soon as that domain reaches this deployment.
+   - Test afterwards from a phone on mobile data: `http://vaflooring.la/hardwood-flooring-installation`
+     should land on `https://www.vaflooring.la/installation/hardwood-flooring`.
+2. **Google Search Console and Bing Webmaster Tools.** Verify the domain, submit
+   `https://www.vaflooring.la/sitemap.xml`, and use URL Inspection on the homepage and a few service
+   pages. Check the "Google-selected canonical" and the excluded-pages report.
+3. **Old domain `vaflooringinc.com`.** Public search shows it with the same address and phone, plus
+   unrelated content (a granite listing). Confirm who controls it. If you own it and are retiring it,
+   point it at this host and redirect each old page to its closest new page (send the old URL list and
+   the redirect map can be added to `next.config.ts`). If you don't control it, report the listing.
+4. **One consistent business identity everywhere.** Use exactly: V & A Flooring Inc, 10945 Pendleton St,
+   Sun Valley, CA 91352, (818) 843-4773, https://www.vaflooring.la, Mon–Fri 8:00 AM–4:00 PM, Sat & Sun by
+   reservation. Update Google Business Profile (its name currently reads "v&aflooring,inc"), Bing Places,
+   Apple Business Connect, BBB, Yelp, Houzz, Angi and any supplier dealer locators.
+   - **BBB** lists 3812 Foothill Blvd, Glendale and an incorporation date of 2002. Update the address. The
+     website says the company was *founded* in 1999; if it was *incorporated* in 2002, that is fine (they
+     are different facts). Tell us and the site can state both accurately.
+5. **Email.** Confirm `Floor@VaFlooring.LA` is a working, monitored mailbox before launch.
+6. **Profiles for structured data.** Send the official URLs (Google Business Profile, Yelp, BBB,
+   Facebook, Instagram, LinkedIn, Houzz). They go into `business.sameAs` in `src/content/site.ts`.
+7. **Analytics and lead tracking.** None is installed yet. Choose a tool (e.g. Google Analytics 4 or
+   Plausible); successful estimate/contact submissions, phone clicks and directions clicks can then be
+   tracked without personal data.
+
+### Content needed (verified information only)
+
+- **3–6 real projects** for `/projects`: city or neighborhood, property type, what was done, flooring
+  product, verified size (sq ft or units), the challenge, the outcome, real job photos and, optionally, an
+  approved customer quote. Add them in `src/content/projects.ts` with `published: true`. The Projects page
+  becomes indexable and joins the sitemap automatically once three case studies are published.
+- **City pages** (Sun Valley, Burbank, Glendale) only once each has its own projects and local details;
+  otherwise they would be thin "doorway" pages, which search engines penalise.
+- **Service details** for the installation pages: what an estimate includes and excludes, whether you
+  remove and dispose of old flooring, subfloor leveling and moisture testing, how occupied units are
+  scheduled, and the installation workmanship warranty (term and coverage). None of this is on the site
+  yet because it has not been confirmed.
+
 ## Site structure
 
 - Menu: Products ▾ / Installation ▾ / Why Us / Our Story / Contact Us, plus the Request an Estimate button.

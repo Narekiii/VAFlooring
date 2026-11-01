@@ -4,7 +4,7 @@ import { productFaqs, productHref, products } from "@/content/products";
 import { installProcess } from "@/content/installation";
 import { reasons } from "@/content/why-us";
 import { routes } from "@/content/navigation";
-import { projects } from "@/content/projects";
+import { projectsIndexable } from "@/content/projects";
 import { siteUrl } from "./seo";
 
 /**
@@ -70,7 +70,7 @@ export function llmsTxt(): string {
     `- [About us / our story](${link(routes.story)})`,
     `- [Contact](${link(routes.contact)})`,
     `- [Request an estimate](${link(routes.estimate)})`,
-    ...(projects.length ? [`- [Projects](${link(routes.projects)})`] : []),
+    ...(projectsIndexable ? [`- [Projects](${link(routes.projects)})`] : []),
     "",
     "## FAQ",
     ...homeFaqs.flatMap((f) => [`### ${plain(f.q)}`, plain(f.a), ""]),

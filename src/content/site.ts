@@ -110,7 +110,7 @@ export function telHref(phone: string): string {
 }
 
 /** Date the site content was last reviewed (used for sitemap lastmod and llms.txt). */
-export const contentUpdated = "2026-10-28";
+export const contentUpdated = "2026-11-01";
 
 /** Single-line address, e.g. "10945 Pendleton St, Sun Valley, CA 91352". */
 export function addressLine(): string | null {

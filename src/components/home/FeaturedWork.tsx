@@ -4,7 +4,7 @@ import { TextLink } from "@/components/ui/TextLink";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { PropertyTypeGrid } from "@/components/projects/PropertyTypeGrid";
 import { routes } from "@/content/navigation";
-import { projects } from "@/content/projects";
+import { publishedProjects as projects } from "@/content/projects";
 import styles from "./FeaturedWork.module.css";
 
 /**

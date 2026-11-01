@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { images, type SiteImage } from "@/content/images";
 import { routes } from "@/content/navigation";
-import { projectHasDetail, projects } from "@/content/projects";
+import { caseStudies, projectsIndexable } from "@/content/projects";
 import { productHref, products } from "@/content/products";
 import { publishedServices, serviceHref } from "@/content/services";
 import { contentUpdated } from "@/content/site";
@@ -26,8 +26,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: routes.estimate, priority: 0.7, images: img(images.storefront) },
     { path: routes.story, priority: 0.6, images: img(images.founder, images.designCenter) },
     // The projects index is listed only once real projects are published (see projects/page.tsx).
-    ...(projects.length > 0 ? [{ path: routes.projects, priority: 0.6 }] : []),
-    ...projects.filter(projectHasDetail).map((p) => ({ path: `${routes.projects}/${p.slug}`, priority: 0.5 })),
+    ...(projectsIndexable ? [{ path: routes.projects, priority: 0.7 }] : []),
+    ...caseStudies.map((p) => ({ path: `${routes.projects}/${p.slug}`, priority: 0.6, images: img(...p.photos) })),
   ];
   return pages.map(({ path, priority, images: list }) => ({
     url: `${base}${path === "/" ? "" : path}`,

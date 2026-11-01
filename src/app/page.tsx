@@ -20,7 +20,7 @@ const description =
   "Family-owned flooring store and installer in Sun Valley since 1999. Hardwood, laminate, LVP, carpet and tile, supplied and installed across Los Angeles.";
 
 export const metadata = pageMetadata({
-  title: "Hardwood & Laminate Flooring Los Angeles | V & A Flooring Inc",
+  title: "Flooring Store & Installation in Los Angeles | V & A Flooring Inc",
   description,
   path: "/",
 });
@@ -60,7 +60,7 @@ export default function HomePage() {
       <JsonLd
         data={webPageJsonLd({
           path: "/",
-          name: "V & A Flooring Inc: Flooring Store and Installation in Los Angeles",
+          name: "V & A Flooring Inc: Flooring Supply & Installation in Los Angeles",
           description,
           image: images.showroomAisle,
         })}

@@ -6,7 +6,7 @@ import { ProjectBrowser } from "@/components/projects/ProjectBrowser";
 import { PropertyTypeGrid } from "@/components/projects/PropertyTypeGrid";
 import { InquiryCta } from "@/components/home/InquiryCta";
 import { routes } from "@/content/navigation";
-import { projects } from "@/content/projects";
+import { projectsIndexable, publishedProjects } from "@/content/projects";
 import { pageMetadata } from "@/lib/seo";
 
 const description =
@@ -16,13 +16,13 @@ export const metadata = pageMetadata({
   title: "Flooring Projects in Los Angeles",
   description,
   path: routes.projects,
-  // Until real project write-ups are published this page has little unique content, so it is kept
-  // out of search results (links on it are still followed). It becomes indexable automatically.
-  noindex: projects.length === 0,
+  // Kept out of search results (links still followed) until at least three real case studies are
+  // published; it then becomes indexable and joins the sitemap automatically.
+  noindex: !projectsIndexable,
 });
 
 export default function ProjectsPage() {
-  const hasProjects = projects.length > 0;
+  const hasProjects = publishedProjects.length > 0;
   return (
     <>
       <PageHero
@@ -46,7 +46,7 @@ export default function ProjectsPage() {
       {hasProjects ? (
         <Section tone="white" compact>
           <Container>
-            <ProjectBrowser projects={projects} />
+            <ProjectBrowser projects={publishedProjects} />
           </Container>
         </Section>
       ) : (

@@ -145,15 +145,35 @@ export function organizationJsonLd() {
   return data;
 }
 
+/** Service-area names that are neighborhoods/communities inside a larger city, not cities. */
+const neighborhoods: Record<string, string> = {
+  "Sun Valley": "Los Angeles",
+  "North Hollywood": "Los Angeles",
+  "Van Nuys": "Los Angeles",
+  "Sherman Oaks": "Los Angeles",
+  "Studio City": "Los Angeles",
+  Encino: "Los Angeles",
+  Northridge: "Los Angeles",
+  "Granada Hills": "Los Angeles",
+  Valencia: "Santa Clarita",
+};
+
 function areaServed() {
-  return serviceAreas.flatMap((a) => [
-    { "@type": "AdministrativeArea", name: `${a.county}, California` },
-    ...a.places.map((p) => ({
-      "@type": "City",
-      name: `${p}, CA`,
-      containedInPlace: { "@type": "AdministrativeArea", name: `${a.county}, California` },
-    })),
-  ]);
+  return serviceAreas.flatMap((a) => {
+    const county = { "@type": "AdministrativeArea", name: `${a.county}, California` };
+    return [
+      county,
+      ...a.places.map((p) =>
+        neighborhoods[p]
+          ? {
+              "@type": "Place",
+              name: `${p}, ${neighborhoods[p]}, CA`,
+              containedInPlace: { "@type": "City", name: `${neighborhoods[p]}, CA`, containedInPlace: county },
+            }
+          : { "@type": "City", name: `${p}, CA`, containedInPlace: county },
+      ),
+    ];
+  });
 }
 
 export type PageType = "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage" | "ItemPage";
