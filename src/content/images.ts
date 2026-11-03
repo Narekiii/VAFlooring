@@ -114,9 +114,9 @@ export const images = {
   /* ---- Company photography: V & A Flooring Inc showroom, design center and warehouse, Sun Valley ---- */
   storefront: {
     src: storefront,
-    alt: "V & A Flooring Inc building and showroom entrance at 10945 Pendleton St, Sun Valley",
+    alt: "V & A Flooring Inc building at 10945 Pendleton St, Sun Valley, with the showroom entrance and the open warehouse door showing stocked racks",
     kind: "company",
-    focus: "55% 50%",
+    focus: "92% 55%",
   },
   designCenter: {
     src: designCenter,
@@ -156,9 +156,9 @@ export const images = {
   },
   showroomTile: {
     src: showroomTile,
-    alt: "Porcelain tile and stone-look sample displays in the V & A Flooring Inc showroom",
+    alt: "Tile room in the V & A Flooring Inc showroom with large-format porcelain slabs and tile and quartz sample displays",
     kind: "company",
-    focus: "60% 55%",
+    focus: "45% 60%",
   },
   showroomSelection: {
     src: showroomSelection,
