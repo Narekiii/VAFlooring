@@ -114,9 +114,13 @@ export function organizationJsonLd() {
           "@type": "OfferCatalog",
           name: "Flooring products",
           ...(abs("/products") ? { url: abs("/products") } : {}),
+          // Categories and brands are sub-catalogs, not Product items: Google requires price, review or rating
+          // data on every Product, and V & A doesn't publish prices online.
           itemListElement: products.map((p) => ({
-            "@type": "Offer",
-            itemOffered: { "@type": "Product", name: p.name, category: "Flooring", description: plain(p.cardText), url: abs(productHref(p)) },
+            "@type": "OfferCatalog",
+            name: p.name,
+            description: plain(p.cardText),
+            ...(abs(productHref(p)) ? { url: abs(productHref(p)) } : {}),
           })),
         },
         {
@@ -124,19 +128,11 @@ export function organizationJsonLd() {
           name: "Flooring brands",
           ...(abs("/products/brands") ? { url: abs("/products/brands") } : {}),
           itemListElement: [
-            ...facts.manufacturers.map((m) => ({
-              "@type": "Offer",
-              itemOffered: { "@type": "Product", name: `${m} flooring`, category: "Flooring", brand: { "@type": "Brand", name: m } },
-            })),
+            ...facts.manufacturers.map((m) => ({ "@type": "OfferCatalog", name: `${m} flooring` })),
             ...catalog.brands.map((b) => ({
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Product",
-                name: `${b.name} flooring`,
-                category: "Flooring",
-                brand: { "@type": "Brand", name: b.name },
-                url: abs(brandHref(b.slug)),
-              },
+              "@type": "OfferCatalog",
+              name: `${b.name} flooring`,
+              ...(abs(brandHref(b.slug)) ? { url: abs(brandHref(b.slug)) } : {}),
             })),
           ],
         },
