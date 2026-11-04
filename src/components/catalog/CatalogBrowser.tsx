@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { catalogCategories, type CatalogCategory, type CatalogItem } from "@/content/catalog";
+import { catalogCategories, interleave, type CatalogCategory, type CatalogItem } from "@/content/catalog";
 import { buttonClass } from "@/components/ui/Button";
 import { ProductCard } from "./ProductCard";
 import styles from "./Catalog.module.css";
@@ -11,18 +11,18 @@ type BrandOption = { slug: string; name: string; categories: Partial<Record<Cata
 
 const PAGE = 36;
 const isCategory = (v: string | null): v is CatalogCategory => catalogCategories.some((c) => c.key === v);
-/** Mix brands (one from each in turn) so "All brands" doesn't open on a single manufacturer; floors with photos first. */
-function interleave(list: CatalogItem[]) {
-  const groups = new Map<string, CatalogItem[]>();
-  for (const it of list) groups.set(it.b, [...(groups.get(it.b) ?? []), it]);
-  const queues = [...groups.values()];
-  const out: CatalogItem[] = [];
-  for (let i = 0; out.length < list.length; i++) for (const q of queues) if (q[i]) out.push(q[i]);
-  return [...out.filter((x) => x.img), ...out.filter((x) => !x.img)];
-}
 const norm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 
-export function CatalogBrowser({ brands, counts }: { brands: BrandOption[]; counts: Record<CatalogCategory, number> }) {
+export function CatalogBrowser({
+  brands,
+  counts,
+  preview,
+}: {
+  brands: BrandOption[];
+  counts: Record<CatalogCategory, number>;
+  /** Server-rendered first page of the default view, shown until the full list loads. */
+  preview?: CatalogItem[];
+}) {
   const params = useSearchParams();
   const router = useRouter();
   const brandParam = params.get("brand") ?? "";
@@ -58,8 +58,9 @@ export function CatalogBrowser({ brands, counts }: { brands: BrandOption[]; coun
   const names = useMemo(() => Object.fromEntries(brands.map((b) => [b.slug, b.name])), [brands]);
   const list = items[category];
   const mixed = useMemo(() => (list ? interleave(list) : []), [list]);
+  const usePreview = !list && !brand && !query && category === "hardwood" && preview;
   const filtered = useMemo(() => {
-    if (!list) return [];
+    if (!list) return usePreview ? preview : [];
     const base = brand ? list : mixed;
     const words = norm(query).split(/\s+/).filter(Boolean);
     return base.filter((it) => {
@@ -68,7 +69,7 @@ export function CatalogBrowser({ brands, counts }: { brands: BrandOption[]; coun
       const hay = norm([names[it.b], it.col, it.t, it.sku, ...Object.values(it.s ?? {})].filter(Boolean).join(" "));
       return words.every((w) => hay.includes(w));
     });
-  }, [list, mixed, brand, query, names]);
+  }, [list, mixed, brand, query, names, usePreview, preview]);
 
   const setParams = (next: { category?: CatalogCategory; brand?: string }) => {
     const q = new URLSearchParams();
@@ -121,8 +122,10 @@ export function CatalogBrowser({ brands, counts }: { brands: BrandOption[]; coun
             />
           </label>
           <p className={styles.count} aria-live="polite" style={{ alignSelf: "end" }}>
-            {list
-              ? `${filtered.length.toLocaleString("en-US")} ${filtered.length === 1 ? "floor" : "floors"}${brand ? ` from ${names[brand]}` : ""}`
+            {list || usePreview
+              ? usePreview
+                ? `${counts.hardwood.toLocaleString("en-US")} floors`
+                : `${filtered.length.toLocaleString("en-US")} ${filtered.length === 1 ? "floor" : "floors"}${brand ? ` from ${names[brand]}` : ""}`
               : failed
                 ? "The list couldn’t load. Please refresh the page."
                 : "Loading…"}
@@ -138,10 +141,10 @@ export function CatalogBrowser({ brands, counts }: { brands: BrandOption[]; coun
           <ProductCard key={it.id} item={it} brandName={names[it.b] ?? it.b} />
         ))}
       </ul>
-      {filtered.length > shown && (
+      {(usePreview ? counts.hardwood : filtered.length) > shown && (
         <div className={styles.more}>
           <button type="button" className={buttonClass("secondary")} onClick={() => setShown((n) => n + PAGE)}>
-            Show more ({(filtered.length - shown).toLocaleString("en-US")} left)
+            Show more ({((usePreview ? counts.hardwood : filtered.length) - shown).toLocaleString("en-US")} left)
           </button>
         </div>
       )}

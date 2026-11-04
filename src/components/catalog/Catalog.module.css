@@ -267,3 +267,80 @@
   color: var(--navy);
   font-weight: 600;
 }
+
+.directory {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.directory h3 a {
+  color: var(--navy);
+  font-size: var(--text-lg);
+  font-weight: 800;
+}
+
+.directory ul {
+  display: grid;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+.directory li a {
+  color: var(--navy);
+}
+
+.directory li span {
+  color: var(--ink-soft);
+}
+
+@media (max-width: 64rem) {
+  .directory {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 30rem) {
+  .directory {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Full floor list on brand pages: text only, grouped by collection. */
+.floorList {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.floorList h3 {
+  color: var(--navy);
+  font-size: var(--text-lg);
+  font-weight: 800;
+}
+
+.floorGroups {
+  columns: 3 16rem;
+  column-gap: var(--space-6);
+  margin-top: var(--space-3);
+}
+
+.floorGroup {
+  break-inside: avoid;
+  margin-bottom: var(--space-4);
+}
+
+.floorGroup h4 {
+  color: var(--bronze);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.floorGroup ul {
+  list-style: none;
+  color: var(--graphite);
+  font-size: var(--text-sm);
+}

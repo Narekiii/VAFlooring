@@ -136,6 +136,18 @@ These cannot be done from the code. In order of priority:
   scheduled, and the installation workmanship warranty (term and coverage). None of this is on the site
   yet because it has not been confirmed.
 
+## Product catalog (November 2026)
+
+- `/products/catalog`, `/products/brands` and one page per brand are built from the supplied product export by
+  `scripts/catalog/transform.py` (run: `python3 -I scripts/catalog/transform.py <export folder> .`). Re-run it when
+  the export is updated, then rebuild.
+- Confirm with each manufacturer/distributor that V & A can sell their products before promoting the brand pages.
+- Product photos are loaded from the manufacturers' websites. Replace them with V & A-hosted copies (with permission)
+  when possible; the cards fall back to "Photo on request" if an image fails.
+- After deploy, resubmit `/sitemap.xml` in Google Search Console and Bing Webmaster Tools and request indexing for
+  `/products/catalog` and `/products/brands`.
+- Brand names are listed as text only. Do not add manufacturer logos without written permission.
+
 ## Site structure
 
 - Menu: Products ▾ / Installation ▾ / Why Us / Our Story / Contact Us, plus the Request an Estimate button.

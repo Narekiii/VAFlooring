@@ -4,7 +4,7 @@ import { productFaqs, productHref, products } from "@/content/products";
 import { installProcess } from "@/content/installation";
 import { reasons } from "@/content/why-us";
 import { routes } from "@/content/navigation";
-import { brandHref, catalog, catalogCategories, placeOf } from "@/content/catalog";
+import { brandHref, catalog, catalogCategories, catalogFaqs, placeOf } from "@/content/catalog";
 import { projectsIndexable } from "@/content/projects";
 import { siteUrl } from "./seo";
 
@@ -43,6 +43,7 @@ export function keyFacts(): string[] {
     `- Installation capacity: ${facts.installationCrewsLong.toLowerCase()}`,
     `- Clients: homeowners, ADU builders, general contractors, developers, property managers, hotels and commercial clients`,
     `- Manufacturers include: ${facts.manufacturers.join(", ")}, with American-made options available`,
+    `- Online catalog: ${catalog.total} floors (${catalog.byCategory.hardwood} hardwood, ${catalog.byCategory.vinyl} vinyl & LVP, ${catalog.byCategory.laminate} laminate, ${catalog.byCategory.tile} tile) from ${catalog.brands.length} more brands: ${catalog.brands.map((b) => b.name).join(", ")} (${link(routes.catalog)})`,
     `- ${facts.lowesLine}`,
     "- Recognized by Lowe’s for craftsmanship and professionalism (96.67% scores for 2015), dedication (2016) and determination (2019)",
   ];
@@ -123,6 +124,31 @@ export function llmsFullTxt(): string {
     out.push(`### ${p.name} FAQ`, ...p.faqs.flatMap((f) => [`Q: ${plain(f.q)}`, `A: ${plain(f.a)}`, ""]));
   }
   out.push("## Buying flooring FAQ", ...productFaqs.flatMap((f) => [`Q: ${plain(f.q)}`, `A: ${plain(f.a)}`, ""]));
+  out.push(
+    `## Online flooring catalog`,
+    `URL: ${link(routes.catalog)}`,
+    "",
+    "Product names, photos and specifications come from each manufacturer’s published information. Availability, colors and pricing are confirmed by V & A Flooring Inc when a customer asks about a floor. No prices are listed online.",
+    "",
+    ...catalogFaqs().flatMap((f) => [`Q: ${plain(f.q)}`, `A: ${plain(f.a)}`, ""]),
+    `## Flooring brands`,
+    `URL: ${link(routes.brands)}`,
+    "",
+    `National manufacturers: ${facts.manufacturers.join(", ")} (collections and samples on request).`,
+    "",
+  );
+  for (const b of catalog.brands) {
+    out.push(
+      `### ${b.name}`,
+      `URL: ${link(brandHref(b.slug))}`,
+      `Based in ${placeOf(b)}${b.distributor ? `; distributed by ${b.distributor}` : ""}. Types: ${catalogCategories
+        .filter((c) => (b.categories[c.key] ?? 0) > 0)
+        .map((c) => `${c.label} (${b.categories[c.key]})`)
+        .join(", ")}.`,
+      ...(b.collections.length ? [`Collections include: ${b.collections.join(", ")}.`] : []),
+      "",
+    );
+  }
   for (const s of publishedServices) {
     out.push(`## ${s.name} (installation)`, `URL: ${link(serviceHref(s))}`, "", plain(s.summary), "");
     for (const sec of s.sections) out.push(`### ${plain(sec.heading)}`, ...sec.body.map(plain), "");

@@ -1,6 +1,7 @@
 import { addressLine, business, contentUpdated, facts, mapsHref } from "@/content/site";
 import { serviceAreas } from "@/content/services";
 import { publishedServices, serviceHref, type Faq, type Service } from "@/content/services";
+import { brandHref, catalog } from "@/content/catalog";
 import { productHref, products } from "@/content/products";
 import { siteUrl } from "./seo";
 import { images, type SiteImage } from "@/content/images";
@@ -80,6 +81,7 @@ export function organizationJsonLd() {
       "Hospitality flooring",
       "Commercial flooring",
       ...facts.manufacturers.map((m) => `${m} flooring`),
+      ...catalog.brands.map((b) => `${b.name} flooring`),
     ],
     ...(business.geo ? { geo: { "@type": "GeoCoordinates", ...business.geo } } : {}),
     ...(mapsHref() ? { hasMap: mapsHref() } : {}),
@@ -116,6 +118,27 @@ export function organizationJsonLd() {
             "@type": "Offer",
             itemOffered: { "@type": "Product", name: p.name, category: "Flooring", description: plain(p.cardText), url: abs(productHref(p)) },
           })),
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Flooring brands",
+          ...(abs("/products/brands") ? { url: abs("/products/brands") } : {}),
+          itemListElement: [
+            ...facts.manufacturers.map((m) => ({
+              "@type": "Offer",
+              itemOffered: { "@type": "Product", name: `${m} flooring`, category: "Flooring", brand: { "@type": "Brand", name: m } },
+            })),
+            ...catalog.brands.map((b) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Product",
+                name: `${b.name} flooring`,
+                category: "Flooring",
+                brand: { "@type": "Brand", name: b.name },
+                url: abs(brandHref(b.slug)),
+              },
+            })),
+          ],
         },
         {
           "@type": "OfferCatalog",
@@ -186,6 +209,7 @@ export function webPageJsonLd({
   type = "WebPage",
   image,
   breadcrumb = true,
+  mentions,
 }: {
   path: string;
   name: string;
@@ -193,6 +217,8 @@ export function webPageJsonLd({
   type?: PageType;
   image?: SiteImage;
   breadcrumb?: boolean;
+  /** Other things the page is about, e.g. a product brand. */
+  mentions?: Record<string, unknown>[];
 }) {
   const url = abs(path);
   return {
@@ -217,6 +243,7 @@ export function webPageJsonLd({
         }
       : {}),
     ...(breadcrumb && url && path !== "/" ? { breadcrumb: { "@id": `${url}#breadcrumb` } } : {}),
+    ...(mentions?.length ? { mentions } : {}),
   };
 }
 

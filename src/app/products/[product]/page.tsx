@@ -49,7 +49,14 @@ export default async function ProductPage({ params }: Params) {
 
   const glance: [string, React.ReactNode][] = [
     ["Types we carry", p.types.join(" · ")],
-    ...(p.brands ? ([["Brands include", p.brands.join(", ")]] as [string, string][]) : []),
+    ...(() => {
+      const cat = catalogCategories.find((c) => c.productSlug === p.slug);
+      const more = cat ? brandsFor(cat.key).slice(0, 5).map((b) => b.name) : [];
+      const all = [...(p.brands ?? []), ...more];
+      if (!all.length) return [];
+      const n = (p.brands?.length ?? 0) + (cat ? brandsFor(cat.key).length : 0);
+      return [["Brands include", n > all.length ? `${all.join(", ")} and more` : all.join(", ")]] as [string, string][];
+    })(),
     ...(address ? ([["See it in person", `Showroom & design center, ${address}`]] as [string, string][]) : []),
     ...(hours.length ? ([["Showroom hours", hours.join("; ")]] as [string, string][]) : []),
     ["Who we supply", "Homeowners, contractors, builders and property managers"],

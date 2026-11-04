@@ -21,9 +21,11 @@ type Props = {
   pageType?: PageType;
   /** Page summary for structured data (usually the meta description). */
   description?: string;
+  /** Extra entities for the WebPage node (schema.org mentions), e.g. a brand. */
+  mentions?: Record<string, unknown>[];
 };
 
-export function PageHero({ title, subtitle, kicker, children, actions, image, imageFocus, crumbs, pageType, description }: Props) {
+export function PageHero({ title, subtitle, kicker, children, actions, image, imageFocus, crumbs, pageType, description, mentions }: Props) {
   const trail: Crumb[] | null = crumbs ? [{ name: "Home", href: "/" }, ...crumbs] : null;
   return (
     <section className={`${styles.hero} ${image ? "" : styles.noImage}`} aria-labelledby="page-title" data-surface="dark">
@@ -68,6 +70,7 @@ export function PageHero({ title, subtitle, kicker, children, actions, image, im
             description,
             type: pageType,
             image,
+            mentions,
           })}
         />
       )}

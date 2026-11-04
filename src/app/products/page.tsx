@@ -14,10 +14,10 @@ import { productFaqs } from "@/content/products";
 import { routes } from "@/content/navigation";
 import { facts } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
+import { catalog } from "@/content/catalog";
 import styles from "./page.module.css";
 
-const description =
-  "Flooring store and showroom in Sun Valley, LA: hardwood, laminate, LVP, carpet and tile from Mohawk, Shaw and Engineered Floors, for homes and contractors.";
+const description = `Flooring store in Sun Valley, LA: hardwood, laminate, LVP, carpet and tile from Mohawk, Shaw, Engineered Floors and ${catalog.brands.length} more brands.`;
 
 export const metadata = pageMetadata({
   title: "Flooring Store & Showroom in Los Angeles",

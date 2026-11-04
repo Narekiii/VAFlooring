@@ -1,5 +1,6 @@
 import { images, type SiteImage } from "./images";
 import type { Faq } from "./services";
+import { catalog } from "./catalog";
 
 /**
  * Flooring product pages (one per floor type at /products/<slug>).
@@ -313,12 +314,21 @@ export const getProduct = (slug: string) => products.find((p) => p.slug === slug
 /** General questions for the Products page (visible + FAQPage schema). */
 export const productFaqs: Faq[] = [
   {
+    q: "Can I browse your flooring online?",
+    a: `Yes. Our online catalog lists ${catalog.total.toLocaleString("en-US")} hardwood, vinyl and LVP, laminate and tile floors you can filter by brand and search by color, collection or species. Ask about any floor and we’ll confirm availability, samples and pricing.`,
+  },
+  {
     q: "Do you sell flooring to contractors as well as homeowners?",
     a: "Yes. We supply flooring materials to homeowners, contractors, builders and property managers from our Sun Valley showroom and warehouse, and we can install them with our own crews.",
   },
   {
     q: "Which flooring brands do you carry?",
-    a: "We offer products from established manufacturers including Mohawk, Shaw and Engineered Floors, with American-made options available.",
+    a: `We offer products from Mohawk, Shaw and Engineered Floors, plus ${catalog.brands.length} more manufacturers including ${catalog.brands
+      .slice()
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 6)
+      .map((b) => b.name)
+      .join(", ")}. You can browse ${catalog.total.toLocaleString("en-US")} of their floors online, and American-made options are available.`,
   },
   {
     q: "Where is your flooring showroom?",
