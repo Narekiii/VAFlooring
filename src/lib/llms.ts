@@ -4,6 +4,7 @@ import { productFaqs, productHref, products } from "@/content/products";
 import { installProcess } from "@/content/installation";
 import { reasons } from "@/content/why-us";
 import { routes } from "@/content/navigation";
+import { brandHref, catalog, catalogCategories, placeOf } from "@/content/catalog";
 import { projectsIndexable } from "@/content/projects";
 import { siteUrl } from "./seo";
 
@@ -60,6 +61,14 @@ export function llmsTxt(): string {
     "",
     `## Products (${link(routes.products)})`,
     ...products.map((p) => `- [${p.name}](${link(productHref(p))}): ${plain(p.summary)}`),
+    `- [Browse all floors](${link(routes.catalog)}): ${catalog.total} hardwood, vinyl, laminate and tile floors, searchable by brand and color (availability and pricing confirmed on request)`,
+    "",
+    `## Brands (${link(routes.brands)})`,
+    `- ${facts.manufacturers.join(", ")}`,
+    ...catalog.brands.map(
+      (b) =>
+        `- [${b.name}](${link(brandHref(b.slug))}): ${catalogCategories.filter((c) => (b.categories[c.key] ?? 0) > 0).map((c) => c.label).join(", ")}; based in ${placeOf(b)}`,
+    ),
     "",
     `## Installation (${link(routes.installation)})`,
     ...publishedServices.map((s) => `- [${s.name}](${link(serviceHref(s))}): ${plain(s.summary)}`),

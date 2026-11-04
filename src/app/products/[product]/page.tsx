@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ui/Button";
@@ -19,6 +20,9 @@ import { getProduct, productHref, products } from "@/content/products";
 import { getService, serviceHref } from "@/content/services";
 import { addressLine, directionsHref, facts, hoursLines } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
+import { ProductCard } from "@/components/catalog/ProductCard";
+import { brandHref, brandsFor, catalog, catalogCategories, catalogHref } from "@/content/catalog";
+import catStyles from "@/components/catalog/Catalog.module.css";
 import styles from "@/components/detail/Detail.module.css";
 
 export const dynamicParams = false;
@@ -114,6 +118,43 @@ export default async function ProductPage({ params }: Params) {
           </div>
         </Container>
       </Section>
+
+      {(() => {
+        const cat = catalogCategories.find((c) => c.productSlug === p.slug);
+        if (!cat) return null;
+        const brands = brandsFor(cat.key);
+        const sample = brands
+          .flatMap((b) => b.featured.filter((f) => f.c === cat.key).slice(0, 1).map((f) => ({ f, name: b.name })))
+          .slice(0, 8);
+        return (
+          <Section tone="sand" labelledBy="browse-title">
+            <Container>
+              <SectionHead id="browse-title" kicker="Browse" title={`${catalog.byCategory[cat.key].toLocaleString("en-US")} ${cat.label.toLowerCase()} floors to explore`}>
+                <p>
+                  Some of the {cat.label.toLowerCase()} we can supply and install, from {brands.length} manufacturers.
+                  Ask us about any of them.
+                </p>
+              </SectionHead>
+              <ul className={catStyles.grid}>
+                {sample.map(({ f, name }) => (
+                  <ProductCard key={f.id} item={f} brandName={name} />
+                ))}
+              </ul>
+              <div className={catStyles.more}>
+                <ButtonLink href={catalogHref({ category: cat.key })}>Browse all {cat.label.toLowerCase()}</ButtonLink>
+              </div>
+              <h3 className={catStyles.brandsHeading}>{cat.label} brands</h3>
+              <ul className={catStyles.collections}>
+                {brands.map((b) => (
+                  <li key={b.slug}>
+                    <Link href={brandHref(b.slug)}>{b.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </Container>
+          </Section>
+        );
+      })()}
 
       {p.comparison && (
         <Section tone="white" labelledBy="compare-title">

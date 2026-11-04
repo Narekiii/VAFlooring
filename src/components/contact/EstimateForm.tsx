@@ -46,6 +46,12 @@ export function EstimateForm() {
   useEffect(() => {
     const t = new URLSearchParams(window.location.search).get("type");
     if (t && projectTypes.some((p) => p.value === t)) setProjectType(t);
+    // ?product= comes from "Ask about this floor" links in the product catalog.
+    const product = new URLSearchParams(window.location.search).get("product")?.slice(0, 160);
+    const box = formRef.current?.elements.namedItem("description");
+    if (product && box instanceof HTMLTextAreaElement && !box.value) {
+      box.value = `I’m interested in: ${product}\n\nRooms / area: `;
+    }
   }, []);
 
   useEffect(() => {

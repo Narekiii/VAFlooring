@@ -60,6 +60,10 @@ export default function ProductsPage() {
         <Container>
           <SectionHead id="categories" kicker="Products" title="Flooring we sell and install" />
           <ProductGrid headingId="categories" />
+          <div className={styles.browseRow}>
+            <ButtonLink href={routes.catalog}>Browse all floors</ButtonLink>
+            <TextLink href={routes.brands}>Brands we offer</TextLink>
+          </div>
         </Container>
       </Section>
 
@@ -85,6 +89,9 @@ export default function ProductsPage() {
               <h2 id="brands">Manufacturers we offer</h2>
               <p className={styles.brandsIntro}>
                 We offer products from established flooring manufacturers, including:
+              </p>
+              <p className={styles.brandsIntro}>
+                <TextLink href={routes.brands}>See all the brands we offer</TextLink>
               </p>
             </div>
             <ul className={styles.brandList}>

@@ -11,6 +11,8 @@ import { publishedServices, serviceHref } from "./services";
 export const routes = {
   home: "/",
   products: "/products",
+  catalog: "/products/catalog",
+  brands: "/products/brands",
   installation: "/installation",
   residential: "/installation/residential",
   commercial: "/installation/commercial-multifamily",
@@ -27,7 +29,9 @@ export type NavItem = NavLink & { children?: NavLink[] };
 
 export const productNav: NavLink[] = [
   ...products.map((p) => ({ label: p.name, href: productHref(p), description: p.navText })),
-  { label: "All Products & Brands", href: routes.products, description: "Mohawk, Shaw, Engineered Floors and how we help you choose." },
+  { label: "Browse All Floors", href: routes.catalog, description: "Search thousands of floors by type, brand and color." },
+  { label: "Brands", href: routes.brands, description: "Mohawk, Shaw, Engineered Floors and more manufacturers." },
+  { label: "All Products", href: routes.products, description: "Our showroom, warehouse and how we help you choose." },
 ];
 
 export const installationNav: NavLink[] = [
@@ -57,7 +61,8 @@ export const estimateFor = {
 
 export const footerProducts: NavLink[] = [
   ...products.map((p) => ({ label: p.name, href: productHref(p) })),
-  { label: "All Products & Brands", href: routes.products },
+  { label: "Browse All Floors", href: routes.catalog },
+  { label: "Brands", href: routes.brands },
 ];
 
 export const footerServices: NavLink[] = [

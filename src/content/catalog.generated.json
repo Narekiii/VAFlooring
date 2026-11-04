@@ -1,0 +1,2342 @@
+{
+ "asOf": "2026-11-04",
+ "total": 3000,
+ "byCategory": {
+  "vinyl": 1235,
+  "laminate": 454,
+  "hardwood": 957,
+  "tile": 354
+ },
+ "brands": [
+  {
+   "slug": "alanafloor",
+   "name": "AlanaFloor",
+   "city": "City of Industry",
+   "distributor": null,
+   "count": 79,
+   "categories": {
+    "vinyl": 59,
+    "laminate": 20
+   },
+   "collections": [],
+   "featured": [
+    {
+     "id": "va-7182b86b9d059e",
+     "b": "alanafloor",
+     "c": "vinyl",
+     "t": "17-8 Glacier Oak",
+     "img": "https://img1.wsimg.com/isteam/ip/839d3c89-492d-49e8-87f5-8fcd97070c61/ols/d354121350f8ece84fdb5aea5dae3f45.jpg/:/rs=w:600,h:600",
+     "sku": "17-8",
+     "s": {
+      "Thickness": "8mm (6.5mm + 1.5mm IXPE) •",
+      "Wear layer": "20 mil •"
+     }
+    },
+    {
+     "id": "va-c1598f4f2b1427",
+     "b": "alanafloor",
+     "c": "vinyl",
+     "t": "AL1001 Placid Cabin",
+     "img": "https://img1.wsimg.com/isteam/ip/839d3c89-492d-49e8-87f5-8fcd97070c61/ols/cdd934350ddbb64d6339be3d2c223ec4.jpg/:/rs=w:600,h:600",
+     "sku": "AL1001",
+     "s": {
+      "Thickness": "8mm + 2mm IXPE",
+      "Wear layer": "20 mil"
+     }
+    },
+    {
+     "id": "va-cb0c772bfdc94b",
+     "b": "alanafloor",
+     "c": "vinyl",
+     "t": "AL254 - Pinehurst",
+     "img": "https://img1.wsimg.com/isteam/ip/839d3c89-492d-49e8-87f5-8fcd97070c61/ols/a623160273bd700d7f4ea126644f4886.jpg/:/rs=w:600,h:600",
+     "sku": "AL254",
+     "s": {
+      "Thickness": "8mm (6.5mm + 5mm IXPE)",
+      "Wear layer": "20 mil"
+     }
+    },
+    {
+     "id": "va-5864e158ec64d8",
+     "b": "alanafloor",
+     "c": "vinyl",
+     "t": "AL876 – Light Oakwood",
+     "img": "https://img1.wsimg.com/isteam/ip/839d3c89-492d-49e8-87f5-8fcd97070c61/ols/c9ca3907f5f4e90f964addd18151266f-9de5ca2.jpg/:/rs=w:600,h:600",
+     "sku": "AL876",
+     "s": {
+      "Thickness": "8mm (6.5mm + 1.5mm IXPE)",
+      "Wear layer": "20 mil"
+     }
+    },
+    {
+     "id": "va-9537d116c7e316",
+     "b": "alanafloor",
+     "c": "laminate",
+     "t": "A107 Ivory Oak",
+     "img": "https://img1.wsimg.com/isteam/ip/839d3c89-492d-49e8-87f5-8fcd97070c61/A107-Ivory-Oak-Clean.jpg",
+     "sku": "A107",
+     "s": {
+      "Thickness": "10mm (8mm + 2mm EVA)",
+      "Wear layer": "AC4"
+     }
+    },
+    {
+     "id": "va-f1648078999e91",
+     "b": "alanafloor",
+     "c": "laminate",
+     "t": "AL1223 - Caribbean",
+     "img": "https://img1.wsimg.com/isteam/ip/839d3c89-492d-49e8-87f5-8fcd97070c61/ols/40e69adb1d76940b2b4432493cbb8946.jpg/:/rs=w:600,h:600",
+     "sku": "AL1223",
+     "s": {
+      "Thickness": "12mm •",
+      "Wear layer": "AC4 •"
+     }
+    },
+    {
+     "id": "va-82f79db4ef0424",
+     "b": "alanafloor",
+     "c": "laminate",
+     "t": "AL1263 Olympia",
+     "img": "https://img1.wsimg.com/isteam/ip/839d3c89-492d-49e8-87f5-8fcd97070c61/ols/3a75d1f9ae2aebc56f2e5f43465adedd.jpg/:/rs=w:600,h:600",
+     "sku": "AL1263",
+     "s": {
+      "Thickness": "12mm",
+      "Wear layer": "AC4"
+     }
+    },
+    {
+     "id": "va-38270b57d29c2d",
+     "b": "alanafloor",
+     "c": "laminate",
+     "t": "AL1268 Golden Ridge Oak AB",
+     "img": "https://img1.wsimg.com/isteam/ip/839d3c89-492d-49e8-87f5-8fcd97070c61/ols/AL1268A-2-9189283.jpg/:/rs=w:600,h:600",
+     "sku": "AL1268",
+     "s": {
+      "Thickness": "12mm",
+      "Wear layer": "AC4"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "bel-air-flooring",
+   "name": "Bel Air Flooring",
+   "city": "Los Angeles",
+   "distributor": null,
+   "count": 86,
+   "categories": {
+    "laminate": 27,
+    "vinyl": 59
+   },
+   "collections": [
+    "Fiji Collection",
+    "Golden Elegance",
+    "Gulf Shores Collection",
+    "Isla Collection",
+    "Oasis Collection",
+    "Vivid Collection",
+    "Mediterranean Sea Collection",
+    "7 Kingdoms Collection",
+    "Cascade Collection",
+    "Horizon Harmony",
+    "Rio Grande Collection",
+    "Rocky Mountain Collection",
+    "Silver Luster",
+    "Imperial Collection",
+    "Bergamo Collection",
+    "Royal Palace Collection"
+   ],
+   "featured": [
+    {
+     "id": "va-b3a47a9dc993fe",
+     "b": "bel-air-flooring",
+     "c": "vinyl",
+     "t": "Gullfoss",
+     "img": "https://belairwoodfloor.com/wp-content/uploads/2018/12/gullfloss.jpg",
+     "col": "Cascade Collection",
+     "s": {
+      "Construction": "SPC (Stone-Plastic Composite)",
+      "Width": "7” (180mm.)",
+      "Length": "48” (4Ft.)",
+      "Finish": "UV Coating",
+      "Installation": "Float (Click)"
+     }
+    },
+    {
+     "id": "va-afa5b038a205c4",
+     "b": "bel-air-flooring",
+     "c": "vinyl",
+     "t": "Cancun",
+     "img": "https://belairwoodfloor.com/wp-content/uploads/2022/03/image00007-scaled-e1647941809202.jpeg",
+     "col": "Gulf Shores Collection",
+     "s": {
+      "Construction": "SPC (Stone-Plastic Composite)",
+      "Width": "12\" ( 310mm)",
+      "Length": "6 FT ( 1524mm)",
+      "Finish": "UV Coating",
+      "Installation": "Float (Click)"
+     }
+    },
+    {
+     "id": "va-afafd764b10a19",
+     "b": "bel-air-flooring",
+     "c": "vinyl",
+     "t": "Maui",
+     "img": "https://belairwoodfloor.com/wp-content/uploads/2020/03/Isla-Maui-web.jpg",
+     "col": "Isla Collection",
+     "s": {
+      "Construction": "SPC (Stone-Plastic Composite)",
+      "Width": "9” (230mm.)",
+      "Length": "60” (5Ft.)",
+      "Finish": "Semi-Matte",
+      "Installation": "Float (Click)"
+     }
+    },
+    {
+     "id": "va-485603384bc5b2",
+     "b": "bel-air-flooring",
+     "c": "vinyl",
+     "t": "Morgana",
+     "img": "https://belairwoodfloor.com/wp-content/uploads/2020/11/oasis-morgana.jpg",
+     "col": "Oasis Collection",
+     "s": {
+      "Construction": "SPC (Stone-Plastic Composite)",
+      "Width": "9” (230mm.)",
+      "Length": "71” (6Ft.)",
+      "Finish": "Semi-Matte",
+      "Installation": "Float (Click)"
+     }
+    },
+    {
+     "id": "va-4aa6b3f1360e7f",
+     "b": "bel-air-flooring",
+     "c": "laminate",
+     "t": "Castle-Rock",
+     "img": "https://belairwoodfloor.com/wp-content/uploads/2020/04/7Kingdoms-CastleRock-web-CC.jpg",
+     "col": "7 Kingdoms Collection",
+     "s": {
+      "Width": "9.29\"",
+      "Thickness": "12.3mm (1/2in)",
+      "Length": "Fixed Length",
+      "Installation": "Float (Click)"
+     }
+    },
+    {
+     "id": "va-19f0bb47c5de3f",
+     "b": "bel-air-flooring",
+     "c": "laminate",
+     "t": "Vedelino",
+     "img": "https://belairwoodfloor.com/wp-content/uploads/2025/12/bergamo-collection-brescia-large.jpg",
+     "col": "Bergamo Collection",
+     "s": {
+      "Width": "9-1/4\" (235mm)",
+      "Thickness": "1/2\" (12mm)",
+      "Length": "59-5/8\" (5ft.)",
+      "Finish": "UV Lacquered Finish",
+      "Installation": "Float (Drop-Lock) / Nail-Down"
+     }
+    },
+    {
+     "id": "va-69c38e1c587458",
+     "b": "bel-air-flooring",
+     "c": "laminate",
+     "t": "Tokoriki",
+     "img": "https://belairwoodfloor.com/wp-content/uploads/2024/04/Tokoriki-1000.jpg",
+     "col": "Fiji Collection",
+     "s": {
+      "Width": "7.79\"",
+      "Thickness": "12mm. (1/2in)",
+      "Length": "Fixed Length",
+      "Installation": "Float (Click)"
+     }
+    },
+    {
+     "id": "va-a4e881d555d7f6",
+     "b": "bel-air-flooring",
+     "c": "laminate",
+     "t": "Buckingham",
+     "img": "https://belairwoodfloor.com/wp-content/uploads/2017/05/buckingham-e1752247284469.jpeg",
+     "col": "Royal Palace Collection",
+     "s": {
+      "Width": "7.71\"",
+      "Thickness": "12.3mm (1/2in.)",
+      "Length": "4ft. 48in. (1215mm)",
+      "Installation": "Float (Drop Lock)"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "diamond-perspective",
+   "name": "Diamond Perspective",
+   "city": "Irwindale",
+   "distributor": "True Floors",
+   "count": 16,
+   "categories": {
+    "laminate": 16
+   },
+   "collections": [
+    "Premium Laminate"
+   ],
+   "featured": [
+    {
+     "id": "va-3461c379f13cdc",
+     "b": "diamond-perspective",
+     "c": "laminate",
+     "t": "Birmingham",
+     "img": "https://images.squarespace-cdn.com/content/v1/66d8c9e26607a601de1ad09e/66303654-6d9a-4ce0-bee3-b64ac76b3a02/BIRMINGHAM+8080D-1.jpg",
+     "col": "Premium Laminate",
+     "s": {
+      "Thickness": "12mm",
+      "Wear layer": "AC5",
+      "Installation": "Uniclic/Floating"
+     }
+    },
+    {
+     "id": "va-03c9638b271a72",
+     "b": "diamond-perspective",
+     "c": "laminate",
+     "t": "Chelsea",
+     "img": "https://images.squarespace-cdn.com/content/v1/66d8c9e26607a601de1ad09e/89028c13-54db-4eae-a145-87b2b4388645/CHELSEA+9052-5.jpg",
+     "col": "Premium Laminate",
+     "s": {
+      "Thickness": "12mm",
+      "Wear layer": "AC5",
+      "Installation": "Uniclic/Floating"
+     }
+    },
+    {
+     "id": "va-ed0d17038f83e8",
+     "b": "diamond-perspective",
+     "c": "laminate",
+     "t": "Manchester",
+     "img": "https://images.squarespace-cdn.com/content/v1/66d8c9e26607a601de1ad09e/188f6099-65d8-4430-98bf-71ac6868715f/MANCHESTER+9090-12.jpg",
+     "col": "Premium Laminate",
+     "s": {
+      "Thickness": "12mm",
+      "Wear layer": "AC5",
+      "Installation": "Uniclic/Floating"
+     }
+    },
+    {
+     "id": "va-91409f396557bf",
+     "b": "diamond-perspective",
+     "c": "laminate",
+     "t": "Portsmouth",
+     "img": "https://images.squarespace-cdn.com/content/v1/66d8c9e26607a601de1ad09e/36a17203-4fdd-427d-9b0b-e599511cbfbf/Portsmouth.jpg",
+     "col": "Premium Laminate",
+     "s": {
+      "Thickness": "12mm",
+      "Wear layer": "AC5",
+      "Installation": "Uniclic/Floating"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "eternity-flooring",
+   "name": "Eternity Flooring",
+   "city": "Pacoima",
+   "distributor": null,
+   "count": 138,
+   "categories": {
+    "vinyl": 47,
+    "laminate": 91
+   },
+   "collections": [
+    "Performance Laminate Flooring",
+    "Luxury Vinyl Flooring"
+   ],
+   "featured": [
+    {
+     "id": "va-776aa969002571",
+     "b": "eternity-flooring",
+     "c": "laminate",
+     "t": "Alba",
+     "img": "https://cdn.shopify.com/s/files/1/0712/7230/0787/files/alba-main_a5b69529-841e-4112-aa5b-1c7c44680e29.jpg?v=1758900286",
+     "col": "Performance Laminate Flooring",
+     "sku": "sa23105"
+    },
+    {
+     "id": "va-0073b163eb8671",
+     "b": "eternity-flooring",
+     "c": "laminate",
+     "t": "Camden",
+     "img": "https://cdn.shopify.com/s/files/1/0712/7230/0787/files/camden-main_92dba20e-c276-4273-a62f-4b68247b5e4a.jpg?v=1758899192",
+     "col": "Performance Laminate Flooring",
+     "sku": "etpf32"
+    },
+    {
+     "id": "va-4799be70a7ae30",
+     "b": "eternity-flooring",
+     "c": "laminate",
+     "t": "Kohler",
+     "img": "https://cdn.shopify.com/s/files/1/0712/7230/0787/files/kohler-main_04cca4fb-c506-4aa0-9a45-74ae0c54c2f5.jpg?v=1758899201",
+     "col": "Performance Laminate Flooring",
+     "sku": "etpf35"
+    },
+    {
+     "id": "va-74ad0a87596721",
+     "b": "eternity-flooring",
+     "c": "laminate",
+     "t": "Pinehurst",
+     "img": "https://cdn.shopify.com/s/files/1/0712/7230/0787/files/pinehurst-main_641cf49e-5078-4ef0-af31-2d24669a7261.jpg?v=1758568544",
+     "col": "Performance Laminate Flooring",
+     "sku": "etusli-22003"
+    },
+    {
+     "id": "va-d1735d4ba99305",
+     "b": "eternity-flooring",
+     "c": "vinyl",
+     "t": "Bergen",
+     "img": "https://cdn.shopify.com/s/files/1/0712/7230/0787/files/bergen-main_232706e2-499b-4d29-9383-376fd67ad033.jpg?v=1761060009",
+     "col": "Luxury Vinyl Flooring",
+     "sku": "etn720"
+    },
+    {
+     "id": "va-6a991d8d6e1593",
+     "b": "eternity-flooring",
+     "c": "vinyl",
+     "t": "Dulce Beige",
+     "img": "https://cdn.shopify.com/s/files/1/0712/7230/0787/files/dulce-beige-main_52799198-0d9f-4019-9b34-9a0796882a58.jpg?v=1761056984",
+     "col": "Luxury Vinyl Flooring",
+     "sku": "ETID82"
+    },
+    {
+     "id": "va-b4e6dec4f40e52",
+     "b": "eternity-flooring",
+     "c": "vinyl",
+     "t": "Juniper",
+     "img": "https://cdn.shopify.com/s/files/1/0712/7230/0787/files/juniper-main_cbe77c11-5d11-4da3-b5a5-6feeef334d05.jpg?v=1761057742",
+     "col": "Luxury Vinyl Flooring",
+     "sku": "etg772xpe"
+    },
+    {
+     "id": "va-7ad9cc4cade72b",
+     "b": "eternity-flooring",
+     "c": "vinyl",
+     "t": "Paseo",
+     "img": "https://cdn.shopify.com/s/files/1/0712/7230/0787/files/paseo-main_a813c360-b7b5-447b-b590-172ae96f7cde.jpg?v=1761056895",
+     "col": "Luxury Vinyl Flooring",
+     "sku": "ETID92"
+    }
+   ]
+  },
+  {
+   "slug": "garrison-collection",
+   "name": "Garrison Collection",
+   "city": "Van Nuys",
+   "distributor": null,
+   "count": 171,
+   "categories": {
+    "hardwood": 95,
+    "laminate": 51,
+    "vinyl": 25
+   },
+   "collections": [
+    "QuietPath",
+    "Legends",
+    "AquaShield AC4",
+    "AquaShield AC5",
+    "Allora 7-1/2\"",
+    "Garrison Laminate",
+    "Allora 9-1/2\"",
+    "Beverly Hills",
+    "Exotics",
+    "Newport",
+    "ILLUMIN8",
+    "Private Selection",
+    "Prestigio",
+    "Allora Herringbone",
+    "Greek Isles",
+    "Centennial",
+    "LVT Peaks",
+    "Rigid Stone Core VinylNova"
+   ],
+   "featured": [
+    {
+     "id": "va-1ec4be1aec10d1",
+     "b": "garrison-collection",
+     "c": "hardwood",
+     "t": "European Oak Doma 7-1/2″",
+     "img": "https://www.garrisoncollection.com/wordpress/wp-content/uploads/2023/03/Doma-Overhead-Photo-copy-scaled.jpg",
+     "col": "Allora 7-1/2\""
+    },
+    {
+     "id": "va-b0fb28db3d6129",
+     "b": "garrison-collection",
+     "c": "hardwood",
+     "t": "European Oak Luna Select 9-1/2″",
+     "img": "https://www.garrisoncollection.com/wordpress/wp-content/uploads/2023/07/Luna-Select-9-5-Overhead-11.1.23.jpeg",
+     "col": "Allora 9-1/2\""
+    },
+    {
+     "id": "va-d7023203bc44b4",
+     "b": "garrison-collection",
+     "c": "hardwood",
+     "t": "Acacia Natural – 5″",
+     "img": "https://www.garrisoncollection.com/wordpress/wp-content/uploads/2015/05/Exotics-Acacia-Natural-5-inch-Hardwood-Plank.jpg",
+     "col": "Exotics"
+    },
+    {
+     "id": "va-7dcf40785b95ee",
+     "b": "garrison-collection",
+     "c": "hardwood",
+     "t": "European Oak Laguna Beach",
+     "img": "https://www.garrisoncollection.com/wordpress/wp-content/uploads/2022/05/Newport-Laguna-Beach-7.5-inch-Hardwood-Plank.jpg",
+     "col": "Newport"
+    },
+    {
+     "id": "va-4ca48b123677a9",
+     "b": "garrison-collection",
+     "c": "laminate",
+     "t": "Aurora",
+     "img": "https://www.garrisoncollection.com/wordpress/wp-content/uploads/2023/01/Illumin8-Aurora-8-inch-Laminate-Plank.jpg",
+     "col": "ILLUMIN8"
+    },
+    {
+     "id": "va-97ebcf930d6915",
+     "b": "garrison-collection",
+     "c": "laminate",
+     "t": "Beam",
+     "img": "https://www.garrisoncollection.com/wordpress/wp-content/uploads/2023/01/Illumin8-Beam-8-inch-Laminate-Plank.jpg",
+     "col": "ILLUMIN8"
+    },
+    {
+     "id": "va-d7fd24ffa303ec",
+     "b": "garrison-collection",
+     "c": "laminate",
+     "t": "Dusk",
+     "img": "https://www.garrisoncollection.com/wordpress/wp-content/uploads/2023/01/Illumin8-Dusk-8-inch-Laminate-Plank.jpg",
+     "col": "ILLUMIN8"
+    },
+    {
+     "id": "va-40529142ce1b32",
+     "b": "garrison-collection",
+     "c": "laminate",
+     "t": "Flash",
+     "img": "https://www.garrisoncollection.com/wordpress/wp-content/uploads/2023/01/Illumin8-Flash-8-inch-Laminate-Plank.jpg",
+     "col": "ILLUMIN8"
+    }
+   ]
+  },
+  {
+   "slug": "golden-state-floors",
+   "name": "Golden State Floors",
+   "city": "Anaheim",
+   "distributor": null,
+   "count": 48,
+   "categories": {
+    "hardwood": 23,
+    "vinyl": 17,
+    "laminate": 8
+   },
+   "collections": [
+    "Golden State Floors LC Collection, 7mm T x 9 in. W SPC vinyl flooring (22.65sqft/box)",
+    "Golden State Floors Natural Wonder Collection - European Betula 1/2\"T x 7.5\"W Engineered Hardwood Flooring (31.09sqft/box)",
+    "Golden State Floors Nucore Longboard Plus Collection, 8mm T x 9 in. W x 72 in. L WPC vinyl flooring (35.82sqft/box)",
+    "Golden State Floors Carrera Collection, 5mm T x 9 in. W SPC vinyl flooring (26.25sqft/box)",
+    "Golden State Floors Tru-Shield Collection - 10mm T x 9.37\" W Water Resistant Laminate Flooring (27.23sqft/box)",
+    "Golden State Floors Tru-Shield Collection - 12mm T x 9.37\" W Water Resistant Laminate Flooring (19.27sqft/box)",
+    "Premium Oak",
+    "Coastal Reserve European Oak",
+    "Golden State Floors Le Havre Collection - European Oak 9/16\"T x 7.5\"W (3mm wear layer) Engineered Hardwood Flooring (31.09sqft/box)",
+    "Golden State Floors Nucore Longboard Collection, 8mm T x 9 in. W WPC vinyl flooring (37.5sqft/box)",
+    "Golden State Floors California Sunshine Collection - Acacia 1/2\"T x 4-3/4\"W Engineered Hardwood Flooring (32.55sqft/box)",
+    "Heritage Oak",
+    "Glacier",
+    "Malibu Oak",
+    "Mountain Floor",
+    "Rome"
+   ],
+   "featured": [
+    {
+     "id": "va-e055a09fabed1f",
+     "b": "golden-state-floors",
+     "c": "hardwood",
+     "t": "Natural Linen Oak",
+     "img": "https://cdn.shopify.com/s/files/1/0673/9669/8337/files/CR001-Natural_Linen_Oak.webp?v=1784054726",
+     "col": "Coastal Reserve European Oak",
+     "sku": "CR001",
+     "s": {
+      "Wear layer": "4 mm",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-06486f7dd4b6b9",
+     "b": "golden-state-floors",
+     "c": "hardwood",
+     "t": "Natural",
+     "img": "https://cdn.shopify.com/s/files/1/0673/9669/8337/files/ACA001_natural.jpg?v=1776274335",
+     "col": "Golden State Floors California Sunshine Collection - Acacia 1/2\"T x 4-3/4\"W Engineered Hardwood Flooring (32.55sqft/box)",
+     "sku": "ACA001",
+     "s": {
+      "Wear layer": "2 mm",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-8065bd797b35d6",
+     "b": "golden-state-floors",
+     "c": "hardwood",
+     "t": "Landscape",
+     "img": "https://cdn.shopify.com/s/files/1/0673/9669/8337/files/RSB002_1.jpg?v=1739388429",
+     "col": "Golden State Floors Natural Wonder Collection - European Betula 1/2\"T x 7.5\"W Engineered Hardwood Flooring (31.09sqft/box)",
+     "sku": "RSB002",
+     "s": {
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-a53104bb48027d",
+     "b": "golden-state-floors",
+     "c": "hardwood",
+     "t": "White Sand",
+     "img": "https://cdn.shopify.com/s/files/1/0673/9669/8337/files/ho102-white_sand-main_surface.webp?v=1789584856",
+     "col": "Heritage Oak",
+     "sku": "HO102",
+     "s": {
+      "Wear layer": "2 mm",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-6894d752925b3e",
+     "b": "golden-state-floors",
+     "c": "vinyl",
+     "t": "Acacia Natural",
+     "img": "https://cdn.shopify.com/s/files/1/0673/9669/8337/files/WAC001_1_e157295a-be18-4386-a410-44d93439f12e.jpg?v=1739817711",
+     "col": "Golden State Floors Carrera Collection, 5mm T x 9 in. W SPC vinyl flooring (26.25sqft/box)",
+     "sku": "WAC001",
+     "s": {
+      "Wear layer": "20 Mil"
+     }
+    },
+    {
+     "id": "va-0467a7f95f2b0b",
+     "b": "golden-state-floors",
+     "c": "vinyl",
+     "t": "Acacia Natural",
+     "img": "https://cdn.shopify.com/s/files/1/0673/9669/8337/files/7wac001-acacia_natural-main_surface.webp?v=1789591315",
+     "col": "Golden State Floors LC Collection, 7mm T x 9 in. W SPC vinyl flooring (22.65sqft/box)",
+     "sku": "7WAC001",
+     "s": {
+      "Wear layer": "20 Mil"
+     }
+    },
+    {
+     "id": "va-ac358f603dcc4b",
+     "b": "golden-state-floors",
+     "c": "vinyl",
+     "t": "Resort",
+     "img": "https://cdn.shopify.com/s/files/1/0673/9669/8337/files/7wac002-resort-main_surface.webp?v=1789591203",
+     "col": "Golden State Floors LC Collection, 7mm T x 9 in. W SPC vinyl flooring (22.65sqft/box)",
+     "sku": "7WAC002",
+     "s": {
+      "Wear layer": "20 Mil"
+     }
+    },
+    {
+     "id": "va-e5574454c6f3a2",
+     "b": "golden-state-floors",
+     "c": "vinyl",
+     "t": "Amber Oak",
+     "img": "https://cdn.shopify.com/s/files/1/0673/9669/8337/files/xlp8009-amber_oak-main_surface.webp?v=1792084423",
+     "col": "Golden State Floors Nucore Longboard Plus Collection, 8mm T x 9 in. W x 72 in. L WPC vinyl flooring (35.82sqft/box)",
+     "sku": "XLP8009",
+     "s": {
+      "Wear layer": "20 Mil"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "hallmark-floors",
+   "name": "Hallmark Floors",
+   "city": "Ontario",
+   "distributor": null,
+   "count": 16,
+   "categories": {
+    "hardwood": 15,
+    "vinyl": 1
+   },
+   "collections": [
+    "True"
+   ],
+   "featured": [
+    {
+     "id": "va-a57f3fa28363d9",
+     "b": "hallmark-floors",
+     "c": "hardwood",
+     "t": "Dark-Brown",
+     "img": "https://hallmarkfloors.com/wp-content/uploads/2019/02/True-Collection-Onyx-Oak.jpg",
+     "col": "True",
+     "s": {
+      "Construction": "Engineered Hardwood",
+      "Species": "Oak",
+      "Width": "7.5\" (190.5mm)",
+      "Length": "Up to 6'2\" RL (1879.6mm)",
+      "Wear layer": "3mm Sawn Cut",
+      "Finish": "Nu Oil® Super-Matte"
+     }
+    },
+    {
+     "id": "va-a44c12932d94b2",
+     "b": "hallmark-floors",
+     "c": "hardwood",
+     "t": "Blonde",
+     "img": "https://hallmarkfloors.com/wp-content/uploads/2023/06/Serenity-Aglow-Oak-Swatch.jpg",
+     "s": {
+      "Construction": "Engineered Hardwood",
+      "Species": "Oak",
+      "Width": "7.5\" (190.5mm)",
+      "Length": "Up to 7'2\" RL (2184.4mm)",
+      "Finish": "TrueMark Glaze Tek Polyurethane"
+     }
+    },
+    {
+     "id": "va-7a4ad925ed370c",
+     "b": "hallmark-floors",
+     "c": "hardwood",
+     "t": "Dark-Brown",
+     "img": "https://hallmarkfloors.com/wp-content/uploads/2024/10/Design-Emporium-Agate-Oak.jpg",
+     "s": {
+      "Construction": "Engineered Hardwood",
+      "Species": "Oak",
+      "Finish": "TrueMark Glaze Tek Polyurethane"
+     }
+    },
+    {
+     "id": "va-34f77c8966b8b2",
+     "b": "hallmark-floors",
+     "c": "hardwood",
+     "t": "Grey",
+     "img": "https://hallmarkfloors.com/wp-content/uploads/2019/01/Product_True_Jasmine_Hickory_sku.jpg",
+     "s": {
+      "Construction": "Engineered Hardwood",
+      "Species": "Hickory",
+      "Width": "7.5\" (190.5mm)",
+      "Length": "Up to 6'2\" RL (1879.6mm)",
+      "Wear layer": "3mm Sawn Cut",
+      "Finish": "Nu Oil® Super-Matte"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "johnson-hardwood",
+   "name": "Johnson Hardwood",
+   "city": "City of Industry",
+   "distributor": null,
+   "count": 270,
+   "categories": {
+    "hardwood": 158,
+    "laminate": 24,
+    "vinyl": 88
+   },
+   "collections": [
+    "Bella Vista",
+    "Cellar House",
+    "English Pub",
+    "Grand Chateau",
+    "Green Mountain",
+    "Olde Tavern",
+    "Tuscan",
+    "Vortis - Aspen",
+    "Farmhouse Manor",
+    "Skyview",
+    "Vortis - Norden Home",
+    "Oak Grove",
+    "Countryside Oak",
+    "Texas Timber",
+    "British Isles",
+    "Public House",
+    "Saga Villa",
+    "Canyon Ridge",
+    "Coffee House",
+    "Olympus",
+    "Vortis - Cascade",
+    "Coastal Signature Series 10",
+    "Coastal Signature Series 7",
+    "Coastal Signature Series 8",
+    "Alehouse",
+    "Jockey Hollow",
+    "Blue Ridge",
+    "Reservoir",
+    "Sicily",
+    "Coastal Signature Series 12",
+    "Crestline",
+    "Frontier",
+    "Roma",
+    "Seascape",
+    "Coastal Signature Series 18",
+    "Pacific Coast",
+    "Texas 2.0",
+    "Victorian"
+   ],
+   "featured": [
+    {
+     "id": "va-8acf34ba748684",
+     "b": "johnson-hardwood",
+     "c": "hardwood",
+     "t": "Barley Ale",
+     "img": "https://staging.johnsonhardwood.com/wp-content/uploads/2017/02/2j_Alehouse_AHM19004_BarleyAle_Full_web.jpg",
+     "col": "Alehouse",
+     "s": {
+      "Construction": "Engineered",
+      "Species": "Maple",
+      "Width": "7-1/2\"",
+      "Thickness": "1/2\"",
+      "Length": "Most in 7/LF",
+      "Finish": "11 Step, Aluminum Oxide",
+      "Installation": "Staple, Cleat, Glue, Float"
+     }
+    },
+    {
+     "id": "va-6c49513884b5cd",
+     "b": "johnson-hardwood",
+     "c": "hardwood",
+     "t": "Ridgewood",
+     "img": "https://johnsonhardwood.com/wp-content/uploads/2026/03/1j_PL-3MM15002-Ridgewood_Web.jpg",
+     "col": "Crestline",
+     "s": {
+      "Construction": "Engineered",
+      "Species": "European Oak",
+      "Width": "6\"",
+      "Thickness": "1/2\"",
+      "Length": "Random",
+      "Finish": "UV-Cured Aluminum Oxide",
+      "Installation": "Staple, Cleat, Glue, Float"
+     }
+    },
+    {
+     "id": "va-98c7a762591e7a",
+     "b": "johnson-hardwood",
+     "c": "hardwood",
+     "t": "Hardwick",
+     "img": "https://staging.johnsonhardwood.com/wp-content/uploads/2019/09/AME-SGMO11005_Hardwick_Room_web.jpg",
+     "col": "Green Mountain",
+     "s": {
+      "Construction": "Solid",
+      "Species": "American Oak",
+      "Width": "4-1/4\"",
+      "Thickness": "3/4\"",
+      "Length": "Random",
+      "Finish": "UV Cured Aluminum Oxide"
+     }
+    },
+    {
+     "id": "va-5e92480f92a657",
+     "b": "johnson-hardwood",
+     "c": "hardwood",
+     "t": "Sorrento",
+     "img": "https://staging.johnsonhardwood.com/wp-content/uploads/2018/05/1j_Roma_JVC-RM35612_Sorrento_Full_web.jpg",
+     "col": "Roma",
+     "s": {
+      "Construction": "Engineered",
+      "Species": "Hickory",
+      "Width": "3\", 5\", 6-1/2\"",
+      "Thickness": "3/8\"",
+      "Length": "Random 1-6/LF",
+      "Finish": "11 Step, Aluminum Oxide",
+      "Installation": "Staple and Glue"
+     }
+    },
+    {
+     "id": "va-4372ec9ca06097",
+     "b": "johnson-hardwood",
+     "c": "vinyl",
+     "t": "Barbera",
+     "img": "https://johnsonhardwood.com/wp-content/uploads/2022/11/2j_1164_CellarHouse_RoomScene-18201Barbara2_WEB.jpg",
+     "col": "Cellar House",
+     "s": {
+      "Width": "7-1/8\"",
+      "Thickness": "5.5mm (4mm + 1.5mm Pad)",
+      "Length": "60\" (5' Nominal)",
+      "Finish": "20 Mil Wear Layer",
+      "Installation": "Valinge 2G"
+     }
+    },
+    {
+     "id": "va-be0a2955c93e95",
+     "b": "johnson-hardwood",
+     "c": "vinyl",
+     "t": "High Valley",
+     "img": "https://johnsonhardwood.com/wp-content/uploads/2018/05/FM-18205_HighValley_DSC_0618_web.jpg",
+     "col": "Farmhouse Manor",
+     "s": {
+      "Width": "7-1/8\"",
+      "Thickness": "7.5mm (6.0 + 1.5mm Pad)",
+      "Length": "48\" (4'Nominal)",
+      "Finish": "20 Mil Wear Layer",
+      "Installation": "Unilin Angle-Tap"
+     }
+    },
+    {
+     "id": "va-d4a465ef6d7fbe",
+     "b": "johnson-hardwood",
+     "c": "vinyl",
+     "t": "Enna",
+     "img": "https://staging.johnsonhardwood.com/wp-content/uploads/2019/01/1j_Sicily_3WS-46802_Enna_web.jpg",
+     "col": "Sicily",
+     "s": {
+      "Width": "4\", 6\", 8\"",
+      "Thickness": "7.5mm (6.0 + 1.5mm Pad)",
+      "Length": "72\"",
+      "Finish": "20 Mil Wear Layer",
+      "Installation": "Valinge 5Gi"
+     }
+    },
+    {
+     "id": "va-1cc26c92eac65c",
+     "b": "johnson-hardwood",
+     "c": "vinyl",
+     "t": "Robson",
+     "img": "https://johnsonhardwood.com/wp-content/uploads/2025/08/Aspen-Robson-swatch-23810-10_WEB.jpg",
+     "col": "Vortis - Aspen",
+     "s": {
+      "Construction": "WPC",
+      "Width": "9.37\"",
+      "Thickness": "8mm (6.5mm WPC Core + 1.5mm Pad)",
+      "Length": "60\" (5' Nominal)",
+      "Finish": "20 Mil Wear Layer",
+      "Installation": "Valinge 2G"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "lions-floor",
+   "name": "Lions Floor",
+   "city": "Paramount",
+   "distributor": null,
+   "count": 142,
+   "categories": {
+    "vinyl": 118,
+    "laminate": 24
+   },
+   "collections": [
+    "Bambino",
+    "Comfort Heights",
+    "District",
+    "Indoor Delight",
+    "District Max",
+    "District Pro",
+    "Bevelmark",
+    "Formalay",
+    "Haven Heights",
+    "Lone Star Spirit XL",
+    "Lone Star Spirit",
+    "Ocean Crest",
+    "Lions Reservation",
+    "Canyon Coast",
+    "Natural Essence Plus",
+    "Trenta",
+    "Grande",
+    "Versa"
+   ],
+   "featured": [
+    {
+     "id": "va-1eb1aa67e80f94",
+     "b": "lions-floor",
+     "c": "vinyl",
+     "t": "Dolce",
+     "img": "https://mm-media-res.cloudinary.com/image/fetch/c_fill,g_auto,h_222,w_450/https://mmllc-images.s3.amazonaws.com/misc/bb01__bbi_dolce__planks.png",
+     "col": "Bambino",
+     "sku": "BB-I",
+     "s": {
+      "Width": "7\"",
+      "Thickness": "5mm",
+      "Length": "48\""
+     }
+    },
+    {
+     "id": "va-c01181793a3acd",
+     "b": "lions-floor",
+     "c": "vinyl",
+     "t": "Weston",
+     "img": "https://mm-media-res.cloudinary.com/image/fetch/c_fill,g_auto,h_222,w_450/https://mmllc-images.s3.amazonaws.com/misc/lidm04_weston__planks.jpg",
+     "col": "District Max",
+     "sku": "LI-DM04",
+     "s": {
+      "Width": "7 1/4\"",
+      "Thickness": "2.5mm",
+      "Length": "48\""
+     }
+    },
+    {
+     "id": "va-6e4366a5d1f20e",
+     "b": "lions-floor",
+     "c": "vinyl",
+     "t": "Castle Forge",
+     "img": "https://mm-media-res.cloudinary.com/image/fetch/c_fill,g_auto,h_222,w_450/https://mmllc-images.s3.amazonaws.com/misc/liid02_castle_forge__planks.jpg",
+     "col": "Indoor Delight",
+     "sku": "LI-ID02",
+     "s": {
+      "Width": "9\"",
+      "Thickness": "6.5mm",
+      "Length": "72\""
+     }
+    },
+    {
+     "id": "va-1ab94e1ada7bac",
+     "b": "lions-floor",
+     "c": "vinyl",
+     "t": "Palisade",
+     "img": "https://mm-media-res.cloudinary.com/image/fetch/c_fill,g_auto,h_222,w_450/https://mmllc-images.s3.amazonaws.com/misc/line209_palisade__planks.png",
+     "col": "Natural Essence Plus",
+     "sku": "LI-NE209",
+     "s": {
+      "Width": "9\"",
+      "Thickness": "6.5mm",
+      "Length": "60\""
+     }
+    },
+    {
+     "id": "va-93dea1fec19f6f",
+     "b": "lions-floor",
+     "c": "laminate",
+     "t": "Cliff Cottage",
+     "img": "https://mm-media-res.cloudinary.com/image/fetch/c_fill,g_auto,h_222,w_450/https://mmllc-images.s3.amazonaws.com/misc/lich03_cliff_cottage__planks.jpg",
+     "col": "Comfort Heights",
+     "sku": "LI-CH03",
+     "s": {
+      "Width": "9 1/4\"",
+      "Thickness": "12mm",
+      "Length": "60\""
+     }
+    }
+   ]
+  },
+  {
+   "slug": "monarch-plank",
+   "name": "Monarch Plank",
+   "city": "Southern California",
+   "distributor": null,
+   "count": 90,
+   "categories": {
+    "hardwood": 90
+   },
+   "collections": [],
+   "featured": [
+    {
+     "id": "va-6123f57a056de0",
+     "b": "monarch-plank",
+     "c": "hardwood",
+     "t": "Domaine II ALLIER",
+     "img": "https://cdn.shopify.com/s/files/1/2720/0826/products/mp_angle-shots_0008s_0012_domain_allier_353f7a28-eaa3-41a8-a169-f03b550f0091.png?v=1626737422",
+     "sku": "MONSW3495D2AE",
+     "s": {
+      "Species": "European Oak",
+      "Width": "9- 1/2\"\".",
+      "Thickness": "3/4\" WIDTH: 9- 1/2\"\". LENGTH: 8",
+      "Length": "8",
+      "Finish": "Bona®",
+      "Installation": "Nail-down, glue-down, or float.",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-3bd20a0d1707bc",
+     "b": "monarch-plank",
+     "c": "hardwood",
+     "t": "Hokkaido Nara Raw Look",
+     "img": "https://cdn.shopify.com/s/files/1/2720/0826/files/Nara_Raw_Look_245d7e2c-890f-4916-9d86-11045d475729.png?v=1746466296",
+     "sku": "MON5875HJONR",
+     "s": {
+      "Species": "Nara (Japanese Oak)",
+      "Width": "7-1/2\"",
+      "Thickness": "5/8\" WIDTH: 7-1/2\" LENGTH: 23\"-75\"",
+      "Length": "23\"-75\"",
+      "Finish": "UV Urethane",
+      "Installation": "Nail-down, glue-down, or float.",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-da926b46da50be",
+     "b": "monarch-plank",
+     "c": "hardwood",
+     "t": "Manor BARNSLEY",
+     "img": "https://cdn.shopify.com/s/files/1/2720/0826/files/Barnsley_Angle.png?v=1728939546",
+     "sku": "MONSW3495MBR",
+     "s": {
+      "Species": "European Oak",
+      "Width": "9-1/2\"",
+      "Length": "23\" - 96\" (84% full)",
+      "Finish": "Bona®",
+      "Installation": "Glue down, nail + glue, or float.",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-aecf7f02717a8c",
+     "b": "monarch-plank",
+     "c": "hardwood",
+     "t": "Tableau BAZILLE",
+     "img": "https://cdn.shopify.com/s/files/1/2720/0826/products/BazilleAngle.jpg?v=1662746500",
+     "sku": "MONH58858TBZ",
+     "s": {
+      "Species": "European Oak",
+      "Width": "8-5/8\"",
+      "Thickness": "5/8\" WIDTH: 8-5/8\" LENGTH: 86-5/8\"",
+      "Length": "86-5/8\"",
+      "Finish": "UV Urethane",
+      "Installation": "Nail-down, glue-down, or float.",
+      "Construction": "Engineered"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "msi",
+   "name": "MSI",
+   "city": "Orange",
+   "distributor": null,
+   "count": 790,
+   "categories": {
+    "vinyl": 385,
+    "tile": 354,
+    "hardwood": 51
+   },
+   "collections": [
+    "Prescott",
+    "Xl Cyrus",
+    "Xl Prescott",
+    "Cyrus",
+    "Mccarran",
+    "Laurel",
+    "Laurel Reserve",
+    "Ladson",
+    "Glenridge",
+    "Kallum",
+    "Andover",
+    "Smithcliffs",
+    "Ashton 2",
+    "Studio",
+    "Trecento",
+    "Xl Trecento",
+    "Xl Studio",
+    "Acclima",
+    "Cyrus 2",
+    "Katavia",
+    "Nove",
+    "Nove Plus",
+    "Nove Reserve",
+    "Wilmont",
+    "Shorecliffs",
+    "Kelmore",
+    "Mccarran Reserve",
+    "Wayne Parc",
+    "Wayne Parc Reserve",
+    "Ashton",
+    "Xl Ashton",
+    "Ceramic",
+    "Portico Pearl",
+    "Porcelain Glass Blend",
+    "Adhesives",
+    "Carrara Classique",
+    "Environmental",
+    "Porcelain",
+    "Porcelain Stone Blend",
+    "Porcelain Stone Blend, Arabescato Carrara"
+   ],
+   "featured": [
+    {
+     "id": "va-9821929ac1083a",
+     "b": "msi",
+     "c": "vinyl",
+     "t": "Acclima Ayla",
+     "img": "https://cdn.msisurfaces.com/images/lvt/detail/acclima-ayla-vinyl-flooring.jpg",
+     "col": "Acclima",
+     "s": {
+      "Thickness": "12MIL",
+      "Wear layer": "12MIL"
+     }
+    },
+    {
+     "id": "va-2e11af94b2159c",
+     "b": "msi",
+     "c": "vinyl",
+     "t": "Glenridge Woodrift Gray",
+     "img": "https://cdn.msisurfaces.com/images/lvt/detail/glenridge-woodrift-gray-vinyl-flooring.jpg",
+     "col": "Glenridge",
+     "s": {
+      "Thickness": "12MIL",
+      "Wear layer": "12MIL"
+     }
+    },
+    {
+     "id": "va-cd294f92a4ed2d",
+     "b": "msi",
+     "c": "vinyl",
+     "t": "Prescott Barrell",
+     "img": "https://cdn.msisurfaces.com/images/lvt/detail/prescott-barrel-vinyl-flooring.jpg",
+     "col": "Prescott",
+     "s": {
+      "Thickness": "20MIL",
+      "Wear layer": "20MIL"
+     }
+    },
+    {
+     "id": "va-a924bfe26eb35d",
+     "b": "msi",
+     "c": "vinyl",
+     "t": "XL Ashton Maracay Brown",
+     "img": "https://cdn.msisurfaces.com/images/lvt/detail/xl-ashton-maracay-vinyl-flooring.jpg",
+     "col": "Xl Ashton",
+     "s": {
+      "Thickness": "6MIL",
+      "Wear layer": "6MIL"
+     }
+    },
+    {
+     "id": "va-940bf629215adb",
+     "b": "msi",
+     "c": "tile",
+     "t": "Carrara Classique Brick 1x2 Honed Tile",
+     "img": "https://cdn.msisurfaces.com/images/mosaics/carrara-classique-brick-1x2-honed.jpg",
+     "col": "Carrara Classique"
+    },
+    {
+     "id": "va-3a64f3e542bc42",
+     "b": "msi",
+     "c": "tile",
+     "t": "Calacatta Porcelain Tile",
+     "img": "https://cdn.msisurfaces.com/images/porcelainceramic/geoglam-calacatta-porcelain.jpg",
+     "s": {
+      "Finish": "Matte"
+     }
+    },
+    {
+     "id": "va-2d60af9453b8eb",
+     "b": "msi",
+     "c": "tile",
+     "t": "Hexley Hive Hexagon Tile",
+     "img": "https://cdn.msisurfaces.com/images/porcelainceramic/hexley-hive-porcelain.jpg",
+     "s": {
+      "Finish": "Matte"
+     }
+    },
+    {
+     "id": "va-dae34db5b90b3d",
+     "b": "msi",
+     "c": "tile",
+     "t": "Sinfonia Hip Hop Arena Fluted Tile",
+     "img": "https://cdn.msisurfaces.com/images/porcelainceramic/hiphop-arena.jpg",
+     "s": {
+      "Finish": "Matte"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "national-flooring-products",
+   "name": "National Flooring Products",
+   "city": "Ontario",
+   "distributor": null,
+   "count": 173,
+   "categories": {
+    "hardwood": 42,
+    "vinyl": 72,
+    "laminate": 59
+   },
+   "collections": [
+    "Estate",
+    "Loose Lay",
+    "Builders Choice SPC",
+    "Market & Main XL",
+    "Tcx",
+    "Builders Choice Dry Back",
+    "Dxl",
+    "Deckhouse",
+    "Virginia",
+    "Market & Main",
+    "Estate - Wide Plank",
+    "Black Label",
+    "Bavarian Mill Platinum"
+   ],
+   "featured": [
+    {
+     "id": "va-00879bc60a0346",
+     "b": "national-flooring-products",
+     "c": "vinyl",
+     "t": "1520 Wg-Dry",
+     "img": "https://cdn.prod.website-files.com/675e22ea573999701da299a8/6aad4222187594eadadbd3f4_NTR-SBP%201520%20WG-DRY%20Oak.jpg",
+     "col": "Builders Choice Dry Back",
+     "s": {
+      "Construction": "Tuffcore LVP (Polyvinyl Chloride)",
+      "Width": "7 1/4\"",
+      "Length": "48\"",
+      "Wear layer": "20mil"
+     }
+    },
+    {
+     "id": "va-945bb9b979af95",
+     "b": "national-flooring-products",
+     "c": "vinyl",
+     "t": "1426 Wg-Rig",
+     "img": "https://cdn.prod.website-files.com/675e22ea573999701da299a8/6aad415016dffe48fb2c79a8_NTR-SBP%201426%20WG-RIG%20Oak.jpg",
+     "col": "Builders Choice SPC",
+     "s": {
+      "Construction": "VNL",
+      "Width": "7",
+      "Length": "48\"",
+      "Wear layer": "12 mil"
+     }
+    },
+    {
+     "id": "va-74bca501468f06",
+     "b": "national-flooring-products",
+     "c": "vinyl",
+     "t": "1603 Re-Lly",
+     "img": "https://cdn.prod.website-files.com/675e22ea573999701da299a8/680c0df38bb5d2aac049ae8b_SBP%201603%20RE-LLY.jpg",
+     "col": "Loose Lay",
+     "s": {
+      "Construction": "PVC",
+      "Width": "9\"",
+      "Length": "60\"",
+      "Wear layer": "20 mil"
+     }
+    },
+    {
+     "id": "va-e5473f50be3c53",
+     "b": "national-flooring-products",
+     "c": "vinyl",
+     "t": "1382 Re-Wpc",
+     "img": "https://cdn.prod.website-files.com/675e22ea573999701da299a8/67cb79f70db858831250c145_SBP%201382%20RE-WPC.jpg",
+     "col": "Market & Main XL",
+     "s": {
+      "Construction": "WPC",
+      "Width": "9\"",
+      "Length": "60\"",
+      "Wear layer": "20mil"
+     }
+    },
+    {
+     "id": "va-56571db5f74a62",
+     "b": "national-flooring-products",
+     "c": "laminate",
+     "t": "850 Re-Lam",
+     "img": "https://cdn.prod.website-files.com/675e22ea573999701da299a8/677d8578dab103d0a663f848_850%20RE-LAM.jpg",
+     "col": "Deckhouse",
+     "s": {
+      "Construction": "Laminate Brown Core",
+      "Width": "7 3/4\"",
+      "Length": "2'6\" - 7'4\"",
+      "Wear layer": "AC4"
+     }
+    },
+    {
+     "id": "va-7eba4cfcad8536",
+     "b": "national-flooring-products",
+     "c": "laminate",
+     "t": "819 Re-Lam",
+     "img": "https://cdn.prod.website-files.com/675e22ea573999701da299a8/677b063f7256eddb59fdf380_819-RE-TL.jpg",
+     "col": "Estate",
+     "s": {
+      "Construction": "Laminate Black Core",
+      "Width": "6 1/2\"",
+      "Length": "2'-6'",
+      "Wear layer": "AC4"
+     }
+    },
+    {
+     "id": "va-40a25ba37563cf",
+     "b": "national-flooring-products",
+     "c": "laminate",
+     "t": "880 Re-Lam",
+     "img": "https://cdn.prod.website-files.com/675e22ea573999701da299a8/6a90547c0e5ca429225c4d87_%23880%20SBP.jpg",
+     "col": "Estate - Wide Plank",
+     "s": {
+      "Construction": "Laminate Black Core",
+      "Width": "11 3/4\"",
+      "Length": "88\"",
+      "Wear layer": "AC4"
+     }
+    },
+    {
+     "id": "va-3923f3735bb1d6",
+     "b": "national-flooring-products",
+     "c": "laminate",
+     "t": "909 Re-Tcx",
+     "img": "https://cdn.prod.website-files.com/675e22ea573999701da299a8/67cb7749a73d6b2adb75c9b8_SBP%20909%20RE-TCX.jpg",
+     "col": "Tcx",
+     "s": {
+      "Width": "9 1/4\"",
+      "Length": "2'-6'",
+      "Wear layer": "AC4"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "naturally-aged-flooring",
+   "name": "Naturally Aged Flooring",
+   "city": "Moorpark",
+   "distributor": null,
+   "count": 97,
+   "categories": {
+    "hardwood": 72,
+    "laminate": 13,
+    "vinyl": 12
+   },
+   "collections": [],
+   "featured": [
+    {
+     "id": "va-68cea9e2ea699f",
+     "b": "naturally-aged-flooring",
+     "c": "hardwood",
+     "t": "Adirondack",
+     "img": "https://naturallyagedflooring.com/wp-content/uploads/2023/10/1601674943-240x160.jpg",
+     "s": {
+      "Construction": "Engineered Hardwood Flooring",
+      "Installation": "Float, Nail Down or Glue"
+     }
+    },
+    {
+     "id": "va-dee344cadf0705",
+     "b": "naturally-aged-flooring",
+     "c": "hardwood",
+     "t": "Crown",
+     "img": "https://naturallyagedflooring.com/wp-content/uploads/2023/10/1656110970-240x160.jpg",
+     "s": {
+      "Construction": "Engineered Hardwood Flooring",
+      "Species": "European White Oak | Wire-brushed",
+      "Installation": "Float, Nail Down or Glue"
+     }
+    },
+    {
+     "id": "va-b9048dc405de25",
+     "b": "naturally-aged-flooring",
+     "c": "hardwood",
+     "t": "Matching Solid Treads",
+     "img": "https://naturallyagedflooring.com/wp-content/uploads/2023/10/1585755715-240x160.jpg",
+     "s": {
+      "Construction": "Solid",
+      "Species": "Any",
+      "Installation": "Board Size:"
+     }
+    },
+    {
+     "id": "va-a8469204e26e3e",
+     "b": "naturally-aged-flooring",
+     "c": "hardwood",
+     "t": "Sedona",
+     "img": "https://naturallyagedflooring.com/wp-content/uploads/2023/10/1638456836-240x160.jpg",
+     "s": {
+      "Construction": "Engineered Hardwood Flooring",
+      "Species": "Red Maple",
+      "Installation": "Float, Nail Down or Glue"
+     }
+    },
+    {
+     "id": "va-02ef989f7c3ab5",
+     "b": "naturally-aged-flooring",
+     "c": "laminate",
+     "t": "Aloha",
+     "img": "https://naturallyagedflooring.com/wp-content/uploads/2023/10/1682457958-240x160.jpg",
+     "s": {
+      "Construction": "HDF",
+      "Species": "Laminate",
+      "Installation": "Float"
+     }
+    },
+    {
+     "id": "va-dfc18f3420aab9",
+     "b": "naturally-aged-flooring",
+     "c": "laminate",
+     "t": "Hilo",
+     "img": "https://naturallyagedflooring.com/wp-content/uploads/2023/10/1682457837-240x160.jpg",
+     "s": {
+      "Construction": "HDF",
+      "Species": "Laminate",
+      "Installation": "Float"
+     }
+    },
+    {
+     "id": "va-aaf0196dcfa536",
+     "b": "naturally-aged-flooring",
+     "c": "laminate",
+     "t": "Palm Branch",
+     "img": "https://naturallyagedflooring.com/wp-content/uploads/2024/01/3307-1-PALM-BRANCH-240x160.jpg",
+     "s": {
+      "Construction": "HDF",
+      "Species": "Laminate",
+      "Installation": "Float"
+     }
+    },
+    {
+     "id": "va-f7266691047862",
+     "b": "naturally-aged-flooring",
+     "c": "laminate",
+     "t": "South Beach",
+     "img": "https://naturallyagedflooring.com/wp-content/uploads/2023/10/1682457612-240x160.jpg",
+     "s": {
+      "Construction": "HDF",
+      "Species": "Laminate",
+      "Installation": "Float"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "oasis-wood-flooring",
+   "name": "Oasis Wood Flooring",
+   "city": "City of Industry",
+   "distributor": null,
+   "count": 61,
+   "categories": {
+    "hardwood": 43,
+    "vinyl": 5,
+    "laminate": 13
+   },
+   "collections": [],
+   "featured": [
+    {
+     "id": "va-745748871ab35b",
+     "b": "oasis-wood-flooring",
+     "c": "hardwood",
+     "t": "Autumn",
+     "img": "https://oasiswoodflooring.com/wp-content/uploads/2020/06/SS20-562x749.jpg",
+     "s": {
+      "Species": "Oak",
+      "Wear layer": "2mil"
+     }
+    },
+    {
+     "id": "va-26e628ff08b518",
+     "b": "oasis-wood-flooring",
+     "c": "hardwood",
+     "t": "Cm51 Dragon",
+     "img": "https://oasiswoodflooring.com/wp-content/uploads/2020/08/CM51-562x749.jpg",
+     "s": {
+      "Construction": "Engineered Hardwood Flooring",
+      "Species": "Smooth European Oak",
+      "Installation": "Float, Nail Down or Glue"
+     }
+    },
+    {
+     "id": "va-216568412b0a5f",
+     "b": "oasis-wood-flooring",
+     "c": "hardwood",
+     "t": "NI-202 Misty Mountain",
+     "img": "https://oasiswoodflooring.com/wp-content/uploads/2024/10/202-scaled-562x749.jpg",
+     "s": {
+      "Construction": "Engineered Wood",
+      "Species": "Light Wire Brushed European Oak",
+      "Installation": "Float, Nail Down or Glue"
+     }
+    },
+    {
+     "id": "va-bb563564af57f6",
+     "b": "oasis-wood-flooring",
+     "c": "hardwood",
+     "t": "OC15 Rancho Villa",
+     "img": "https://oasiswoodflooring.com/wp-content/uploads/2017/07/OC15-1-562x562.jpg",
+     "s": {
+      "Construction": "Engineered Wood",
+      "Species": "Wire Brushed European Oak",
+      "Installation": "Float, Nail Down or Glue"
+     }
+    },
+    {
+     "id": "va-4f9cc18110db05",
+     "b": "oasis-wood-flooring",
+     "c": "laminate",
+     "t": "WRL0041 Park Shadow",
+     "img": "https://oasiswoodflooring.com/wp-content/uploads/2022/05/WRL0041-562x749.jpg",
+     "s": {
+      "Species": "Water Resistant Laminate"
+     }
+    },
+    {
+     "id": "va-478c613b81f668",
+     "b": "oasis-wood-flooring",
+     "c": "laminate",
+     "t": "WRL1305L Clark Range",
+     "img": "https://oasiswoodflooring.com/wp-content/uploads/2024/10/1305L-scaled-562x749.jpg",
+     "s": {
+      "Species": "Water Resistant Laminate"
+     }
+    },
+    {
+     "id": "va-332befb272ebf0",
+     "b": "oasis-wood-flooring",
+     "c": "laminate",
+     "t": "WRL2046 Mirror Lake",
+     "img": "https://oasiswoodflooring.com/wp-content/uploads/2021/03/WRL2046-562x750.jpg",
+     "s": {
+      "Species": "Water Resistant Laminate"
+     }
+    },
+    {
+     "id": "va-f78e50870911fe",
+     "b": "oasis-wood-flooring",
+     "c": "laminate",
+     "t": "WRL4493L Echo Peaks",
+     "img": "https://oasiswoodflooring.com/wp-content/uploads/2024/10/4493-scaled-562x749.jpg",
+     "s": {
+      "Species": "Water Resistant Laminate"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "provenza-floors",
+   "name": "Provenza Floors",
+   "city": "Tustin",
+   "distributor": null,
+   "count": 321,
+   "categories": {
+    "hardwood": 172,
+    "vinyl": 138,
+    "laminate": 11
+   },
+   "collections": [
+    "Uptown Chic",
+    "Moda Living",
+    "Affinity",
+    "Stonescape",
+    "Concorde Oak",
+    "Tresor",
+    "New Wave",
+    "New York Loft",
+    "Moda Living Elite",
+    "Old World",
+    "Modessa",
+    "Vitali",
+    "Cadeau",
+    "Dutch Masters",
+    "Grand Pompeii",
+    "Herringbone Custom",
+    "Nuage",
+    "Volterra",
+    "Opia",
+    "Vitali Elite",
+    "First Impressions",
+    "Antico",
+    "Lugano",
+    "Palais Royale",
+    "African Plains",
+    "Lighthouse Cove",
+    "Herringbone Reserve",
+    "Modern Rustic",
+    "Richmond",
+    "Pompeii",
+    "Studio Moderno"
+   ],
+   "featured": [
+    {
+     "id": "va-9212f7386d5291",
+     "b": "provenza-floors",
+     "c": "hardwood",
+     "t": "Acclaim",
+     "img": "https://storage.googleapis.com/provenza-web/images/products/hardwood/affinity/detail/Provenza-Affinity-PRO2313-Acclaim.jpg",
+     "col": "Affinity",
+     "sku": "PRO2313",
+     "s": {
+      "Construction": "Engineered",
+      "Species": "European Oak",
+      "Width": "7.48 in",
+      "Thickness": "1/2 in",
+      "Length": "Random up to 82.67 in",
+      "Finish": "Polyurethane",
+      "Installation": "Glue Down, Staple, Float"
+     }
+    },
+    {
+     "id": "va-73bd34076d7d68",
+     "b": "provenza-floors",
+     "c": "hardwood",
+     "t": "Leyster",
+     "img": "https://storage.googleapis.com/provenza-web/images/products/hardwood/dutchmasters/detail/Provenza-DutchMasters-CDM007-Leyster-v2.jpg",
+     "col": "Dutch Masters",
+     "sku": "CDM007",
+     "s": {
+      "Construction": "Engineered",
+      "Species": "European Oak",
+      "Width": "8.66 in",
+      "Thickness": "5/8 in",
+      "Length": "Random up to 86.61 in",
+      "Finish": "Polyurethane",
+      "Installation": "Glue Down, Staple, Float"
+     }
+    },
+    {
+     "id": "va-c65010a8f41473",
+     "b": "provenza-floors",
+     "c": "hardwood",
+     "t": "Ferry Point",
+     "img": "https://storage.googleapis.com/provenza-web/images/products/hardwood/newyorkloft/detail/Provenza-NewYorkLoft-PRO2719-FerryPoint-fs.jpg",
+     "col": "New York Loft",
+     "sku": "PRO2719",
+     "s": {
+      "Construction": "Engineered",
+      "Species": "European Oak",
+      "Width": "7.48 in",
+      "Thickness": "5/8 in",
+      "Length": "Random up to 74 in",
+      "Finish": "Polyurethane",
+      "Installation": "Glue Down, Staple, Float"
+     }
+    },
+    {
+     "id": "va-2e7e3951650e3c",
+     "b": "provenza-floors",
+     "c": "hardwood",
+     "t": "Agio",
+     "img": "https://storage.googleapis.com/provenza-web/images/products/hardwood/tresor/detail/Provenza-Tresor-PRO2519-Agio-fs.jpg",
+     "col": "Tresor",
+     "sku": "PRO2519",
+     "s": {
+      "Construction": "Engineered",
+      "Species": "European Oak",
+      "Width": "9.45 in",
+      "Thickness": "5/8 in",
+      "Length": "Random up to 86.6 in",
+      "Finish": "Polyurethane",
+      "Installation": "Glue Down, Staple, Float"
+     }
+    },
+    {
+     "id": "va-7927d10b1c948d",
+     "b": "provenza-floors",
+     "c": "vinyl",
+     "t": "Brushed Pearl",
+     "img": "https://storage.googleapis.com/provenza-web/images/products/lvp/concordeoak/detail/Provenza-MaxCore-ConcordeOak-3200-BrushedPearl.jpg",
+     "col": "Concorde Oak",
+     "sku": "PRO3200",
+     "s": {
+      "Construction": "Rigid Core SPC",
+      "Width": "7.2 in",
+      "Length": "72 in",
+      "Wear layer": "20 mil",
+      "Installation": "Float"
+     }
+    },
+    {
+     "id": "va-d4675d43a65997",
+     "b": "provenza-floors",
+     "c": "vinyl",
+     "t": "High Five",
+     "img": "https://storage.googleapis.com/provenza-web/images/products/lvp/modaliving/detail/Provenza-MaxCore-ModaLiving-2612-HighFive.jpg",
+     "col": "Moda Living",
+     "sku": "PRO2612",
+     "s": {
+      "Construction": "Luxury Vinyl Plank",
+      "Width": "7.15 in",
+      "Length": "Random up to 72 in",
+      "Wear layer": "20 mil",
+      "Installation": "Float"
+     }
+    },
+    {
+     "id": "va-d9cc0c0b270d7a",
+     "b": "provenza-floors",
+     "c": "vinyl",
+     "t": "Love Birds",
+     "img": "https://storage.googleapis.com/provenza-web/images/products/lvp/newwave/detail/Provenza-MaxCore-NewWave-PRO3311-LoveBirds.jpg",
+     "col": "New Wave",
+     "sku": "PRO3311",
+     "s": {
+      "Construction": "Rigid Core SPC",
+      "Width": "8.75 in",
+      "Length": "72 in",
+      "Wear layer": "22 mil",
+      "Installation": "Float"
+     }
+    },
+    {
+     "id": "va-8296dd852a1e14",
+     "b": "provenza-floors",
+     "c": "vinyl",
+     "t": "Rockface",
+     "img": "https://storage.googleapis.com/provenza-web/images/products/lvp/stonescape/detail/Provenza-MaxCore-StonescapeII-PRO3116-Rockface.jpg",
+     "col": "Stonescape",
+     "sku": "PRO3116",
+     "s": {
+      "Construction": "Rigid Core SPC",
+      "Width": "18.62 in",
+      "Length": "36.02 in",
+      "Wear layer": "20 mil",
+      "Installation": "Float"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "republic-floor",
+   "name": "Republic Floor",
+   "city": "Commerce",
+   "distributor": null,
+   "count": 156,
+   "categories": {
+    "vinyl": 141,
+    "laminate": 15
+   },
+   "collections": [
+    "SPC Max",
+    "Designer Pro",
+    "WoodMax",
+    "Pure SPC",
+    "Westwood Collection"
+   ],
+   "featured": [
+    {
+     "id": "va-0810f197373ee0",
+     "b": "republic-floor",
+     "c": "vinyl",
+     "t": "African Desert",
+     "img": "https://cdn.shopify.com/s/files/1/0894/5218/3924/files/RELC8201_-_AFRICAN_DESERT_PLANK.jpg?v=1746312664",
+     "col": "Designer Pro",
+     "sku": "RELC8201"
+    },
+    {
+     "id": "va-38ff95ae2bf106",
+     "b": "republic-floor",
+     "c": "vinyl",
+     "t": "White Reef",
+     "img": "https://cdn.shopify.com/s/files/1/0894/5218/3924/files/RELM8104_-_White_Reef_Plank.jpg?v=1746314559",
+     "col": "Designer Pro",
+     "sku": "RELM8104"
+    },
+    {
+     "id": "va-32f5243e0631aa",
+     "b": "republic-floor",
+     "c": "vinyl",
+     "t": "Coffee Pearl",
+     "img": "https://cdn.shopify.com/s/files/1/0894/5218/3924/files/REWR8604_-_Coffee_Pearl_Plank.jpg?v=1746314590",
+     "col": "SPC Max",
+     "sku": "REWR8604"
+    },
+    {
+     "id": "va-878e0f35deb59c",
+     "b": "republic-floor",
+     "c": "vinyl",
+     "t": "Light Dune",
+     "img": "https://cdn.shopify.com/s/files/1/0894/5218/3924/files/RESL64001_-_Light_Dune_Plank.jpg?v=1746314559",
+     "col": "SPC Max",
+     "sku": "RESL64001"
+    },
+    {
+     "id": "va-e566ea8211ea1a",
+     "b": "republic-floor",
+     "c": "laminate",
+     "t": "Amazon Gold",
+     "img": "https://cdn.shopify.com/s/files/1/0894/5218/3924/files/REMI7030_-_Amazon_Gold_Plank.jpg?v=1746314588",
+     "col": "WoodMax",
+     "sku": "REMI7030"
+    },
+    {
+     "id": "va-fa44fb97ab0252",
+     "b": "republic-floor",
+     "c": "laminate",
+     "t": "Brazilian Tigerwood",
+     "img": "https://cdn.shopify.com/s/files/1/0894/5218/3924/files/REBT290-WP_-_Brazilian_Tigerwood_Plank.jpg?v=1746314554",
+     "col": "WoodMax",
+     "sku": "REBT290"
+    },
+    {
+     "id": "va-3919c9a58d9fb2",
+     "b": "republic-floor",
+     "c": "laminate",
+     "t": "Cooper Dune",
+     "img": "https://cdn.shopify.com/s/files/1/0894/5218/3924/files/REMI7080_-_Cooper_Dune_Plank.jpg?v=1746314591",
+     "col": "WoodMax",
+     "sku": "REMI7080"
+    },
+    {
+     "id": "va-10c6f6c117405d",
+     "b": "republic-floor",
+     "c": "laminate",
+     "t": "Helsinki",
+     "img": "https://cdn.shopify.com/s/files/1/0894/5218/3924/files/942396_af9e9c402146481ebab0096f982ee091_mv2_d_4686_2476_s_4_2.jpg?v=1744772647",
+     "col": "WoodMax",
+     "sku": "REHE49"
+    }
+   ]
+  },
+  {
+   "slug": "reward-flooring",
+   "name": "Reward Flooring",
+   "city": "Santa Fe Springs",
+   "distributor": null,
+   "count": 106,
+   "categories": {
+    "hardwood": 106
+   },
+   "collections": [],
+   "featured": [
+    {
+     "id": "va-0add71a7c97b09",
+     "b": "reward-flooring",
+     "c": "hardwood",
+     "t": "Avalon Euro Oak Bruin",
+     "img": "https://cdn.shopify.com/s/files/1/0021/4502/6101/files/Avalon_Bruin_web_-_Angle_22ff3211-ab2b-4965-b8fd-6f07c233ee72.png?v=1788383401",
+     "sku": "REW3875AVBN",
+     "s": {
+      "Species": "European Oak",
+      "Width": "7-1/2\"",
+      "Length": "RL (16\"-82\")",
+      "Wear layer": "1.5mm",
+      "Installation": "Glue down, nail + glue, or float.",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-bad6ed113189d1",
+     "b": "reward-flooring",
+     "c": "hardwood",
+     "t": "Costa European Oak Mannu",
+     "img": "https://cdn.shopify.com/s/files/1/0021/4502/6101/products/CostaMannuAngleweb.png?v=1643328434",
+     "sku": "REW5875COMU",
+     "s": {
+      "Species": "European Oak",
+      "Width": "7-1/2\"",
+      "Length": "RL 23\" - 75\" (67% full)",
+      "Wear layer": "4mm",
+      "Finish": "UV urethane w/ Aluminum Oxide",
+      "Installation": "Glue down, nail + glue, or float.",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-a47a98c0c40d03",
+     "b": "reward-flooring",
+     "c": "hardwood",
+     "t": "Mill Creek European Oak Berwick",
+     "img": "https://cdn.shopify.com/s/files/1/0021/4502/6101/products/BerwickAngleweb.jpg?v=1647391298",
+     "sku": "REW5875MCEOBW",
+     "s": {
+      "Species": "European Oak",
+      "Width": "7-1/2\"",
+      "Length": "RL 23\" - 75\" (70% full)",
+      "Wear layer": "4mm",
+      "Installation": "Glue down, nail + glue, or float.",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-05943e9cea4e4b",
+     "b": "reward-flooring",
+     "c": "hardwood",
+     "t": "Provence Iii European Oak Venelle",
+     "img": "https://cdn.shopify.com/s/files/1/0021/4502/6101/files/Venelle_angle_web_0426.png?v=1777392347",
+     "sku": "REW1275P3VL",
+     "s": {
+      "Species": "European Oak",
+      "Width": "7-1/2\"",
+      "Length": "RL 20\"-75\" (62% full)",
+      "Wear layer": "2mm",
+      "Installation": "Glue down, nail + glue, or float.",
+      "Construction": "Engineered"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "tecsun-flooring",
+   "name": "Tecsun Flooring",
+   "city": "City of Industry",
+   "distributor": null,
+   "count": 101,
+   "categories": {
+    "laminate": 39,
+    "vinyl": 39,
+    "hardwood": 23
+   },
+   "collections": [
+    "American-Tradition",
+    "Coral-Reef",
+    "Renaissance",
+    "Boston-Lake",
+    "Grandeur",
+    "Barrier-Reef",
+    "Crystal-Cove",
+    "Lighthouse",
+    "Pacific-Coast",
+    "Atlantic-Coast",
+    "California-Lakes",
+    "Heritage",
+    "Alaskan-Lake",
+    "California-Island",
+    "Virgin-Islands",
+    "Eminence",
+    "Agean-Islands",
+    "Farmers-Harvest",
+    "Niagara-Falls"
+   ],
+   "featured": [
+    {
+     "id": "va-5d5a38a7c6fe7a",
+     "b": "tecsun-flooring",
+     "c": "laminate",
+     "t": "Hydra",
+     "img": "http://www.tecsunflooring.com/images/products/AI2203.jpg",
+     "col": "Agean-Islands",
+     "sku": "AI2203",
+     "s": {
+      "Width": "7-3/4\"",
+      "Thickness": "12mm",
+      "Length": "47-7/8\"",
+      "Finish": "matte",
+      "Installation": "Floating Only"
+     }
+    },
+    {
+     "id": "va-320c2992536aa4",
+     "b": "tecsun-flooring",
+     "c": "laminate",
+     "t": "Cedar Lake",
+     "img": "http://www.tecsunflooring.com/images/products/BL21726.jpg",
+     "col": "Boston-Lake",
+     "sku": "BL21726",
+     "s": {
+      "Width": "7-11/16\"",
+      "Thickness": "12mm",
+      "Length": "47-7/8\"",
+      "Finish": "Matte",
+      "Installation": "Floating Only"
+     }
+    },
+    {
+     "id": "va-60355af83a3368",
+     "b": "tecsun-flooring",
+     "c": "laminate",
+     "t": "Santa Rosa",
+     "img": "http://www.tecsunflooring.com/images/products/CI21905.jpg",
+     "col": "California-Island",
+     "sku": "CI21905",
+     "s": {
+      "Width": "7-3/4\"",
+      "Thickness": "12mm",
+      "Length": "47-7/8\"",
+      "Finish": "Matte",
+      "Installation": "Floating Only"
+     }
+    },
+    {
+     "id": "va-130569d1270459",
+     "b": "tecsun-flooring",
+     "c": "laminate",
+     "t": "Moss Cove",
+     "img": "http://www.tecsunflooring.com/images/products/CC21715.jpg",
+     "col": "Crystal-Cove",
+     "sku": "CC21715",
+     "s": {
+      "Width": "7-3/4\"",
+      "Thickness": "12mm",
+      "Length": "47-7/8\""
+     }
+    },
+    {
+     "id": "va-ef4fcda249c1da",
+     "b": "tecsun-flooring",
+     "c": "vinyl",
+     "t": "Bonnie Lake",
+     "img": "http://www.tecsunflooring.com/images/products/AL6005.jpg",
+     "col": "Alaskan-Lake",
+     "sku": "AL6005",
+     "s": {
+      "Width": "7-1/16\"",
+      "Thickness": "5.2mm",
+      "Length": "48\"",
+      "Finish": "Matte",
+      "Installation": "Floating Only"
+     }
+    },
+    {
+     "id": "va-40fda626ddecbf",
+     "b": "tecsun-flooring",
+     "c": "vinyl",
+     "t": "Mesoamerican",
+     "img": "http://www.tecsunflooring.com/images/products/BR7004.jpg",
+     "col": "Barrier-Reef",
+     "sku": "BR7004",
+     "s": {
+      "Width": "9\"",
+      "Thickness": "7mm",
+      "Length": "59 7-8\"",
+      "Installation": "Floating Only"
+     }
+    },
+    {
+     "id": "va-6f271c8b32df89",
+     "b": "tecsun-flooring",
+     "c": "vinyl",
+     "t": "Visualize in Your Room",
+     "img": "http://www.tecsunflooring.com/images/products/CR8003.jpg",
+     "col": "Coral-Reef",
+     "sku": "CR8003"
+    },
+    {
+     "id": "va-94ce37ce0cec4a",
+     "b": "tecsun-flooring",
+     "c": "vinyl",
+     "t": "Manchester Canal",
+     "img": "http://www.tecsunflooring.com/images/products/GT3011.jpg",
+     "col": "Grandeur",
+     "sku": "GT3011",
+     "s": {
+      "Width": "9\"",
+      "Thickness": "8mm",
+      "Length": "59-7/8\"",
+      "Finish": "Matte",
+      "Installation": "Floating Only"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "tropical-flooring",
+   "name": "Tropical Flooring",
+   "city": "El Monte",
+   "distributor": null,
+   "count": 15,
+   "categories": {
+    "hardwood": 13,
+    "vinyl": 2
+   },
+   "collections": [
+    "Brazilian Teak"
+   ],
+   "featured": [
+    {
+     "id": "va-46ed6a891000a0",
+     "b": "tropical-flooring",
+     "c": "hardwood",
+     "t": "Brown",
+     "img": "https://static1.squarespace.com/static/59f757af12abd965c35b1314/59f7b53124a69437aff74cca/65036abb0826551b6177dd73/1694722779982/Tropical+Flooring-4605-BRAZILIAN+TEAK+CUMARU.jpg?format=1500w",
+     "col": "Brazilian Teak",
+     "s": {
+      "Species": "Grade",
+      "Width": "3 1/4\"",
+      "Thickness": "21/32\"",
+      "Installation": "Nail Down",
+      "Construction": "Solid"
+     }
+    },
+    {
+     "id": "va-a53c3d0cbc1555",
+     "b": "tropical-flooring",
+     "c": "hardwood",
+     "t": "Brown",
+     "img": "https://static1.squarespace.com/static/59f757af12abd965c35b1314/59f93f2a6c3194e9a688723d/5a5f01e5419202a037e0ca96/1516175849394/Australian+Cypress-1.jpg?format=1500w",
+     "s": {
+      "Species": "Australian Cypress",
+      "Finish": "Urethane",
+      "Installation": "Nail Down, Glue Down",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-76414d45fe06c6",
+     "b": "tropical-flooring",
+     "c": "hardwood",
+     "t": "Grey",
+     "img": "https://static1.squarespace.com/static/59f757af12abd965c35b1314/59f93f2a6c3194e9a688723d/5e7ad674a7fbd757166e58e1/1585109706353/?format=1500w",
+     "s": {
+      "Species": "European Oak",
+      "Finish": "Wirebrushed - Urethane Coating",
+      "Installation": "Nail Down, Glue Down",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-8d446ee2eab7fe",
+     "b": "tropical-flooring",
+     "c": "hardwood",
+     "t": "Light White Grey",
+     "img": "https://static1.squarespace.com/static/59f757af12abd965c35b1314/59f93f2a6c3194e9a688723d/639cc4f40efa403a7073491e/1671218438852/Chateau+Fawn-1.jpg?format=1500w",
+     "s": {
+      "Species": "European Oak",
+      "Finish": "Wirebrushed - UV Lacquer",
+      "Installation": "Floating, Nail Down, Glue Down",
+      "Construction": "Engineered"
+     }
+    },
+    {
+     "id": "va-111f3cb9ee9fcb",
+     "b": "tropical-flooring",
+     "c": "vinyl",
+     "t": "Natural",
+     "img": "https://static1.squarespace.com/static/59f757af12abd965c35b1314/5b903c1f0e2e72d0f621edba/5e94c4c0da5a5d186b02f66a/1586808026804/Edelweiss-2.jpg?format=1500w",
+     "s": {
+      "Construction": "Underpad Attached",
+      "Finish": "UV Coating",
+      "Installation": "Click-lock, Floating"
+     }
+    },
+    {
+     "id": "va-92f5fa0aca3391",
+     "b": "tropical-flooring",
+     "c": "vinyl",
+     "t": "Taupe",
+     "img": "https://static1.squarespace.com/static/59f757af12abd965c35b1314/5b903c1f0e2e72d0f621edba/5e13d5e82b24c63d08f0ee7d/1597858812455/?format=1500w",
+     "s": {
+      "Construction": "Underpad Attached",
+      "Finish": "UV Coating",
+      "Installation": "Click-lock, Floating"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "urbanfloor",
+   "name": "Urbanfloor",
+   "city": "City of Industry",
+   "distributor": null,
+   "count": 102,
+   "categories": {
+    "hardwood": 54,
+    "laminate": 21,
+    "vinyl": 27
+   },
+   "collections": [],
+   "featured": [
+    {
+     "id": "va-8d85bc56d4e2a2",
+     "b": "urbanfloor",
+     "c": "hardwood",
+     "t": "Absolute",
+     "img": "https://www.urbanfloor.com/wp-content/uploads/2021/11/LTC-Absolute_tn-1.5.jpg",
+     "sku": "LTC-ABSOLUTE",
+     "s": {
+      "Construction": "Cross-Finger Core",
+      "Species": "European Oak",
+      "Width": "9.5\"",
+      "Thickness": "13/16\" *",
+      "Length": "Up to 96\"",
+      "Wear layer": "6 mm *"
+     }
+    },
+    {
+     "id": "va-7ecc35cba5b513",
+     "b": "urbanfloor",
+     "c": "hardwood",
+     "t": "Chantereau",
+     "img": "https://www.urbanfloor.com/wp-content/uploads/2022/04/Art-Chantereau_tn.webp",
+     "sku": "ART-CHANTEREAU Plus",
+     "s": {
+      "Construction": "Cross-Finger Core",
+      "Species": "European Oak",
+      "Width": "9.5\"",
+      "Thickness": "13/16”*",
+      "Length": "Up to 96\", Random",
+      "Wear layer": "6 mm*"
+     }
+    },
+    {
+     "id": "va-92675fe5d50b6e",
+     "b": "urbanfloor",
+     "c": "hardwood",
+     "t": "Marquet",
+     "img": "https://www.urbanfloor.com/wp-content/uploads/2026/08/ART-MARQUET-Plus_tn.webp",
+     "sku": "ART-MARQUET Plus",
+     "s": {
+      "Construction": "Cross-Finger Core",
+      "Species": "European Oak",
+      "Width": "9.5\"",
+      "Thickness": "13/16”*",
+      "Length": "Up to 96\", Random",
+      "Wear layer": "6 mm*"
+     }
+    },
+    {
+     "id": "va-2089845587d65f",
+     "b": "urbanfloor",
+     "c": "hardwood",
+     "t": "Sisley",
+     "img": "https://www.urbanfloor.com/wp-content/uploads/2026/08/ART-SISLEY-Plus_tn.webp",
+     "sku": "ART-SISLEY Plus",
+     "s": {
+      "Construction": "Cross-Finger Core",
+      "Species": "European Oak",
+      "Width": "9.5\"",
+      "Thickness": "13/16”*",
+      "Length": "Up to 96\", Random",
+      "Wear layer": "6 mm*"
+     }
+    },
+    {
+     "id": "va-8b4f43e0fa54d8",
+     "b": "urbanfloor",
+     "c": "vinyl",
+     "t": "Aura",
+     "img": "https://www.urbanfloor.com/wp-content/uploads/2025/02/1802.webp",
+     "sku": "CS-1802",
+     "s": {
+      "Construction": "Luxury Rigid Core SPC",
+      "Width": "9\"",
+      "Thickness": "8mm",
+      "Length": "70.9\"",
+      "Wear layer": "22 Mil"
+     }
+    },
+    {
+     "id": "va-a991b75c3a7d68",
+     "b": "urbanfloor",
+     "c": "vinyl",
+     "t": "Desoto",
+     "img": "https://www.urbanfloor.com/wp-content/uploads/2021/11/CS-1717-Desoto_thumbnail.jpg",
+     "sku": "CS-1717",
+     "s": {
+      "Construction": "Luxury Rigid Core SPC",
+      "Width": "7\"",
+      "Thickness": "6 mm",
+      "Length": "59\"",
+      "Wear layer": "20 mil"
+     }
+    },
+    {
+     "id": "va-f635c84e5b9502",
+     "b": "urbanfloor",
+     "c": "vinyl",
+     "t": "Hearth",
+     "img": "https://www.urbanfloor.com/wp-content/uploads/2025/02/1803.webp",
+     "sku": "CS-1803",
+     "s": {
+      "Construction": "Luxury Rigid Core SPC",
+      "Width": "9\"",
+      "Thickness": "8mm",
+      "Length": "70.9\"",
+      "Wear layer": "22 Mil"
+     }
+    },
+    {
+     "id": "va-b196af3186d45b",
+     "b": "urbanfloor",
+     "c": "vinyl",
+     "t": "Saluda",
+     "img": "https://www.urbanfloor.com/wp-content/uploads/2025/02/729x729-6.jpg",
+     "sku": "CS-1751",
+     "s": {
+      "Construction": "Luxury Rigid Core SPC",
+      "Width": "9\"",
+      "Thickness": "6 mm",
+      "Length": "59\"",
+      "Wear layer": "20 mil"
+     }
+    }
+   ]
+  },
+  {
+   "slug": "xtreme-performance-flooring",
+   "name": "Xtreme Performance Flooring",
+   "city": "Irwindale",
+   "distributor": "True Floors",
+   "count": 22,
+   "categories": {
+    "laminate": 22
+   },
+   "collections": [
+    "Xtreme Collection",
+    "Xtreme",
+    "Xtreme Tiles"
+   ],
+   "featured": []
+  }
+ ]
+}
