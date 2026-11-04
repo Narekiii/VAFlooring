@@ -133,3 +133,10 @@
   color: var(--sand);
   font-size: var(--text-sm);
 }
+
+.social {
+  display: inline-flex !important;
+  white-space: nowrap;
+  align-items: center;
+  gap: 0.45rem;
+}

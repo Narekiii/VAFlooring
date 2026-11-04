@@ -133,10 +133,19 @@ export default function ContactPage() {
             )}
             {email && (
               <li className={styles.card}>
-                <h3>Email</h3>
+                <h3>Email &amp; Instagram</h3>
                 <p className={styles.big}>
                   <a href={`mailto:${email}`}>{email}</a>
                 </p>
+                {business.instagram && (
+                  <p>
+                    Follow us on Instagram:{" "}
+                    <a href={business.instagram.url} className={styles.cardLink} target="_blank" rel="noopener noreferrer">
+                      {business.instagram.handle}
+                      <span className="visually-hidden"> (opens Instagram in a new tab)</span>
+                    </a>
+                  </p>
+                )}
               </li>
             )}
             <li className={styles.card}>

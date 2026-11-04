@@ -117,7 +117,7 @@ These cannot be done from the code. In order of priority:
      website says the company was *founded* in 1999; if it was *incorporated* in 2002, that is fine (they
      are different facts). Tell us and the site can state both accurately.
 5. **Email.** Confirm `Floor@VaFlooring.LA` is a working, monitored mailbox before launch.
-6. **Profiles for structured data.** Send the official URLs (Google Business Profile, Yelp, BBB,
+6. **Profiles for structured data.** Instagram (@vaflooringinc) is added. Send the other official URLs (Google Business Profile, Yelp, BBB,
    Facebook, Instagram, LinkedIn, Houzz). They go into `business.sameAs` in `src/content/site.ts`.
 7. **Analytics and lead tracking.** None is installed yet. Choose a tool (e.g. Google Analytics 4 or
    Plausible); successful estimate/contact submissions, phone clicks and directions clicks can then be

@@ -25,6 +25,11 @@
   letter-spacing: -0.01em;
 }
 
+.big a[href^="mailto:"] {
+  font-size: 0.72em;
+  overflow-wrap: anywhere;
+}
+
 .big a {
   color: var(--navy);
   text-decoration: none;

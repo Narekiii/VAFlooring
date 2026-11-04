@@ -53,6 +53,8 @@ export type BusinessConfig = {
   counties: string[];
   /** Social profiles (absolute URLs) to list in structured data and the footer. */
   sameAs: string[];
+  /** Official Instagram profile. */
+  instagram?: { handle: string; url: string };
 };
 
 export const business: BusinessConfig = {
@@ -78,8 +80,9 @@ export const business: BusinessConfig = {
   counties: ["Los Angeles County", "Orange County", "Ventura County"],
 
   email: "Floor@VaFlooring.LA",
-  // Social and directory profiles: hidden until provided.
-  sameAs: [],
+  // Verified official profiles (structured data sameAs).
+  sameAs: ["https://www.instagram.com/vaflooringinc"],
+  instagram: { handle: "@vaflooringinc", url: "https://www.instagram.com/vaflooringinc" },
 
   // From the public Google Business Profile listing for 10945 Pendleton St (October 2026).
   // Confirm with the business; see HANDOFF.md.
