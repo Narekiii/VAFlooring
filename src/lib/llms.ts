@@ -32,6 +32,7 @@ export function keyFacts(): string[] {
     ...(business.phone ? [`- Phone: ${business.phone}`] : []),
     ...(business.email ? [`- Email: ${business.email}`] : []),
     ...(business.instagram ? [`- Instagram: ${business.instagram.url}`] : []),
+    ...(business.reviews ?? []).map((r) => `- ${r.label} reviews: ${r.url}`),
     ...(hours.length ? [`- Showroom hours: ${hours.join("; ")}`] : []),
     ...(mapsHref() ? [`- Map: ${mapsHref()}`] : []),
     ...(business.license ? [`- License: California ${licenseLine(business.license)}${business.bondedInsured ? ", bonded and insured" : ""}`] : []),

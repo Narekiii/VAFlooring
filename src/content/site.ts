@@ -55,6 +55,8 @@ export type BusinessConfig = {
   sameAs: string[];
   /** Official Instagram profile. */
   instagram?: { handle: string; url: string };
+  /** Review profiles shown as links (Google Business Profile, Yelp). */
+  reviews?: { label: string; url: string }[];
 };
 
 export const business: BusinessConfig = {
@@ -81,8 +83,16 @@ export const business: BusinessConfig = {
 
   email: "Floor@VaFlooring.LA",
   // Verified official profiles (structured data sameAs).
-  sameAs: ["https://www.instagram.com/vaflooringinc"],
+  sameAs: [
+    "https://www.instagram.com/vaflooringinc",
+    "https://www.yelp.com/biz/v-and-a-flooring-sun-valley-2",
+    "https://www.google.com/maps/place/?q=place_id:ChIJy9ruT1-VwoARipH8HrbyqWM",
+  ],
   instagram: { handle: "@vaflooringinc", url: "https://www.instagram.com/vaflooringinc" },
+  reviews: [
+    { label: "Google", url: "https://share.google/HOxwCUvTSFdWVW4Xu" },
+    { label: "Yelp", url: "https://www.yelp.com/biz/v-and-a-flooring-sun-valley-2" },
+  ],
 
   // From the public Google Business Profile listing for 10945 Pendleton St (October 2026).
   // Confirm with the business; see HANDOFF.md.

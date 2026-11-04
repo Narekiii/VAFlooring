@@ -140,3 +140,8 @@
   align-items: center;
   gap: 0.45rem;
 }
+
+.reviews a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

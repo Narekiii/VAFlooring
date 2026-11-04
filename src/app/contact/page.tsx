@@ -133,7 +133,7 @@ export default function ContactPage() {
             )}
             {email && (
               <li className={styles.card}>
-                <h3>Email &amp; Instagram</h3>
+                <h3>Email &amp; online</h3>
                 <p className={styles.big}>
                   <a href={`mailto:${email}`}>{email}</a>
                 </p>
@@ -144,6 +144,21 @@ export default function ContactPage() {
                       {business.instagram.handle}
                       <span className="visually-hidden"> (opens Instagram in a new tab)</span>
                     </a>
+                  </p>
+                )}
+                {business.reviews && business.reviews.length > 0 && (
+                  <p>
+                    Read our reviews on{" "}
+                    {business.reviews.map((r, i) => (
+                      <span key={r.url}>
+                        {i > 0 && " and "}
+                        <a href={r.url} className={styles.cardLink} target="_blank" rel="noopener noreferrer">
+                          {r.label}
+                          <span className="visually-hidden"> (opens in a new tab)</span>
+                        </a>
+                      </span>
+                    ))}
+                    .
                   </p>
                 )}
               </li>

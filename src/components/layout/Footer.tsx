@@ -89,6 +89,20 @@ export function Footer() {
                   </a>
                 </li>
               )}
+              {business.reviews && business.reviews.length > 0 && (
+                <li className={styles.reviews}>
+                  Reviews:{" "}
+                  {business.reviews.map((r, i) => (
+                    <span key={r.url}>
+                      {i > 0 && " · "}
+                      <a href={r.url} target="_blank" rel="noopener noreferrer">
+                        {r.label}
+                        <span className="visually-hidden"> reviews (opens in a new tab)</span>
+                      </a>
+                    </span>
+                  ))}
+                </li>
+              )}
             </ul>
             {address && (
               <address className={styles.address}>
