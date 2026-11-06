@@ -1,11 +1,12 @@
 {
- "asOf": "2026-11-04",
- "total": 3000,
+ "asOf": "2026-11-06",
+ "total": 6661,
  "byCategory": {
-  "vinyl": 1235,
-  "laminate": 454,
-  "hardwood": 957,
-  "tile": 354
+  "vinyl": 2211,
+  "laminate": 672,
+  "hardwood": 1420,
+  "carpet": 993,
+  "tile": 1365
  },
  "brands": [
   {
@@ -13,6 +14,7 @@
    "name": "AlanaFloor",
    "city": "City of Industry",
    "distributor": null,
+   "national": false,
    "count": 79,
    "categories": {
     "vinyl": 59,
@@ -123,6 +125,7 @@
    "name": "Bel Air Flooring",
    "city": "Los Angeles",
    "distributor": null,
+   "national": false,
    "count": 86,
    "categories": {
     "laminate": 27,
@@ -271,6 +274,7 @@
    "name": "Diamond Perspective",
    "city": "Irwindale",
    "distributor": "True Floors",
+   "national": false,
    "count": 16,
    "categories": {
     "laminate": 16
@@ -338,6 +342,7 @@
    "name": "Eternity Flooring",
    "city": "Pacoima",
    "distributor": null,
+   "national": false,
    "count": 138,
    "categories": {
     "vinyl": 47,
@@ -427,6 +432,7 @@
    "name": "Garrison Collection",
    "city": "Van Nuys",
    "distributor": null,
+   "national": false,
    "count": 171,
    "categories": {
     "hardwood": 95,
@@ -525,6 +531,7 @@
    "name": "Golden State Floors",
    "city": "Anaheim",
    "distributor": null,
+   "national": false,
    "count": 48,
    "categories": {
     "hardwood": 23,
@@ -656,6 +663,7 @@
    "name": "Hallmark Floors",
    "city": "Ontario",
    "distributor": null,
+   "national": false,
    "count": 16,
    "categories": {
     "hardwood": 15,
@@ -729,6 +737,7 @@
    "name": "Johnson Hardwood",
    "city": "City of Industry",
    "distributor": null,
+   "national": false,
    "count": 270,
    "categories": {
     "hardwood": 158,
@@ -911,6 +920,7 @@
    "name": "Lions Floor",
    "city": "Paramount",
    "distributor": null,
+   "national": false,
    "count": 142,
    "categories": {
     "vinyl": 118,
@@ -1010,10 +1020,206 @@
    ]
   },
   {
+   "slug": "mohawk-flooring",
+   "name": "Mohawk Flooring",
+   "city": "Calhoun, GA",
+   "distributor": null,
+   "national": true,
+   "count": 1292,
+   "categories": {
+    "laminate": 180,
+    "vinyl": 515,
+    "hardwood": 175,
+    "carpet": 422
+   },
+   "collections": [
+    "EverStrand",
+    "SmartStrand",
+    "SmartStrand Silk",
+    "PetPremier",
+    "Gateway",
+    "Pro Solutions",
+    "Pro Solutions II",
+    "Fieldcrest",
+    "Callahan Cove",
+    "Discovery Ridge",
+    "Elan Peak",
+    "Founder's Trace",
+    "Lookout Trace",
+    "Lush Terrace",
+    "Whitmore Terrace 2.5",
+    "Whitmore Terrace 2/12",
+    "Whitmore Terrace 2/6",
+    "Whitmore Terrace 4.5",
+    "Whitmore Terrace LL",
+    "Wynn Point",
+    "Genial Crest",
+    "Rosemore Rowe",
+    "Tempris",
+    "Aspen Harvest",
+    "Avery Grove",
+    "Beachside Collective",
+    "Boardwalk Collective",
+    "Camden Isle",
+    "Camden Park",
+    "Explorer's Cove",
+    "Explorer's Forest",
+    "Rare Vintage",
+    "Rustic Legacy",
+    "Caldwell",
+    "Ellenwood",
+    "Emerald River",
+    "Fleming",
+    "Hampton Lake AP",
+    "Hampton Villa",
+    "Native Ridge"
+   ],
+   "featured": [
+    {
+     "id": "mohawk-flooring:SDP07:231",
+     "b": "mohawk-flooring",
+     "c": "vinyl",
+     "t": "Akers",
+     "img": "https://s7d4.scene7.com/is/image/MohawkResidential/67982_231_swatch?wid=600",
+     "col": "Amber Escape",
+     "sku": "R.SDP07.231.0960S.VT",
+     "s": {
+      "Construction": "Rigid Vinyl",
+      "Width": "9\"",
+      "Thickness": "6 mm",
+      "Length": "60\"",
+      "Wear layer": "20 mil",
+      "Finish": "Matte",
+      "Installation": "Click"
+     }
+    },
+    {
+     "id": "mohawk-flooring:DFD01:93",
+     "b": "mohawk-flooring",
+     "c": "vinyl",
+     "t": "Fawn Brindle",
+     "img": "https://s7d4.scene7.com/is/image/MohawkResidential/67773_93_swatch?wid=600",
+     "col": "Dodford 20 Db",
+     "sku": "R.DFD01.93.07B52.VT",
+     "s": {
+      "Construction": "Flex Vinyl",
+      "Width": "7.5\"",
+      "Thickness": "2.5 mm",
+      "Length": "52\"",
+      "Wear layer": "20 mil",
+      "Finish": "Matte",
+      "Installation": "Glue"
+     }
+    },
+    {
+     "id": "mohawk-flooring:EP003:V32",
+     "b": "mohawk-flooring",
+     "c": "vinyl",
+     "t": "Innocenty",
+     "img": "https://s7d4.scene7.com/is/image/MohawkResidential/65621_V32_swatch?wid=600",
+     "col": "Genial Crest",
+     "sku": "R.EP003.V32.1302.V",
+     "s": {
+      "Construction": "Sheet vinyl",
+      "Width": "13'2\"",
+      "Thickness": "120 mil",
+      "Wear layer": "16 mil",
+      "Installation": "Glue"
+     }
+    },
+    {
+     "id": "mohawk-flooring:PRS04:878",
+     "b": "mohawk-flooring",
+     "c": "vinyl",
+     "t": "Sorrel",
+     "img": "https://s7d4.scene7.com/is/image/MohawkResidential/67948_878_swatch?wid=600",
+     "col": "Pro Solutions IV",
+     "sku": "R.PRS04.878.07A48.VT",
+     "s": {
+      "Construction": "Flex Vinyl",
+      "Width": "7.25\"",
+      "Thickness": "5 mm",
+      "Length": "48\"",
+      "Wear layer": "20 mil",
+      "Installation": "Loose Lay"
+     }
+    },
+    {
+     "id": "mohawk-flooring:2V40",
+     "b": "mohawk-flooring",
+     "c": "carpet",
+     "t": "Antique Comfort",
+     "img": "https://s7d4.scene7.com/is/image/MohawkResidential/O_28351_529?wid=600",
+     "col": "EverStrand",
+     "sku": "2V40",
+     "s": {
+      "Colors": "24",
+      "Width": "12 ft",
+      "Fiber": "Polyester",
+      "Face weight": "38 oz/yd²",
+      "Construction": "Pattern",
+      "Installation": "Professional"
+     }
+    },
+    {
+     "id": "mohawk-flooring:SP963",
+     "b": "mohawk-flooring",
+     "c": "carpet",
+     "t": "Refreshing Shades",
+     "img": "https://s7d4.scene7.com/is/image/MohawkResidential/O_28636_738?wid=600",
+     "col": "EverStrand",
+     "sku": "SP963",
+     "s": {
+      "Colors": "8",
+      "Width": "12 ft",
+      "Fiber": "Polyester",
+      "Face weight": "60 oz/yd²",
+      "Construction": "Texture",
+      "Installation": "Professional"
+     }
+    },
+    {
+     "id": "mohawk-flooring:2R68",
+     "b": "mohawk-flooring",
+     "c": "carpet",
+     "t": "Authentic Idea II",
+     "img": "https://s7d4.scene7.com/is/image/MohawkResidential/O_28270_745?wid=600",
+     "col": "SmartStrand",
+     "sku": "2R68",
+     "s": {
+      "Colors": "24",
+      "Width": "12 ft",
+      "Fiber": "Triexta",
+      "Face weight": "40 oz/yd²",
+      "Construction": "Texture",
+      "Installation": "Professional"
+     }
+    },
+    {
+     "id": "mohawk-flooring:3M05",
+     "b": "mohawk-flooring",
+     "c": "carpet",
+     "t": "Radiant Space",
+     "img": "https://s7d4.scene7.com/is/image/MohawkResidential/O_28958_713?wid=600",
+     "col": "SmartStrand",
+     "sku": "3M05",
+     "s": {
+      "Colors": "15",
+      "Width": "12 ft",
+      "Fiber": "Triexta",
+      "Face weight": "40 oz/yd²",
+      "Construction": "Pattern",
+      "Installation": "Professional"
+     }
+    }
+   ]
+  },
+  {
    "slug": "monarch-plank",
    "name": "Monarch Plank",
    "city": "Southern California",
    "distributor": null,
+   "national": false,
    "count": 90,
    "categories": {
     "hardwood": 90
@@ -1094,6 +1300,7 @@
    "name": "MSI",
    "city": "Orange",
    "distributor": null,
+   "national": false,
    "count": 790,
    "categories": {
     "vinyl": 385,
@@ -1236,6 +1443,7 @@
    "name": "National Flooring Products",
    "city": "Ontario",
    "distributor": null,
+   "national": false,
    "count": 173,
    "categories": {
     "hardwood": 42,
@@ -1376,6 +1584,7 @@
    "name": "Naturally Aged Flooring",
    "city": "Moorpark",
    "distributor": null,
+   "national": false,
    "count": 97,
    "categories": {
     "hardwood": 72,
@@ -1486,6 +1695,7 @@
    "name": "Oasis Wood Flooring",
    "city": "City of Industry",
    "distributor": null,
+   "national": false,
    "count": 61,
    "categories": {
     "hardwood": 43,
@@ -1588,6 +1798,7 @@
    "name": "Provenza Floors",
    "city": "Tustin",
    "distributor": null,
+   "national": false,
    "count": 321,
    "categories": {
     "hardwood": 172,
@@ -1771,6 +1982,7 @@
    "name": "Republic Floor",
    "city": "Commerce",
    "distributor": null,
+   "national": false,
    "count": 156,
    "categories": {
     "vinyl": 141,
@@ -1863,6 +2075,7 @@
    "name": "Reward Flooring",
    "city": "Santa Fe Springs",
    "distributor": null,
+   "national": false,
    "count": 106,
    "categories": {
     "hardwood": 106
@@ -1937,10 +2150,185 @@
    ]
   },
   {
+   "slug": "shaw-floors",
+   "name": "Shaw Floors",
+   "city": "Dalton, GA",
+   "distributor": null,
+   "national": true,
+   "count": 2369,
+   "categories": {
+    "hardwood": 288,
+    "vinyl": 461,
+    "carpet": 571,
+    "tile": 1011,
+    "laminate": 38
+   },
+   "collections": [
+    "Simply the Best Values Collection",
+    "Classics Collection",
+    "Pet Perfect Collection",
+    "Pet Perfect + Collection",
+    "Colorwall Collection",
+    "Endura Plus",
+    "Paladin Plus",
+    "Pantheon Hd+ Natural Bevel",
+    "Casino 12x24 Polish",
+    "Expressions",
+    "Paragon Hd+Natural Bevel",
+    "Paragon Tile Plus",
+    "Fresh Take",
+    "Infinite LL",
+    "Infinite Spc",
+    "Serendipity",
+    "Albright Oak 3.25",
+    "Albright Oak 5",
+    "Apex",
+    "Distinction Plus",
+    "Dwell",
+    "Pathways 12",
+    "Pathways 6",
+    "Uptown Now 12",
+    "Uptown Now 30",
+    "Pantheon Hd Plus",
+    "Anvil Plus 20 Mil",
+    "Ascent Nb",
+    "Aspect",
+    "Aspire Natural Bevel",
+    "Briard",
+    "Homebound",
+    "Homeward",
+    "Infinite 12",
+    "Infinite 20",
+    "Infinite 8",
+    "Maltese",
+    "Natural Beginnings Spc",
+    "Pebble Hill 6 3/8\"",
+    "Pebble Hill Hickory 5"
+   ],
+   "featured": [
+    {
+     "id": "shaw-floors:221TS:00100",
+     "b": "shaw-floors",
+     "c": "tile",
+     "t": "Bone",
+     "img": "https://shawfloors.widen.net/content/ta149rgpqu/jpeg/221ts_00100_main?w=600&keep=c",
+     "col": "Arena 12x24",
+     "sku": "221TS-00100",
+     "s": {
+      "Construction": "Glazed Ceramic",
+      "Width": "11.8\" x 23.62\"",
+      "Thickness": "0.335\"",
+      "Finish": "Smooth"
+     }
+    },
+    {
+     "id": "shaw-floors:708TS:00200",
+     "b": "shaw-floors",
+     "c": "tile",
+     "t": "Fawn",
+     "img": "https://shawfloors.widen.net/content/qu0y6t2uvh/jpeg/708ts_00200_main?w=600&keep=c",
+     "col": "Crest 12x24 Matte",
+     "sku": "708TS-00200",
+     "s": {
+      "Construction": "Glazed Porcelain",
+      "Width": "23.61\" x 11.81\"",
+      "Thickness": "0.335\""
+     }
+    },
+    {
+     "id": "shaw-floors:575TS:00201",
+     "b": "shaw-floors",
+     "c": "tile",
+     "t": "Sunshade",
+     "img": "https://shawfloors.widen.net/content/63inxtllsd/jpeg/575ts_00201_main?w=600&keep=c",
+     "col": "Kaleidoscope 8x8 Sq Design",
+     "sku": "575TS-00201",
+     "s": {
+      "Construction": "Glazed Porcelain",
+      "Width": "7.87\" x 7.87\"",
+      "Thickness": "0.394\"",
+      "Finish": "Gloss"
+     }
+    },
+    {
+     "id": "shaw-floors:SA09A:00111",
+     "b": "shaw-floors",
+     "c": "tile",
+     "t": "Serenity Ivory",
+     "img": "https://shawfloors.widen.net/content/ecqelhhxki/jpeg/sa09a_00111_main?w=600&keep=c",
+     "col": "River Rock Flat Mosaic",
+     "sku": "SA09A-00111",
+     "s": {
+      "Construction": "Natural Stone",
+      "Width": "12.01\" x 12.01\"",
+      "Thickness": "0.315\""
+     }
+    },
+    {
+     "id": "shaw-floors:814PT",
+     "b": "shaw-floors",
+     "c": "carpet",
+     "t": "Salina I",
+     "img": "https://shawfloors.widen.net/content/tih0pokwvt/jpeg/814pt_00112_main?w=600&keep=c",
+     "col": "Anderson Tuftex Builder",
+     "sku": "814PT",
+     "s": {
+      "Colors": "5",
+      "Width": "12 ft",
+      "Face weight": "29.2 oz/yd²"
+     }
+    },
+    {
+     "id": "shaw-floors:5E559",
+     "b": "shaw-floors",
+     "c": "carpet",
+     "t": "Hard At Play III 12'",
+     "img": "https://shawfloors.widen.net/content/6dxtyd6oea/jpeg/5e559_00107_main?w=600&keep=c",
+     "col": "Pet Perfect Collection",
+     "sku": "5E559",
+     "s": {
+      "Colors": "28",
+      "Width": "12 ft",
+      "Fiber": "100% ANSO High Performance PET",
+      "Face weight": "68.3 oz/yd²"
+     }
+    },
+    {
+     "id": "shaw-floors:E0951",
+     "b": "shaw-floors",
+     "c": "carpet",
+     "t": "Briceville Classic 12",
+     "img": "https://shawfloors.widen.net/content/nbfxqlay83/jpeg/e0951_00102_main?w=600&keep=c",
+     "sku": "E0951",
+     "s": {
+      "Colors": "29",
+      "Width": "12 ft",
+      "Fiber": "100% PET Polyester",
+      "Face weight": "17.6 oz/yd²"
+     }
+    },
+    {
+     "id": "shaw-floors:5C775",
+     "b": "shaw-floors",
+     "c": "carpet",
+     "t": "My Destination I",
+     "img": "https://shawfloors.widen.net/content/jdq4ttswu2/jpeg/5c775_00100_main?w=600&keep=c",
+     "sku": "5C775",
+     "s": {
+      "Colors": "40",
+      "Width": "12 ft",
+      "Fiber": "100% ANSO Soft BCF Nylon",
+      "Face weight": "29.2 oz/yd²"
+     }
+    }
+   ]
+  },
+  {
    "slug": "tecsun-flooring",
    "name": "Tecsun Flooring",
    "city": "City of Industry",
    "distributor": null,
+   "national": false,
    "count": 101,
    "categories": {
     "laminate": 39,
@@ -2094,6 +2482,7 @@
    "name": "Tropical Flooring",
    "city": "El Monte",
    "distributor": null,
+   "national": false,
    "count": 15,
    "categories": {
     "hardwood": 13,
@@ -2188,6 +2577,7 @@
    "name": "Urbanfloor",
    "city": "City of Industry",
    "distributor": null,
+   "national": false,
    "count": 102,
    "categories": {
     "hardwood": 54,
@@ -2327,6 +2717,7 @@
    "name": "Xtreme Performance Flooring",
    "city": "Irwindale",
    "distributor": "True Floors",
+   "national": false,
    "count": 22,
    "categories": {
     "laminate": 22

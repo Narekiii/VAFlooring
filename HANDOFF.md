@@ -139,7 +139,7 @@ These cannot be done from the code. In order of priority:
 ## Product catalog (November 2026)
 
 - `/products/catalog`, `/products/brands` and one page per brand are built from the supplied product export by
-  `scripts/catalog/transform.py` (run: `python3 -I scripts/catalog/transform.py <export folder> .`). Re-run it when
+  `scripts/catalog/transform.py` (run: `python3 -I scripts/catalog/transform.py <VA_Flooring_Products folder> . <Mohawk_Shaw folder>`; the third folder adds Mohawk Flooring and Shaw Floors, with carpet listed one card per style). Re-run it when
   the export is updated, then rebuild.
 - Confirm with each manufacturer/distributor that V & A can sell their products before promoting the brand pages.
 - Product photos are loaded from the manufacturers' websites. Replace them with V & A-hosted copies (with permission)

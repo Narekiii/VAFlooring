@@ -1,7 +1,7 @@
 import { addressLine, business, contentUpdated, facts, mapsHref } from "@/content/site";
 import { serviceAreas } from "@/content/services";
 import { publishedServices, serviceHref, type Faq, type Service } from "@/content/services";
-import { brandHref, catalog } from "@/content/catalog";
+import { brandHref, catalog, unlistedBrands } from "@/content/catalog";
 import { productHref, products } from "@/content/products";
 import { siteUrl } from "./seo";
 import { images, type SiteImage } from "@/content/images";
@@ -80,7 +80,7 @@ export function organizationJsonLd() {
       "Multifamily flooring",
       "Hospitality flooring",
       "Commercial flooring",
-      ...facts.manufacturers.map((m) => `${m} flooring`),
+      ...unlistedBrands(facts.manufacturers).map((m) => `${m} flooring`),
       ...catalog.brands.map((b) => `${b.name} flooring`),
     ],
     ...(business.geo ? { geo: { "@type": "GeoCoordinates", ...business.geo } } : {}),
@@ -128,7 +128,7 @@ export function organizationJsonLd() {
           name: "Flooring brands",
           ...(abs("/products/brands") ? { url: abs("/products/brands") } : {}),
           itemListElement: [
-            ...facts.manufacturers.map((m) => ({ "@type": "OfferCatalog", name: `${m} flooring` })),
+            ...unlistedBrands(facts.manufacturers).map((m) => ({ "@type": "OfferCatalog", name: `${m} flooring` })),
             ...catalog.brands.map((b) => ({
               "@type": "OfferCatalog",
               name: `${b.name} flooring`,

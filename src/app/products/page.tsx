@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { MediaSplit } from "@/components/ui/MediaSplit";
@@ -14,10 +15,10 @@ import { productFaqs } from "@/content/products";
 import { routes } from "@/content/navigation";
 import { facts } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
-import { catalog } from "@/content/catalog";
+import { brandHref, nationalBrand, regionalBrands } from "@/content/catalog";
 import styles from "./page.module.css";
 
-const description = `Flooring store in Sun Valley, LA: hardwood, laminate, LVP, carpet and tile from Mohawk, Shaw, Engineered Floors and ${catalog.brands.length} more brands.`;
+const description = `Flooring store in Sun Valley, LA: hardwood, laminate, LVP, carpet and tile from Mohawk, Shaw, Engineered Floors and ${regionalBrands.length} more brands.`;
 
 export const metadata = pageMetadata({
   title: "Flooring Store & Showroom in Los Angeles",
@@ -95,9 +96,10 @@ export default function ProductsPage() {
               </p>
             </div>
             <ul className={styles.brandList}>
-              {facts.manufacturers.map((m) => (
-                <li key={m}>{m}</li>
-              ))}
+              {facts.manufacturers.map((m) => {
+                const b = nationalBrand(m);
+                return <li key={m}>{b ? <Link href={brandHref(b.slug)}>{m}</Link> : m}</li>;
+              })}
             </ul>
           </div>
           <div className={styles.madeIn}>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { brandHref, nationalBrand } from "@/content/catalog";
 import { Container } from "@/components/ui/Container";
 import { Figure } from "@/components/ui/Figure";
 import { Section } from "@/components/ui/Section";
@@ -35,9 +37,10 @@ export function MaterialsIntro() {
         <div className={styles.brands}>
           <p className={styles.brandsLabel}>Products from manufacturers including</p>
           <ul className={styles.brandList}>
-            {facts.manufacturers.map((m) => (
-              <li key={m}>{m}</li>
-            ))}
+            {facts.manufacturers.map((m) => {
+              const b = nationalBrand(m);
+              return <li key={m}>{b ? <Link href={brandHref(b.slug)}>{m}</Link> : m}</li>;
+            })}
           </ul>
           <p className={styles.madeIn}>{facts.americanMadeLine}</p>
         </div>

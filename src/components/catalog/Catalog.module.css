@@ -270,7 +270,7 @@
 
 .directory {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: var(--space-6);
   margin-top: var(--space-6);
 }
@@ -297,7 +297,13 @@
   color: var(--ink-soft);
 }
 
-@media (max-width: 64rem) {
+@media (max-width: 75rem) {
+  .directory {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 56rem) {
   .directory {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

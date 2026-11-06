@@ -125,7 +125,7 @@ export function CatalogBrowser({
             {list || usePreview
               ? usePreview
                 ? `${counts.hardwood.toLocaleString("en-US")} floors`
-                : `${filtered.length.toLocaleString("en-US")} ${filtered.length === 1 ? "floor" : "floors"}${brand ? ` from ${names[brand]}` : ""}`
+                : `${filtered.length.toLocaleString("en-US")} ${category === "carpet" ? (filtered.length === 1 ? "carpet style" : "carpet styles") : filtered.length === 1 ? "floor" : "floors"}${brand ? ` from ${names[brand]}` : ""}`
               : failed
                 ? "The list couldn’t load. Please refresh the page."
                 : "Loading…"}

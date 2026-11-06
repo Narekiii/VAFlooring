@@ -18,6 +18,7 @@ import {
   placeOf,
   brandFaqs,
   typeList,
+  unitOf,
   type CatalogBrand,
   type CatalogItem,
 } from "@/content/catalog";
@@ -39,8 +40,8 @@ const catList = (b: CatalogBrand) =>
   catalogCategories.filter((c) => (b.categories[c.key] ?? 0) > 0);
 const describe = (b: CatalogBrand) => {
   const kind = /flooring$/i.test(b.name) ? typeList(b) : `${typeList(b)} flooring`;
-  const long = `${b.name} ${kind} at V & A Flooring in Sun Valley, Los Angeles: ${b.count} ${b.count === 1 ? "floor" : "floors"} to browse, with samples and installation.`;
-  return long.length <= 160 ? long : `${b.name} flooring at V & A Flooring in Sun Valley, Los Angeles: ${b.count} ${b.count === 1 ? "floor" : "floors"} to browse, with samples and installation.`;
+  const long = `${b.name} ${kind} at V & A Flooring in Sun Valley, Los Angeles: ${b.count.toLocaleString("en-US")} ${unitOf(b)} to browse, with samples and installation.`;
+  return long.length <= 160 ? long : `${b.name} flooring at V & A Flooring in Sun Valley, Los Angeles: ${b.count.toLocaleString("en-US")} ${unitOf(b)} to browse, with samples and installation.`;
 };
 
 /** Group a brand's floors by collection, collections A–Z with uncategorized last. */
@@ -93,7 +94,7 @@ export default async function BrandPage({ params }: Params) {
         actions={
           <>
             <ButtonLink href={catalogHref({ brand: b.slug })} variant="light">
-              Browse all {b.count} {b.count === 1 ? "floor" : "floors"}
+              Browse all {b.count.toLocaleString("en-US")} {unitOf(b)}
             </ButtonLink>
             <ButtonLink href={`${routes.estimate}?product=${encodeURIComponent(b.name)}`} variant="outline-light">
               Ask about {b.name}
@@ -103,8 +104,8 @@ export default async function BrandPage({ params }: Params) {
       >
         <p>
           {b.name} is a flooring manufacturer based in {placeOf(b)}
-          {b.distributor ? `, distributed by ${b.distributor}` : ""}. We can supply its floors and install them with
-          our own crews across Los Angeles, Orange and Ventura counties. Ask us to confirm current colors and
+          {b.distributor ? `, distributed by ${b.distributor}` : ""}. We can supply its {typeList(b)} and install it
+          with our own crews across Los Angeles, Orange and Ventura counties. Ask us to confirm current colors and
           availability, or to bring samples to compare in your space.
         </p>
       </PageHero>
@@ -116,7 +117,7 @@ export default async function BrandPage({ params }: Params) {
           </h2>
           <div className={styles.featured} style={{ marginBottom: 0 }}>
             <div>
-              <p>Floors listed</p>
+              <p>{b.categories.carpet ? "Products listed" : "Floors listed"}</p>
               <strong>{b.count.toLocaleString("en-US")}</strong>
             </div>
             <div>
@@ -155,8 +156,8 @@ export default async function BrandPage({ params }: Params) {
 
       <Section tone="white" labelledBy="all-floors">
         <Container>
-          <SectionHead id="all-floors" kicker="Full list" title={`All ${b.count} ${b.name} ${b.count === 1 ? "floor" : "floors"}`}>
-            <p>Every {b.name} floor in our online catalog, by type and collection. Ask us about any of them.</p>
+          <SectionHead id="all-floors" kicker="Full list" title={`All ${b.count.toLocaleString("en-US")} ${b.name} ${unitOf(b)}`}>
+            <p>Every {b.name} {unitOf(b, 1)} in our online catalog, by type and collection. Ask us about any of them.</p>
           </SectionHead>
           <div className={styles.floorList}>
             {all.map(({ cat, items }) => (
@@ -172,6 +173,7 @@ export default async function BrandPage({ params }: Params) {
                         {list.map((it) => (
                           <li key={it.id}>
                             {it.t}
+                            {it.c === "carpet" && it.s?.Colors ? ` (${it.s.Colors} colors)` : ""}
                           </li>
                         ))}
                       </ul>

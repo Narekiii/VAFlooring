@@ -18,10 +18,10 @@ import { pageMetadata } from "@/lib/seo";
 import styles from "@/components/catalog/Catalog.module.css";
 
 const total = catalog.total.toLocaleString("en-US");
-const description = `Browse ${total} hardwood, LVP, laminate and tile floors from ${catalog.brands.length} brands at our Sun Valley, LA flooring store. Ask about samples and installation.`;
+const description = `Browse ${total} hardwood, LVP, laminate, tile and carpet options from Mohawk, Shaw and ${catalog.brands.length - 2} more brands at our Sun Valley, LA flooring store.`;
 
 export const metadata = pageMetadata({
-  title: "Browse Hardwood, LVP, Laminate & Tile Floors",
+  title: "Browse Floors & Carpet: Mohawk, Shaw & More",
   description,
   path: routes.catalog,
 });
@@ -37,7 +37,7 @@ export default function CatalogPage() {
     itemListElement: catalogCategories.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      name: `${c.label} flooring (${catalog.byCategory[c.key]} floors)`,
+      name: `${c.label} flooring (${catalog.byCategory[c.key]} ${c.key === "carpet" ? "styles" : "floors"})`,
       url: `${base}/products/${c.productSlug}`,
     })),
   };
@@ -53,7 +53,7 @@ export default function CatalogPage() {
         pageType="CollectionPage"
         kicker="Product catalog"
         title="Browse Our Floors"
-        subtitle={`${total} floors from ${catalog.brands.length} manufacturers, in addition to Mohawk, Shaw and Engineered Floors.`}
+        subtitle={`${total} floors and carpet styles from ${catalog.brands.length} manufacturers, including Mohawk Flooring and Shaw Floors.`}
         crumbs={[
           { name: "Products", href: routes.products },
           { name: "Browse floors", href: routes.catalog },
@@ -111,7 +111,9 @@ export default function CatalogPage() {
                 <h3>
                   <Link href={`/products/${c.productSlug}`}>{c.label} flooring</Link>
                 </h3>
-                <p className={styles.brandMeta}>{catalog.byCategory[c.key].toLocaleString("en-US")} floors</p>
+                <p className={styles.brandMeta}>
+                  {catalog.byCategory[c.key].toLocaleString("en-US")} {c.key === "carpet" ? "styles" : "floors"}
+                </p>
                 <ul>
                   {brandsFor(c.key).map((b) => (
                     <li key={b.slug}>

@@ -4,7 +4,7 @@ import { productFaqs, productHref, products } from "@/content/products";
 import { installProcess } from "@/content/installation";
 import { reasons } from "@/content/why-us";
 import { routes } from "@/content/navigation";
-import { brandHref, catalog, catalogCategories, catalogFaqs, placeOf } from "@/content/catalog";
+import { brandHref, catalog, catalogCategories, catalogFaqs, placeOf, unlistedBrands } from "@/content/catalog";
 import { projectsIndexable } from "@/content/projects";
 import { siteUrl } from "./seo";
 
@@ -43,7 +43,7 @@ export function keyFacts(): string[] {
     `- Installation capacity: ${facts.installationCrewsLong.toLowerCase()}`,
     `- Clients: homeowners, ADU builders, general contractors, developers, property managers, hotels and commercial clients`,
     `- Manufacturers include: ${facts.manufacturers.join(", ")}, with American-made options available`,
-    `- Online catalog: ${catalog.total} floors (${catalog.byCategory.hardwood} hardwood, ${catalog.byCategory.vinyl} vinyl & LVP, ${catalog.byCategory.laminate} laminate, ${catalog.byCategory.tile} tile) from ${catalog.brands.length} more brands: ${catalog.brands.map((b) => b.name).join(", ")} (${link(routes.catalog)})`,
+    `- Online catalog: ${catalog.total} products (${catalog.byCategory.hardwood} hardwood, ${catalog.byCategory.vinyl} vinyl & LVP, ${catalog.byCategory.laminate} laminate, ${catalog.byCategory.tile} tile floors and ${catalog.byCategory.carpet} carpet styles) from ${catalog.brands.length} brands: ${catalog.brands.map((b) => b.name).join(", ")} (${link(routes.catalog)})`,
     `- ${facts.lowesLine}`,
     "- Recognized by Lowe’s for craftsmanship and professionalism (96.67% scores for 2015), dedication (2016) and determination (2019)",
   ];
@@ -62,10 +62,10 @@ export function llmsTxt(): string {
     "",
     `## Products (${link(routes.products)})`,
     ...products.map((p) => `- [${p.name}](${link(productHref(p))}): ${plain(p.summary)}`),
-    `- [Browse all floors](${link(routes.catalog)}): ${catalog.total} hardwood, vinyl, laminate and tile floors, searchable by brand and color (availability and pricing confirmed on request)`,
+    `- [Browse all floors](${link(routes.catalog)}): ${catalog.total} hardwood, vinyl, laminate, tile and carpet products, searchable by brand and color (availability and pricing confirmed on request)`,
     "",
     `## Brands (${link(routes.brands)})`,
-    `- ${facts.manufacturers.join(", ")}`,
+    ...unlistedBrands(facts.manufacturers).map((m) => `- ${m} (collections and samples on request)`),
     ...catalog.brands.map(
       (b) =>
         `- [${b.name}](${link(brandHref(b.slug))}): ${catalogCategories.filter((c) => (b.categories[c.key] ?? 0) > 0).map((c) => c.label).join(", ")}; based in ${placeOf(b)}`,
@@ -134,7 +134,7 @@ export function llmsFullTxt(): string {
     `## Flooring brands`,
     `URL: ${link(routes.brands)}`,
     "",
-    `National manufacturers: ${facts.manufacturers.join(", ")} (collections and samples on request).`,
+    `Also available: ${unlistedBrands(facts.manufacturers).join(", ")} (collections and samples on request).`,
     "",
   );
   for (const b of catalog.brands) {

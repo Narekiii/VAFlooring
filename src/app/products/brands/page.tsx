@@ -5,14 +5,14 @@ import { Section } from "@/components/ui/Section";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { InquiryCta } from "@/components/home/InquiryCta";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { brandHref, catalog, catalogCategories, placeOf } from "@/content/catalog";
+import { brandHref, catalog, catalogCategories, placeOf, regionalBrands, unitOf, unlistedBrands } from "@/content/catalog";
 import { routes } from "@/content/navigation";
 import { images } from "@/content/images";
 import { facts } from "@/content/site";
 import { pageMetadata, siteUrl } from "@/lib/seo";
 import styles from "@/components/catalog/Catalog.module.css";
 
-const description = `Flooring brands at V & A Flooring in Sun Valley, Los Angeles: Mohawk, Shaw and Engineered Floors, plus ${catalog.brands.length} more hardwood, vinyl, laminate and tile manufacturers.`;
+const description = `Flooring brands at V & A Flooring in Sun Valley, Los Angeles: Mohawk, Shaw and Engineered Floors, plus ${regionalBrands.length} more hardwood, vinyl, laminate and tile makers.`;
 
 export const metadata = pageMetadata({
   title: "Flooring Brands & Manufacturers We Offer",
@@ -26,6 +26,8 @@ const cats = (c: Partial<Record<string, number>>) =>
     .filter((x) => (c[x.key] ?? 0) > 0)
     .map((x) => x.label)
     .join(" · ");
+
+const national = catalog.brands.filter((b) => b.national);
 
 export default function BrandsPage() {
   const base = siteUrl();
@@ -76,12 +78,23 @@ export default function BrandsPage() {
         <Container>
           <SectionHead id="major" kicker="National manufacturers" title="Mohawk, Shaw and Engineered Floors">
             <p>
-              Hardwood, laminate, vinyl and carpet from these manufacturers are available through our showroom. Ask
-              us for current collections and samples.
+              Carpet, hardwood, laminate, vinyl and tile from these manufacturers are available through our
+              showroom. Browse Mohawk and Shaw online, or ask us for current collections and samples.
             </p>
           </SectionHead>
           <ul className={styles.brandList}>
-            {facts.manufacturers.map((m) => (
+            {national.map((b) => (
+              <li key={b.slug} className={styles.brandCard}>
+                <h3>
+                  <a href={brandHref(b.slug)}>{b.name}</a>
+                </h3>
+                <p className={styles.brandMeta}>
+                  {b.count.toLocaleString("en-US")} {unitOf(b)} · {placeOf(b)}
+                </p>
+                <p className={styles.brandCats}>{cats(b.categories)}</p>
+              </li>
+            ))}
+            {unlistedBrands(facts.manufacturers).map((m) => (
               <li key={m} className={styles.brandCard} style={{ position: "static" }}>
                 <h3>{m}</h3>
                 <p className={styles.brandMeta}>Collections and samples on request</p>
@@ -93,17 +106,17 @@ export default function BrandsPage() {
 
       <Section tone="ivory" labelledBy="all-brands">
         <Container>
-          <SectionHead id="all-brands" kicker={`${catalog.brands.length} more brands`} title="More manufacturers, by name">
-            <p>{catalog.total.toLocaleString("en-US")} floors to browse online, with more in the showroom.</p>
+          <SectionHead id="all-brands" kicker={`${regionalBrands.length} more brands`} title="More manufacturers, by name">
+            <p>Many of them based in Southern California. Browse their floors online, with more in the showroom.</p>
           </SectionHead>
           <ul className={styles.brandList}>
-            {catalog.brands.map((b) => (
+            {regionalBrands.map((b) => (
               <li key={b.slug} className={styles.brandCard}>
                 <h3>
                   <a href={brandHref(b.slug)}>{b.name}</a>
                 </h3>
                 <p className={styles.brandMeta}>
-                  {b.count.toLocaleString("en-US")} {b.count === 1 ? "floor" : "floors"} · {placeOf(b)}
+                  {b.count.toLocaleString("en-US")} {unitOf(b)} · {placeOf(b)}
                 </p>
                 <p className={styles.brandCats}>{cats(b.categories)}</p>
               </li>

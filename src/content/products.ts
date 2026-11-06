@@ -1,6 +1,6 @@
 import { images, type SiteImage } from "./images";
 import type { Faq } from "./services";
-import { catalog } from "./catalog";
+import { catalog, regionalBrands } from "./catalog";
 
 /**
  * Flooring product pages (one per floor type at /products/<slug>).
@@ -315,7 +315,7 @@ export const getProduct = (slug: string) => products.find((p) => p.slug === slug
 export const productFaqs: Faq[] = [
   {
     q: "Can I browse your flooring online?",
-    a: `Yes. Our online catalog lists ${catalog.total.toLocaleString("en-US")} hardwood, vinyl and LVP, laminate and tile floors you can filter by brand and search by color, collection or species. Ask about any floor and we’ll confirm availability, samples and pricing.`,
+    a: `Yes. Our online catalog lists ${catalog.total.toLocaleString("en-US")} hardwood, vinyl and LVP, laminate, tile and carpet products, including Mohawk and Shaw, that you can filter by brand and search by color, collection or species. Ask about any of them and we’ll confirm availability, samples and pricing.`,
   },
   {
     q: "Do you sell flooring to contractors as well as homeowners?",
@@ -323,7 +323,7 @@ export const productFaqs: Faq[] = [
   },
   {
     q: "Which flooring brands do you carry?",
-    a: `We offer products from Mohawk, Shaw and Engineered Floors, plus ${catalog.brands.length} more manufacturers including ${catalog.brands
+    a: `We offer products from Mohawk, Shaw and Engineered Floors, plus ${regionalBrands.length} more manufacturers including ${regionalBrands
       .slice()
       .sort((a, b) => b.count - a.count)
       .slice(0, 6)

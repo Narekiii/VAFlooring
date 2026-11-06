@@ -11,7 +11,7 @@ import type { Faq } from "./services";
  * this file holds brand summaries and a few featured items per brand for server-rendered pages.
  */
 
-export type CatalogCategory = "hardwood" | "laminate" | "vinyl" | "tile";
+export type CatalogCategory = "hardwood" | "laminate" | "vinyl" | "tile" | "carpet";
 
 export type CatalogItem = {
   id: string;
@@ -34,6 +34,8 @@ export type CatalogBrand = {
   name: string;
   city: string;
   distributor: string | null;
+  /** Mohawk Flooring and Shaw Floors (national manufacturers, from their own catalog import). */
+  national?: boolean;
   count: number;
   categories: Partial<Record<CatalogCategory, number>>;
   collections: string[];
@@ -52,6 +54,7 @@ export const catalogCategories: { key: CatalogCategory; label: string; productSl
   { key: "vinyl", label: "Vinyl & LVP", productSlug: "vinyl-lvp-flooring" },
   { key: "laminate", label: "Laminate", productSlug: "laminate-flooring" },
   { key: "tile", label: "Tile", productSlug: "tile" },
+  { key: "carpet", label: "Carpet", productSlug: "carpet" },
 ];
 export const categoryLabel = (c: CatalogCategory) => catalogCategories.find((x) => x.key === c)?.label ?? c;
 
@@ -73,10 +76,15 @@ export const inquiryText = (item: CatalogItem, brandName: string) =>
 
 /** Short spec line for cards: width · thickness · wear layer. */
 export const specLine = (s?: Record<string, string>) =>
-  s ? ["Width", "Thickness", "Wear layer", "Species"].map((k) => s[k]).filter(Boolean).slice(0, 3).join(" · ") : "";
+  s
+    ? [s.Colors ? `${s.Colors} ${s.Colors === "1" ? "color" : "colors"}` : "", ...["Width", "Thickness", "Wear layer", "Species", "Fiber"].map((k) => s[k])]
+        .filter(Boolean)
+        .slice(0, 3)
+        .join(" · ")
+    : "";
 
 /** "Pacoima, CA"; regions are shown as given. */
-export const placeOf = (b: CatalogBrand) => (/california/i.test(b.city) ? b.city : `${b.city}, CA`);
+export const placeOf = (b: CatalogBrand) => (/california|, [A-Z]{2}$/i.test(b.city) ? b.city : `${b.city}, CA`);
 
 /** Mix brands (one from each in turn) so a combined list doesn't open on a single manufacturer; floors with photos first. */
 export function interleave(list: CatalogItem[]) {
@@ -94,8 +102,19 @@ export const typeList = (b: CatalogBrand) => {
   return t.length > 1 ? `${t.slice(0, -1).join(", ")} and ${t.at(-1)}` : t[0] ?? "";
 };
 
-/** All brand names, national manufacturers first. */
-export const allBrandNames = (national: string[]) => [...national, ...catalog.brands.map((b) => b.name)];
+/** "floors", or "products" when a brand's listings include carpet styles. */
+export const unitOf = (b: CatalogBrand, n = b.count) =>
+  (b.categories.carpet ? (n === 1 ? "product" : "products") : n === 1 ? "floor" : "floors");
+
+/** Short manufacturer names used in site copy ("Mohawk", "Shaw") mapped to their catalog brand pages. */
+const nationalSlugs: Record<string, string> = { Mohawk: "mohawk-flooring", Shaw: "shaw-floors" };
+export const nationalBrand = (name: string) => (nationalSlugs[name] ? getBrand(nationalSlugs[name]) : undefined);
+/** Brands from the regional/independent catalog (everything except Mohawk and Shaw). */
+export const regionalBrands = catalog.brands.filter((b) => !b.national);
+/** Total distinct brands: every catalog brand plus named manufacturers without catalog listings. */
+export const brandTotal = (named: readonly string[]) => catalog.brands.length + named.filter((n) => !nationalBrand(n)).length;
+/** Named manufacturers that have no catalog listing (shown as text only). */
+export const unlistedBrands = (named: readonly string[]) => named.filter((n) => !nationalBrand(n));
 
 const fmt = (n: number) => n.toLocaleString("en-US");
 
@@ -103,7 +122,7 @@ const fmt = (n: number) => n.toLocaleString("en-US");
 export const catalogFaqs = (): Faq[] => [
   {
     q: "How many flooring products can I browse on your website?",
-    a: `Our online catalog lists ${fmt(catalog.total)} floors: ${fmt(catalog.byCategory.hardwood)} hardwood, ${fmt(catalog.byCategory.vinyl)} vinyl and LVP, ${fmt(catalog.byCategory.laminate)} laminate and ${fmt(catalog.byCategory.tile)} tile, from ${catalog.brands.length} manufacturers. Mohawk, Shaw and Engineered Floors products are available through our showroom in addition to these.`,
+    a: `Our online catalog lists ${fmt(catalog.total)} products from ${catalog.brands.length} manufacturers, including Mohawk Flooring and Shaw Floors: ${fmt(catalog.byCategory.hardwood)} hardwood, ${fmt(catalog.byCategory.vinyl)} vinyl and LVP, ${fmt(catalog.byCategory.laminate)} laminate and ${fmt(catalog.byCategory.tile)} tile floors, plus ${fmt(catalog.byCategory.carpet)} carpet styles, each offered in several colors. Engineered Floors products are available through our showroom.`,
   },
   {
     q: "Are the floors in the catalog in stock?",
@@ -123,7 +142,7 @@ export const catalogFaqs = (): Faq[] => [
 export const brandFaqs = (b: CatalogBrand): Faq[] => [
   {
     q: `Does V & A Flooring sell ${b.name} flooring?`,
-    a: `Yes. We supply ${b.name} ${typeList(b)} flooring from our showroom and warehouse in Sun Valley, Los Angeles. Our online catalog lists ${fmt(b.count)} ${b.name} ${b.count === 1 ? "floor" : "floors"}${b.collections.length ? `, including the ${b.collections.slice(0, 3).join(", ")} collections` : ""}.`,
+    a: `Yes. We supply ${b.name} ${typeList(b)} flooring from our showroom and warehouse in Sun Valley, Los Angeles. Our online catalog lists ${fmt(b.count)} ${b.name} ${unitOf(b)}${b.collections.length ? `, including the ${b.collections.slice(0, 3).join(", ")} collections` : ""}.`,
   },
   {
     q: `Can you install ${b.name} floors?`,

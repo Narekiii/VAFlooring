@@ -5,7 +5,8 @@ import { Section } from "@/components/ui/Section";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { routes } from "@/content/navigation";
 import { productHref, products } from "@/content/products";
-import { catalog } from "@/content/catalog";
+import { brandTotal, catalog } from "@/content/catalog";
+import { facts } from "@/content/site";
 import { getService, serviceHref } from "@/content/services";
 import styles from "./HomeSections.module.css";
 
@@ -19,7 +20,7 @@ export function HomeWhatWeDo() {
             We sell and install five types of flooring. Explore the products to compare types and brands, or the
             installation pages to see how we plan and install each floor. You can also{" "}
             <Link href={routes.catalog}>browse {catalog.total.toLocaleString("en-US")} floors</Link> from{" "}
-            <Link href={routes.brands}>{catalog.brands.length + 3} brands</Link> online.
+            <Link href={routes.brands}>{brandTotal(facts.manufacturers)} brands</Link> online.
           </p>
         </SectionHead>
         <ul className={styles.what}>

@@ -1,5 +1,7 @@
 """Transform the supplied V & A product data into compact website data.
-Inputs: VA_Products.json (supplied). Outputs: public/catalog/<category>.json and src/content/catalog.generated.json."""
+Inputs: VA_Products.json (supplied) and, optionally, the Mohawk & Shaw import folder (products.json, styles.json).
+Run: python3 -I transform.py <VA_Flooring_Products folder> <site folder> [<Mohawk_Shaw folder>]
+Outputs: public/catalog/<category>.json and src/content/catalog.generated.json."""
 import json, re, sys, collections, pathlib, hashlib
 SRC = pathlib.Path(sys.argv[1]); SITE = pathlib.Path(sys.argv[2])
 d = json.load(open(SRC / "VA_Products.json"))
@@ -9,6 +11,7 @@ CITY = {"AlanaFloor":"City of Industry","Bel Air Flooring":"Los Angeles","Eterni
  "Oasis Wood Flooring":"City of Industry","Provenza Floors":"Tustin","Republic Floor":"Commerce","Reward Flooring":"Santa Fe Springs",
  "Tecsun Flooring":"City of Industry","Tropical Flooring":"El Monte","Urbanfloor":"City of Industry","Xtreme Performance Flooring":"Irwindale",
  "Diamond Perspective":"Irwindale","Timbre Hardwood":"Irwindale"}
+NATIONAL_CITY = {"Mohawk Flooring": "Calhoun, GA", "Shaw Floors": "Dalton, GA"}
 TRUE_FLOORS = {"Xtreme Performance Flooring","Diamond Perspective","Timbre Hardwood"}
 CAT = {"Engineered Hardwood":"hardwood","Solid Hardwood":"hardwood","Hardwood — Construction Unspecified":"hardwood",
        "Laminate":"laminate","Luxury Vinyl":"vinyl","Hybrid Flooring":"vinyl","Tile & Stone":"tile"}
@@ -128,9 +131,101 @@ for u, rs in by_img.items():
 print("listed without photo (shared image):", len(drop), collections.Counter(r["b"] for r in recs if r["id"] in drop))
 for r in recs:
     if r["id"] in drop: del r["img"]
+
+# ---------- Mohawk Flooring and Shaw Floors (separate import) ----------
+CATS = ["hardwood", "laminate", "vinyl", "tile"]
+if len(sys.argv) > 3:
+    CATS.append("carpet")
+    NAT = pathlib.Path(sys.argv[3])
+    nat = json.load(open(NAT / "products.json"))
+    NCAT = {"Carpet": "carpet", "Indoor / Outdoor Carpet": "carpet", "Engineered Hardwood": "hardwood", "Laminate": "laminate",
+            "Luxury Vinyl": "vinyl", "Resilient Flooring": "vinyl", "Sheet Vinyl": "vinyl", "Vinyl": "vinyl", "Tile & Stone": "tile"}
+    NOT_FLOOR = re.compile(r"cove ?base|threshold|reducer|bullnose|pencil|\bliner\b|\btrim\b|chair rail|\bwall tile\b|quarter round|stair|nosing", re.I)
+    def nt(v):  # Shaw names are upper case
+        v = clean(v) or ""
+        v = re.sub(r"[™®©]", "", v).strip()
+        if v.isupper():
+            v = v.title()
+            v = re.sub(r"\b(Ii|Iii|Iv|Vi|Vii|Viii|Ix|Xi|Xii|Ll)\b", lambda m: m.group(1).upper(), v)
+            v = re.sub(r"(\d)X(\d)", r"\1x\2", v)
+        return v
+    def pick(sp, *keys):
+        for k in keys:
+            v = spec(sp.get(k))
+            if v and v.upper() not in ("N/A", "NA", "NONE", "-"):
+                v = re.sub(r"\s*\([^)]*g/m2\)", "", v).replace("oz/yd2", "oz/yd²")
+                if re.fullmatch(r"\d+/\d+", v): v += '"'
+                return nt(v) if re.search(r"[A-Z]{3}", v) else v
+    def sized(u):  # card-sized images from the manufacturers' image servers (Shaw originals are 2048 px)
+        if "?" in u: return u
+        if "widen.net" in u: return u + "?w=600&keep=c"
+        if "scene7.com" in u: return u + "?wid=600"
+        return u
+    def nimg(p):
+        for want in ("product_photo", "swatch"):
+            for im in p.get("images") or []:
+                if im.get("kind") == want and im.get("url", "").startswith("https://"): return sized(im["url"])
+        u = p.get("image_url") or ""
+        return sized(u) if u.startswith("https://") else None
+    def roll(v):
+        return f"{int(v) / 12:g} ft" if v and re.fullmatch(r"\d{2,3}", v) else v
+    nseen, styles = set(), collections.OrderedDict()
+    for p in nat:
+        c = NCAT.get(p["category"]); b = slug(p["brand"])
+        if not c: continue
+        sp = p.get("specifications") or {}
+        if c == "carpet":
+            st = styles.setdefault((b, p["style_number"]), {"p": p, "colors": 0, "img": None})
+            st["colors"] += 1
+            st["img"] = st["img"] or nimg(p)
+            continue
+        if sp.get("Product Type") in ("Trim", "Wall") or (sp.get("Construction") or "").upper() in ("GLASS", "PRESSED GLASS"): continue
+        if NOT_FLOOR.search(p["title"]): continue
+        key = (b, p["style_number"], p["color_number"])
+        if key in nseen: continue
+        nseen.add(key)
+        r = {"id": p["id"], "b": b, "c": c, "t": nt(p["color_name"]) or nt(p["style_name"])}
+        img = nimg(p)
+        if img: r["img"] = img
+        r["col"] = nt(p["style_name"])
+        if p.get("sku"): r["sku"] = str(p["sku"])[:32]
+        s = {k: v for k, v in {
+            "Construction": pick(sp, "Construction", "Core"),
+            "Species": pick(sp, "Species"),
+            "Width": pick(sp, "Plank Width", "Width", "Size"),
+            "Thickness": pick(sp, "Thickness", "Plank Thickness"),
+            "Length": pick(sp, "Plank Length", "Length"),
+            "Wear layer": pick(sp, "Wear Layer"),
+            "Finish": pick(sp, "Finish", "Surface Finish", "Gloss Level", "Gloss"),
+            "Installation": pick(sp, "Installation Method"),
+        }.items() if v}
+        if c == "vinyl" and p["category"] == "Sheet Vinyl": s["Construction"] = "Sheet vinyl"
+        if s: r["s"] = s
+        recs.append(r)
+    for (b, num), st in styles.items():
+        p = st["p"]; sp = p.get("specifications") or {}
+        r = {"id": f"{b}:{num}", "b": b, "c": "carpet", "t": nt(p["style_name"])}
+        if st["img"]: r["img"] = st["img"]
+        col = nt(p.get("collection") or (sp.get("Collection") or ""))
+        if col.upper() in ("N/A", "NA"): col = ""
+        if col and col.lower() != r["t"].lower(): r["col"] = col
+        r["sku"] = num
+        s = {k: v for k, v in {
+            "Colors": str(st["colors"]),
+            "Width": roll(pick(sp, "Width", "Roll Width")),
+            "Fiber": pick(sp, "Fiber"),
+            "Face weight": pick(sp, "Face Weight"),
+            "Construction": pick(sp, "Carpet Type", "Construction"),
+            "Installation": pick(sp, "Installation Method"),
+        }.items() if v}
+        r["s"] = s
+        recs.append(r)
+    CITY.update(NATIONAL_CITY)
+    print("national:", collections.Counter((r["b"], r["c"]) for r in recs if r["b"] in ("mohawk-flooring", "shaw-floors")))
+
 recs.sort(key=lambda r: (r["b"], "img" not in r, r.get("col") or "~", r["t"]))
 out = SITE / "public" / "catalog"; out.mkdir(parents=True, exist_ok=True)
-for c in ["hardwood", "laminate", "vinyl", "tile"]:
+for c in CATS:
     json.dump([r for r in recs if r["c"] == c], open(out / f"{c}.json", "w"), separators=(",", ":"), ensure_ascii=False)
 
 brands = {}
@@ -138,7 +233,8 @@ for r in recs:
     B = brands.setdefault(r["b"], {"cats": collections.Counter(), "cols": collections.Counter(), "n": 0})
     B["n"] += 1; B["cats"][r["c"]] += 1; B["cols"][r.get("col") or ""] += 1
 names = {slug(n): n for n in CITY}
-summary = {"asOf": d.get("as_of") or "2026-11-04", "total": len(recs), "byCategory": dict(collections.Counter(r["c"] for r in recs)), "brands": []}
+summary_date = "2026-11-06" if len(sys.argv) > 3 else None
+summary = {"asOf": summary_date or d.get("as_of") or "2026-11-04", "total": len(recs), "byCategory": dict(collections.Counter(r["c"] for r in recs)), "brands": []}
 for s_, B in sorted(brands.items(), key=lambda x: names[x[0]].lower()):
     feat = []
     for c, _ in B["cats"].most_common():
@@ -146,9 +242,10 @@ for s_, B in sorted(brands.items(), key=lambda x: names[x[0]].lower()):
         feat += pool[:: max(1, len(pool) // 4)][:4]
     summary["brands"].append({"slug": s_, "name": names[s_], "city": CITY[names[s_]],
         "distributor": "True Floors" if names[s_] in TRUE_FLOORS else None,
+        "national": names[s_] in NATIONAL_CITY,
         "count": B["n"], "categories": dict(B["cats"]),
         "collections": [c for c, _ in B["cols"].most_common() if c][:40],
         "featured": feat[:8]})
 json.dump(summary, open(SITE / "src" / "content" / "catalog.generated.json", "w"), indent=1, ensure_ascii=False)
 print(len(recs), summary["byCategory"], [(b["name"], b["count"]) for b in summary["brands"]])
-for c in ["hardwood", "laminate", "vinyl", "tile"]: print(c, (out / f"{c}.json").stat().st_size // 1024, "KB")
+for c in CATS: print(c, (out / f"{c}.json").stat().st_size // 1024, "KB")

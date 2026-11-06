@@ -41,7 +41,7 @@ export function ProductCard({ item, brandName, headingLevel = 3 }: { item: Catal
         <H className={styles.title}>{item.t}</H>
         {spec && <p className={styles.spec}>{spec}</p>}
         <Link href={ask} className={styles.ask}>
-          Ask about this floor<span className="visually-hidden">: {item.t}</span>
+          {item.c === "carpet" ? "Ask about this carpet" : "Ask about this floor"}<span className="visually-hidden">: {item.t}</span>
         </Link>
       </div>
     </li>
