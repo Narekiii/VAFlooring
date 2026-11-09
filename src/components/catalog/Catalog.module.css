@@ -350,3 +350,90 @@
   color: var(--graphite);
   font-size: var(--text-sm);
 }
+
+/* Brand range summary */
+.glanceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.glance {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--brass);
+  font-size: var(--text-sm);
+}
+
+.glance caption {
+  padding: var(--space-4) var(--space-4) var(--space-2);
+  color: var(--navy);
+  font-size: var(--text-base);
+  font-weight: 800;
+  text-align: left;
+  caption-side: top;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-bottom: 0;
+}
+
+.glance th,
+.glance td {
+  padding: var(--space-2) var(--space-4);
+  border-top: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.glance th {
+  width: 9rem;
+  color: var(--bronze);
+  font-weight: 700;
+}
+
+.glance td {
+  color: var(--graphite);
+}
+
+@media (max-width: 30rem) {
+  .glanceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .glance th {
+    width: 6.5rem;
+  }
+}
+
+.homeBrands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+.homeBrands a {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.homeBrandText {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line);
+  color: var(--graphite);
+}
+
+.homeBrands a:hover {
+  border-color: var(--navy);
+}

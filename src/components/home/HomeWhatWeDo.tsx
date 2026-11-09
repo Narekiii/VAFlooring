@@ -5,7 +5,8 @@ import { Section } from "@/components/ui/Section";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { routes } from "@/content/navigation";
 import { productHref, products } from "@/content/products";
-import { brandTotal, catalog } from "@/content/catalog";
+import { brandHref, brandTotal, catalog, unlistedBrands } from "@/content/catalog";
+import catStyles from "@/components/catalog/Catalog.module.css";
 import { facts } from "@/content/site";
 import { getService, serviceHref } from "@/content/services";
 import styles from "./HomeSections.module.css";
@@ -51,6 +52,21 @@ export function HomeWhatWeDo() {
             );
           })}
         </ul>
+        <div className={styles.homeBrandsRow}>
+          <h3 className={styles.homeBrandsTitle}>Brands we offer</h3>
+          <ul className={catStyles.homeBrands}>
+            {catalog.brands.map((b) => (
+              <li key={b.slug}>
+                <Link href={brandHref(b.slug)}>{b.name}</Link>
+              </li>
+            ))}
+            {unlistedBrands(facts.manufacturers).map((m) => (
+              <li key={m}>
+                <span className={catStyles.homeBrandText}>{m}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className={styles.audiences}>
           <Link href={routes.residential} className={styles.audience}>
             <span className={styles.audienceKicker}>Residential</span>

@@ -259,3 +259,13 @@
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   }
 }
+
+.homeBrandsRow {
+  margin-top: var(--space-7);
+}
+
+.homeBrandsTitle {
+  color: var(--navy);
+  font-size: var(--text-lg);
+  font-weight: 800;
+}

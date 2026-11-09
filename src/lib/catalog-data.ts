@@ -12,6 +12,24 @@ export function categoryItems(c: CatalogCategory): CatalogItem[] {
   return cache.get(c)!;
 }
 
+/** Distinct spec values across a brand's floors of one type, most common first. */
+export function specSummary(items: CatalogItem[], keys: string[], max = 6) {
+  return keys
+    .map((k) => {
+      const n = new Map<string, number>();
+      for (const it of items) {
+        let v = it.s?.[k];
+        if (!v || /^\d+x\d+$/i.test(v) || v.length > 34 || /^(multiple|various|assorted|see )/i.test(v)) continue;
+        if (k === "Width" && parseFloat(v) > 60 && /"$/.test(v)) continue; // roll widths in inches (sheet vinyl)
+        v = v.replace(/\b(spc|wpc|lvt|lvp|uv)\b/gi, (m) => m.toUpperCase());
+        n.set(v, (n.get(v) ?? 0) + 1);
+      }
+      const vals = [...n.entries()].sort((a, b) => b[1] - a[1]).map(([v]) => v);
+      return { key: k, values: vals.slice(0, max), more: Math.max(0, vals.length - max) };
+    })
+    .filter((r) => r.values.length > 0);
+}
+
 export const brandItems = (slug: string, c: CatalogCategory) => categoryItems(c).filter((x) => x.b === slug);
 
 /** The first page the catalog browser shows, rendered on the server so the floors are in the HTML. */

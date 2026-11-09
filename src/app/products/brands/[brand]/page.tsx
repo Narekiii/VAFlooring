@@ -22,7 +22,7 @@ import {
   type CatalogBrand,
   type CatalogItem,
 } from "@/content/catalog";
-import { brandItems } from "@/lib/catalog-data";
+import { brandItems, specSummary } from "@/lib/catalog-data";
 import { FaqSection } from "@/components/home/FaqSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteUrl } from "@/lib/seo";
@@ -64,6 +64,16 @@ export default async function BrandPage({ params }: Params) {
   if (!b) notFound();
   const cats = catList(b);
   const all = cats.map((c) => ({ cat: c, items: brandItems(b.slug, c.key) }));
+  const SPEC_KEYS: Record<string, string[]> = {
+    carpet: ["Fiber", "Face weight", "Construction", "Width"],
+    default: ["Construction", "Species", "Width", "Thickness", "Wear layer", "Finish", "Installation"],
+  };
+  const summaries = all.map(({ cat, items }) => ({
+    cat,
+    count: items.length,
+    collections: new Set(items.map((i) => i.col).filter(Boolean)).size,
+    rows: specSummary(items, SPEC_KEYS[cat.key] ?? SPEC_KEYS.default),
+  }));
   const base = siteUrl();
   const itemList = base && {
     "@context": "https://schema.org",
@@ -154,7 +164,43 @@ export default async function BrandPage({ params }: Params) {
         </Section>
       )}
 
-      <Section tone="white" labelledBy="all-floors">
+      {summaries.some((x) => x.rows.length) && (
+        <Section tone="white" labelledBy="range">
+          <Container>
+            <SectionHead id="range" kicker="The range" title={`${b.name} at a glance`}>
+              <p>
+                A summary of the {b.name} {unitOf(b)} in our catalog, from the manufacturer’s published specifications.
+                Ask us which options suit your rooms, subfloor and budget.
+              </p>
+            </SectionHead>
+            <div className={styles.glanceGrid}>
+              {summaries
+                .filter((x) => x.rows.length)
+                .map(({ cat, rows, collections, count }) => (
+                  <table key={cat.key} className={styles.glance}>
+                    <caption>
+                      {b.name} {cat.label}: {count.toLocaleString("en-US")} {cat.key === "carpet" ? "styles" : "floors"} in{" "}
+                      {collections} {collections === 1 ? "collection" : "collections"}
+                    </caption>
+                    <tbody>
+                      {rows.map((r) => (
+                        <tr key={r.key}>
+                          <th scope="row">{r.key === "Colors" ? "Colors per style" : r.key}</th>
+                          <td>
+                            {r.values.join(", ")}
+                            {r.more ? ` and ${r.more} more` : ""}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                ))}
+            </div>
+          </Container>
+        </Section>
+      )}
+
+      <Section tone="ivory" labelledBy="all-floors">
         <Container>
           <SectionHead id="all-floors" kicker="Full list" title={`All ${b.count.toLocaleString("en-US")} ${b.name} ${unitOf(b)}`}>
             <p>Every {b.name} {unitOf(b, 1)} in our online catalog, by type and collection. Ask us about any of them.</p>
@@ -186,7 +232,7 @@ export default async function BrandPage({ params }: Params) {
         </Container>
       </Section>
 
-      <FaqSection faqs={brandFaqs(b)} tone="ivory" title={`${b.name} at V & A Flooring`} intro="Quick answers about buying and installing this brand." />
+      <FaqSection faqs={brandFaqs(b)} tone="white" title={`${b.name} at V & A Flooring`} intro="Quick answers about buying and installing this brand." />
 
       <Section tone="sand" labelledBy="more-brands">
         <Container>
