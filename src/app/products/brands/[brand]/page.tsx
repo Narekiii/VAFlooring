@@ -167,7 +167,7 @@ export default async function BrandPage({ params }: Params) {
       {summaries.some((x) => x.rows.length) && (
         <Section tone="white" labelledBy="range">
           <Container>
-            <SectionHead id="range" kicker="The range" title={`${b.name} at a glance`}>
+            <SectionHead id="range" kicker="At a glance" title={`The ${b.name} range`}>
               <p>
                 A summary of the {b.name} {unitOf(b)} in our catalog, from the manufacturer’s published specifications.
                 Ask us which options suit your rooms, subfloor and budget.
