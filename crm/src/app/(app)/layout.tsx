@@ -1,33 +1,29 @@
 import Link from "next/link";
-import { Nav } from "@/components/Nav";
-import { requireUser } from "@/lib/auth";
-import { logout } from "../actions-auth";
+import { requireAdmin } from "@/lib/auth";
+import { signOut } from "../actions";
 
 export const dynamic = "force-dynamic";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
-  const user = await requireUser();
+  await requireAdmin();
   return (
-    <div className="shell">
+    <>
       <a href="#main" className="skip">
         Skip to content
       </a>
-      <aside className="side">
-        <Link href="/" className="brand">
-          <strong>V &amp; A Flooring</strong>
-          <span>Team CRM</span>
-        </Link>
-        <Nav />
-        <div className="sideFoot">
-          <span>Signed in as {user.name}</span>
-          <form action={logout}>
-            <button>Sign out</button>
+      <header className="topbar">
+        <div className="topbarIn">
+          <Link href="/" className="wordmark">
+            V &amp; A Flooring <span>Prospecting</span>
+          </Link>
+          <form action={signOut}>
+            <button className="signout">Sign out</button>
           </form>
         </div>
-      </aside>
-      <main id="main" className="main">
+      </header>
+      <main id="main" className="wrap">
         {children}
       </main>
-    </div>
+    </>
   );
 }

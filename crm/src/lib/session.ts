@@ -1,32 +1,30 @@
 import { jwtVerify, SignJWT } from "jose";
 
-/** Session cookie helpers shared by the proxy (edge-safe: no database access here). */
-export const SESSION_COOKIE = "crm_session";
-export const SESSION_DAYS = 30;
+/** Signed, expiring session cookie. Edge-safe (used by the proxy): no database or Node APIs here. */
+export const SESSION_COOKIE = "vaf_session";
+export const SESSION_HOURS = 24 * 7; // one week
 
-function key() {
-  const secret = process.env.AUTH_SECRET;
-  if (!secret || secret.length < 32) {
-    if (process.env.NODE_ENV === "production") throw new Error("AUTH_SECRET must be set (32+ characters).");
-    return new TextEncoder().encode("local-development-secret-not-for-production-use");
-  }
-  return new TextEncoder().encode(secret);
+function secret(): Uint8Array {
+  const s = process.env.SESSION_SECRET;
+  if (s && s.length >= 32) return new TextEncoder().encode(s);
+  if (process.env.NODE_ENV === "production") throw new Error("SESSION_SECRET must be set to at least 32 characters.");
+  return new TextEncoder().encode("development-only-session-secret-change-me");
 }
 
-export async function signSession(userId: number) {
-  return new SignJWT({ uid: userId })
+export async function signSession(): Promise<string> {
+  return new SignJWT({ sub: "admin" })
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime(`${SESSION_DAYS}d`)
-    .sign(key());
+    .setExpirationTime(`${SESSION_HOURS}h`)
+    .sign(secret());
 }
 
-export async function readSession(token: string | undefined): Promise<number | null> {
-  if (!token) return null;
+export async function verifySession(token: string | undefined): Promise<boolean> {
+  if (!token) return false;
   try {
-    const { payload } = await jwtVerify(token, key(), { algorithms: ["HS256"] });
-    return typeof payload.uid === "number" ? payload.uid : null;
+    const { payload } = await jwtVerify(token, secret(), { algorithms: ["HS256"] });
+    return payload.sub === "admin";
   } catch {
-    return null;
+    return false;
   }
 }

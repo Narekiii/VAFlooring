@@ -1,34 +1,29 @@
 "use client";
 
-import { useActionState } from "react";
-import { login, setupFirstUser } from "../actions-auth";
+import { useActionState, useState } from "react";
+import { signIn } from "../actions";
 
-export function LoginForm({ setup }: { setup: boolean }) {
-  const [state, action, pending] = useActionState(setup ? setupFirstUser : login, undefined);
+export function LoginForm() {
+  const [state, action, pending] = useActionState(signIn, undefined);
+  // Controlled so the username survives a failed attempt (React resets uncontrolled form fields after an action).
+  const [username, setUsername] = useState("");
   return (
-    <form action={action} className="stack" key={state?.error ?? "form"}>
+    <form action={action} className="form">
       {state?.error && (
-        <p className="error" role="alert">
+        <p className="alert" role="alert">
           {state.error}
         </p>
       )}
-      {setup && (
-        <div className="field">
-          <label htmlFor="name">Your name</label>
-          <input id="name" name="name" autoComplete="name" required defaultValue={state?.values?.name} />
-        </div>
-      )}
       <div className="field">
-        <label htmlFor="email">Email</label>
-        <input id="email" name="email" type="email" autoComplete="username" required defaultValue={state?.values?.email} />
+        <label htmlFor="username">Username</label>
+        <input id="username" name="username" autoComplete="username" autoCapitalize="none" spellCheck={false} required value={username} onChange={(e) => setUsername(e.target.value)} />
       </div>
       <div className="field">
         <label htmlFor="password">Password</label>
-        <input id="password" name="password" type="password" autoComplete={setup ? "new-password" : "current-password"} minLength={setup ? 10 : undefined} required />
-        {setup && <span className="hint">At least 10 characters.</span>}
+        <input id="password" name="password" type="password" autoComplete="current-password" required />
       </div>
       <button className="btn btnPrimary" disabled={pending}>
-        {pending ? "Please wait…" : setup ? "Create account" : "Sign in"}
+        {pending ? "Signing in…" : "Sign in"}
       </button>
     </form>
   );

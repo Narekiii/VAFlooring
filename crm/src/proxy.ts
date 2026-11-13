@@ -1,10 +1,15 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { readSession, SESSION_COOKIE } from "@/lib/session";
+import { SESSION_COOKIE, verifySession } from "@/lib/session";
 
-/** Everything except the login page requires a valid session cookie. Pages re-check the user is still active. */
+/**
+ * Every page and API route requires a valid session, except the login page and static files.
+ * Pages, server actions and API routes also check the session themselves (defense in depth).
+ */
 export async function proxy(req: NextRequest) {
-  const uid = await readSession(req.cookies.get(SESSION_COOKIE)?.value);
-  if (uid) return NextResponse.next();
+  if (await verifySession(req.cookies.get(SESSION_COOKIE)?.value)) return NextResponse.next();
+  if (req.nextUrl.pathname.startsWith("/api/")) {
+    return NextResponse.json({ error: "Not signed in." }, { status: 401 });
+  }
   const url = req.nextUrl.clone();
   url.pathname = "/login";
   url.search = "";
