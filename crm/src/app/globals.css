@@ -60,7 +60,7 @@ p { margin: 0; }
 .linkish:focus-visible { outline: var(--focus); }
 
 /* ---------- Tabs ---------- */
-.tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; background: var(--sand); padding: 4px; border-radius: 10px; margin-bottom: 16px; }
+.tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; background: var(--sand); padding: 4px; border-radius: 10px; margin-bottom: 16px; }
 .tabs a { display: flex; align-items: center; justify-content: center; min-height: 46px; border-radius: 8px; text-decoration: none; font-weight: 700; color: var(--navy); }
 .tabs a[aria-current="page"] { background: var(--white); box-shadow: 0 1px 2px rgba(23, 43, 58, 0.18); }
 
@@ -165,3 +165,18 @@ details.section[open] > summary { margin-bottom: 12px; }
 .loginMark span { display: block; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
 .wordmark { display: inline-flex; align-items: center; gap: 0.3em; min-height: 44px; }
 .map .leaflet-bar a, .map.leaflet-touch .leaflet-bar a { width: 44px; height: 44px; line-height: 44px; font-size: 22px; }
+
+.headActions { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 420px) { .tabs a { font-size: 0.9rem; } .headActions .btn { padding: 10px 12px; } }
+.pill-status-new { background: #e3edf8; color: #1d4f7c; }
+.pill-status-contacted { background: #fbecd2; color: #6b3f00; }
+.pill-status-meeting { background: #efe4f8; color: #5a2d82; }
+.pill-status-pricing_sent { background: #e6f0ee; color: #1f5c52; }
+.pill-status-customer { background: #1f6b45; color: #fff; }
+.pill-status-not_interested { background: #ececec; color: #4a4f54; }
+.kind { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.mapPin.pm { background: #aa8453; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; font-size: 0.9rem; color: var(--muted); align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 50%; background: var(--navy); display: inline-block; }
+.legend i.pm { background: #aa8453; }

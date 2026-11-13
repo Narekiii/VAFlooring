@@ -3,6 +3,8 @@ import { and, asc, gte, isNotNull, lte } from "drizzle-orm";
 import { getDb, schema } from "@/db";
 import { MainHead } from "@/components/MainHead";
 import { ProjectRow } from "@/components/ProjectRow";
+import { PropertyRow } from "@/components/PropertyRow";
+import type { Project, Property } from "@/db/schema";
 import { addMonths, fmtDay, isIsoDate, monthGrid, monthLabel, monthOf, todayLA } from "@/lib/dates";
 
 export const metadata = { title: "Calendar" };
@@ -18,13 +20,25 @@ export default async function CalendarTab({ searchParams }: { searchParams: Prom
   const grid = monthGrid(month);
   const db = await getDb();
   const p = schema.projects;
-  const rows = await db
-    .select()
-    .from(p)
-    .where(and(isNotNull(p.followUpType), gte(p.followUpDate, grid[0]), lte(p.followUpDate, grid[grid.length - 1])))
-    .orderBy(asc(p.followUpDate), asc(p.name));
-  const byDay = new Map<string, typeof rows>();
-  for (const r of rows) byDay.set(r.followUpDate!, [...(byDay.get(r.followUpDate!) ?? []), r]);
+  const m = schema.properties;
+  const [projects, props] = await Promise.all([
+    db
+      .select()
+      .from(p)
+      .where(and(isNotNull(p.followUpType), gte(p.followUpDate, grid[0]), lte(p.followUpDate, grid[grid.length - 1])))
+      .orderBy(asc(p.name)),
+    db
+      .select()
+      .from(m)
+      .where(and(isNotNull(m.followUpType), gte(m.followUpDate, grid[0]), lte(m.followUpDate, grid[grid.length - 1])))
+      .orderBy(asc(m.name)),
+  ]);
+  type Item = { kind: "project"; r: Project } | { kind: "property"; r: Property };
+  const rows: Item[] = [...projects.map((r) => ({ kind: "project" as const, r })), ...props.map((r) => ({ kind: "property" as const, r }))].sort((a, b) =>
+    a.r.name.localeCompare(b.r.name),
+  );
+  const byDay = new Map<string, Item[]>();
+  for (const it of rows) byDay.set(it.r.followUpDate!, [...(byDay.get(it.r.followUpDate!) ?? []), it]);
   const selectedRows = byDay.get(selected) ?? [];
   const href = (m: string, d?: string) => `/calendar?month=${m}${d ? `&day=${d}` : ""}`;
   const here = href(month, selected);
@@ -32,7 +46,7 @@ export default async function CalendarTab({ searchParams }: { searchParams: Prom
 
   return (
     <>
-      <MainHead tab="calendar" addHref={`/projects/new?date=${selected}&from=${encodeURIComponent(here)}`} />
+      <MainHead tab="calendar" date={selected} from={here} />
       <div className="calHead">
         <h2 id="cal-title">{monthLabel(month)}</h2>
         <nav className="calNav" aria-label="Month">
@@ -64,7 +78,7 @@ export default async function CalendarTab({ searchParams }: { searchParams: Prom
             <tr key={w[0]}>
               {w.map((d) => {
                 const items = byDay.get(d) ?? [];
-                const calls = items.filter((r) => r.followUpType === "call").length;
+                const calls = items.filter((it) => it.r.followUpType === "call").length;
                 const visits = items.length - calls;
                 const label = [fmtDay(d), calls ? `${calls} ${calls === 1 ? "call" : "calls"}` : "", visits ? `${visits} ${visits === 1 ? "visit" : "visits"}` : ""].filter(Boolean).join(", ");
                 const cls = ["day", monthOf(d) !== month ? "out" : "", d === today ? "today" : "", d === selected ? "sel" : ""].filter(Boolean).join(" ");
@@ -108,15 +122,24 @@ export default async function CalendarTab({ searchParams }: { searchParams: Prom
         {selectedRows.length === 0 ? (
           <div className="empty">
             <p>No calls or visits scheduled for this day.</p>
-            <Link className="btn" href={`/projects/new?date=${selected}&from=${encodeURIComponent(here)}`}>
-              + Add project for this day
-            </Link>
+            <div className="headActions" style={{ justifyContent: "center" }}>
+              <Link className="btn" href={`/projects/new?date=${selected}&from=${encodeURIComponent(here)}`}>
+                + Add project
+              </Link>
+              <Link className="btn" href={`/properties/new?date=${selected}&from=${encodeURIComponent(here)}`}>
+                + Add property
+              </Link>
+            </div>
           </div>
         ) : (
           <ul className="list">
-            {selectedRows.map((r) => (
-              <ProjectRow key={r.id} p={r} today={today} from={here} />
-            ))}
+            {selectedRows.map((it) =>
+              it.kind === "project" ? (
+                <ProjectRow key={`p${it.r.id}`} p={it.r} today={today} from={here} showKind />
+              ) : (
+                <PropertyRow key={`m${it.r.id}`} p={it.r} today={today} from={here} showKind />
+              ),
+            )}
           </ul>
         )}
       </section>

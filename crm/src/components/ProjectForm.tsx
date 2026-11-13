@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useState } from "react";
+import { startTransition, useActionState, useState } from "react";
 import { FOLLOW_UP_TYPES, STAGES } from "@/db/schema";
 import { followUpLabel, stageLabel } from "@/lib/labels";
 import type { ProjectFormValues, SaveState } from "@/lib/project-input";
@@ -105,7 +105,17 @@ export function ProjectForm({ initial, savedStatus, isNew, returnTo, action, del
             : "No pin yet.";
 
   return (
-    <form action={formAction} className="form" noValidate>
+    <form
+      className="form"
+      noValidate
+      onSubmit={(e) => {
+        // Submitting by hand (not via the form's action prop) stops React from resetting the form,
+        // so everything entered — checkboxes and choices included — stays put if saving fails.
+        e.preventDefault();
+        const data = new FormData(e.currentTarget);
+        startTransition(() => formAction(data));
+      }}
+    >
       {state?.error && (
         <p className="alert" role="alert">
           {state.error}

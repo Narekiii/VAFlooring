@@ -1,6 +1,11 @@
 # V & A Flooring Prospecting (crm.vaflooring.la)
 
-A small internal CRM for job-site prospecting: add a project at the site, record what you saw, set the next call or visit, and find it again on the list, calendar or map. Works on a phone and on a desktop.
+A small internal CRM for prospecting, in two parts:
+
+- **Projects:** construction sites. Add a project at the site, record what you saw, set the next call or visit.
+- **Properties:** property management prospects (apartment communities, HOAs and other managed properties) you want to sell flooring repair and unit-turnover work to. Track the management company, manager and maintenance contacts, units, flooring in the units, turnovers per month, current vendor, status (New → Contacted → Meeting set → Pricing sent → Customer / Not interested), when pricing was sent and the next follow-up.
+
+Both appear on the shared Calendar (follow-ups) and Map (navy pins for projects, brass pins for properties). Works on a phone and on a desktop.
 
 - **Stack:** Next.js 16 (App Router, TypeScript), PostgreSQL with Drizzle ORM, Leaflet + OpenStreetMap, U.S. Census Geocoder.
 - **Lives in:** the `crm/` folder of the website repository. It is a separate app with its own Vercel project; the website is not affected.
@@ -36,6 +41,7 @@ Without `DATABASE_URL` the app uses an embedded PostgreSQL (PGlite) in `crm/.dat
 
 Tables:
 - `projects`: one row per project, holding the latest observation, one upcoming follow-up and the map pin. Dates are stored as date-only values, as Los Angeles calendar dates.
+- `properties`: one row per property management prospect, with its contacts, opportunity details, one upcoming follow-up and the map pin.
 - `login_failures`: hashed client IPs of failed sign-ins, used for the rate limit (5 failures in 15 minutes blocks that client for 15 minutes).
 
 ## Deploy to crm.vaflooring.la (free)

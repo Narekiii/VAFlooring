@@ -16,11 +16,12 @@ export function FollowUpPill({ p, today }: { p: Pick<Project, "followUpType" | "
   );
 }
 
-export function ProjectRow({ p, today, from }: { p: Project; today: string; from: string }) {
+export function ProjectRow({ p, today, from, showKind }: { p: Project; today: string; from: string; showKind?: boolean }) {
   const addr = siteAddress(p);
   return (
     <li className="row">
       <Link href={`/projects/${p.id}?from=${encodeURIComponent(from)}`} className="rowMain">
+        {showKind && <span className="kind">Project</span>}
         <span className="rowName">{p.name}</span>
         {p.company && <span className="rowSub">{p.company}</span>}
         {addr && <span className="rowSub">{addr}</span>}
